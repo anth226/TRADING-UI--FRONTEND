@@ -11,11 +11,12 @@ interface Props {
   value: string
   interest: string
   isActive: boolean
-  onClose: () => void
-  onClick: () => void
+  onClose?: () => void
+  onClick?: () => void
+  className?: string
 }
 
-const HeaderTab: FC<Props> = ({ 
+const HeaderTab: FC<Props> = ({
   productType,
   countries,
   value,
@@ -23,15 +24,18 @@ const HeaderTab: FC<Props> = ({
   onClose,
   onClick,
   isActive = false,
+  className,
 }) => {
   const closeHandler = useCallback<MouseEventHandler<HTMLButtonElement>>((e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (!onClose) return;
     onClose();
   }, [onClose]);
   
   return (
-    <div className={styles.wrap}>
+    <div className={cx(styles.wrap, className)}>
       <button onClick={onClick} className={styles.content}>
         <CloseIcon onClick={closeHandler} className={styles.close_icon} />
         <img className={styles.countries_icon} src={countriesIcons[countries]} alt="asd" />

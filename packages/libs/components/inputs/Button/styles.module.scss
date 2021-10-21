@@ -1,11 +1,11 @@
-@import '../../../assets/styles/mixins';
-@import '../../../assets/styles/variables';
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
 
 .button {
   @include flexbox(center, center);
 
   padding: 15px 24px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: var(--weight-500);
   font-size: 14px;
   line-height: 21px;
@@ -35,6 +35,19 @@
 
     &:hover, &:focus {
       background-color: $color-button-secondary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &.orange {
+    background-color: $color-button-orange;
+    color: $color-button-text;
+
+    &:hover, &:focus {
+      background-color: $color-button-orange;
     }
 
     &:disabled {

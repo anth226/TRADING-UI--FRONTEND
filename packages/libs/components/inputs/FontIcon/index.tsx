@@ -21,7 +21,8 @@ export enum FontIconName {
   Checked = 'icon-checked',
   Copy = 'icon-copy',
   User = 'icon-user',
-  Menu = 'icon-menu'
+  Menu = 'icon-menu',
+  Plus = 'icon-plus',
 }
 
 const FontIcon: FC<IProps> = ({ name, size = 24, className }) => (

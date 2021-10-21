@@ -26,6 +26,7 @@ div[id="root"] {
 }
 
 body {
+  font-family: $font-conthrax;
   color: var(--color-text);
   background-color: var(--color-background);
   transition: color $transition-time, background-color $transition-time;

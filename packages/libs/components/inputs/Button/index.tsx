@@ -5,7 +5,7 @@ import cx from 'classnames';
 import Loader from '../Loader';
 import styles from './styles.module.scss';
 
-export type ButtonColor = 'primary' | 'secondary';
+export type ButtonColor = 'primary' | 'secondary' | 'orange';
 
 export type ButtonProps = DetailedHTMLProps<
 ButtonHTMLAttributes<HTMLButtonElement>,
