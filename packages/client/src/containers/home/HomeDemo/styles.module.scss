@@ -1,0 +1,50 @@
+@import "@project/libs/assets/styles/mixins.scss";
+
+.container {
+  @include flexbox(center, center);
+  flex-direction: column;
+
+  height: 100vh;
+  width: 100vw;
+}
+
+.wrap {
+  @include flexbox(center, center);
+  flex-direction: column;
+}
+
+.table {
+  width: 100%;
+  max-width: 600px;
+}
+
+.row {
+  @include flexbox(center, center);
+  margin-bottom: 10px;
+}
+
+.label {
+  flex: 1;
+}
+
+.head {
+  margin-bottom: 30px;
+}
+
+.value {
+  @include flexbox(flex-start, flex-start);
+}
+
+.comment {
+  opacity: 0.5;
+}
+
+.pre {
+  background: transparentize(black, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+
+  width: 100%;
+  line-height: 1.5em;
+  font-family: Monospaced, monospace;
+}

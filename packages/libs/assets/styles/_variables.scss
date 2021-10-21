@@ -1,0 +1,30 @@
+$transition-time: 0.1s;
+
+$color-input-background: var(--color-secondary);
+$color-input-text: var(--color-white);
+$color-input-error: var(--color-danger);
+$color-input-border: var(--color-secondary);
+
+$color-toggle-active: var(--color-primary);
+$color-toggle-dot: var(--color-white);
+
+$color-dropdown-background: $color-input-background;
+$color-dropdown-border: $color-input-border;
+
+$color-button-primary: var(--color-primary);
+$color-button-secondary: var(--color-secondary);
+$color-button-text: var(--color-white);
+
+$color-checkbox-background: $color-input-background;
+$color-checkbox-active: var(--color-primary);
+$color-checkbox-border: var(--color-secondary);
+$color-checkbox-error: var(--color-error);
+$color-checkbox-check: $color-input-text;
+
+$color-link: var(--color-primary);
+
+$color-radio-background: $color-checkbox-background;
+$color-radio-active: $color-checkbox-active;
+$color-radio-border: $color-checkbox-border;
+$color-radio-error: $color-checkbox-error;
+$color-radio-bullet: $color-checkbox-check;

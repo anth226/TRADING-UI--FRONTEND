@@ -1,0 +1,6 @@
+export interface AuthState {
+  tokens: {
+    access: string;
+    refresh: string;
+  },
+}

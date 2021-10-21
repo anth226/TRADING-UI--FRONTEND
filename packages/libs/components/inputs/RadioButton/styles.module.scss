@@ -1,0 +1,46 @@
+@import "../../../assets/styles/mixins";
+
+.radio {
+  @include flexbox(center, center);
+  color: inherit;
+  display: inline-flex;
+}
+
+.inner {
+  @include flexbox(center, center);
+
+  width: 24px;
+  height: 24px;
+  background: $color-radio-background;
+  transition: all $transition-time;
+  border-radius: 50%;
+
+  &.error {
+    background: $color-radio-error;
+  }
+
+  .checked.disabled &:hover {
+    .inner_circle {
+      display: block;
+    }
+  }
+}
+
+.inner_circle {
+  display: flex;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background: $color-radio-active;
+}
+
+.close {
+  color: $color-radio-bullet;
+  opacity: 0.5;
+}
+
+.label {
+  margin-left: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}

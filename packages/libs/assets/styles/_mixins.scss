@@ -1,0 +1,58 @@
+@import './variables';
+
+$defaultFlexBoxAlign: center;
+$defaultFlexBoxJustify: center;
+
+@mixin flexbox($align: $defaultFlexBoxAlign, $justify: $defaultFlexBoxJustify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin hidden() {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@mixin ellipsis($max-width) {
+  max-width: $max-width;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Media request mixins MobileFirst
+@mixin mobile {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin desktop_lg {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop_xl {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin max_dropdown_height {
+  max-height: 50vh;
+}
