@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import { FontIcon, FontIconName } from '../../inputs/FontIcon';
 import styles from './styles.module.scss';
 
-interface Props {
-  onClick?: () => void
-  className?: string
-}
+interface Props
+  extends React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+  > {}
 
 const CloseIcon: FC<Props> = ({ ...props }) => (
   <button {...props} className={classNames(styles.close, props.className)} type="button">

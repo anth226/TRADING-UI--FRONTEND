@@ -14,7 +14,7 @@
     "tsc": "yarn lerna run tsc && :",
     "start:client": "yarn lerna run start:client",
     "build:client": "yarn lerna run build:client",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s packages/client/public",
     "fontello": "bash ./fontello.sh",
     "fontello:open": "fontello-cli --config packages/libs/assets/fonts/fontello/config.json open"
   },
