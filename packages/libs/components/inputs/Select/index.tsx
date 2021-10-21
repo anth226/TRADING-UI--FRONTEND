@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Manager, Popper, Reference } from 'react-popper';
-import { useFocusEvent } from '@project/libs/hooks/useFocusEvent';
+import { useFocusEvent } from '@option-blitz/libs/hooks/useFocusEvent';
 import classNames from 'classnames';
-import { usePopperModifiers } from '@project/libs/hooks/ui/usePopperModifiers';
-import { TextInputWrap } from '@project/libs/components/inputs/TextInputWrap';
+import { usePopperModifiers } from '@option-blitz/libs/hooks/ui/usePopperModifiers';
+import { TextInputWrap } from '@option-blitz/libs/components/inputs/TextInputWrap';
 import styles from './styles.module.scss';
 import { FontIcon, FontIconName } from '../FontIcon';
 

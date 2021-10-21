@@ -1,4 +1,4 @@
-import { configureApi } from '@project/libs/utils/api';
+import { configureApi } from '@option-blitz/libs/utils/api';
 import { hasPath } from 'ramda';
 import assocPath from 'ramda/es/assocPath';
 import { AxiosError, AxiosRequestConfig } from 'axios';

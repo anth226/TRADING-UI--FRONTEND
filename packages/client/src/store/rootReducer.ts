@@ -1,5 +1,5 @@
 import { connectRouter } from 'connected-react-router';
-import { history } from '@project/libs/utils';
+import { history } from '@option-blitz/libs/utils';
 import auth from './auth';
 
 export default {

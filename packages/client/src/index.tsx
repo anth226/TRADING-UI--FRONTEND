@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import 'i18n';
 import configureStore from 'store/configureStore';
-import { history } from '@project/libs/utils';
+import { history } from '@option-blitz/libs/utils';
 import { App } from 'containers/app/App';
-import '@project/libs/assets/index.scss';
+import '@option-blitz/libs/assets/index.scss';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const config = configureStore();

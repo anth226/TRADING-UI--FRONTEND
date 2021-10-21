@@ -1,4 +1,4 @@
-import { Theme } from '@project/libs/types/ui/theme';
+import { Theme } from '@option-blitz/libs/types/ui/theme';
 import { useCallback, useEffect, useState } from 'react';
 
 const defaultTheme = Theme.dark;

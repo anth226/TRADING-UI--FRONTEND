@@ -1,5 +1,5 @@
 import { call, put, select } from 'redux-saga/effects';
-import { showErrorToast } from '@project/libs/components/common/Toaster';
+import { showErrorToast } from '@option-blitz/libs/components/common/Toaster';
 import { authLogout, authSetTokens } from '../actionCreators';
 import { authRefresh } from '../api';
 import { selectAuthTokens } from '../selectors';

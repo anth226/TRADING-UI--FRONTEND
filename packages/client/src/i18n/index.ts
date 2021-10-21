@@ -1,4 +1,4 @@
-import { addResource, LocaleKey, useTranslation } from '@project/libs/utils/i18n';
+import { addResource, LocaleKey, useTranslation } from '@option-blitz/libs/utils/i18n';
 import en from './en';
 import de from './de';
 

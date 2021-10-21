@@ -1,4 +1,4 @@
-import createReducer from '@project/libs/utils/createReducer';
+import createReducer from '@option-blitz/libs/utils/createReducer';
 import { AuthState } from '../../types/store/auth';
 import { authHandlers } from './handlers';
 

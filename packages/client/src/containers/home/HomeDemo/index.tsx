@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { ThemeSwitch } from '@project/libs/components/common/ThemeSwitch';
-import { useTheme } from '@project/libs/hooks/ui/useTheme';
-import { LanguageSwitch } from '@project/libs/components/common/LanguageSwitch';
-import { useLang } from '@project/libs/hooks/useLang';
+import { ThemeSwitch } from '@option-blitz/libs/components/common/ThemeSwitch';
+import { useTheme } from '@option-blitz/libs/hooks/ui/useTheme';
+import { LanguageSwitch } from '@option-blitz/libs/components/common/LanguageSwitch';
+import { useLang } from '@option-blitz/libs/hooks/useLang';
 import { HelloBanner } from '../../../components/home/HelloBanner';
 import styles from './styles.module.scss';
 

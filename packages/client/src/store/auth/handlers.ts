@@ -1,4 +1,4 @@
-import { ActionFn } from '@project/libs/types/redux';
+import { ActionFn } from '@option-blitz/libs/types/redux';
 import { assocPath } from 'ramda';
 import { AuthState } from '../../types/store/auth';
 import { authSetState } from './actionCreators';

@@ -7,7 +7,7 @@ import {
 import { debounce } from 'throttle-debounce';
 import { RenderedRows } from 'react-virtualized/dist/es/List';
 import { createPortal } from 'react-dom';
-import { ChatMessage } from '@project/libs/components/chat/ChatMessage';
+import { ChatMessage } from '@option-blitz/libs/components/chat/ChatMessage';
 import styles from './styles.module.scss';
 import { ChatNewMessagesCount } from '../ChatNewMessagesCount';
 
