@@ -1,0 +1,58 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.wrap {
+  @include flexbox();
+
+  position: relative;
+}
+
+.wrap_border {
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.avatar_wrap {
+  @include flexbox();
+
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  background-color: var(--color-grey);
+  position: relative;
+  margin: 0 14px 0 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #030711;
+  border-radius: 100%;
+}
+
+.empty_avatar {
+  background-color: var(--color-dark-blue);
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+
+  &.online {
+    background-color: var(--color-green);
+  }
+}
+
+.active_indicator {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color:  var(--color-green);
+  border-radius: 0 0 4px 4px;
+  left: 0;
+  bottom: 0;
+}

@@ -10,7 +10,7 @@ interface Props {
   countries: Countries
   value: string
   interest: string
-  isActive: boolean
+  isActive?: boolean
   onClose?: () => void
   onClick?: () => void
   className?: string
@@ -38,7 +38,7 @@ const HeaderTab: FC<Props> = ({
     <div className={cx(styles.wrap, className)}>
       <button onClick={onClick} className={styles.content}>
         <CloseIcon onClick={closeHandler} className={styles.close_icon} />
-        <img className={styles.countries_icon} src={countriesIcons[countries]} alt="asd" />
+        <img className={styles.countries_icon} src={countriesIcons[countries]} alt="country" />
         <div className={styles.info}>
           <p className={styles.title}>{countriesNames[countries]}</p>
           <p className={styles.value}>
@@ -50,11 +50,9 @@ const HeaderTab: FC<Props> = ({
         </div>
         <div className={styles.is_active} />
       </button>
-      <div className={cx(
-        styles.bottom_indicator,
-        { [styles.is_active]: isActive },
+      {isActive && (
+        <div className={styles.bottom_indicator} />
       )}
-      />
     </div>
   );
 };
