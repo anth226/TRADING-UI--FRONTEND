@@ -1,0 +1,13 @@
+export enum ProductType {
+  Binary = 'Binary',
+  Touch = 'Touch',
+  NoTouch = 'NoTouch',
+  Classic = 'Classic',
+}
+
+export const productTypeNames: Record<ProductType, string> = {
+  [ProductType.Binary]: 'Binary',
+  [ProductType.Touch]: 'Touch',
+  [ProductType.NoTouch]: 'No Touch',
+  [ProductType.Classic]: 'Classic',
+};
