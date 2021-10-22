@@ -1,0 +1,20 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.title {
+  font-size: 8px;
+}
+
+.value {
+  font-size: 14px;
+  font-family: $font-cabin;
+}
+
+.coin {
+  color: var(--color-dark-blue);
+}
+
+.content {
+  @include flexbox(flex-start);
+  flex-direction: column;
+}
