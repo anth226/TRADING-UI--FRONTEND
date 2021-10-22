@@ -17,6 +17,7 @@ interface Props {
   options: Options<HeaderSelectItem>
   defaultValue?: HeaderSelectItem
   onClick?: () => void
+  className?: string
 }
 
 export interface HeaderSelectItem {
@@ -100,7 +101,7 @@ const customStyles: StylesConfig<HeaderSelectItem> = {
 };
 
 const HeaderBalance: FC<Props> = ({
-  onChange, options, defaultValue, onClick,
+  onChange, options, defaultValue, onClick, className,
 }) => {
   const onClickHandler = useCallback<MouseEventHandler<HTMLButtonElement>>((e) => {
     e.preventDefault();
@@ -131,6 +132,7 @@ const HeaderBalance: FC<Props> = ({
   
   return (
     <Select<HeaderSelectItem, false>
+      className={className}
       defaultValue={defaultValue}
       options={options}
       onChange={onChange}

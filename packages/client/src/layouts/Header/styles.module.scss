@@ -1,0 +1,73 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.wrap {
+  @include flexbox(center, space-between);
+
+  height: 55px;
+  width: 100%;
+}
+
+.icon {
+  color: var(--color-dark-blue);
+  margin-left: 20px;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-family: $font-conthrax;
+  font-size: 16px;
+  margin-left: 30px;
+  color: white;
+}
+
+.logo_blitz {
+  color: var(--color-green);
+}
+
+.tabs {
+  @include flexbox();
+
+  margin-left: 90px;
+}
+
+.tab {
+  height: 45px;
+
+  &:not(:first-child) {
+    margin-left: 6px;
+  }
+}
+
+.plus {
+  @include flexbox();
+
+  height: 45px;
+  width: 45px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.plus_icon {
+  color: var(--color-grey-light);
+}
+
+.login {
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 0 16px;
+  margin: 0 12px;
+}
+
+.avatar {
+  height: 45px;
+}
+
+.section {
+  @include flexbox();
+}
+
+.balance {
+  margin-left: 10px;
+  height: 45px;
+}
