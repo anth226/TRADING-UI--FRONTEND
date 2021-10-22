@@ -1083,6 +1083,12 @@
       "search": [
         "calendar"
       ]
+    },
+    {
+      "uid": "qab5uvjyoc3uu4d2pvt8soshtgkuvpak",
+      "css": "minus",
+      "code": 59469,
+      "src": "typicons"
     }
   ]
 }
