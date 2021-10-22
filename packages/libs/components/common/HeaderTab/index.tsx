@@ -35,7 +35,12 @@ const HeaderTab: FC<Props> = ({
   }, [onClose]);
   
   return (
-    <div className={cx(styles.wrap, className)}>
+    <div className={cx(
+      styles.wrap, 
+      className, 
+      { [styles.bottom_indicator]: isActive },
+    )}
+    >
       <button onClick={onClick} className={styles.content}>
         <CloseIcon onClick={closeHandler} className={styles.close_icon} />
         <img className={styles.countries_icon} src={countriesIcons[countries]} alt="country" />
@@ -50,9 +55,6 @@ const HeaderTab: FC<Props> = ({
         </div>
         <div className={styles.is_active} />
       </button>
-      {isActive && (
-        <div className={styles.bottom_indicator} />
-      )}
     </div>
   );
 };

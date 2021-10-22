@@ -49,11 +49,5 @@
 }
 
 .bottom_indicator {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 0 0 4px 4px;
-  height: 3px;
-  width: 100%;
-  background-color: var(--color-green);
+  border-bottom: 3px solid var(--color-green);
 }

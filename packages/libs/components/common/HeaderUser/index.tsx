@@ -26,6 +26,7 @@ const HeaderUser: FC<Props> = ({
     className={cx(
       styles.wrap,
       { [styles.wrap_border]: !!img },
+      { [styles.active_indicator]: isActive },
       className,
     )}
   >
@@ -42,10 +43,6 @@ const HeaderUser: FC<Props> = ({
         <div className={cx(styles.avatar, styles.empty_avatar)} />
       )}
     </div>
-    
-    {isActive && (
-      <div className={styles.active_indicator} />
-    )}
   </button>
 );
 
