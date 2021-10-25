@@ -5,9 +5,7 @@ import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/Ri
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { RightSidebarProgressbar } from '@option-blitz/libs/components/rightSidebar/RightSidebarProgressbar';
 import Button from '@option-blitz/libs/components/inputs/Button';
-import { Coin, coinIcons } from '@option-blitz/libs/constants/coin';
 import styles from './styles.module.scss';
-import { Letter, letterIcons } from '../../../constants/letters/letters';
 import { useBinarySidebarHandlers } from '../../../hooks/rightSidebar/useBinarySidebarHandlers';
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
 import { RightSidebarPosInfo } from '../../../components/rightSidebar/RightSidebarPosInfo';

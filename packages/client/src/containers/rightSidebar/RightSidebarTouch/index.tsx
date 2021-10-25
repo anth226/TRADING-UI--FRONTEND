@@ -6,7 +6,6 @@ import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { RightSidebarTime } from '@option-blitz/libs/components/rightSidebar/RightSidebarTime';
 import { RightSidebarReturns } from '@option-blitz/libs/components/rightSidebar/RightSidebarReturns';
 import Button from '@option-blitz/libs/components/inputs/Button';
-import { Coin, coinIcons } from '@option-blitz/libs/constants/coin';
 import styles from './styles.module.scss';
 import { useTouchSidebarHandlers } from '../../../hooks/rightSidebar/useTouchSidebarHandlers';
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
