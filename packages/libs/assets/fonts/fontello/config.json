@@ -1089,6 +1089,12 @@
       "css": "minus",
       "code": 59469,
       "src": "typicons"
+    },
+    {
+      "uid": "ad6b3fbb5324abe71a9c0b6609cbb9f1",
+      "css": "right-big",
+      "code": 59470,
+      "src": "fontawesome"
     }
   ]
 }

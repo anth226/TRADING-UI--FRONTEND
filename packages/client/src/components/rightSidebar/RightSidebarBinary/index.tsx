@@ -46,11 +46,11 @@ const RightSidebarBinary: FC = () => {
 
           <div className={styles.button_wrap}>
             <Button onClick={callClick} color="primary" className={styles.button}>
-              <FontIcon name={FontIconName.ArrowRight} />
+              <FontIcon className={styles.call_arrow} name={FontIconName.ArrowBigRight} />
               Call
             </Button>
             <Button onClick={pullClick} color="secondary" className={styles.button}>
-              <FontIcon name={FontIconName.ArrowRight} />
+              <FontIcon className={styles.pull_arrow} name={FontIconName.ArrowBigRight} />
               Pull
             </Button>
           </div>

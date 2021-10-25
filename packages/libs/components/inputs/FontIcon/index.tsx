@@ -24,6 +24,7 @@ export enum FontIconName {
   Menu = 'icon-menu',
   Plus = 'icon-plus',
   Minus = 'icon-minus',
+  ArrowBigRight = 'icon-right-big',
 }
 
 const FontIcon: FC<IProps> = ({ name, size = 24, className }) => (
