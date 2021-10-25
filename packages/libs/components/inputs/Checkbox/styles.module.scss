@@ -1,9 +1,8 @@
 @import "../../../assets/styles/mixins";
 
 .checkbox {
-  @include flexbox(flex-start, flex-start);
+  @include flexbox();
   color: inherit;
-  display: inline-flex;
 }
 
 .inner {
@@ -11,21 +10,13 @@
 
   width: 24px;
   height: 24px;
-  background: $color-checkbox-background;
-  border-radius: 4px;
-  box-shadow: $color-checkbox-border 0 0 0 1px;
+  border-radius: 2px;
   transition: all $transition-time;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-green);
 
   .checked & {
-    background-color: $color-checkbox-active;
-    color: white;
-    border: none;
-  }
-
-  &:hover {
-    background-color: $color-checkbox-active;
+    color: var(--color-green);
   }
 }
 

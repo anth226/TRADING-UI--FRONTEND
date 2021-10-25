@@ -9,8 +9,16 @@ storiesOf('Basic', module).add('Checkbox', () => {
   const onCheck = action('onCheck');
   const label = text('Label', 'Sample checkbox');
   const size = number('Size', 24);
+  const iconSize = number('IconSize', 12);
   
   return (
-    <Checkbox checked={checked} onCheck={onCheck} size={size}>{label}</Checkbox>
+    <Checkbox 
+      iconSize={iconSize} 
+      checked={checked} 
+      onCheck={onCheck} 
+      size={size}
+    >
+      {label}
+    </Checkbox>
   );
 });
