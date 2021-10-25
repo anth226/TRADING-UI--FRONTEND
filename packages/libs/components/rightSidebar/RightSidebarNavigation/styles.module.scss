@@ -19,6 +19,10 @@
   text-transform: uppercase;
   padding: 10px 0;
   border-bottom: 1px solid transparent;
+
+  &:not(.is_active) {
+    border-color: #2F394A;
+  }
 }
 
 .is_active {
