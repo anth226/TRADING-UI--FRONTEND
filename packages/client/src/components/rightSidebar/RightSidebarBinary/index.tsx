@@ -1,0 +1,84 @@
+import React, { FC } from 'react';
+import { RightSidebarNavigation } from '@option-blitz/libs/components/rightSidebar/RightSidebarNavigation';
+import { RightSidebarTime } from '@option-blitz/libs/components/rightSidebar/RightSidebarTime';
+import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';
+import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
+import { RightSidebarProgressbar } from '@option-blitz/libs/components/rightSidebar/RightSidebarProgressbar';
+import Button from '@option-blitz/libs/components/inputs/Button';
+import { Coin, coinIcons } from '@option-blitz/libs/constants/coin';
+import styles from './styles.module.scss';
+import { Letter, letterIcons } from '../../../constants/letters/letters';
+import { useBinarySidebarHandlers } from '../../../hooks/rightSidebar/useBinarySidebarHandlers';
+
+const RightSidebarBinary: FC = () => {
+  const {
+    position: {
+      positionItems,
+      date,
+      viewClick,
+    },
+    trade: {
+      plusClick,
+      minusClick,
+      progress,
+      callClick,
+      pullClick,
+      inputValue,
+    },
+  } = useBinarySidebarHandlers();
+  
+  return (
+    <div className={styles.wrap}>
+      <RightSidebarNavigation>
+        <div>
+          <RightSidebarInput
+            className={styles.amount}
+            label="Trade amount"
+            symbol="$"
+            value={inputValue}
+            onFirstBtnClick={plusClick}
+            onSecondBtnClick={minusClick}
+            firstBtnIcon={FontIconName.Minus}
+            secondBtnIcon={FontIconName.Plus}
+          />
+          <RightSidebarTime className={styles.time} />
+          <RightSidebarProgressbar className={styles.progressbar} value={progress} />
+
+          <div className={styles.button_wrap}>
+            <Button onClick={callClick} color="primary" className={styles.button}>
+              <FontIcon name={FontIconName.ArrowRight} />
+              Call
+            </Button>
+            <Button onClick={pullClick} color="secondary" className={styles.button}>
+              <FontIcon name={FontIconName.ArrowRight} />
+              Pull
+            </Button>
+          </div>
+        </div>
+
+        <div>
+          <div className={styles.position_title_wrap}>
+            <img src={letterIcons[Letter.L]} alt="letter" />
+            <p className={styles.position_title}>BTCUSD</p>
+            <img className={styles.coin} src={coinIcons[Coin.BTC]} alt="coin" />
+          </div>
+          <p className={styles.date}>{date}</p>
+          {positionItems.map(({ label, value }) => (
+            <div className={styles.position_item} key={label}>
+              <p className={styles.position_item_label}>{label}</p>
+              <p>{value}</p>
+            </div>
+          ))}
+          <Button
+            onClick={viewClick}
+            className={styles.position_button}
+          >
+            View
+          </Button>
+        </div>
+      </RightSidebarNavigation>
+    </div>
+  );
+};
+
+export { RightSidebarBinary };
