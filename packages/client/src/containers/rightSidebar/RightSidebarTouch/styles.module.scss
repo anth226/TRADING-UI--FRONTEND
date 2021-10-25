@@ -1,0 +1,74 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+@import "../styles.module";
+
+.wrap {
+  width: 155px;
+}
+
+.checkbox_wrap {
+  @include flexbox(center, space-between);
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.checkbox_label {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.input {
+  margin-bottom: 24px;
+}
+
+.summary {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--color-dark-blue);
+  margin-bottom: 4px;
+}
+
+.summary_info {
+  font-size: 10px;
+  color: var(--color-blue-light);
+  margin-bottom: 20px;
+  font-family: $font-cabin;
+}
+
+.tip_wrap {
+  @include flexbox();
+
+  margin-bottom: 20px;
+}
+
+.tip {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--color-green);
+}
+
+.tip_info {
+  font-size: 10px;
+  color: var(--color-dark-blue);
+  font-family: $font-cabin;
+}
+
+.time {
+  margin-bottom: 30px;
+}
+
+.returns {
+  margin-bottom: 18px;
+}
+
+.button {
+  height: initial;
+  width: 100%;
+  padding: 17px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.position_title {
+  margin-left: 0;
+}
