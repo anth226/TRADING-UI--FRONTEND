@@ -55,6 +55,20 @@
     }
   }
 
+  &.transparent_primary {
+    background-color: var(--color-background);
+    color: var(--color-green-dark);
+    border: 1px solid var(--color-grey);
+
+    &:hover, &:focus {
+      background-color: var(--color-background);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
   &.full_width {
     width: 100%;
   }
