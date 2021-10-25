@@ -1,4 +1,9 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
 @import "~@option-blitz/libs/assets/styles/variables";
+
+.wrap {
+  width: 100%;
+}
 
 .date {
   font-size: 9px;
@@ -29,12 +34,4 @@
 
 .position_title {
   margin: 0 7px;
-}
-
-.position_button {
-  text-transform: uppercase;
-  margin-top: 15px;
-  width: 100%;
-  font-size: 11px;
-  padding: 11px 0;
 }

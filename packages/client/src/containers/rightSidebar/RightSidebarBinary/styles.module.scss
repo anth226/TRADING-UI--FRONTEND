@@ -1,5 +1,4 @@
 @import "~@option-blitz/libs/assets/styles/mixins";
-@import "../styles.module";
 
 .wrap {
   width: 155px;
@@ -54,4 +53,12 @@
 
 .pull_arrow {
   transform: rotate(45deg);
+}
+
+.position_button {
+  text-transform: uppercase;
+  margin-top: 15px;
+  width: 100%;
+  font-size: 11px;
+  padding: 11px 0;
 }

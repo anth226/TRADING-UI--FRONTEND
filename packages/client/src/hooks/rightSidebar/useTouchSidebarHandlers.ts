@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-interface PositionItem {
+export interface PositionItem {
   label: string
   value: string
 }

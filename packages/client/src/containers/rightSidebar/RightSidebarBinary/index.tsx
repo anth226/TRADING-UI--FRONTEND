@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 import { Letter, letterIcons } from '../../../constants/letters/letters';
 import { useBinarySidebarHandlers } from '../../../hooks/rightSidebar/useBinarySidebarHandlers';
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
+import { RightSidebarPosInfo } from '../../../components/rightSidebar/RightSidebarPosInfo';
 
 const RightSidebarBinary: FC = () => {
   const {
@@ -63,18 +64,7 @@ const RightSidebarBinary: FC = () => {
         </div>
 
         <div>
-          <div className={styles.position_title_wrap}>
-            <img src={letterIcons[Letter.L]} alt="letter" />
-            <p className={styles.position_title}>BTCUSD</p>
-            <img className={styles.coin} src={coinIcons[Coin.BTC]} alt="coin" />
-          </div>
-          <p className={styles.date}>{date}</p>
-          {positionItems.map(({ label, value }) => (
-            <div className={styles.position_item} key={label}>
-              <p className={styles.position_item_label}>{label}</p>
-              <p>{value}</p>
-            </div>
-          ))}
+          <RightSidebarPosInfo items={positionItems} date={date} title="BTCUSD" />
           <Button
             onClick={viewClick}
             className={styles.position_button}
