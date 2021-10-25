@@ -8,23 +8,32 @@ interface Props {
   items: PositionItem[]
   date?: string
   title?: string
+  dateInTitle?: boolean
 }
 
 const RightSidebarPosInfo: FC<Props> = ({
   items,
   date,
   title,
+  dateInTitle,
 }) => (
   <div className={styles.wrap}>
-    <div className={styles.position_title_wrap}>
-      <img src={letterIcons[Letter.L]} alt="letter" />
-      <p className={styles.position_title}>{title}</p>
-      <img className={styles.coin} src={coinIcons[Coin.BTC]} alt="coin" />
+    <div className={styles.title_section}>
+      <div className={styles.title_wrap}>
+        <img src={letterIcons[Letter.L]} alt="letter" />
+        <p className={styles.title}>{title}</p>
+        <img className={styles.coin} src={coinIcons[Coin.BTC]} alt="coin" />
+      </div>
+      {dateInTitle && (
+        <p className={styles.date}>{date}</p>
+      )}
     </div>
-    <p className={styles.date}>{date}</p>
+    {!dateInTitle && (
+      <p className={styles.date}>{date}</p>
+    )}
     {items.map(({ label, value }) => (
-      <div className={styles.position_item} key={label}>
-        <p className={styles.position_item_label}>{label}</p>
+      <div className={styles.item} key={label}>
+        <p className={styles.item_label}>{label}</p>
         <p>{value}</p>
       </div>
     ))}

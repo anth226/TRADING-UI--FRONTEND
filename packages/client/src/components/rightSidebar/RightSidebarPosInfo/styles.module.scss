@@ -12,7 +12,7 @@
   margin-bottom: 5px;
 }
 
-.position_item {
+.item {
   @include flexbox(center, space-between);
 
   font-size: 12px;
@@ -20,11 +20,15 @@
   font-family: $font-cabin;
 }
 
-.position_item_label {
+.item_label {
   color: var(--color-blue-light);
 }
 
-.position_title_wrap {
+.title_section {
+  @include flexbox(center, space-between)
+}
+
+.title_wrap {
   @include flexbox(center, flex-start);
 
   text-transform: uppercase;
@@ -32,6 +36,6 @@
   margin-bottom: 5px;
 }
 
-.position_title {
+.title {
   margin: 0 7px;
 }
