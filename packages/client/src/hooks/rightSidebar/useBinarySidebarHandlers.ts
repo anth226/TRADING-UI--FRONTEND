@@ -13,14 +13,6 @@ const positionItems: PositionItem[] = [
 ];
 
 export const useBinarySidebarHandlers = () => {
-  const plusClick = useCallback(() => {
-    
-  }, []);
-  
-  const minusClick = useCallback(() => {
-    
-  }, []);
-  
   const callClick = useCallback(() => {
 
   }, []);
@@ -35,12 +27,9 @@ export const useBinarySidebarHandlers = () => {
   
   return {
     trade: {
-      plusClick,
-      minusClick,
       progress: 37,
       callClick,
       pullClick,
-      inputValue: '0.00',
     },
     position: {
       date: '20-12-26 17:15:45',

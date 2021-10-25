@@ -9,6 +9,7 @@ import { Coin, coinIcons } from '@option-blitz/libs/constants/coin';
 import styles from './styles.module.scss';
 import { Letter, letterIcons } from '../../../constants/letters/letters';
 import { useBinarySidebarHandlers } from '../../../hooks/rightSidebar/useBinarySidebarHandlers';
+import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
 
 const RightSidebarBinary: FC = () => {
   const {
@@ -18,14 +19,18 @@ const RightSidebarBinary: FC = () => {
       viewClick,
     },
     trade: {
-      plusClick,
-      minusClick,
       progress,
       callClick,
       pullClick,
-      inputValue,
     },
   } = useBinarySidebarHandlers();
+  
+  const {
+    value: inputValue,
+    firstBtnClick: plusClick,
+    secondBtnClick: minusClick,
+    onChange: inputChange,
+  } = useInputHandlers('0.00');
   
   return (
     <div className={styles.wrap}>
@@ -38,6 +43,7 @@ const RightSidebarBinary: FC = () => {
             value={inputValue}
             onFirstBtnClick={plusClick}
             onSecondBtnClick={minusClick}
+            onChange={inputChange}
             firstBtnIcon={FontIconName.Minus}
             secondBtnIcon={FontIconName.Plus}
           />
