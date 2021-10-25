@@ -13,6 +13,8 @@ interface Props {
   onSecondBtnClick: () => void
   firstBtnIcon: FontIconName
   secondBtnIcon: FontIconName
+  firstIconClassName?: string
+  secondIconClassName?: string
 }
 
 const RightSidebarInput: FC<Props> = ({
@@ -25,6 +27,8 @@ const RightSidebarInput: FC<Props> = ({
   firstBtnIcon,
   secondBtnIcon,
   className,
+  firstIconClassName,
+  secondIconClassName,
 }) => (
   <div className={cx(styles.wrap, className)}>
     <div className={styles.content}>
@@ -41,10 +45,10 @@ const RightSidebarInput: FC<Props> = ({
     </div>
     <div className={styles.button_wrap}>
       <button onClick={onFirstBtnClick} className={styles.button}>
-        <FontIcon size={10} name={firstBtnIcon} />
+        <FontIcon className={firstIconClassName} size={10} name={firstBtnIcon} />
       </button>
       <button onClick={onSecondBtnClick} className={styles.button}>
-        <FontIcon size={10} name={secondBtnIcon} />
+        <FontIcon className={secondIconClassName} size={10} name={secondBtnIcon} />
       </button>
     </div>
   </div>

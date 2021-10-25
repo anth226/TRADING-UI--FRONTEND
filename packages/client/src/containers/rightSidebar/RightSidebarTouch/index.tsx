@@ -73,6 +73,8 @@ const RightSidebarTouch: FC = () => {
             onChange={callChange}
             firstBtnIcon={FontIconName.ArrowRight}
             secondBtnIcon={FontIconName.ArrowRight}
+            firstIconClassName={styles.up_icon}
+            secondIconClassName={styles.down_icon}
           />
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Touch put</p>
@@ -88,6 +90,8 @@ const RightSidebarTouch: FC = () => {
             onChange={putChange}
             firstBtnIcon={FontIconName.ArrowRight}
             secondBtnIcon={FontIconName.ArrowRight}
+            firstIconClassName={styles.up_icon}
+            secondIconClassName={styles.down_icon}
           />
 
           <p className={styles.summary}>Summary:</p>
