@@ -21,7 +21,7 @@ HTMLButtonElement
 
 const Button: FC<PropsWithChildren<ButtonProps>> = ({
   color = 'primary',
-  size = 44,
+  size,
   fullWidth = false,
   onClick = () => {},
   className,
