@@ -1,0 +1,26 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.wrap {
+  width: 100%;
+}
+
+.values_wrap {
+  @include flexbox(flex-end, space-between);
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--color-dark-blue);
+  margin-bottom: 4px;
+}
+
+.percents {
+  font-size: 20px;
+  color: var(--color-green);
+}
+
+.balance {
+  font-size: 13px;
+  color: var(--color-dark-blue);
+}
