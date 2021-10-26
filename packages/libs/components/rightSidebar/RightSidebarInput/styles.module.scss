@@ -53,3 +53,15 @@
     border-right: 1px solid var(--color-grey);
   }
 }
+
+.button_wrap_small {
+  @include flexbox(center, space-between)
+}
+
+.button_small {
+  @include flexbox();
+}
+
+.input_small {
+  text-align: center;
+}
