@@ -14,6 +14,6 @@ export const profitItemsMock: ProfitChartItem[] = [
     label: 'Spot Price', price: 460, profitOrLose: 15, color: '#019cd7',
   },
   {
-    label: 'TargetPrice', price: 470, profitOrLose: 30, color: '#ffde2e',
+    label: 'Target Price', price: 470, profitOrLose: 30, color: '#ffde2e',
   },
 ];

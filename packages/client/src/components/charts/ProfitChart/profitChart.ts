@@ -61,7 +61,7 @@ export const profitChart = ({
       `translate(${margin},${margin})`)
     .call(yAxis);
 
-  d3.selectAll(`g.${styles.x_axis} g.tick`)
+  svg.selectAll(`g.${styles.x_axis} g.tick`)
     .append('line')
     .classed(styles.gird_line_y, true)
     .attr('x1', 0)
@@ -69,7 +69,7 @@ export const profitChart = ({
     .attr('x2', 0)
     .attr('y2', -(yAxisLength));
   
-  d3.selectAll(`g.${styles.y_axis} g.tick`)
+  svg.selectAll(`g.${styles.y_axis} g.tick`)
     .append('line')
     .classed(styles.gird_line_x, true)
     .attr('x1', 0)
