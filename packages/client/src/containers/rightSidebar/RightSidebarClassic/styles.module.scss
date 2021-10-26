@@ -32,6 +32,7 @@
   @include flexbox();
 
   height: 40px;
+  margin-bottom: 15px;
 }
 
 .input {
@@ -54,6 +55,7 @@
 
 .collapse_title {
   text-transform: uppercase;
+  font-size: 8px;
   color: var(--color-dark-blue);
 }
 
