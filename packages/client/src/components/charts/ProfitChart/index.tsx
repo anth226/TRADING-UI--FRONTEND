@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
+import Tippy from '@tippyjs/react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { lineChart } from './chart';
 import styles from './styles.module.scss';
@@ -34,8 +35,22 @@ const ProfitChart: FC<Props> = ({ profitItems }) => {
         className={styles.collapse}
         title={(
           <div className={styles.title_wrap}>
-            <p>Payoff diagram</p>
-            <FontIcon name={FontIconName.Checked} />
+            <p className={styles.title}>Payoff diagram</p>
+            <Tippy content={(
+              <div className={styles.tooltip_wrap}>
+                {profitItems.map((item) => (
+                  <div className={styles.tooltip_item} key={item.label}>
+                    <span style={{ backgroundColor: item.color }} className={styles.tooltip_item_color} />
+                    <p>{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            >
+              <button>
+                <FontIcon name={FontIconName.Info} size={12} />
+              </button>
+            </Tippy>
           </div>
         )}
         isActive={isActive}

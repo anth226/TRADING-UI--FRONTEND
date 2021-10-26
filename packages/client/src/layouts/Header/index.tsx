@@ -53,6 +53,7 @@ const Header: FC = () => {
             isActive,
           }) => (
             <HeaderTab
+              key={value}
               className={styles.tab}
               productType={productType}
               countries={countries}
