@@ -1,0 +1,55 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.checkbox_wrap {
+  @include flexbox(center, space-between);
+
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.checkbox_label {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.up_icon {
+  transform: rotate(-90deg);
+}
+
+.down_icon {
+  transform: rotate(90deg);
+}
+
+.inputs_wrap {
+  @include flexbox();
+
+  margin-bottom: 8px;
+}
+
+.input {
+  &:first-child {
+    margin-right: 7px;
+  }
+}
+
+.buttons_wrap {
+  @include flexbox();
+
+  width: 100%;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 100%;
+  padding: 12px 0;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.target_price_btn {
+  font-size: 8px;
+  padding: 12px 10px;
+}

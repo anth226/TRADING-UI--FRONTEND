@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { PositionItem } from './useTouchSidebarHandlers';
 
 const positionItems: PositionItem[] = [
@@ -11,7 +11,19 @@ const positionItems: PositionItem[] = [
   { label: 'Unrealized PNL', value: '+$10' },
 ];
 
+type ActiveButton = 'call' | 'put';
+
 export const useClassicSidebarHandlers = () => {
+  const [activeButton, setActiveButton] = useState<ActiveButton>('call');
+  
+  const callClick = useCallback(() => {
+    setActiveButton('call');
+  }, []);
+  
+  const putClick = useCallback(() => {
+    setActiveButton('put');
+  }, []);
+  
   const targetPriceClick = useCallback(() => {
 
   }, []);
@@ -25,6 +37,11 @@ export const useClassicSidebarHandlers = () => {
   }, []);
 
   return {
+    trade: {
+      activeButton,
+      callClick,
+      putClick,
+    },
     positions: {
       targetPriceClick,
       sellClick,

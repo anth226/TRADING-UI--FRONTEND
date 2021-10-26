@@ -1,31 +1,25 @@
 import React, { FC } from 'react';
 import { RightSidebarNavigation } from '@option-blitz/libs/components/rightSidebar/RightSidebarNavigation';
-import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';
-import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
+import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import Button from '@option-blitz/libs/components/inputs/Button';
-import cx from 'classnames';
-import { RightSidebarPosInfo } from '../../../components/rightSidebar/RightSidebarPosInfo';
+import { RightSidebarTime } from '@option-blitz/libs/components/rightSidebar/RightSidebarTime';
+import { Collapse } from '@option-blitz/libs/components/common/Collapse';
+import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
 import { useClassicSidebarHandlers } from '../../../hooks/rightSidebar/useClassicSidebarHandlers';
 import styles from './styles.module.scss';
-import { useCheckbox } from '../../../hooks/useCheckbox';
-import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
+import { ClassicPositions } from './ClassicPositions';
+import { useCollapse } from '../../../hooks/useCollapse';
 
 const RightSidebarClassic: FC = () => {
   const {
-    positions: {
-      positionItems,
-      date,
-      sellClick,
-      settleClick,
-      targetPriceClick,
+    trade: {
+      activeButton,
+      callClick,
+      putClick,
     },
   } = useClassicSidebarHandlers();
-  
-  const {
-    checkbox, onCheckboxChange,
-  } = useCheckbox();
-  
+
   const {
     firstBtnClick: upPrice,
     secondBtnClick: downPrice,
@@ -34,75 +28,105 @@ const RightSidebarClassic: FC = () => {
   } = useInputHandlers();
 
   const {
-    firstBtnClick: upRoi,
-    secondBtnClick: downRoi,
-    onChange: changeRoi,
-    value: roi,
+    firstBtnClick: upQty,
+    secondBtnClick: downQty,
+    onChange: changeQty,
+    value: qty,
   } = useInputHandlers();
+
+  const {
+    firstBtnClick: upPriority,
+    secondBtnClick: downPriority,
+    onChange: changePriority,
+    value: priority,
+  } = useInputHandlers();
+
+  const {
+    isActive: takeProfitActive,
+    onChange: changeTakeProfit,
+  } = useCollapse();
 
   return (
     <div className={styles.wrap}>
       <RightSidebarNavigation>
-        <div />
-
         <div>
-          <RightSidebarPosInfo dateInTitle title="BTCUSD" items={positionItems} date={date} />
-          <div className={styles.checkbox_wrap}>
-            <p className={styles.checkbox_label}>Take Profit</p>
-            <Checkbox size={14} iconSize={7} checked={checkbox} onCheck={onCheckboxChange} />
-          </div>
-          <div className={styles.inputs_wrap}>
-            <RightSidebarInput
-              className={styles.input}
-              label="Target price"
-              symbol="$"
-              onFirstBtnClick={upPrice}
-              onSecondBtnClick={downPrice}
-              onChange={changePrice}
-              value={price}
-              firstBtnIcon={FontIconName.ArrowRight}
-              secondBtnIcon={FontIconName.ArrowRight}
-              firstIconClassName={styles.up_icon}
-              secondIconClassName={styles.down_icon}
-            />
-            <RightSidebarInput
-              className={styles.input}
-              label="Target ROI"
-              symbol="%"
-              onFirstBtnClick={upRoi}
-              onSecondBtnClick={downRoi}
-              onChange={changeRoi}
-              value={roi}
-              firstBtnIcon={FontIconName.ArrowRight}
-              secondBtnIcon={FontIconName.ArrowRight}
-              firstIconClassName={styles.up_icon}
-              secondIconClassName={styles.down_icon}
-            />
-          </div>
-          <div className={styles.buttons_wrap}>
+          <div className={styles.button_wrap}>
             <Button
-              onClick={targetPriceClick}
-              color="transparent_primary" 
-              className={cx(styles.button, styles.target_price_btn)}
-            >
-              - target price
-            </Button>
-            <Button
-              onClick={sellClick}
-              color="transparent_primary" 
+              onClick={callClick}
               className={styles.button}
+              color={activeButton === 'call' ? 'primary' : 'transparent_primary'}
             >
-              sell
+              <FontIcon className={styles.call_arrow} name={FontIconName.ArrowBigRight} />
+              <p>Call</p>
             </Button>
             <Button
-              onClick={settleClick}
-              className={styles.button} 
-              color="primary"
+              onClick={putClick}
+              className={styles.button}
+              color={activeButton === 'put' ? 'secondary' : 'transparent_secondary'}
             >
-              settle
+              <FontIcon className={styles.put_arrow} name={FontIconName.ArrowBigRight} />
+              <p>Put</p>
             </Button>
           </div>
+          <div className={styles.input_wrap}>
+            <RightSidebarInput
+              type="small"
+              className={styles.input}
+              label="Qty"
+              symbol="$"
+              onFirstBtnClick={downQty}
+              onSecondBtnClick={upQty}
+              onChange={changeQty}
+              value={qty}
+              firstBtnIcon={FontIconName.Minus}
+              secondBtnIcon={FontIconName.Plus}
+            />
+            <RightSidebarTime />
+          </div>
+
+          <Collapse 
+            isActive={takeProfitActive} 
+            onClick={changeTakeProfit} 
+            title="Take profit"
+            titleClassName={styles.collapse_title}
+            className={styles.collapse}
+          >
+            <div className={styles.second_input_wrap}>
+              <RightSidebarInput
+                type="small"
+                className={styles.input}
+                label="Target price"
+                onFirstBtnClick={upPrice}
+                onSecondBtnClick={downPrice}
+                onChange={changePrice}
+                value={price}
+                firstBtnIcon={FontIconName.ArrowRight}
+                secondBtnIcon={FontIconName.ArrowRight}
+                firstIconClassName={styles.up_icon}
+                secondIconClassName={styles.down_icon}
+              />
+              <RightSidebarInput
+                type="small"
+                className={styles.input}
+                label="Target priority"
+                onFirstBtnClick={upPriority}
+                onSecondBtnClick={downPriority}
+                onChange={changePriority}
+                value={priority}
+                firstBtnIcon={FontIconName.ArrowRight}
+                secondBtnIcon={FontIconName.ArrowRight}
+                firstIconClassName={styles.up_icon}
+                secondIconClassName={styles.down_icon}
+              />
+            </div>
+          </Collapse>
+
+          <Button className={styles.button_order}>
+            Place order
+          </Button>
         </div>
+        
+        <ClassicPositions />
       </RightSidebarNavigation>
     </div>
   );

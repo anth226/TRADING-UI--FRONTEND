@@ -10,7 +10,7 @@ interface Props {
   className?: string
   label: string | JSX.Element
   value?: string
-  symbol: string
+  symbol?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
   onFirstBtnClick: () => void
   onSecondBtnClick: () => void
