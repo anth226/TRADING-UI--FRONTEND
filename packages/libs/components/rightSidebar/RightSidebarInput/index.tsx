@@ -8,7 +8,7 @@ type Type = 'normal' | 'small';
 interface Props {
   type?: Type
   className?: string
-  label: string | JSX.Element
+  label: string
   value?: string
   symbol?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
@@ -18,6 +18,8 @@ interface Props {
   secondBtnIcon: FontIconName
   firstIconClassName?: string
   secondIconClassName?: string
+  inputClassName?: string
+  labelClassName?: string
 }
 
 const RightSidebarInput: FC<Props> = ({
@@ -61,9 +63,10 @@ const RightSidebarInput: FC<Props> = ({
     )}
     {type === 'small' && (
       <div className={styles.content}>
-        {typeof label === 'string'
-          ? <p className={styles.label}>{label}</p>
-          : label}
+        <div className={styles.label_wrap}>
+          <p className={styles.label_small}>{label}</p>
+          <span className={styles.symbol_small}>{symbol}</span>
+        </div>
         <div className={styles.button_wrap_small}>
           <button onClick={onFirstBtnClick} className={styles.button_small}>
             <FontIcon className={firstIconClassName} size={10} name={firstBtnIcon} />

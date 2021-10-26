@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import Select, {
   OnChangeValue, SingleValueProps, components, OptionProps,
 } from 'react-select';
+import cx from 'classnames';
 import { getCustomStyles } from '../../../constants/select';
 import styles from './styles.module.scss';
 import { timeOptionsMock } from '../../../mock/rightSidebar/timeSelectOption';
+
+type Type = 'normal' | 'small';
 
 export interface Time {
   value: string
@@ -13,6 +16,7 @@ export interface Time {
 interface Props {
   onChange?: (e: OnChangeValue<Time, false>) => void
   className?: string
+  type?: Type
 }
 
 const customStyles = getCustomStyles<Time>();
@@ -38,21 +42,6 @@ customStyles.input = (provided) => ({
   color: 'var(--color-green)',
 });
 
-const SingleValue = (singleValueProps: SingleValueProps<Time, false>) => {
-  const {
-    data,
-  } = singleValueProps;
-
-  return (
-    <components.SingleValue {...singleValueProps}>
-      <div>
-        <p className={styles.label}>Expiry</p>
-        <span className={styles.value}>{data.value}</span>
-      </div>
-    </components.SingleValue>
-  );
-};
-
 const Option = (optionProps: OptionProps<Time, false>) => {
   const { data } = optionProps;
 
@@ -66,8 +55,36 @@ const Option = (optionProps: OptionProps<Time, false>) => {
 const RightSidebarTime: FC<Props> = ({
   onChange,
   className,
-}) => (
-  <div>
+  type = 'normal',
+}) => {
+  const SingleValue = useCallback((singleValueProps: SingleValueProps<Time, false>) => {
+    const {
+      data,
+    } = singleValueProps;
+
+    return (
+      <components.SingleValue {...singleValueProps}>
+        <div className={type === 'small' ? styles.wrap_small : styles.wrap}>
+          <p className={cx(
+            styles.label, 
+            { [styles.label_small]: type === 'small' },
+          )}
+          >
+            Expiry
+          </p>
+          <span className={cx(
+            styles.value,
+            { [styles.value_small]: type === 'small' },
+          )}
+          >
+            {data.value}
+          </span>
+        </div>
+      </components.SingleValue>
+    );
+  }, [type]);
+  
+  return (
     <Select<Time, false>
       className={className}
       onChange={onChange}
@@ -77,7 +94,7 @@ const RightSidebarTime: FC<Props> = ({
       components={{ Option, SingleValue }}
       isSearchable={false}
     />
-  </div>
-);
+  );
+};
 
 export { RightSidebarTime };

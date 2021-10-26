@@ -63,5 +63,24 @@
 }
 
 .input_small {
+  font-size: 10px;
   text-align: center;
+}
+
+.label_small {
+  font-size: 6px;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+}
+
+.symbol_small {
+  font-size: 8px;
+  color: var(--color-dark-blue);
+  margin-right: 4px;
+}
+
+.label_wrap {
+  @include flexbox(center, space-between);
+
+  width: 100%;
 }
