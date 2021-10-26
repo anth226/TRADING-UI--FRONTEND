@@ -10,7 +10,7 @@ interface Options {
   profitItems?: ProfitChartItem[]
 }
 
-export const lineChart = ({
+export const profitChart = ({
   width = 235,
   height = 235,
   margin = 25,

@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef } from 'react';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import Tippy from '@tippyjs/react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
-import { lineChart } from './chart';
+import { profitChart } from './profitChart';
 import styles from './styles.module.scss';
 import { ProfitChartItem } from '../../../hooks/rightSidebar/useClassicSidebarHandlers';
 import { useCollapse } from '../../../hooks/useCollapse';
@@ -24,7 +24,7 @@ const ProfitChart: FC<Props> = ({ profitItems }) => {
   
   useEffect(() => {
     if (!isActive) return;
-    lineChart({
+    profitChart({
       svgRef: profitChartRef, width, height, profitItems,
     });
   }, [profitChartRef, profitItems, isActive]);
