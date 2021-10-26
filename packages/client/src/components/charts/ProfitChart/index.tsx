@@ -40,7 +40,10 @@ const ProfitChart: FC<Props> = ({ profitItems }) => {
               <div className={styles.tooltip_wrap}>
                 {profitItems.map((item) => (
                   <div className={styles.tooltip_item} key={item.label}>
-                    <span style={{ backgroundColor: item.color }} className={styles.tooltip_item_color} />
+                    <span
+                      style={{ backgroundColor: item.color }} 
+                      className={styles.tooltip_item_color}
+                    />
                     <p>{item.label}</p>
                   </div>
                 ))}
@@ -59,7 +62,11 @@ const ProfitChart: FC<Props> = ({ profitItems }) => {
         <div className={styles.chart_wrap}>
           <p className={styles.left_chart_label}>Profit / Loss</p>
           <p className={styles.down_chart_label}>Price</p>
-          <svg viewBox={`-5 15 ${width} ${height}`} className={styles.chart} ref={profitChartRef} />
+          <svg
+            viewBox={`-5 15 ${width} ${height}`}
+            className={styles.chart}
+            ref={profitChartRef}
+          />
         </div>
       </Collapse>
     </div>
