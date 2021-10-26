@@ -30,6 +30,8 @@
 
 .input_wrap {
   @include flexbox();
+
+  height: 40px;
 }
 
 .input {
@@ -51,6 +53,7 @@
 }
 
 .collapse_title {
+  text-transform: uppercase;
   color: var(--color-dark-blue);
 }
 
@@ -65,4 +68,8 @@
 
 .put_arrow {
   transform: rotate(45deg);
+}
+
+.time {
+  width: 50%;
 }

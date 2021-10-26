@@ -17,6 +17,7 @@ const RightSidebarClassic: FC = () => {
       activeButton,
       callClick,
       putClick,
+      placeOrderClick,
     },
   } = useClassicSidebarHandlers();
 
@@ -73,7 +74,6 @@ const RightSidebarClassic: FC = () => {
               type="small"
               className={styles.input}
               label="Qty"
-              symbol="$"
               onFirstBtnClick={downQty}
               onSecondBtnClick={upQty}
               onChange={changeQty}
@@ -81,7 +81,7 @@ const RightSidebarClassic: FC = () => {
               firstBtnIcon={FontIconName.Minus}
               secondBtnIcon={FontIconName.Plus}
             />
-            <RightSidebarTime />
+            <RightSidebarTime className={styles.time} type="small" />
           </div>
 
           <Collapse 
@@ -96,6 +96,7 @@ const RightSidebarClassic: FC = () => {
                 type="small"
                 className={styles.input}
                 label="Target price"
+                symbol="$"
                 onFirstBtnClick={upPrice}
                 onSecondBtnClick={downPrice}
                 onChange={changePrice}
@@ -121,7 +122,7 @@ const RightSidebarClassic: FC = () => {
             </div>
           </Collapse>
 
-          <Button className={styles.button_order}>
+          <Button onClick={placeOrderClick} className={styles.button_order}>
             Place order
           </Button>
         </div>

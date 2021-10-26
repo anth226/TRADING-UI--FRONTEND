@@ -23,6 +23,10 @@ export const useClassicSidebarHandlers = () => {
   const putClick = useCallback(() => {
     setActiveButton('put');
   }, []);
+
+  const placeOrderClick = useCallback(() => {
+
+  }, []);
   
   const targetPriceClick = useCallback(() => {
 
@@ -41,6 +45,7 @@ export const useClassicSidebarHandlers = () => {
       activeButton,
       callClick,
       putClick,
+      placeOrderClick,
     },
     positions: {
       targetPriceClick,
