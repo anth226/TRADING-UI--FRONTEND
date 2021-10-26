@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { FontIcon, FontIconName } from '../../inputs/FontIcon';
 
 interface Props {
-  title?: string
+  title?: string | JSX.Element
   isActive?: boolean
   onClick?: () => void
   className?: string
@@ -21,7 +21,9 @@ const Collapse: FC<Props> = ({
 }) => (
   <div className={cx(styles.wrap, className)}>
     <div className={styles.title_wrap}>
-      <p className={titleClassName}>{title}</p>
+      {typeof title === 'string' 
+        ? <p className={titleClassName}>{title}</p>
+        : title}
       <button onClick={onClick} className={isActive ? styles.arrow_top : styles.arrow_down}>
         <FontIcon size={10} name={FontIconName.ArrowRight} />
       </button>

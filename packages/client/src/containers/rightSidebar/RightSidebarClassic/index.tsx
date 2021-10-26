@@ -10,6 +10,7 @@ import { useClassicSidebarHandlers } from '../../../hooks/rightSidebar/useClassi
 import styles from './styles.module.scss';
 import { ClassicPositions } from './ClassicPositions';
 import { useCollapse } from '../../../hooks/useCollapse';
+import { ProfitChart } from '../../../components/charts/ProfitChart';
 
 const RightSidebarClassic: FC = () => {
   const {
@@ -18,6 +19,7 @@ const RightSidebarClassic: FC = () => {
       callClick,
       putClick,
       placeOrderClick,
+      profitItems,
     },
   } = useClassicSidebarHandlers();
 
@@ -83,6 +85,8 @@ const RightSidebarClassic: FC = () => {
             />
             <RightSidebarTime className={styles.time} type="small" />
           </div>
+          
+          <ProfitChart profitItems={profitItems} />
 
           <Collapse 
             isActive={takeProfitActive} 

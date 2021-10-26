@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { profitItemsMock } from '../../mock/rightSidebar/classicSidebar';
 import { PositionItem } from './useTouchSidebarHandlers';
 
 const positionItems: PositionItem[] = [
@@ -12,6 +13,13 @@ const positionItems: PositionItem[] = [
 ];
 
 type ActiveButton = 'call' | 'put';
+
+export interface ProfitChartItem {
+  profitOrLose: number,
+  price: number;
+  color: string;
+  label: string
+}
 
 export const useClassicSidebarHandlers = () => {
   const [activeButton, setActiveButton] = useState<ActiveButton>('call');
@@ -46,6 +54,7 @@ export const useClassicSidebarHandlers = () => {
       callClick,
       putClick,
       placeOrderClick,
+      profitItems: profitItemsMock,
     },
     positions: {
       targetPriceClick,

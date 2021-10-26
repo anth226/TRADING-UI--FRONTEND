@@ -1,0 +1,79 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.y_axis {
+  path {
+    color: transparent;
+  }
+}
+
+.x_axis {
+  path {
+    color: transparent;
+  }
+}
+
+.gird_line_x,
+.gird_line_y{
+  stroke: #fff;
+  stroke-dasharray: 5;
+  stroke-opacity: 0.2;
+}
+
+.dot {
+  stroke-width: 3;
+  stroke: var(--color-background);
+}
+
+.path {
+  stroke: #009CCD;
+  stroke-width: 2;
+  fill: transparent;
+}
+
+.path_line {
+  stroke: #009CCD;
+  stroke-width: 2;
+}
+
+.root_line {
+  stroke: #D2D2D2;
+}
+
+.collapse {
+  background-color: var(--color-background);
+}
+
+.chart_wrap {
+  @include flexbox(flex-end, flex-end);
+
+  position: relative;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+}
+
+.title_wrap {
+  @include flexbox();
+
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+}
+
+.down_chart_label {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.left_chart_label {
+  position: absolute;
+  left: -30px;
+  top: 68px;
+  transform: rotate(-90deg);
+}
+
+.wrap {
+  margin-bottom: 8px;
+}
