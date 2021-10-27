@@ -1,0 +1,71 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 220px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card_wrap {
+  @include flexbox(initial, initial);
+
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card {
+  height: 120px;
+  margin-bottom: 6px;
+}
+
+.select {
+  height: 38px;
+  margin-bottom: 8px;
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  color: #20C3B9;
+
+  &:before {
+    transform: rotate(180deg);
+  }
+
+  &:first-child {
+    left: 40%;
+  }
+
+  &:last-child {
+    right: 40%;
+  }
+}
