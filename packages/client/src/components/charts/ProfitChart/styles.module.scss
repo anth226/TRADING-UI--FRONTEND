@@ -1,14 +1,14 @@
 @import "~@option-blitz/libs/assets/styles/mixins";
+@import "~@option-blitz/libs/assets/styles/variables";
 
+.x_axis,
 .y_axis {
   path {
     color: transparent;
   }
-}
 
-.x_axis {
-  path {
-    color: transparent;
+  text {
+    font-size: 8px;
   }
 }
 
@@ -47,7 +47,8 @@
   @include flexbox(flex-end, flex-end);
 
   position: relative;
-  font-size: 8px;
+  font-size: 10px;
+  font-family: $font-cabin;
   text-transform: uppercase;
   color: var(--color-dark-blue);
 }
@@ -73,7 +74,7 @@
 
 .left_chart_label {
   position: absolute;
-  left: -30px;
+  left: -20px;
   top: 68px;
   transform: rotate(-90deg);
 }
