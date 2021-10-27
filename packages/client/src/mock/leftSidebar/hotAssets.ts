@@ -2,7 +2,7 @@ import { keys } from 'ramda';
 import { Countries, countriesIcons, countriesNames } from '@option-blitz/libs/constants/countries';
 import { Metal, metalIcons, metalNames } from '@option-blitz/libs/constants/metal';
 import { Energy, energyNames, energyIcons } from '@option-blitz/libs/constants/energy';
-import { Crypto, cryptoIcons, cryptoNames } from '@option-blitz/libs/assets/images/crypto/crypto';
+import { Crypto, cryptoIcons, cryptoNames } from '@option-blitz/libs/constants/crypto';
 
 const cryptoKeys = keys(Crypto);
 const countryKeys = keys(Countries);

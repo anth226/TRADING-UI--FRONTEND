@@ -43,6 +43,7 @@ const TextInput: FC<TextInputProps> = ({
     <TextInputWrap error={hasError}>
       <IconRenderer error={hasError}>{left}</IconRenderer>
 
+      { /* @ts-ignore */}
       <input
         type={revealed ? 'text' : type}
         {...props}

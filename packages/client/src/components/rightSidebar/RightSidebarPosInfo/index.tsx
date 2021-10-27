@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Crypto, cryptoIcons } from '@option-blitz/libs/assets/images/crypto/crypto';
+import { Crypto, cryptoIcons } from '@option-blitz/libs/constants/crypto';
 import styles from './styles.module.scss';
 import { PositionItem } from '../../../hooks/rightSidebar/useTouchSidebarHandlers';
 import { Letter, letterIcons } from '../../../constants/letters/letters';
