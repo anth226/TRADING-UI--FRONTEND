@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Coin, coinIcons } from '@option-blitz/libs/constants/coin';
+import { Crypto, cryptoIcons } from '@option-blitz/libs/assets/images/crypto/crypto';
 import styles from './styles.module.scss';
 import { PositionItem } from '../../../hooks/rightSidebar/useTouchSidebarHandlers';
 import { Letter, letterIcons } from '../../../constants/letters/letters';
@@ -22,7 +22,7 @@ const RightSidebarPosInfo: FC<Props> = ({
       <div className={styles.title_wrap}>
         <img src={letterIcons[Letter.L]} alt="letter" />
         <p className={styles.title}>{title}</p>
-        <img className={styles.coin} src={coinIcons[Coin.BTC]} alt="coin" />
+        <img className={styles.coin} src={cryptoIcons[Crypto.BTC]} alt="coin" />
       </div>
       {dateInTitle && (
         <p className={styles.date}>{date}</p>

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 import { HotAssetsCard } from './index';
-import { Coin, coinIcons, coinNames } from '../../../constants/coin';
+import { Crypto, cryptoIcons, cryptoNames } from '../../../constants/crypto';
 
 storiesOf('LeftSidebar', module).add('HotAssetsCard', () => {
   const firstValue = text('FirstValue', '$100');
@@ -11,8 +11,8 @@ storiesOf('LeftSidebar', module).add('HotAssetsCard', () => {
   return (
     <div style={{ width: 200 }}>
       <HotAssetsCard 
-        icon={coinIcons[Coin.BTC]} 
-        title={coinNames[Coin.BTC]} 
+        icon={cryptoIcons[Crypto.BTC]}
+        title={cryptoNames[Crypto.BTC]}
         firstValue={firstValue}
         secondValue={secondValue}
       />

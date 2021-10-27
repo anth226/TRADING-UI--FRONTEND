@@ -10,7 +10,7 @@ import Select, {
 } from 'react-select';
 import { getCustomStyles } from '../../../constants/select';
 import styles from './styles.module.scss';
-import { Coin } from '../../../constants/coin';
+import { Coin, coinNames } from '../../../constants/coin';
 
 interface Props {
   onChange: (e: OnChangeValue<HeaderSelectItem, false>) => void
@@ -37,7 +37,7 @@ const Option = (optionProps: OptionProps<HeaderSelectItem, false>) => {
         <p className={styles.value}>
           {data.coinValue}
           &nbsp;
-          <span className={styles.coin}>{data.coin}</span>
+          <span className={styles.coin}>{coinNames[data.coin]}</span>
         </p>
       </div>
     </components.Option>
@@ -69,7 +69,7 @@ const HeaderBalance: FC<Props> = ({
           <p className={styles.value}>
             {coinValue}
             &nbsp;
-            <span className={styles.coin}>{coin}</span>
+            <span className={styles.coin}>{coinNames[coin]}</span>
           </p>
         </button>
       </components.SingleValue>
