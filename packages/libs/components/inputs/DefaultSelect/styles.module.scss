@@ -1,0 +1,9 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.value {
+  font-size: 13px;
+  color: var(--color-green);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
