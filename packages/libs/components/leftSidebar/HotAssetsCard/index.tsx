@@ -1,19 +1,23 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
+import cx from 'classnames';
 import styles from './styles.module.scss';
-import { Coin, coinIcons, coinNames } from '../../../constants/coin';
 import hotAssetsDiagram from '../../../assets/images/hot_assets_diagram.svg';
 import { FontIcon, FontIconName } from '../../inputs/FontIcon';
 
 interface Props {
-  coin: Coin
-  firstValue: string
-  secondValue: string
+  icon?: string
+  title?: string
+  firstValue?: string
+  secondValue?: string
+  className?: string
 }
 
 const HotAssetsCard: FC<Props> = ({
-  coin,
+  icon,
+  title,
   firstValue,
   secondValue,
+  className,
 }) => {
   const cardButton = useCallback<MouseEventHandler<HTMLAnchorElement>>((e) => {
     e.preventDefault();
@@ -21,11 +25,11 @@ const HotAssetsCard: FC<Props> = ({
   }, []);
   
   return (
-    <a onClick={cardButton} href="/" className={styles.wrap}>
+    <a onClick={cardButton} href="/" className={cx(styles.wrap, className)}>
       <div className={styles.title_wrap}>
         <div className={styles.coin_wrap}>
-          <img src={coinIcons[coin]} alt="coin" />
-          <p className={styles.title}>{coinNames[coin]}</p>
+          <img src={icon} alt="coin" />
+          <p className={styles.title}>{title}</p>
         </div>
 
         <div className={styles.info_wrap}>
