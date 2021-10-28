@@ -1,21 +1,21 @@
 import React, { FC, useCallback } from 'react';
 import cx from 'classnames';
 import styles from '../styles.module.scss';
+import { Navigation } from '../../../constants/navigation/navigation';
 
 interface Props {
-  onClick?: () => void
-  type: string
+  type?: Navigation
   activeType?: string
-  setType?: (value: string) => void
+  setType?: (value: Navigation) => void
 }
 
 const NavigationItem: FC<Props> = ({
-  children, onClick, setType, type, activeType,
+  children, setType, type, activeType,
 }) => {
   const clickHandler = useCallback(() => {
+    if (!type) return;
     if (setType) setType(type);
-    if (onClick) onClick();
-  }, [onClick, setType, type]);
+  }, [setType, type]);
 
   return (
     <button

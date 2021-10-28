@@ -2,12 +2,13 @@ import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/Fon
 import React, { FC, useCallback } from 'react';
 import cx from 'classnames';
 import styles from './styles.module.scss';
+import { RootPart } from '../../../constants/navigation/navigation';
 
 interface Props {
   icon?: FontIconName,
   activeType?: string
-  type: string
-  setType: (val: string) => void
+  type: RootPart
+  setType: (val?: RootPart) => void
   iconSize?: number
   image?: string
 }
@@ -25,7 +26,7 @@ const ExpandablePart: FC<Props> = ({
 
   const clickHandler = useCallback(() => {
     if (type === activeType) {
-      setType('');
+      setType(undefined);
       return;
     }
     setType(type);

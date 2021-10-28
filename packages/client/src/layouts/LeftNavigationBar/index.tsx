@@ -5,60 +5,65 @@ import styles from './styles.module.scss';
 import { Routes } from '../../constants/routes';
 import { ExpandablePart } from './ExpandablePart';
 import { NavigationItem } from './NavigationItem';
-import { useLeftNavigationBarHandlers } from '../../hooks/leftSidebar/useLeftNavigationBarHandlers';
+import { RootNavigationPart } from '../../hooks/leftSidebar/useLeftNavigationBarHandlers';
+import { Navigation, RootPart } from '../../constants/navigation/navigation';
 
-const LeftNavigationBar: FC = () => {
-  const {
-    rootItems,
-    activeRootItem,
-    activeNavItem,
-    setActiveRootType,
-    setActiveNavItem,
-  } = useLeftNavigationBarHandlers();
-  
-  return (
-    <div className={styles.wrap}>
-      <div className={styles.section}>
-        {rootItems.map((expandableItem) => (
-          <ExpandablePart
-            key={expandableItem.name}
-            type={expandableItem.name}
-            setType={setActiveRootType}
-            activeType={activeRootItem}
-            icon={expandableItem.icon}
-            iconSize={expandableItem.size}
-            image={expandableItem.image}
-          >
+interface Props {
+  setActiveNavItem: (value?: Navigation) => void
+  setActiveRootType: (value?: RootPart) => void
+  activeNavItem?: Navigation
+  rootItems: RootNavigationPart[]
+  activeRootItem?: string
+}
 
-            {expandableItem.items.map((item) => (
-              <NavigationItem
-                key={item.name}
-                type={item.name}
-                setType={setActiveNavItem}
-                activeType={activeNavItem}
-              >
-                {item.icon && <FontIcon size={20} name={item.icon} />}
-                {item.image && <img style={{ height: 20 }} src={item.image} alt="icon" />}
-              </NavigationItem>
-            ))}
+const LeftNavigationBar: FC<Props> = ({
+  setActiveNavItem,
+  setActiveRootType,
+  activeNavItem,
+  rootItems,
+  activeRootItem,
+}) => (
+  <div className={styles.wrap}>
+    <div className={styles.section}>
+      {rootItems.map((expandableItem) => (
+        <ExpandablePart
+          key={expandableItem.name}
+          type={expandableItem.type}
+          setType={setActiveRootType}
+          activeType={activeRootItem}
+          icon={expandableItem.icon}
+          iconSize={expandableItem.size}
+          image={expandableItem.image}
+        >
 
-          </ExpandablePart>
-        ))}
-      </div>
+          {expandableItem.items.map((item) => (
+            <NavigationItem
+              key={item.name}
+              type={item.type}
+              setType={setActiveNavItem}
+              activeType={activeNavItem}
+            >
+              {item.icon && <FontIcon size={20} name={item.icon} />}
+              {item.image && <img style={{ height: 20 }} src={item.image} alt="icon" />}
+            </NavigationItem>
+          ))}
 
-      <div className={styles.section}>
-        <Link className={styles.link} to={Routes.Homepage}>
-          <FontIcon className={styles.link_icon} size={20} name={FontIconName.Info} />
-        </Link>
-        <Link className={styles.link} to={Routes.Homepage}>
-          <FontIcon className={styles.link_icon} size={20} name={FontIconName.Settings} />
-        </Link>
-        <Link className={styles.link} to={Routes.Homepage}>
-          <FontIcon className={styles.link_icon} size={20} name={FontIconName.Logout} />
-        </Link>
-      </div>
+        </ExpandablePart>
+      ))}
     </div>
-  );
-};
+
+    <div className={styles.section}>
+      <Link className={styles.link} to={Routes.Homepage}>
+        <FontIcon className={styles.link_icon} size={20} name={FontIconName.Info} />
+      </Link>
+      <Link className={styles.link} to={Routes.Homepage}>
+        <FontIcon className={styles.link_icon} size={20} name={FontIconName.Settings} />
+      </Link>
+      <Link className={styles.link} to={Routes.Homepage}>
+        <FontIcon className={styles.link_icon} size={20} name={FontIconName.Logout} />
+      </Link>
+    </div>
+  </div>
+);
 
 export { LeftNavigationBar };
