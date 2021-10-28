@@ -29,6 +29,7 @@ body {
   font-family: $font-conthrax;
   color: var(--color-text);
   background-color: var(--color-background);
+  background-image: url("./images/bg-world.svg");
   transition: color $transition-time, background-color $transition-time;
 }
 
