@@ -30,18 +30,20 @@ const HotAssets: FC<Props> = ({
         </button>
       </div>
 
-      <DefaultSelect
-        onChange={sortChange}
-        className={styles.select}
-        options={sortOptions}
-        defaultValue={sortOptions[0]}
-      />
-      <DefaultSelect
-        onChange={filterChange}
-        className={styles.select}
-        options={filterOptions}
-        defaultValue={filterOptions[0]}
-      />
+      <div className={styles.select}>
+        <DefaultSelect
+          onChange={sortChange}
+          options={sortOptions}
+          defaultValue={sortOptions[0]}
+        />
+      </div>
+      <div className={styles.select}>
+        <DefaultSelect
+          onChange={filterChange}
+          options={filterOptions}
+          defaultValue={filterOptions[0]}
+        />
+      </div>
       <div className={styles.card_wrap}>
         {cardItems.map((item) => (
           <HotAssetsCard
