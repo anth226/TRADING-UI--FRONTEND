@@ -1,6 +1,5 @@
 import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { useState } from 'react';
-import { Navigation, navigationIcons } from '../../constants/navigation/navigation';
 
 interface INavigationItem {
   name: string
@@ -36,7 +35,7 @@ const affiliatesItems: INavigationItem[] = [
 
 const stakingItems: INavigationItem[] = [
   { name: '13', icon: FontIconName.AffiliateProg },
-  { name: '14', image: navigationIcons[Navigation.PromoTools] },
+  { name: '14', icon: FontIconName.Doc },
   { name: '15', icon: FontIconName.Statistics },
   { name: '16', icon: FontIconName.Payments },
   { name: '17', icon: FontIconName.News },
@@ -47,7 +46,7 @@ const rootItems: RootItem[] = [
   {
     name: 'Affiliates',
     items: affiliatesItems, 
-    image: navigationIcons[Navigation.Affiliates],
+    icon: FontIconName.Affiliates,
     size: 18,
   },
   {
