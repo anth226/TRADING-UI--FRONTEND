@@ -25,6 +25,7 @@ const setActiveTab: HandlerFn<typeof tabsSetActiveTab, TabsState> = (
   return {
     ...state,
     items: tabs,
+    activeProductType: currentTab?.productType,
   };
 };
 

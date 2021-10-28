@@ -42,8 +42,8 @@ const HeaderTab: FC<Props> = ({
       { [styles.bottom_indicator]: isActive },
     )}
     >
+      <CloseIcon onClick={closeHandler} className={styles.close_icon} />
       <button onClick={clickHandler} className={styles.content}>
-        <CloseIcon onClick={closeHandler} className={styles.close_icon} />
         <img className={styles.countries_icon} src={countriesIcons[countries]} alt="country" />
         <div className={styles.info}>
           <p className={styles.title}>{countriesNames[countries]}</p>
