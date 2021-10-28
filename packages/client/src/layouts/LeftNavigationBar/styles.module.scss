@@ -1,0 +1,35 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.wrap {
+  @include flexbox(center, space-between);
+
+  flex-direction: column;
+  height: 100%;
+  width: 60px;
+  background-color: #020610;
+}
+
+.link {
+  @include flexbox();
+
+  margin-bottom: 30px;
+}
+
+.link_icon {
+  color: var(--color-dark-blue);
+}
+
+.section {
+  width: 100%;
+}
+
+.button {
+  @include flexbox();
+
+  height: 54px;
+  width: 100%;
+}
+
+.button_active {
+  color: var(--color-green);
+}
