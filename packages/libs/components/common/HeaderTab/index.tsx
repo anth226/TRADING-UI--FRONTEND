@@ -1,31 +1,28 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import cx from 'classnames';
+import { HeaderTabItem } from '@option-blitz/client/src/layouts/Header';
 import styles from './styles.module.scss';
 import { CloseIcon } from '../CloseIcon';
-import { Countries, countriesIcons, countriesNames } from '../../../constants/countries';
-import { ProductType, productTypeNames } from '../../../constants/product';
+import { countriesIcons, countriesNames } from '../../../constants/countries';
+import { productTypeNames } from '../../../constants/product';
 
 interface Props {
-  productType: ProductType
-  countries: Countries
-  value: string
-  interest: string
-  isActive?: boolean
+  data: HeaderTabItem
   onClose?: () => void
-  onClick?: () => void
+  onClick: (id: number) => void
   className?: string
 }
 
 const HeaderTab: FC<Props> = ({
-  productType,
-  countries,
-  value,
-  interest,
+  data,
   onClose,
   onClick,
-  isActive = false,
   className,
 }) => {
+  const {
+    id, productType, value, interest, isActive, countries,
+  } = data;
+
   const closeHandler = useCallback<MouseEventHandler<HTMLButtonElement>>((e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -34,6 +31,10 @@ const HeaderTab: FC<Props> = ({
     onClose();
   }, [onClose]);
   
+  const clickHandler = useCallback(() => {
+    onClick(id);
+  }, [id, onClick]);
+  
   return (
     <div className={cx(
       styles.wrap, 
@@ -41,7 +42,7 @@ const HeaderTab: FC<Props> = ({
       { [styles.bottom_indicator]: isActive },
     )}
     >
-      <button onClick={onClick} className={styles.content}>
+      <button onClick={clickHandler} className={styles.content}>
         <CloseIcon onClick={closeHandler} className={styles.close_icon} />
         <img className={styles.countries_icon} src={countriesIcons[countries]} alt="country" />
         <div className={styles.info}>

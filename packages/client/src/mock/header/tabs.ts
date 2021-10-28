@@ -4,12 +4,14 @@ import { HeaderTabItem } from '../../layouts/Header';
 
 export const tabsMock: HeaderTabItem[] = [
   {
+    id: 1,
     value: '3',
     interest: '10',
     productType: ProductType.Touch,
     countries: Countries.eurGbp,
   },
   {
+    id: 2,
     value: '10',
     interest: '1',
     productType: ProductType.Classic,
@@ -17,6 +19,7 @@ export const tabsMock: HeaderTabItem[] = [
     isActive: true,
   },
   {
+    id: 3,
     value: '5',
     interest: '4',
     productType: ProductType.Binary,

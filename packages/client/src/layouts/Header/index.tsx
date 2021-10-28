@@ -13,6 +13,7 @@ import { useHeaderHandlers } from '../../hooks/header/useHeaderHandlers';
 import { Routes } from '../../constants/routes';
 
 export interface HeaderTabItem {
+  id: number
   productType: ProductType
   countries: Countries
   value: string
@@ -30,6 +31,7 @@ const Header: FC = () => {
     tabs,
     userAvatarIsActive,
     balance,
+    onTabClick,
   } = useHeaderHandlers();
   
   return (
@@ -45,21 +47,12 @@ const Header: FC = () => {
           <span className={styles.logo_blitz}>Blitz</span>
         </Link>
         <div className={styles.tabs}>
-          {tabs.map(({
-            productType,
-            countries,
-            value,
-            interest,
-            isActive,
-          }) => (
+          {tabs.map((tab) => (
             <HeaderTab
-              key={value}
+              key={tab.id}
+              data={tab}
               className={styles.tab}
-              productType={productType}
-              countries={countries}
-              value={value}
-              interest={interest}
-              isActive={isActive}
+              onClick={onTabClick}
             />
           ))}
           <button onClick={onAddTab} className={cx(styles.tab, styles.plus)}>

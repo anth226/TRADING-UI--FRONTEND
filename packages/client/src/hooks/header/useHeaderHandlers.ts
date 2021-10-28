@@ -1,8 +1,17 @@
 import { useCallback } from 'react';
 import { headerOptionsMock } from '@option-blitz/libs/mock/header/HeaderSelectItem';
-import { tabsMock } from '../../mock/header/tabs';
+import { useDispatch } from 'react-redux';
+import { useShallowSelector } from '../useShallowSelector';
+import { selectTabs } from '../../store/tabs/selectors';
+import { tabsSetActiveTab } from '../../store/tabs/actionCreators';
 
 export const useHeaderHandlers = () => {
+  const {
+    items: tabs,
+  } = useShallowSelector(selectTabs);
+  
+  const dispatch = useDispatch();
+  
   const onBalanceChange = useCallback(() => {
     
   }, []);
@@ -11,8 +20,12 @@ export const useHeaderHandlers = () => {
     
   }, []);
   
+  const onTabClick = useCallback((id: number) => {
+    dispatch(tabsSetActiveTab(id));
+  }, [dispatch]);
+  
   return {
-    tabs: tabsMock,
+    tabs,
     onAddTab,
     onBalanceChange,
     options: headerOptionsMock,
@@ -20,5 +33,6 @@ export const useHeaderHandlers = () => {
     isAuth: true,
     userAvatarIsActive: false,
     balance: '0x00...0000',
+    onTabClick,
   };
 };

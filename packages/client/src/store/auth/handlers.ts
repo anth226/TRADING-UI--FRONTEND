@@ -1,12 +1,10 @@
-import { ActionFn } from '@option-blitz/libs/types/redux';
 import { assocPath } from 'ramda';
+import { HandlerFn } from 'types/handler';
 import { AuthState } from '../../types/store/auth';
 import { authSetState } from './actionCreators';
 import { AuthActionTypes } from './actionsTypes';
 
-type AuthHandlerFn<F extends (...args: any[]) => any> = ActionFn<AuthState, ReturnType<F>>;
-
-const setState: AuthHandlerFn<typeof authSetState> = (
+const setState: HandlerFn<typeof authSetState, AuthState> = (
   state,
   { payload },
 ) => ({
@@ -14,7 +12,7 @@ const setState: AuthHandlerFn<typeof authSetState> = (
   ...payload,
 });
 
-const setTokens: AuthHandlerFn<typeof authSetState> = (
+const setTokens: HandlerFn<typeof authSetState, AuthState> = (
   state,
   { payload },
 ) => assocPath(['tokens'], { ...state.tokens, ...payload }, state);
