@@ -44,13 +44,15 @@
 }
 
 .chart_wrap {
-  @include flexbox(flex-end, flex-end);
-
   position: relative;
   font-size: 10px;
   font-family: $font-cabin;
   text-transform: uppercase;
   color: var(--color-dark-blue);
+}
+
+.chart {
+  margin-left: 15px;
 }
 
 .title {
@@ -75,8 +77,8 @@
 .left_chart_label {
   position: absolute;
   left: -20px;
-  top: 68px;
-  transform: rotate(-90deg);
+  top: 45%;
+  transform: rotate(-90deg)
 }
 
 .wrap {

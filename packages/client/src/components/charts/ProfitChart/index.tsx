@@ -1,4 +1,6 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, {
+  FC, useEffect, useRef, useState, 
+} from 'react';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import Tippy from '@tippyjs/react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
@@ -9,13 +11,24 @@ import { useCollapse } from '../../../hooks/useCollapse';
 
 interface Props {
   profitItems: ProfitChartItem[]
+  isMobile?: boolean
 }
 
-const width = 200;
-const height = 155;
+const desktopWidth = 200;
+const desktopHeight = 155;
+const mobileHeight = 200;
 
-const ProfitChart: FC<Props> = ({ profitItems }) => {
+const ProfitChart: FC<Props> = ({ profitItems, isMobile }) => {
   const profitChartRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  
+  const [width, setWidth] = useState(desktopWidth);
+  const height = isMobile ? mobileHeight : desktopHeight;
+  
+  useEffect(() => {
+    if (!wrapRef.current || !isMobile) return;
+    setWidth(wrapRef.current.clientWidth - 50);
+  }, [wrapRef, isMobile]);
   
   const {
     isActive,
@@ -30,7 +43,7 @@ const ProfitChart: FC<Props> = ({ profitItems }) => {
   }, [profitChartRef, profitItems, isActive]);
   
   return (
-    <div className={styles.wrap}>
+    <div ref={wrapRef} className={styles.wrap}>
       <Collapse
         className={styles.collapse}
         title={(

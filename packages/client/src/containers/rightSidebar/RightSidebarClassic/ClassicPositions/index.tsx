@@ -4,17 +4,66 @@ import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/Ri
 import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import cx from 'classnames';
+import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import styles from './styles.module.scss';
 import { RightSidebarPosInfo } from '../../../../components/rightSidebar/RightSidebarPosInfo';
 import { useClassicSidebarHandlers } from '../../../../hooks/rightSidebar/useClassicSidebarHandlers';
 import { useCheckbox } from '../../../../hooks/useCheckbox';
 import { useInputHandlers } from '../../../../hooks/rightSidebar/useInputHandlers';
+import { useCollapse } from '../../../../hooks/useCollapse';
 
 interface Props {
-
+  isMobile?: boolean
 }
 
-const ClassicPositions: FC<Props> = () => {
+interface WrapperProps {
+  isMobile?: boolean
+  checkbox: boolean
+  onCheckboxChange: (val: boolean) => void
+}
+
+const Wrapper: FC<WrapperProps> = ({
+  children, checkbox, onCheckboxChange, isMobile, 
+}) => {
+  const {
+    isActive,
+    onChange,
+  } = useCollapse();
+  return (
+    <>
+      {!isMobile && (
+        <>
+          <div className={styles.checkbox_wrap}>
+            <p className={styles.checkbox_label}>Take Profit</p>
+            <Checkbox size={14} iconSize={7} checked={checkbox} onCheck={onCheckboxChange} />
+          </div>
+          <div className={styles.inputs_wrap}>
+            {children}
+          </div>
+        </>
+      )}
+      {isMobile && (
+        <Collapse
+          className={styles.collapse}
+          titleClassName={styles.co}
+          isActive={isActive}
+          onClick={onChange}
+          title="Take Profit"
+        >
+          <div className={cx(styles.inputs_wrap, styles.collapse_content)}>
+            {children}
+          </div>
+        </Collapse>
+      )}
+    </>
+  );
+};
+
+const ClassicPositions: FC<Props> = ({
+  isMobile,
+}) => {
+  const type = isMobile ? 'small' : 'normal';
+
   const {
     positions: {
       positionItems,
@@ -44,14 +93,11 @@ const ClassicPositions: FC<Props> = () => {
   } = useInputHandlers();
 
   return (
-    <div>
-      <RightSidebarPosInfo dateInTitle title="BTCUSD" items={positionItems} date={date} />
-      <div className={styles.checkbox_wrap}>
-        <p className={styles.checkbox_label}>Take Profit</p>
-        <Checkbox size={14} iconSize={7} checked={checkbox} onCheck={onCheckboxChange} />
-      </div>
-      <div className={styles.inputs_wrap}>
+    <div className={cx({ [styles.wrap_mobile]: isMobile })}>
+      <RightSidebarPosInfo type={type} title="BTCUSD" items={positionItems} date={date} />
+      <Wrapper isMobile={isMobile} checkbox={checkbox} onCheckboxChange={onCheckboxChange}>
         <RightSidebarInput
+          type={type}
           className={styles.input}
           label="Target price"
           symbol="$"
@@ -65,6 +111,7 @@ const ClassicPositions: FC<Props> = () => {
           secondIconClassName={styles.down_icon}
         />
         <RightSidebarInput
+          type={type}
           className={styles.input}
           label="Target ROI"
           symbol="%"
@@ -77,7 +124,7 @@ const ClassicPositions: FC<Props> = () => {
           firstIconClassName={styles.up_icon}
           secondIconClassName={styles.down_icon}
         />
-      </div>
+      </Wrapper>
       <div className={styles.buttons_wrap}>
         <Button
           onClick={targetPriceClick}
