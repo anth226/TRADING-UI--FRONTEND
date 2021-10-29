@@ -89,7 +89,7 @@ const ClassicMobile: FC = () => {
           <RightSidebarTime className={styles.time} type="small" />
         </div>
 
-        <ProfitChart profitItems={profitItems} />
+        <ProfitChart isMobile profitItems={profitItems} />
 
         <Collapse
           isActive={takeProfitActive}

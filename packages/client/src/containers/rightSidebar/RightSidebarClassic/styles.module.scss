@@ -47,16 +47,19 @@
   @include flexbox();
 
   margin-top: 10px;
+  margin-bottom: 16px;
 }
 
-.collapse {
-  margin-bottom: 8px;
+.checkbox_wrap {
+  @include flexbox(center, space-between);
+
+  margin-top: 16px;
+  margin-bottom: 10px;
 }
 
-.collapse_title {
+.checkbox_label {
   text-transform: uppercase;
-  font-size: 8px;
-  color: var(--color-dark-blue);
+  font-size: 11px;
 }
 
 .button_order {
