@@ -10,6 +10,7 @@ interface IProps {
   hasError?: boolean;
   size?: number;
   iconSize?: number;
+  labelClassName?: string;
 }
 
 const Checkbox: FC<IProps> = ({
@@ -20,6 +21,7 @@ const Checkbox: FC<IProps> = ({
   hasError,
   size = 24,
   iconSize = 12,
+  labelClassName,
 }) => {
   const onMouseDown = useCallback(
     (event) => {
@@ -45,7 +47,9 @@ const Checkbox: FC<IProps> = ({
         {checked && <FontIcon name={FontIconName.CheckedBold} size={iconSize} />}
       </span>
 
-      {!!children && <div className={styles.label}>{children}</div>}
+      {!!children && (
+        <div className={classNames(styles.label, labelClassName)}>{children}</div>
+      )}
     </button>
   );
 };

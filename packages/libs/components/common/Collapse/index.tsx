@@ -28,7 +28,9 @@ const Collapse: FC<Props> = ({
         <FontIcon size={10} name={FontIconName.ArrowRight} />
       </button>
     </div>
-    {isActive && children}
+    <div>
+      {isActive && children}
+    </div>
   </div>
 );
 
