@@ -30,7 +30,7 @@ export enum FontIconName {
   Info = 'icon-info',
   Settings = 'icon-settings',
   Logout = 'icon-logout',
-  Grid = 'icon-grid',
+  Grid = 'icon-grid-mode',
 
   AffiliateProg = 'icon-affiliate-prog',
   Analytics = 'icon-analytics',

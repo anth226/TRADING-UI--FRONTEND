@@ -1,4 +1,5 @@
 
+.icon-grid-mode:before { content: '\e048'; } /* '' */
 .icon-facebook:before { content: '\e800'; } /* '' */
 .icon-instagram:before { content: '\e801'; } /* '' */
 .icon-play-circle2:before { content: '\e802'; } /* '' */
@@ -50,7 +51,6 @@
 .icon-live-casino-play:before { content: '\e841'; } /* '' */
 .icon-deleted:before { content: '\e842'; } /* '' */
 .icon-affiliates-1:before { content: '\e843'; } /* '' */
-.icon-grid:before { content: '\e843'; } /* '' */
 .icon-plus:before { content: '\e845'; } /* '' */
 .icon-cashout:before { content: '\e846'; } /* '' */
 .icon-returned:before { content: '\e848'; } /* '' */
