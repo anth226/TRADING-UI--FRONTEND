@@ -3,7 +3,6 @@
 .icon-instagram:before { content: '\e801'; } /* '' */
 .icon-play-circle2:before { content: '\e802'; } /* '' */
 .icon-twitter:before { content: '\e803'; } /* '' */
-.icon-menu:before { content: '\e804'; } /* '' */
 .icon-notify:before { content: '\e805'; } /* '' */
 .icon-telegram:before { content: '\e806'; } /* '' */
 .icon-arrow-bottom:before { content: '\e807'; } /* '' */
@@ -51,6 +50,7 @@
 .icon-live-casino-play:before { content: '\e841'; } /* '' */
 .icon-deleted:before { content: '\e842'; } /* '' */
 .icon-affiliates-1:before { content: '\e843'; } /* '' */
+.icon-grid:before { content: '\e843'; } /* '' */
 .icon-plus:before { content: '\e845'; } /* '' */
 .icon-cashout:before { content: '\e846'; } /* '' */
 .icon-returned:before { content: '\e848'; } /* '' */
@@ -72,3 +72,4 @@
 .icon-stake:before { content: '\e85b'; } /* '' */
 .icon-statistics:before { content: '\e85c'; } /* '' */
 .icon-unstake:before { content: '\e85d'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
