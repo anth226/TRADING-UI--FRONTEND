@@ -9,7 +9,7 @@
 
   border: 1px solid var(--color-grey);
   border-radius: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 
   button.button {
     @include flexbox();
@@ -31,16 +31,12 @@
 .input_wrap {
   @include flexbox();
 
-  height: 40px;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 
 .input {
-  width: 50%;
-
-  &:first-child {
-    margin-right: 8px;
-  }
+  margin-bottom: 8px;
 }
 
 .second_input_wrap {
@@ -76,5 +72,5 @@
 }
 
 .time {
-  width: 50%;
+  width: 100%;
 }

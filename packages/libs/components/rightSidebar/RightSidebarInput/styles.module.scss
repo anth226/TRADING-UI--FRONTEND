@@ -63,18 +63,19 @@
 }
 
 .input_small {
-  font-size: 10px;
+  font-size: 15px;
   text-align: center;
 }
 
 .label_small {
-  font-size: 6px;
+  margin-bottom: 5px;
+  font-size: 8px;
   text-transform: uppercase;
   color: var(--color-dark-blue);
 }
 
 .symbol_small {
-  font-size: 8px;
+  font-size: 12px;
   color: var(--color-dark-blue);
   margin-right: 4px;
 }

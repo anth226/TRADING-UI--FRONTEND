@@ -53,6 +53,20 @@ const RightSidebarClassic: FC = () => {
     <div className={styles.wrap}>
       <RightSidebarNavigation>
         <div>
+          <div className={styles.input_wrap}>
+            <RightSidebarInput
+              className={styles.input}
+              label="Qty"
+              onFirstBtnClick={downQty}
+              onSecondBtnClick={upQty}
+              onChange={changeQty}
+              value={qty}
+              firstBtnIcon={FontIconName.Minus}
+              secondBtnIcon={FontIconName.Plus}
+            />
+            <RightSidebarTime className={styles.time} />
+          </div>
+
           <div className={styles.button_wrap}>
             <Button
               onClick={callClick}
@@ -70,20 +84,6 @@ const RightSidebarClassic: FC = () => {
               <FontIcon className={styles.put_arrow} name={FontIconName.ArrowBigRight} />
               <p>Put</p>
             </Button>
-          </div>
-          <div className={styles.input_wrap}>
-            <RightSidebarInput
-              type="small"
-              className={styles.input}
-              label="Qty"
-              onFirstBtnClick={downQty}
-              onSecondBtnClick={upQty}
-              onChange={changeQty}
-              value={qty}
-              firstBtnIcon={FontIconName.Minus}
-              secondBtnIcon={FontIconName.Plus}
-            />
-            <RightSidebarTime className={styles.time} type="small" />
           </div>
           
           <ProfitChart profitItems={profitItems} />
