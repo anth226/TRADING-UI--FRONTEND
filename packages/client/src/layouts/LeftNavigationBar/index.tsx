@@ -8,7 +8,7 @@ import { NavigationItem } from './NavigationItem';
 import { RootNavigationPart } from '../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 import { Navigation, RootPart } from '../../constants/navigation/navigation';
 
-interface Props {
+export interface NavigationBarProps {
   setActiveNavItem: (value?: Navigation) => void
   setActiveRootType: (value?: RootPart) => void
   activeNavItem?: Navigation
@@ -16,7 +16,7 @@ interface Props {
   activeRootItem?: string
 }
 
-const LeftNavigationBar: FC<Props> = ({
+const LeftNavigationBar: FC<NavigationBarProps> = ({
   setActiveNavItem,
   setActiveRootType,
   activeNavItem,

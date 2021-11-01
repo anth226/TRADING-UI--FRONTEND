@@ -57,4 +57,8 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
     ...provider,
     height: '100%',
   }),
+  dropdownIndicator: (provider) => ({
+    ...provider,
+    padding: '0 4px',
+  }),
 });

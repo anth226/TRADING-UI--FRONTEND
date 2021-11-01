@@ -1,13 +1,13 @@
 import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { useCallback, useState } from 'react';
 import {
-  Navigation, navigationNames, RootPart, rootPartNames,
+  Navigation, navigationNames, RootPart, rootPartNames, 
 } from '../../constants/navigation/navigation';
 
 interface INavigationItem {
   type?: Navigation
   name: string
-  icon?: FontIconName
+  icon: FontIconName
   image?: string
 }
 
@@ -56,18 +56,54 @@ const tradingItems: INavigationItem[] = [
 ];
 
 const affiliatesItems: INavigationItem[] = [
-  { name: '9', icon: FontIconName.Stake },
-  { name: '10', icon: FontIconName.UnStake },
-  { name: '11', icon: FontIconName.Analytics },
-  { name: '12', icon: FontIconName.Blx },
+  { 
+    name: navigationNames[Navigation.Stake], 
+    type: Navigation.Stake,
+    icon: FontIconName.Stake, 
+  },
+  { 
+    name: navigationNames[Navigation.UnStake], 
+    type: Navigation.UnStake,
+    icon: FontIconName.UnStake, 
+  },
+  { 
+    name: navigationNames[Navigation.Analytics], 
+    type: Navigation.Analytics,
+    icon: FontIconName.Analytics, 
+  },
+  { 
+    name: navigationNames[Navigation.BLX], 
+    type: Navigation.BLX,
+    icon: FontIconName.Blx, 
+  },
 ];
 
 const stakingItems: INavigationItem[] = [
-  { name: '13', icon: FontIconName.AffiliateProg },
-  { name: '14', icon: FontIconName.Doc },
-  { name: '15', icon: FontIconName.Statistics },
-  { name: '16', icon: FontIconName.Payments },
-  { name: '17', icon: FontIconName.News },
+  { 
+    name: navigationNames[Navigation.MyAffiliateProg], 
+    type: Navigation.MyAffiliateProg,
+    icon: FontIconName.AffiliateProg, 
+  },
+  { 
+    name: navigationNames[Navigation.PromotionalTools], 
+    type: Navigation.PromotionalTools,
+    icon: FontIconName.Doc, 
+  },
+  {
+    name: navigationNames[Navigation.Statistics], 
+    type: Navigation.Statistics,
+    icon: FontIconName.Statistics, 
+  },
+  {
+    name: navigationNames[Navigation.Payments], 
+    type: Navigation.Payments,
+    icon: FontIconName.Payments, 
+  },
+  {
+    name: navigationNames[Navigation.News], 
+    type: Navigation.News,
+    icon: FontIconName.News, 
+  },
 ];
 
 export const rootNavigationParts: RootNavigationPart[] = [
@@ -95,9 +131,14 @@ export const rootNavigationParts: RootNavigationPart[] = [
 export const useLeftNavigationBarHandlers = () => {
   const [activeNavItem, setActiveNavItem] = useState<Navigation>();
   const [activeRootItem, setActiveRootType] = useState<RootPart>();
+  const [mobileNavigationActive, setMobileNavigation] = useState(false);
   
   const closeSidebar = useCallback(() => {
     setActiveNavItem(undefined);
+  }, []);
+  
+  const toggleMobileNavigation = useCallback(() => {
+    setMobileNavigation((prevState) => !prevState);
   }, []);
   
   return {
@@ -107,5 +148,7 @@ export const useLeftNavigationBarHandlers = () => {
     activeNavItem,
     activeRootItem,
     closeSidebar,
+    mobileNavigationActive,
+    toggleMobileNavigation,
   };
 };

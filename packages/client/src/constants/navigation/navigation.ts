@@ -7,6 +7,17 @@ export enum Navigation {
   Signals = 'Signals',
   Chat = 'Chat',
   VideoTutorials = 'VideoTutorials',
+  
+  Stake = 'Stake',
+  UnStake = 'UnStake',
+  Analytics = 'Analytics',
+  BLX = 'BLX',
+  
+  MyAffiliateProg = 'MyAffiliateProg',
+  PromotionalTools = 'PromotionalTools',
+  Statistics = 'Statistics',
+  Payments = 'Payments',
+  AffiliateNews = 'AffiliateNews',
 }
 
 export const navigationNames: Record<Navigation, string> = {
@@ -18,6 +29,17 @@ export const navigationNames: Record<Navigation, string> = {
   [Navigation.Signals]: 'Signals',
   [Navigation.Chat]: 'Chat',
   [Navigation.VideoTutorials]: 'Video Tutorials',
+  
+  [Navigation.Stake]: 'Stake',
+  [Navigation.UnStake]: 'UnStake',
+  [Navigation.Analytics]: 'Analytics',
+  [Navigation.BLX]: 'BLX',
+  
+  [Navigation.MyAffiliateProg]: 'My Affiliate Prog.',
+  [Navigation.PromotionalTools]: 'Promotional Tools',
+  [Navigation.Statistics]: 'Statistics',
+  [Navigation.Payments]: 'Payments',
+  [Navigation.AffiliateNews]: 'Affiliate News',
 };
 
 export enum RootPart {

@@ -8,6 +8,7 @@ import { RightSidebar } from '../../containers/rightSidebar/RightSidebar';
 import { LeftSidebar } from '../../containers/leftSidebar/LeftSidebar';
 import { useLeftNavigationBarHandlers } from '../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 import { MobileProducts } from '../../containers/MobileProducts';
+import { MobileNavigationBar } from '../MobileNavigationBar';
 
 interface IProps {}
 
@@ -19,6 +20,8 @@ const MainLayout: FC<IProps> = ({ children }) => {
     setActiveRootType,
     setActiveNavItem,
     closeSidebar,
+    mobileNavigationActive,
+    toggleMobileNavigation,
   } = useLeftNavigationBarHandlers();
   
   const { isMobile } = useResize();
@@ -45,7 +48,18 @@ const MainLayout: FC<IProps> = ({ children }) => {
           </>
         )}
         {isMobile && (
-          <MobileProducts />
+          <>
+            <MobileProducts />
+            <MobileNavigationBar
+              onClose={toggleMobileNavigation}
+              isOpen={mobileNavigationActive}
+              rootItems={rootItems}
+              activeRootItem={activeRootItem}
+              setActiveNavItem={setActiveNavItem}
+              setActiveRootType={setActiveRootType}
+              activeNavItem={activeNavItem}
+            />
+          </>
         )}
         {children}
       </div>
