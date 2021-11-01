@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import cx from 'classnames';
 import { HeaderContainer } from 'containers/HeaderContainer';
+import useResize from '@option-blitz/libs/hooks/useResize';
 import styles from './styles.module.scss';
 import { LeftNavigationBar } from '../LeftNavigationBar';
 import { RightSidebar } from '../../containers/rightSidebar/RightSidebar';
@@ -19,6 +20,8 @@ const MainLayout: FC<IProps> = ({ children }) => {
     closeSidebar,
   } = useLeftNavigationBarHandlers();
   
+  const { isMobile } = useResize();
+  
   return (
     <div
       className={cx(
@@ -27,14 +30,18 @@ const MainLayout: FC<IProps> = ({ children }) => {
     >
       <HeaderContainer />
       <div className={styles.body}>
-        <LeftNavigationBar
-          rootItems={rootItems}
-          activeRootItem={activeRootItem}
-          setActiveNavItem={setActiveNavItem}
-          setActiveRootType={setActiveRootType}
-          activeNavItem={activeNavItem}
-        />
-        <LeftSidebar activeNavigation={activeNavItem} onBack={closeSidebar} />
+        {!isMobile && (
+          <>
+            <LeftNavigationBar
+              rootItems={rootItems}
+              activeRootItem={activeRootItem}
+              setActiveNavItem={setActiveNavItem}
+              setActiveRootType={setActiveRootType}
+              activeNavItem={activeNavItem}
+            />
+            <LeftSidebar activeNavigation={activeNavItem} onBack={closeSidebar} />
+          </>
+        )}
         {children}
         <RightSidebar />
       </div>

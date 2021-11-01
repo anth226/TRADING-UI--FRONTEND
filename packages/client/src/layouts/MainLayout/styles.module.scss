@@ -14,6 +14,10 @@
   position: relative;
   height: calc(100% - #{$header-height});
   width: 100%;
+
+  @include mobile {
+    height: calc(100% - #{$mobile-header-height});
+  }
 }
 
 .left_navigation_bar {

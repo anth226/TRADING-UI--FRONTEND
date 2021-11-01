@@ -3,6 +3,10 @@
 .wrap {
   width: 100%;
   margin-bottom: 16px;
+
+  @include mobile {
+    margin: 0;
+  }
 }
 
 .button_tab {
