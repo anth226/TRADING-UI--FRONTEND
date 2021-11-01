@@ -10,6 +10,7 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
     '&:hover': {},
     boxShadow: 'none',
     height: '100%',
+    minHeight: '34px',
   }),
   singleValue: (provided) => ({
     ...provided,
@@ -17,7 +18,7 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
   }),
   valueContainer: (provided) => ({
     ...provided,
-    padding: '0 20px 0 10px',
+    padding: '0',
   }),
   menu: (provided) => ({
     ...provided,
@@ -50,6 +51,7 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
     '&:hover': {
       cursor: 'pointer',
     },
+    height: '100%',
   }),
   container: (provider) => ({
     ...provider,

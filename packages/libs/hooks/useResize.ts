@@ -22,6 +22,7 @@ const useResize = (fn: Function = () => {}) => {
   return {
     width,
     height,
+    isMobile: width <= 480,
   };
 };
 
