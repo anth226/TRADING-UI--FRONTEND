@@ -36,7 +36,7 @@ const BinaryMobile: FC = () => {
         {/* TODO: Chart component */}
       </div>
       
-      <div>
+      <div className={styles.trade}>
         <div className={styles.input_wrap}>
           <RightSidebarInput
             type="small"
@@ -67,7 +67,7 @@ const BinaryMobile: FC = () => {
         </div>
       </div>
       
-      <div>
+      <div className={styles.positions_wrap}>
         <div className={styles.positions}>
           <RightSidebarPosInfo type="small" items={positionItems} date={date} title="BTCUSD" />
           <Button

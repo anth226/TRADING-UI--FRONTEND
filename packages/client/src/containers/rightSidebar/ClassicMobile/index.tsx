@@ -55,7 +55,7 @@ const ClassicMobile: FC = () => {
         {/* TODO: Chart component */}
       </div>
 
-      <div>
+      <div className={styles.trade}>
         <div className={styles.button_wrap}>
           <Button
             onClick={callClick}

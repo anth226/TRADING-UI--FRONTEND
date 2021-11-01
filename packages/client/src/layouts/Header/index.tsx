@@ -41,7 +41,7 @@ const Header: FC<Props> = ({
     onTabClick(value.id);
   }, []);
   
-  const defaultTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
+  const activeTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
 
   return (
     <div className={styles.wrap}>
@@ -74,7 +74,8 @@ const Header: FC<Props> = ({
             className={styles.tab_selector}
             onChange={tabChangeHandler}
             tabs={tabs}
-            defaultValue={defaultTab}
+            defaultValue={activeTab}
+            value={activeTab}
           />
         )}
         <button

@@ -15,6 +15,7 @@ interface Props {
   onChange?: HeaderTabSelectChange
   tabs: HeaderTabItem[]
   defaultValue?: HeaderTabItem
+  value?: HeaderTabItem
 }
 
 const customStyles = getCustomStyles<HeaderTabItem>();
@@ -79,6 +80,7 @@ const HeaderTabSelect: FC<Props> = ({
   onChange,
   tabs,
   defaultValue,
+  value,
 }) => (
   <Select<HeaderTabItem, false>
     className={className}
@@ -88,6 +90,7 @@ const HeaderTabSelect: FC<Props> = ({
     styles={customStyles}
     components={{ Option, SingleValue }}
     isSearchable={false}
+    value={value}
   />
 );
 

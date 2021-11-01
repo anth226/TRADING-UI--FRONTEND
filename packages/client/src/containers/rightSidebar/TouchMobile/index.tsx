@@ -68,7 +68,7 @@ const TouchMobile: FC = () => {
         {/* TODO: Chart component */}
       </div>
 
-      <div>
+      <div className={styles.trade}>
         <div className={styles.trades_wrap}>
           <Collapse
             className={styles.collapse}
@@ -151,7 +151,7 @@ const TouchMobile: FC = () => {
         </div>
       </div>
 
-      <div>
+      <div className={styles.positions_wrap}>
         <div className={styles.positions}>
           <RightSidebarPosInfo type="small" items={positionItems} date={date} title="BTCUSD" />
           <Button
