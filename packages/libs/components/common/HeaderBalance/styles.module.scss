@@ -9,7 +9,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 60px;
+  }
+}
+
+.option_title {
+  font-size: 8px;
+
+  @include mobile {
+    font-size: 7px;
   }
 }
 
@@ -33,6 +40,6 @@
   margin: 0 20px 0 10px;
 
   @include mobile {
-    margin: 0 6px;
+    margin: 0;
   }
 }

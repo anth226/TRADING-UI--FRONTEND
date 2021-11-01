@@ -15,6 +15,10 @@
 .icon {
   width: 20px;
   margin-right: 8px;
+
+  @include mobile {
+    width: 15px;
+  }
 }
 
 .single_value_wrap {
@@ -23,6 +27,6 @@
   margin: 0 20px 0 10px;
 
   @include mobile {
-    margin: 0 6px;
+    margin: 0;
   }
 }

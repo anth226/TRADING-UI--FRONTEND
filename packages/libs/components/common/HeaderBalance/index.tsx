@@ -33,7 +33,7 @@ const Option = (optionProps: OptionProps<HeaderSelectItem, false>) => {
   return (
     <components.Option {...optionProps}>
       <div className={styles.option_content}>
-        <p className={styles.title}>{data.title}</p>
+        <p className={styles.option_title}>{data.title}</p>
         <p className={styles.value}>
           {data.coinValue}
           &nbsp;
