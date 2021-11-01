@@ -1,9 +1,34 @@
 @import "~@option-blitz/libs/assets/styles/mixins.scss";
 
+.wrap_small {
+  @include flexbox(flex-start);
+
+  flex-direction: column;
+}
+
+.wrap_without_title {
+  padding: 8px 0;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--color-dark-blue);
+}
+
 .value {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-green);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.label_small {
+  font-size: 8px;
+  margin-bottom: 7px;
+}
+
+.value_small {
+  font-size: 15px;
 }

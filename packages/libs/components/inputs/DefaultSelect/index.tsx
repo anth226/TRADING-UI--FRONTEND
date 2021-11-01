@@ -1,20 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import Select, {
   OnChangeValue, SingleValueProps, components, OptionProps,
 } from 'react-select';
+import cx from 'classnames';
 import styles from './styles.module.scss';
 import { getCustomStyles } from '../../../constants/select';
+import { Time } from '../../rightSidebar/RightSidebarTime';
 
 export interface OptionItem {
   value: string
   label?: string
 }
 
+type SizeType = 'normal' | 'small';
+
 interface Props {
   options: OptionItem[]
   defaultValue?: OptionItem
   onChange?: (e: OnChangeValue<OptionItem, false>) => void
   className?: string
+  type?: SizeType,
+  title?: string
 }
 
 const customStyles = getCustomStyles<OptionItem>();
@@ -53,36 +59,60 @@ const Option = (optionProps: OptionProps<OptionItem, false>) => {
   );
 };
 
-const SingleValue = (singleValueProps: SingleValueProps<OptionItem, false>) => {
-  const {
-    data: {
-      value,
-      label,
-    },
-  } = singleValueProps;
-  
-  return (
-    <components.SingleValue {...singleValueProps}>
-      <p className={styles.value}>{label || value}</p>
-    </components.SingleValue>
-  );
-};
-
 const DefaultSelect: FC<Props> = ({
   onChange,
   className,
   options,
   defaultValue,
-}) => (
-  <Select<OptionItem, false>
-    className={className}
-    onChange={onChange}
-    options={options}
-    styles={customStyles}
-    components={{ Option, SingleValue }}
-    isSearchable={false}
-    defaultValue={defaultValue}
-  />
-);
+  title,
+  type = 'normal',
+}) => {
+  const SingleValue = useCallback((singleValueProps: SingleValueProps<Time, false>) => {
+    const {
+      data,
+    } = singleValueProps;
+    const isSmall = type === 'small';
+
+    return (
+      <components.SingleValue {...singleValueProps}>
+        <div className={cx(
+          styles.wrap,
+          { [styles.wrap_small]: isSmall },
+          { [styles.wrap_without_title]: !title?.length },
+        )}
+        >
+          {title && (
+            <p className={cx(
+              styles.label,
+              { [styles.label_small]: isSmall },
+            )}
+            >
+              {title}
+            </p>
+          )}
+          <span className={cx(
+            styles.value,
+            { [styles.value_small]: isSmall },
+          )}
+          >
+            {data.value}
+          </span>
+        </div>
+      </components.SingleValue>
+    );
+  }, [title, type]);
+
+  return (
+    <Select<Time, false>
+      className={className}
+      onChange={onChange}
+      options={options}
+      defaultValue={defaultValue}
+      styles={customStyles}
+      components={{ Option, SingleValue }}
+      isSearchable={false}
+    />
+  );
+};
 
 export { DefaultSelect };
