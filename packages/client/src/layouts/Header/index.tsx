@@ -1,39 +1,48 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { HeaderTab } from '@option-blitz/libs/components/common/HeaderTab';
 import cx from 'classnames';
-import { ProductType } from '@option-blitz/libs/constants/product';
-import { Countries } from '@option-blitz/libs/constants/countries';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { HeaderUser } from '@option-blitz/libs/components/common/HeaderUser';
-import { HeaderBalance } from '@option-blitz/libs/components/common/HeaderBalance';
+import { HeaderBalance, HeaderSelectItem } from '@option-blitz/libs/components/common/HeaderBalance';
 import { Link } from 'react-router-dom';
+import { HeaderTabSelect, HeaderTabSelectChange } from '@option-blitz/libs/components/inputs/HeaderTabSelect';
 import styles from './styles.module.scss';
-import { useHeaderHandlers } from '../../hooks/header/useHeaderHandlers';
 import { Routes } from '../../constants/routes';
+import { HeaderTabItem } from '../../hooks/header/useHeaderHandlers';
 
-export interface HeaderTabItem {
-  id: number
-  productType: ProductType
-  countries: Countries
-  value: string
-  interest: string
-  isActive?: boolean
+interface Props {
+  onAddTab: () => void
+  onBalanceChange: () => void
+  options: HeaderSelectItem[]
+  defaultOption: HeaderSelectItem
+  isAuth: boolean
+  tabs: HeaderTabItem[]
+  userAvatarIsActive: boolean
+  address: string
+  onTabClick: (id: number) => void
+  isMobile?: boolean
 }
 
-const Header: FC = () => {
-  const {
-    onAddTab,
-    onBalanceChange,
-    options,
-    defaultOption,
-    isAuth,
-    tabs,
-    userAvatarIsActive,
-    balance,
-    onTabClick,
-  } = useHeaderHandlers();
+const Header: FC<Props> = ({
+  onAddTab,
+  onBalanceChange,
+  options,
+  defaultOption,
+  isAuth,
+  tabs,
+  userAvatarIsActive,
+  address,
+  onTabClick,
+  isMobile,
+}) => {
+  const tabChangeHandler = useCallback<HeaderTabSelectChange>((value) => {
+    if (!value) return;
+    onTabClick(value.id);
+  }, []);
   
+  const defaultTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.section}>
@@ -42,27 +51,46 @@ const Header: FC = () => {
           size={20}
           className={styles.icon}
         />
-        <Link className={styles.logo} to={Routes.Homepage}>
-          Option
-          <span className={styles.logo_blitz}>Blitz</span>
-        </Link>
-        <div className={styles.tabs}>
-          {tabs.map((tab) => (
-            <HeaderTab
-              key={tab.id}
-              data={tab}
-              className={styles.tab}
-              onClick={onTabClick}
-            />
-          ))}
-          <button onClick={onAddTab} className={cx(styles.tab, styles.plus)}>
-            <FontIcon size={16} className={styles.plus_icon} name={FontIconName.Plus} />
-          </button>
-        </div>
+        {!isMobile && (
+          <Link className={styles.logo} to={Routes.Homepage}>
+            Option
+            <span className={styles.logo_blitz}>Blitz</span>
+          </Link>
+        )}
+        {!isMobile && (
+          <div className={styles.tabs}>
+            {tabs.map((tab) => (
+              <HeaderTab
+                key={tab.id}
+                data={tab}
+                className={styles.tab}
+                onClick={onTabClick}
+              />
+            ))}
+          </div>
+        )}
+        {isMobile && (
+          <HeaderTabSelect
+            className={styles.tab_selector}
+            onChange={tabChangeHandler}
+            tabs={tabs}
+            defaultValue={defaultTab}
+          />
+        )}
+        <button
+          onClick={onAddTab}
+          className={cx(styles.tab, styles.plus)}
+        >
+          <FontIcon size={16} className={styles.plus_icon} name={FontIconName.Plus} />
+        </button>
       </div>
 
       <div className={styles.section}>
-        <HeaderUser isActive={userAvatarIsActive} className={styles.avatar} img="/avatar.png" />
+        <HeaderUser
+          isActive={userAvatarIsActive} 
+          className={styles.avatar}
+          img="/avatar.png"
+        />
         {isAuth && (
           <HeaderBalance
             onChange={onBalanceChange}
@@ -71,9 +99,11 @@ const Header: FC = () => {
             defaultValue={defaultOption}
           />
         )}
-        <Button size={32} color="orange" className={styles.login}>
-          {balance || 'login'}
-        </Button>
+        {!isMobile && (
+          <Button size={32} color="orange" className={styles.login}>
+            {address || 'login'}
+          </Button>
+        )}
       </div>
     </div>
   );

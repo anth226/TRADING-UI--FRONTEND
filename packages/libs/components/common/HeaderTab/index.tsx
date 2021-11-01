@@ -1,6 +1,6 @@
 import React, { FC, MouseEventHandler, useCallback } from 'react';
 import cx from 'classnames';
-import { HeaderTabItem } from '@option-blitz/client/src/layouts/Header';
+import { HeaderTabItem } from '@option-blitz/client/src/hooks/header/useHeaderHandlers';
 import styles from './styles.module.scss';
 import { CloseIcon } from '../CloseIcon';
 import { countriesIcons, countriesNames } from '../../../constants/countries';

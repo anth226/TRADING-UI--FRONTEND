@@ -24,7 +24,7 @@ $defaultFlexBoxJustify: center;
 
 // Media request mixins MobileFirst
 @mixin mobile {
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 480px) {
     @content;
   }
 }

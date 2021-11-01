@@ -21,6 +21,14 @@
   background-color: var(--color-grey);
   position: relative;
   margin: 0 14px 0 10px;
+
+  @include mobile {
+    height: 34px;
+    width: 34px;
+    border: none;
+    background: none;
+    margin: initial;
+  }
 }
 
 .avatar {
@@ -28,6 +36,12 @@
   height: 30px;
   border: 2px solid #030711;
   border-radius: 100%;
+
+  @include mobile {
+    height: 24px;
+    width: 24px;
+    border: none;
+  }
 }
 
 .empty_avatar {
@@ -44,6 +58,11 @@
 
   &.online {
     background-color: var(--color-green);
+  }
+
+  @include mobile {
+    top: 1px;
+    right: 2px;
   }
 }
 

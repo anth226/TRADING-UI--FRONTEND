@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cx from 'classnames';
+import { HeaderContainer } from 'containers/HeaderContainer';
 import styles from './styles.module.scss';
-import { Header } from '../Header';
 import { LeftNavigationBar } from '../LeftNavigationBar';
 import { RightSidebar } from '../../containers/rightSidebar/RightSidebar';
 import { LeftSidebar } from '../../containers/leftSidebar/LeftSidebar';
@@ -25,7 +25,7 @@ const MainLayout: FC<IProps> = ({ children }) => {
         styles.container,
       )}
     >
-      <Header />
+      <HeaderContainer />
       <div className={styles.body}>
         <LeftNavigationBar
           rootItems={rootItems}

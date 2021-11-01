@@ -37,7 +37,7 @@ const HeaderUser: FC<Props> = ({
       )}
       />
       {img && (
-        <img src={img} alt="avatar" />
+        <img className={styles.avatar} src={img} alt="avatar" />
       )}
       {!img && (
         <div className={cx(styles.avatar, styles.empty_avatar)} />
