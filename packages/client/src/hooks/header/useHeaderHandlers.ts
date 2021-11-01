@@ -6,6 +6,7 @@ import { Countries } from '@option-blitz/libs/constants/countries';
 import { useShallowSelector } from '../useShallowSelector';
 import { selectTabs } from '../../store/tabs/selectors';
 import { tabsSetActiveTab } from '../../store/tabs/actionCreators';
+import { navigationToggleMobileSidebar } from '../../store/navigation/actionCreators';
 
 export interface HeaderTabItem {
   id: number
@@ -35,6 +36,10 @@ export const useHeaderHandlers = () => {
     dispatch(tabsSetActiveTab(id));
   }, [dispatch]);
   
+  const openMobileNavigation = useCallback(() => {
+    dispatch(navigationToggleMobileSidebar());
+  }, [dispatch]);
+  
   return {
     tabs,
     onAddTab,
@@ -45,5 +50,6 @@ export const useHeaderHandlers = () => {
     userAvatarIsActive: false,
     address: '0x00...0000',
     onTabClick,
+    openMobileNavigation,
   };
 };

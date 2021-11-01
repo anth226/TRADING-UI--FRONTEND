@@ -1,8 +1,12 @@
 import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Navigation, navigationNames, RootPart, rootPartNames, 
 } from '../../constants/navigation/navigation';
+import { useShallowSelector } from '../useShallowSelector';
+import { selectNavigation } from '../../store/navigation/selectors';
+import { navigationSetItem, navigationToggleMobileSidebar } from '../../store/navigation/actionCreators';
 
 interface INavigationItem {
   type?: Navigation
@@ -129,26 +133,37 @@ export const rootNavigationParts: RootNavigationPart[] = [
 ];
 
 export const useLeftNavigationBarHandlers = () => {
-  const [activeNavItem, setActiveNavItem] = useState<Navigation>();
+  const dispatch = useDispatch();
+  
   const [activeRootItem, setActiveRootType] = useState<RootPart>();
-  const [mobileNavigationActive, setMobileNavigation] = useState(false);
+  
+  const {
+    activeNavigation,
+    mobileSideBarIsOpen,
+  } = useShallowSelector(selectNavigation);
+  
+  const setActiveNavItem = useCallback((val?: Navigation) => {
+    dispatch(navigationSetItem(val));
+    dispatch(navigationToggleMobileSidebar());
+  }, [dispatch]);
   
   const closeSidebar = useCallback(() => {
-    setActiveNavItem(undefined);
-  }, []);
+    dispatch(navigationSetItem(undefined));
+  }, [dispatch]);
   
   const toggleMobileNavigation = useCallback(() => {
-    setMobileNavigation((prevState) => !prevState);
-  }, []);
+    dispatch(navigationToggleMobileSidebar());
+  }, [dispatch]);
   
   return {
     rootItems: rootNavigationParts,
     setActiveNavItem,
     setActiveRootType,
-    activeNavItem,
+    activeNavItem: activeNavigation,
     activeRootItem,
     closeSidebar,
-    mobileNavigationActive,
+    activeNavigation,
+    mobileSidebarIsOpen: mobileSideBarIsOpen,
     toggleMobileNavigation,
   };
 };

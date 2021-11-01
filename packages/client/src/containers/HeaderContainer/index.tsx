@@ -14,12 +14,14 @@ const HeaderContainer: FC = () => {
     userAvatarIsActive,
     isAuth,
     tabs,
+    openMobileNavigation,
   } = useHeaderHandlers();
   
   const { isMobile } = useResize();
   
   return (
     <Header
+      openMobileNavigation={openMobileNavigation}
       isMobile={isMobile}
       onAddTab={onAddTab} 
       onBalanceChange={onBalanceChange} 

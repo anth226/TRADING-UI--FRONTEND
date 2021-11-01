@@ -22,6 +22,7 @@ interface Props {
   address: string
   onTabClick: (id: number) => void
   isMobile?: boolean
+  openMobileNavigation?: () => void
 }
 
 const Header: FC<Props> = ({
@@ -35,6 +36,7 @@ const Header: FC<Props> = ({
   address,
   onTabClick,
   isMobile,
+  openMobileNavigation,
 }) => {
   const tabChangeHandler = useCallback<HeaderTabSelectChange>((value) => {
     if (!value) return;
@@ -46,11 +48,13 @@ const Header: FC<Props> = ({
   return (
     <div className={styles.wrap}>
       <div className={styles.section}>
-        <FontIcon
-          name={FontIconName.Menu}
-          size={20}
-          className={styles.icon}
-        />
+        <button onClick={isMobile ? openMobileNavigation : undefined}>
+          <FontIcon
+            name={FontIconName.Menu}
+            size={20}
+            className={styles.icon}
+          />
+        </button>
         {!isMobile && (
           <Link className={styles.logo} to={Routes.Homepage}>
             Option

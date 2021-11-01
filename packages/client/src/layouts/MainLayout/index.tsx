@@ -20,8 +20,9 @@ const MainLayout: FC<IProps> = ({ children }) => {
     setActiveRootType,
     setActiveNavItem,
     closeSidebar,
-    mobileNavigationActive,
+    mobileSidebarIsOpen,
     toggleMobileNavigation,
+    activeNavigation,
   } = useLeftNavigationBarHandlers();
   
   const { isMobile } = useResize();
@@ -49,10 +50,14 @@ const MainLayout: FC<IProps> = ({ children }) => {
         )}
         {isMobile && (
           <>
-            <MobileProducts />
+
+            {!activeNavigation && (
+              <MobileProducts />
+            )}
+
             <MobileNavigationBar
               onClose={toggleMobileNavigation}
-              isOpen={mobileNavigationActive}
+              isOpen={mobileSidebarIsOpen}
               rootItems={rootItems}
               activeRootItem={activeRootItem}
               setActiveNavItem={setActiveNavItem}
