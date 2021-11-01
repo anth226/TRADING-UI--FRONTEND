@@ -38,7 +38,7 @@ const MobileViewMode:FC<Props> = ({ mode, modeSelect }) => {
         onClick={columnBtnHandler}
         className={cx(
           styles.btn,
-          styles.gird_btn,
+          styles.column_btn,
           { [styles.active]: mode === ViewMode.Column },
         )}
       >

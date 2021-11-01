@@ -78,7 +78,7 @@ const DefaultSelect: FC<Props> = ({
         <div className={cx(
           styles.wrap,
           { [styles.wrap_small]: isSmall },
-          { [styles.wrap_without_title]: !title?.length },
+          { [styles.wrap_without_title]: !title?.length && isSmall },
         )}
         >
           {title && (
