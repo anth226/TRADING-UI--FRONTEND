@@ -6,7 +6,7 @@ import { Countries } from '@option-blitz/libs/constants/countries';
 import { useShallowSelector } from '../useShallowSelector';
 import { selectTabs } from '../../store/tabs/selectors';
 import { tabsSetActiveTab } from '../../store/tabs/actionCreators';
-import { navigationToggleMobileSidebar } from '../../store/navigation/actionCreators';
+import { navigationSetItem, navigationToggleMobileSidebar } from '../../store/navigation/actionCreators';
 
 export interface HeaderTabItem {
   id: number
@@ -34,6 +34,7 @@ export const useHeaderHandlers = () => {
   
   const onTabClick = useCallback((id: number) => {
     dispatch(tabsSetActiveTab(id));
+    dispatch(navigationSetItem(undefined));
   }, [dispatch]);
   
   const openMobileNavigation = useCallback(() => {

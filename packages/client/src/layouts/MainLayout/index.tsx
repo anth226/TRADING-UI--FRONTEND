@@ -9,6 +9,7 @@ import { LeftSidebar } from '../../containers/leftSidebar/LeftSidebar';
 import { useLeftNavigationBarHandlers } from '../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 import { MobileProducts } from '../../containers/MobileProducts';
 import { MobileNavigationBar } from '../MobileNavigationBar';
+import { MobileNavigation } from '../../containers/MobileNavigation';
 
 interface IProps {}
 
@@ -48,13 +49,11 @@ const MainLayout: FC<IProps> = ({ children }) => {
             <RightSidebar />
           </>
         )}
+
         {isMobile && (
           <>
-
-            {!activeNavigation && (
-              <MobileProducts />
-            )}
-
+            {!activeNavigation && <MobileProducts />}
+            {activeNavigation && <MobileNavigation />}
             <MobileNavigationBar
               onClose={toggleMobileNavigation}
               isOpen={mobileSidebarIsOpen}
