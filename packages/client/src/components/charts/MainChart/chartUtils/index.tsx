@@ -1,44 +1,43 @@
 import React from 'react';
 import {
-  AreaSeries,
+  AreaSeries, BollingerSeries,
   CandlestickSeries,
   KagiSeries,
-  LineSeries,
+  LineSeries, MACDSeries,
   MouseCoordinateX,
   MouseCoordinateY,
   OHLCSeries,
-  RenkoSeries,
-  SARSeries,
+  RenkoSeries, SARSeries, StochasticSeries,
   XAxis,
   YAxis,
-  BollingerSeries,
+  AlternatingFillAreaSeries,
+  StraightLine,
 } from 'react-financial-charts';
 import { format, timeFormat } from 'd3';
-import {
-  ema12, sma20, tma20, wma20, 
-} from '../../../../hooks/mainChart/useMainChart';
 import styles from '../styles.module.scss';
 
 import { margin } from '../index';
 import { ChartMenuIndicator, ChartType, IndicatorType } from '../../../../hooks/mainChart/useChartMenuHandlers';
 
-export const getGrid = (height = 500, width = 500) => {
+export const getGrid = (height = 500, width = 500, isLast = false,) => {
   const gridHeight = height - margin.top - margin.bottom;
   const gridWidth = width - margin.left - margin.right;
 
   return (
     <>
-      <XAxis
-        fontSize={8}
-        axisAt="bottom"
-        orient="bottom"
-        innerTickSize={-1 * gridHeight}
-        tickStrokeDasharray="Solid"
-        domainClassName={styles.grid}
-        tickStrokeStyle="rgba(102, 112, 148, 0.2)"
-        tickLabelFill="rgba(102, 112, 148, 0.2)"
-        strokeStyle="transport"
-      />
+      {isLast && (
+        <XAxis
+          fontSize={8}
+          axisAt="bottom"
+          orient="bottom"
+          innerTickSize={-1 * gridHeight}
+          tickStrokeDasharray="Solid"
+          domainClassName={styles.grid}
+          tickStrokeStyle="rgba(102, 112, 148, 0.2)"
+          tickLabelFill="rgba(102, 112, 148, 0.2)"
+          strokeStyle="transport"
+        />
+      )}
       <YAxis
         fontSize={8}
         axisAt="right"
@@ -54,13 +53,15 @@ export const getGrid = (height = 500, width = 500) => {
   );
 };
 
-export const getMouseCoordinates = () => (
+export const getMouseCoordinates = (isLast = false) => (
   <>
-    <MouseCoordinateX
-      at="bottom"
-      orient="bottom"
-      displayFormat={timeFormat('%Y-%m-%d')}
-    />
+    {isLast && (
+      <MouseCoordinateX
+        at="bottom"
+        orient="bottom"
+        displayFormat={timeFormat('%Y-%m-%d')}
+      />
+    )}
     <MouseCoordinateY
       at="right"
       orient="right"
@@ -69,6 +70,52 @@ export const getMouseCoordinates = () => (
     />
   </>
 );
+
+const bbStyles = {
+  middle: '#009CCD',
+  top: '#009CCD',
+  bottom: '#009CCD',
+};
+
+export const getIndicatorSeries = ({ type, value }: ChartMenuIndicator) => {
+  switch (type) {
+    case IndicatorType.ForseIndex:
+      return (
+        <>
+          <AlternatingFillAreaSeries
+            baseAt={0}
+            yAccessor={value.accessor()}
+          />
+          <StraightLine yValue={0} />
+        </>
+      );
+    case IndicatorType.MACD:
+      return (
+        <MACDSeries
+          yAccessor={value.accessor()}
+        />
+      );
+    case IndicatorType.Stochastic:
+      return (
+        <StochasticSeries
+          yAccessor={value.accessor()}
+        />
+      );
+    case IndicatorType.BollingerBar:
+      return (
+        <BollingerSeries
+          yAccessor={value.accessor()}
+          strokeStyle={bbStyles}
+        />
+      );
+    case IndicatorType.SAR:
+      return (<SARSeries yAccessor={value.accessor()} />);
+    default:
+      return (
+        <LineSeries yAccessor={value.accessor()} strokeStyle={value.stroke()} />
+      );
+  }
+};
 
 export const chartTypeContainer = (activeChart: ChartType) => (
   <>
@@ -85,37 +132,11 @@ export const chartTypeContainer = (activeChart: ChartType) => (
   </>
 );
 
-const bbStyles = {
-  middle: '#009CCD',
-  top: '#009CCD',
-  bottom: '#009CCD',
-};
-
 export const mainChartIndicators = (activeIndicators: ChartMenuIndicator[]) => (
   <>
-    {activeIndicators.map(({ type }) => (
-      <React.Fragment key={type}>
-        {type === IndicatorType.EMA && (
-          <LineSeries yAccessor={ema12.accessor()} strokeStyle={ema12.stroke()} />
-        )}
-        {type === IndicatorType.SMA && (
-          <LineSeries yAccessor={sma20.accessor()} strokeStyle={sma20.stroke()} />
-        )}
-        {type === IndicatorType.TMA && (
-          <LineSeries yAccessor={tma20.accessor()} strokeStyle={tma20.stroke()} />
-        )}
-        {type === IndicatorType.WMA && (
-          <LineSeries yAccessor={wma20.accessor()} strokeStyle={wma20.stroke()} />
-        )}
-        {type === IndicatorType.SAR && (
-          <SARSeries yAccessor={(d) => d.sar} />
-        )}
-        {type === IndicatorType.BollingerBar && (
-          <BollingerSeries
-            yAccessor={(d) => d.bb}
-            strokeStyle={bbStyles}
-          />
-        )}
+    {activeIndicators.map((indicator) => (
+      <React.Fragment key={indicator.type}>
+        {getIndicatorSeries(indicator)}
       </React.Fragment>
     ))}
   </>

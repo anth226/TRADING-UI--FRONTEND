@@ -1,15 +1,17 @@
 import React, { FC } from 'react';
 import {
+  Chart,
   ChartCanvas,
-  Chart, ZoomButtons,
   CrossHairCursor,
   discontinuousTimeScaleProvider,
-  OHLCTooltip,
+  OHLCTooltip, XAxis, YAxis,
+  ZoomButtons,
 } from 'react-financial-charts';
 import { last } from 'ramda';
+import { format } from 'd3';
 import styles from './styles.module.scss';
 import {
-  chartTypeContainer, getGrid, getMouseCoordinates, mainChartIndicators, 
+  chartTypeContainer, getGrid, getMouseCoordinates, mainChartIndicators, getIndicatorSeries,
 } from './chartUtils';
 import { MainChartMenu } from '../MainChartMenu';
 import { useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
@@ -22,7 +24,15 @@ export const margin = {
 const xScaleProvider = discontinuousTimeScaleProvider
   .inputDateAccessor((d) => d.date);
 
-const MainChart: FC = () => {
+interface Props {
+  height?: number
+  width?: number
+}
+
+const MainChart: FC<Props> = ({
+  width = 800,
+  height = 500,
+}) => {
   const {
     onCheckIndicator,
     times,
@@ -33,7 +43,12 @@ const MainChart: FC = () => {
     zoomIn,
     zoomOut,
     activeIndicators,
+    indicatorsHeight,
+    newChartIndicators,
+    mainChartIsLast,
   } = useChartMenuHandlers();
+
+  const mainChartHeight = height - indicatorsHeight - margin.top - margin.bottom;
 
   const {
     calculatedData,
@@ -50,6 +65,8 @@ const MainChart: FC = () => {
     displayXAccessor,
   } = xScaleProvider(calculatedData);
 
+  console.log(data, activeIndicators);
+
   const start = xAccessor(last(data));
   const end = xAccessor(data[Math.max(0, data.length - 150)]);
   const xExtents = [start, end];
@@ -57,8 +74,8 @@ const MainChart: FC = () => {
   return (
     <div className={styles.wrap}>
       <ChartCanvas
-        height={500}
-        width={800}
+        height={height}
+        width={width}
         ratio={1}
         margin={margin}
         seriesName="MSFT"
@@ -68,11 +85,11 @@ const MainChart: FC = () => {
         displayXAccessor={displayXAccessor}
         xExtents={xExtents}
       >
-        <Chart id={0} yExtents={(d) => [d.high, d.low]}>
-          {getGrid(500, 800)}
-          {getMouseCoordinates()}
+        <Chart height={mainChartHeight} id={0} yExtents={(d) => [d.high, d.low]}>
+          {getGrid(mainChartHeight, width, mainChartIsLast)}
+          {getMouseCoordinates(mainChartIsLast)}
           {chartTypeContainer(chartType)}
-          {mainChartIndicators(activeIndicators)}
+          {mainChartIndicators(activeIndicators.filter((i) => !i.isNewChart))}
 
           <OHLCTooltip origin={[40, 0]} textFill="#667094" />
           <g className={styles.zoom_buttons}>
@@ -80,6 +97,38 @@ const MainChart: FC = () => {
           </g>
         </Chart>
 
+        {newChartIndicators.map((indicator, index) => (
+          <Chart
+            key={indicator.type}
+            id={indicator.type}
+            yExtents={indicator.value.accessor()}
+            height={indicator.height}
+            origin={(w, h) => [0, h - (indicator.offset || indicator.height)]}
+          >
+            {index === 0 && (
+              <XAxis
+                axisAt="bottom"
+                orient="bottom"
+                fontSize={8}
+                tickStrokeStyle="rgba(102, 112, 148, 0.2)"
+                tickLabelFill="rgba(102, 112, 148, 0.2)"
+                strokeStyle="transport"
+              />
+            )}
+            <YAxis
+              axisAt="right"
+              orient="right"
+              fontSize={8}
+              tickStrokeStyle="rgba(102, 112, 148, 0.2)"
+              tickLabelFill="rgba(102, 112, 148, 0.2)"
+              strokeStyle="transport"
+              tickFormat={format('.3s')}
+            />
+
+            {getMouseCoordinates(index === 0)}
+            {getIndicatorSeries(indicator)}
+          </Chart>
+        ))}
         <CrossHairCursor />
       </ChartCanvas>
 

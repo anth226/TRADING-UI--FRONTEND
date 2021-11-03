@@ -1,4 +1,7 @@
 import { useCallback, useState } from 'react';
+import {
+  atr, bollingerBand, ema, sar, sma, tma, wma, rsi, macd, forceIndex, stochasticOscillator,
+} from 'react-financial-charts';
 
 export enum ChartType {
   Area,
@@ -33,10 +36,22 @@ export interface ChartMenuTime {
   format: string
 }
 
+interface IndicatorValue {
+  (data: any[], options?: {
+    merge: boolean;
+  }): any;
+  accessor(): any;
+  stroke(): string | any;
+}
+
 export interface ChartMenuIndicator {
   checked: boolean
   label: string
   type: IndicatorType
+  height: number
+  offset?: number
+  value: IndicatorValue
+  isNewChart?: boolean
 }
 
 const mainChartTimes: ChartMenuTime[] = [
@@ -50,18 +65,103 @@ const mainChartTimes: ChartMenuTime[] = [
   { label: '1 m', format: '' },
 ];
 
+/*eslint-disable */
+const ema12 = ema()
+  .id(1)
+  .options({ windowSize: 12 })
+  .merge((d: any, c: any) => { d.ema12 = c; })
+  .accessor((d: any) => d.ema12);
+
+const sma20 = sma()
+  .options({ windowSize: 20 })
+  .merge((d: any, c: any) => { d.sma20 = c; })
+  .accessor((d: any) => d.sma20);
+
+const tma20 = tma()
+  .options({ windowSize: 20 })
+  .merge((d: any, c: any) => { d.tma20 = c; })
+  .accessor((d: any) => d.tma20);
+
+const wma20 = wma()
+  .options({ windowSize: 20 })
+  .merge((d: any, c: any) => { d.wma20 = c; })
+  .accessor((d: any) => d.wma20);
+
+const defaultSar = sar()
+  .options({
+    accelerationFactor: 0.02, maxAccelerationFactor: 0.2
+  })
+  .merge((d: any, c: any) => {d.sar = c;})
+  .accessor((d: any) => d.sar);
+
+const bb = bollingerBand()
+  .merge((d: any, c: any) => {d.bb = c;})
+  .accessor((d: any) => d.bb);
+
+export const atr14 = atr()
+  .options({ windowSize: 14 })
+  .merge((d: any, c: any) => {d.atr14 = c;})
+  .accessor((d: any) => d.atr14);
+
+const rsi14 = rsi()
+  .options({ windowSize: 14 })
+  .merge((d: any, c: any) => {d.rsi = c;})
+  .accessor((d: any) => d.rsi);
+
+const macdCalculator = macd()
+  .options({
+    fast: 12,
+    slow: 26,
+    signal: 9,
+  })
+  .merge((d: any, c: any) => {d.macd = c;})
+  .accessor((d: any) => d.macd);
+
+const fi = forceIndex()
+  .merge((d: any, c: any) => {d.fi = c;})
+  .accessor((d: any) => d.fi);
+
+const fullSTO = stochasticOscillator()
+  .options({ windowSize: 14, kWindowSize: 3, dWindowSize: 4 })
+  .merge((d: any, c: any) => {d.fullSTO = c;})
+  .accessor((d: any) => d.fullSTO);
+
+/* eslint-enable */
+
 const mainChartIndicators: ChartMenuIndicator[] = [
-  { type: IndicatorType.EMA, label: 'EMA', checked: false },
-  { type: IndicatorType.SMA, label: 'SMA', checked: false },
-  { type: IndicatorType.TMA, label: 'TMA', checked: false },
-  { type: IndicatorType.WMA, label: 'WMA', checked: false },
-  { type: IndicatorType.SAR, label: 'SAR', checked: false },
-  { type: IndicatorType.BollingerBar, label: 'BOLLINGER BAR', checked: false },
-  { type: IndicatorType.MACD, label: 'MACD', checked: false },
-  { type: IndicatorType.ATR, label: 'ATR', checked: false },
-  { type: IndicatorType.RSI, label: 'RSI', checked: false },
-  { type: IndicatorType.Stochastic, label: 'STOCHASTIC', checked: false },
-  { type: IndicatorType.ForseIndex, label: 'FORCE INDEX', checked: false },
+  {
+    type: IndicatorType.EMA, label: 'EMA', checked: false, height: 0, value: ema12,
+  },
+  {
+    type: IndicatorType.SMA, label: 'SMA', checked: false, height: 0, value: sma20,
+  },
+  {
+    type: IndicatorType.TMA, label: 'TMA', checked: false, height: 0, value: tma20,
+  },
+  {
+    type: IndicatorType.WMA, label: 'WMA', checked: false, height: 0, value: wma20,
+  },
+  {
+    type: IndicatorType.SAR, label: 'SAR', checked: false, height: 0, value: defaultSar,
+  },
+  {
+    type: IndicatorType.BollingerBar, label: 'BOLLINGER BAR', checked: false, height: 0, value: bb,
+  },
+  {
+    type: IndicatorType.MACD, label: 'MACD', checked: false, height: 125, value: macdCalculator, isNewChart: true,
+  },
+  {
+    type: IndicatorType.ATR, label: 'ATR', checked: false, height: 125, value: atr14, isNewChart: true,
+  },
+  {
+    type: IndicatorType.RSI, label: 'RSI', checked: false, height: 125, value: rsi14, isNewChart: true,
+  },
+  {
+    type: IndicatorType.Stochastic, label: 'STOCHASTIC', checked: false, height: 125, value: fullSTO, isNewChart: true,
+  },
+  {
+    type: IndicatorType.ForseIndex, label: 'FORCE INDEX', checked: false, height: 125, value: fi, isNewChart: true,
+  },
 ];
 
 export const useChartMenuHandlers = () => {
@@ -74,7 +174,18 @@ export const useChartMenuHandlers = () => {
     const newIndicators = [...indicators];
     const currentIndicator = newIndicators.find((item) => item.label === indicator.label);
     if (!currentIndicator) return;
+    
     currentIndicator.checked = !indicator.checked;
+
+    let offset = 0;
+    newIndicators
+      .filter((i) => i.checked)
+      .forEach((i) => {
+        offset += i.height;
+        // eslint-disable-next-line no-param-reassign
+        i.offset = offset;
+      });
+
     setIndicators(newIndicators);
   }, []);
   
@@ -119,6 +230,14 @@ export const useChartMenuHandlers = () => {
     }
     zoom(zoomOutElement);
   }, [zoomOutElement]);
+  
+  const activeIndicators = indicators.filter((indicator) => indicator.checked);
+  const indicatorsHeight = activeIndicators
+    .map((i) => i.height)
+    .reduce<number>((sum, current) => sum + current, 0);
+  
+  const newChartIndicators = activeIndicators.filter((i) => i.isNewChart);
+  const mainChartIsLast = activeIndicators.length === 0;
 
   return {
     onCheckIndicator,
@@ -129,6 +248,9 @@ export const useChartMenuHandlers = () => {
     chartType: chartTypes[chartTypeNum],
     zoomIn,
     zoomOut,
-    activeIndicators: indicators.filter((indicator) => indicator.checked),
+    activeIndicators,
+    indicatorsHeight,
+    newChartIndicators,
+    mainChartIsLast,
   };
 };
