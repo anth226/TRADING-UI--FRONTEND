@@ -1,28 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import {
   Chart,
   ChartCanvas,
   CrossHairCursor,
-  discontinuousTimeScaleProvider,
   OHLCTooltip, XAxis, YAxis,
   ZoomButtons,
 } from 'react-financial-charts';
-import { last } from 'ramda';
 import { format } from 'd3';
 import styles from './styles.module.scss';
 import {
   chartTypeContainer, getGrid, getMouseCoordinates, mainChartIndicators, getIndicatorSeries,
 } from './chartUtils';
 import { MainChartMenu } from '../MainChartMenu';
-import { useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
+import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
 import { useMainChart } from '../../../hooks/mainChart/useMainChart';
 
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
 };
-
-const xScaleProvider = discontinuousTimeScaleProvider
-  .inputDateAccessor((d) => d.date);
 
 interface Props {
   height?: number
@@ -43,33 +38,34 @@ const MainChart: FC<Props> = ({
     zoomIn,
     zoomOut,
     activeIndicators,
-    indicatorsHeight,
-    newChartIndicators,
-    mainChartIsLast,
+    activeTime,
   } = useChartMenuHandlers();
-
-  const mainChartHeight = height - indicatorsHeight - margin.top - margin.bottom;
 
   const {
     calculatedData,
+    indicatorsHeight,
+    newChartIndicators,
+    mainChartIsLast,
+    data,
+    xAccessor,
+    xExtents,
+    xScale,
+    displayXAccessor,
+    setTime,
   } = useMainChart(activeIndicators);
+  
+  const timeClickHandler = useCallback(
+    (timeFormat: MainChartTimeFormat, calc: (date: Date) => Date) => {
+      timeClick(timeFormat);
+      setTime(calc);
+    }, [setTime, timeClick],
+  );
+
+  const mainChartHeight = height - indicatorsHeight - margin.top - margin.bottom;
 
   if (!calculatedData) {
     return null;
   }
-
-  const {
-    data,
-    xScale,
-    xAccessor,
-    displayXAccessor,
-  } = xScaleProvider(calculatedData);
-
-  console.log(data, activeIndicators);
-
-  const start = xAccessor(last(data));
-  const end = xAccessor(data[Math.max(0, data.length - 150)]);
-  const xExtents = [start, end];
   
   return (
     <div className={styles.wrap}>
@@ -133,10 +129,11 @@ const MainChart: FC<Props> = ({
       </ChartCanvas>
 
       <MainChartMenu
+        activeTime={activeTime}
         className={styles.menu}
         indicators={indicators}
         times={times}
-        onTimeClick={timeClick}
+        onTimeClick={timeClickHandler}
         onChangeCharType={changeChartType}
         onIndicatorChecked={onCheckIndicator}
         onZoomIn={zoomIn}

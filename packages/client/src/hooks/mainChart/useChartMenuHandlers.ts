@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import {
   atr, bollingerBand, ema, sar, sma, tma, wma, rsi, macd, forceIndex, stochasticOscillator,
 } from 'react-financial-charts';
+import { addDays, addHours, addMinutes } from 'date-fns';
 
 export enum ChartType {
   Area,
@@ -26,6 +27,17 @@ export enum IndicatorType {
   ForseIndex,
 }
 
+export enum MainChartTimeFormat {
+  Day30,
+  Day1,
+  Hours3,
+  Horse1,
+  Min30,
+  Min15,
+  Min5,
+  Min1,
+}
+
 export const chartTypes: ChartType[] = [
   ChartType.Area, ChartType.Line,
   ChartType.CandleStick, ChartType.Ohlc, ChartType.Kagi, ChartType.Renko,
@@ -33,7 +45,8 @@ export const chartTypes: ChartType[] = [
 
 export interface ChartMenuTime {
   label: string
-  format: string
+  calc: (date: Date) => Date
+  format: MainChartTimeFormat
 }
 
 interface IndicatorValue {
@@ -55,14 +68,14 @@ export interface ChartMenuIndicator {
 }
 
 const mainChartTimes: ChartMenuTime[] = [
-  { label: '30 d', format: '' },
-  { label: '1 d', format: '' },
-  { label: '3 h', format: '' },
-  { label: '1 h', format: '' },
-  { label: '30 m', format: '' },
-  { label: '15 m', format: '' },
-  { label: '5 m', format: '' },
-  { label: '1 m', format: '' },
+  { label: '30 d', calc: ((date) => addDays(date, -30)), format: MainChartTimeFormat.Day30 },
+  { label: '1 d', calc: ((date) => addDays(date, -1)), format: MainChartTimeFormat.Day1 },
+  { label: '3 h', calc: ((date) => addHours(date, -3)), format: MainChartTimeFormat.Hours3 },
+  { label: '1 h', calc: ((date) => addHours(date, -1)), format: MainChartTimeFormat.Horse1 },
+  { label: '30 m', calc: ((date) => addMinutes(date, -30)), format: MainChartTimeFormat.Min30 },
+  { label: '15 m', calc: ((date) => addMinutes(date, -15)), format: MainChartTimeFormat.Min15 },
+  { label: '5 m', calc: ((date) => addMinutes(date, -5)), format: MainChartTimeFormat.Min5 },
+  { label: '1 m', calc: ((date) => addMinutes(date, -1)), format: MainChartTimeFormat.Min1 },
 ];
 
 /*eslint-disable */
@@ -165,6 +178,7 @@ const mainChartIndicators: ChartMenuIndicator[] = [
 ];
 
 export const useChartMenuHandlers = () => {
+  const [activeTime, setActiveTime] = useState<MainChartTimeFormat>();
   const [indicators, setIndicators] = useState(mainChartIndicators);
   const [chartTypeNum, setChartTypeNum] = useState(0);
   const [zoomInElement, setZoomInElement] = useState<Element>();
@@ -189,7 +203,8 @@ export const useChartMenuHandlers = () => {
     setIndicators(newIndicators);
   }, []);
   
-  const timeClick = useCallback(() => {
+  const timeClick = useCallback((format: MainChartTimeFormat) => {
+    setActiveTime(format);
   }, []);
 
   const changeChartType = useCallback(() => {
@@ -232,12 +247,6 @@ export const useChartMenuHandlers = () => {
   }, [zoomOutElement]);
   
   const activeIndicators = indicators.filter((indicator) => indicator.checked);
-  const indicatorsHeight = activeIndicators
-    .map((i) => i.height)
-    .reduce<number>((sum, current) => sum + current, 0);
-  
-  const newChartIndicators = activeIndicators.filter((i) => i.isNewChart);
-  const mainChartIsLast = activeIndicators.length === 0;
 
   return {
     onCheckIndicator,
@@ -249,8 +258,6 @@ export const useChartMenuHandlers = () => {
     zoomIn,
     zoomOut,
     activeIndicators,
-    indicatorsHeight,
-    newChartIndicators,
-    mainChartIsLast,
+    activeTime,
   };
 };

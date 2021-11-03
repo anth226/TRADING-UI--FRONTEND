@@ -3,15 +3,15 @@ import cx from 'classnames';
 import Tippy from '@tippyjs/react';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
-import { ChartMenuIndicator, ChartMenuTime } from '../../../hooks/mainChart/useChartMenuHandlers';
+import { ChartMenuIndicator, ChartMenuTime, MainChartTimeFormat } from '../../../hooks/mainChart/useChartMenuHandlers';
 import styles from './styles.module.scss';
 
 interface Props {
   className?: string
   indicators: ChartMenuIndicator[]
   times: ChartMenuTime[]
-  onTimeClick: (format: string) => void
-  activeTime?: ChartMenuTime
+  onTimeClick: (format: MainChartTimeFormat, func: (date: Date) => Date) => void
+  activeTime?: MainChartTimeFormat
   onZoomIn?: () => void
   onZoomOut?: () => void
   onChangeCharType?: () => void
@@ -29,9 +29,10 @@ const MainChartMenu: FC<Props> = ({
   onChangeCharType,
   onIndicatorChecked,
 }) => {
-  const timeClickHandler = useCallback((format: string) => () => {
-    onTimeClick(format);
-  }, [onTimeClick]);
+  const timeClickHandler = 
+    useCallback((format: MainChartTimeFormat, func: (date: Date) => Date) => () => {
+      onTimeClick(format, func);
+    }, [onTimeClick]);
   
   const checkboxHandler = useCallback((indicator: ChartMenuIndicator) => () => {
     onIndicatorChecked(indicator);
@@ -60,9 +61,9 @@ const MainChartMenu: FC<Props> = ({
           <button
             className={cx(
               styles.button, 
-              { [styles.active_button]: time.format === activeTime?.format },
+              { [styles.active_button]: time.format === activeTime },
             )}
-            onClick={timeClickHandler(time.format)}
+            onClick={timeClickHandler(time.format, time.calc)}
           >
             {time.label}
           </button>
