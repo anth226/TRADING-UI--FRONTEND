@@ -65,6 +65,9 @@ export interface ChartMenuIndicator {
   offset?: number
   value: IndicatorValue
   isNewChart?: boolean
+  tooltipLabel?: string
+  movingTooltip?: boolean
+  windowSize?: number
 }
 
 const mainChartTimes: ChartMenuTime[] = [
@@ -107,7 +110,7 @@ const defaultSar = sar()
   .merge((d: any, c: any) => {d.sar = c;})
   .accessor((d: any) => d.sar);
 
-const bb = bollingerBand()
+export const bb = bollingerBand()
   .merge((d: any, c: any) => {d.bb = c;})
   .accessor((d: any) => d.bb);
 
@@ -116,12 +119,12 @@ export const atr14 = atr()
   .merge((d: any, c: any) => {d.atr14 = c;})
   .accessor((d: any) => d.atr14);
 
-const rsi14 = rsi()
+export const rsi14 = rsi()
   .options({ windowSize: 14 })
   .merge((d: any, c: any) => {d.rsi = c;})
   .accessor((d: any) => d.rsi);
 
-const macdCalculator = macd()
+export const macdCalculator = macd()
   .options({
     fast: 12,
     slow: 26,
@@ -134,7 +137,7 @@ const fi = forceIndex()
   .merge((d: any, c: any) => {d.fi = c;})
   .accessor((d: any) => d.fi);
 
-const fullSTO = stochasticOscillator()
+export const fullSTO = stochasticOscillator()
   .options({ windowSize: 14, kWindowSize: 3, dWindowSize: 4 })
   .merge((d: any, c: any) => {d.fullSTO = c;})
   .accessor((d: any) => d.fullSTO);
@@ -143,19 +146,24 @@ const fullSTO = stochasticOscillator()
 
 const mainChartIndicators: ChartMenuIndicator[] = [
   {
-    type: IndicatorType.EMA, label: 'EMA', checked: false, height: 0, value: ema12,
+    type: IndicatorType.EMA, label: 'EMA', checked: false, height: 0, value: ema12, movingTooltip: true, windowSize: 12,
   },
   {
-    type: IndicatorType.SMA, label: 'SMA', checked: false, height: 0, value: sma20,
+    type: IndicatorType.SMA, label: 'SMA', checked: false, height: 0, value: sma20, movingTooltip: true, windowSize: 20,
   },
   {
-    type: IndicatorType.TMA, label: 'TMA', checked: false, height: 0, value: tma20,
+    type: IndicatorType.TMA, label: 'TMA', checked: false, height: 0, value: tma20, movingTooltip: true, windowSize: 20,
   },
   {
-    type: IndicatorType.WMA, label: 'WMA', checked: false, height: 0, value: wma20,
+    type: IndicatorType.WMA, label: 'WMA', checked: false, height: 0, value: wma20, movingTooltip: true, windowSize: 20,
   },
   {
-    type: IndicatorType.SAR, label: 'SAR', checked: false, height: 0, value: defaultSar,
+    type: IndicatorType.SAR, 
+    label: 'SAR',
+    checked: false,
+    height: 0,
+    value: defaultSar,
+    tooltipLabel: `SAR (${defaultSar.options().accelerationFactor}, ${defaultSar.options().maxAccelerationFactor})`,
   },
   {
     type: IndicatorType.BollingerBar, label: 'BOLLINGER BAR', checked: false, height: 0, value: bb,
@@ -164,16 +172,34 @@ const mainChartIndicators: ChartMenuIndicator[] = [
     type: IndicatorType.MACD, label: 'MACD', checked: false, height: 125, value: macdCalculator, isNewChart: true,
   },
   {
-    type: IndicatorType.ATR, label: 'ATR', checked: false, height: 125, value: atr14, isNewChart: true,
+    type: IndicatorType.ATR,
+    label: 'ATR',
+    checked: false,
+    height: 125,
+    value: atr14,
+    isNewChart: true,
+    tooltipLabel: `ATR (${atr14.options().windowSize})`,
   },
   {
     type: IndicatorType.RSI, label: 'RSI', checked: false, height: 125, value: rsi14, isNewChart: true,
   },
   {
-    type: IndicatorType.Stochastic, label: 'STOCHASTIC', checked: false, height: 125, value: fullSTO, isNewChart: true,
+    type: IndicatorType.Stochastic,
+    label: 'STOCHASTIC',
+    checked: false,
+    height: 125,
+    value: fullSTO,
+    isNewChart: true,
+    tooltipLabel: 'Full STO',
   },
   {
-    type: IndicatorType.ForseIndex, label: 'FORCE INDEX', checked: false, height: 125, value: fi, isNewChart: true,
+    type: IndicatorType.ForseIndex,
+    label: 'FORCE INDEX',
+    checked: false,
+    height: 125,
+    value: fi,
+    isNewChart: true,
+    tooltipLabel: 'ForceIndex (1)',
   },
 ];
 

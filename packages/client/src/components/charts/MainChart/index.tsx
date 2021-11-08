@@ -9,7 +9,10 @@ import {
 import { format } from 'd3';
 import styles from './styles.module.scss';
 import {
-  chartTypeContainer, getGrid, getMouseCoordinates, mainChartIndicators, getIndicatorSeries,
+  chartTypeContainer,
+  getGrid, getMouseCoordinates,
+  mainChartIndicators, getIndicatorSeries,
+  movingAverageTooltip, indicatorTooltip, mainChartIndicatorTooltip,
 } from './chartUtils';
 import { MainChartMenu } from '../MainChartMenu';
 import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
@@ -18,6 +21,8 @@ import { useMainChart } from '../../../hooks/mainChart/useMainChart';
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
 };
+
+const marginBetweenCharts = 10;
 
 interface Props {
   height?: number
@@ -88,6 +93,8 @@ const MainChart: FC<Props> = ({
           {getMouseCoordinates(mainChartIsLast)}
           {chartTypeContainer(chartType)}
           {mainChartIndicators(activeIndicators.filter((i) => !i.isNewChart))}
+          {movingAverageTooltip(activeIndicators)}
+          {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
           <OHLCTooltip origin={[40, 0]} textFill="#667094" />
           <g className={styles.zoom_buttons}>
@@ -100,8 +107,8 @@ const MainChart: FC<Props> = ({
             key={indicator.type}
             id={indicator.type}
             yExtents={indicator.value.accessor()}
-            height={indicator.height}
-            origin={(w, h) => [0, h - (indicator.offset || indicator.height)]}
+            height={indicator.height - marginBetweenCharts}
+            origin={(w, h) => [0, h - (indicator.offset || indicator.height) + marginBetweenCharts]}
           >
             {index === 0 && (
               <XAxis
@@ -125,6 +132,7 @@ const MainChart: FC<Props> = ({
 
             {getMouseCoordinates(index === 0)}
             {getIndicatorSeries(indicator)}
+            {indicatorTooltip(indicator)}
           </Chart>
         ))}
         <CrossHairCursor />
