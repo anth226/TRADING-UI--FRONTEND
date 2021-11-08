@@ -12,7 +12,11 @@ import { useClassicSidebarHandlers } from '../../../hooks/rightSidebar/useClassi
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
 import { useCollapse } from '../../../hooks/useCollapse';
 
-const ClassicMobile: FC = () => {
+interface Props {
+  mainChart?: React.ReactNode
+}
+
+const ClassicMobile: FC<Props> = ({ mainChart }) => {
   const {
     trade: {
       activeButton,
@@ -51,8 +55,8 @@ const ClassicMobile: FC = () => {
 
   return (
     <RightSidebarNavigation isMobile>
-      <div>
-        {/* TODO: Chart component */}
+      <div className={styles.chart_wrap}>
+        {mainChart}
       </div>
 
       <div className={styles.trade}>

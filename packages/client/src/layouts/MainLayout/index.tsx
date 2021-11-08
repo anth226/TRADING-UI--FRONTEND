@@ -53,7 +53,7 @@ const MainLayout: FC<IProps> = ({ children }) => {
 
         {isMobile && (
           <>
-            {!activeNavigation && <MobileProducts />}
+            {!activeNavigation && <MobileProducts mainChart={children} />}
             {activeNavigation && <MobileNavigation />}
             <MobileNavigationBar
               onClose={toggleMobileNavigation}

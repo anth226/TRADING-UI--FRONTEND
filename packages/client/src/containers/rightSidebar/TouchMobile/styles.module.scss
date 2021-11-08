@@ -1,7 +1,8 @@
 @import "~@option-blitz/libs/assets/styles/mixins";
 
 .trades_wrap {
-  max-height: 200px;
+  margin: 0 16px;
+  min-height: 190px;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -96,10 +97,18 @@
 }
 
 .trade {
-  margin: 0 16px;
+  @include flexbox();
+
+  flex-direction: column;
+  height: 100%;
 }
 
 .positions_wrap {
   margin-top: 6px;
   margin-bottom: auto;
+}
+
+.chart_wrap {
+  width: 100%;
+  height: 100%;
 }

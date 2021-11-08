@@ -14,7 +14,11 @@ import { useCheckbox } from '../../../hooks/useCheckbox';
 import { useCollapse } from '../../../hooks/useCollapse';
 import { RightSidebarPosInfo } from '../../../components/rightSidebar/RightSidebarPosInfo';
 
-const TouchMobile: FC = () => {
+interface Props {
+  mainChart?: React.ReactNode
+}
+
+const TouchMobile: FC<Props> = ({ mainChart }) => {
   const {
     trade: {
       placeTrade,
@@ -64,11 +68,14 @@ const TouchMobile: FC = () => {
   
   return (
     <RightSidebarNavigation isMobile>
-      <div>
-        {/* TODO: Chart component */}
+      <div className={styles.chart_wrap}>
+        {mainChart}
       </div>
 
       <div className={styles.trade}>
+        <div className={styles.chart_wrap}>
+          {mainChart}
+        </div>
         <div className={styles.trades_wrap}>
           <Collapse
             className={styles.collapse}
