@@ -1,13 +1,13 @@
 import {
   useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
-import * as d3 from 'd3';
+import { timeParse, csv } from 'd3';
 import { discontinuousTimeScaleProvider, last, ChartCanvas } from 'react-financial-charts';
 import { isBefore } from 'date-fns';
 import { ChartMenuIndicator } from './useChartMenuHandlers';
 
-const link = 'https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv';
-const parseDate = d3.timeParse('%Y-%m-%d');
+const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitfinex_xbtusd_1m.csv';
+const parseDate = timeParse('%Y-%m-%d %H:%M:%S');
 
 const xScaleProvider = discontinuousTimeScaleProvider
   .inputDateAccessor((d) => d.date);
@@ -17,7 +17,7 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
 
   const [initialData, setData] = useState<any>();
   useEffect(() => {
-    d3.tsv(link, (e: any) => {
+    csv(link, (e: any) => {
       e.date = parseDate(e.date);
       e.open = +e.open;
       e.high = +e.high;
@@ -82,8 +82,6 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
 
     setXExtents([xStart, xEnd]);
   }, [data, xAccessor, ref]);
-  
-  console.log(data);
 
   useEffect(() => {
     setXExtents([start, end]);

@@ -7,6 +7,7 @@ import {
   XAxis,
   YAxis,
   ZoomButtons,
+  EdgeIndicator,
 } from 'react-financial-charts';
 import { format } from 'd3';
 import styles from './styles.module.scss';
@@ -105,6 +106,14 @@ const MainChart: FC<Props> = ({
           {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
           <OHLCTooltip origin={[40, 0]} textFill="#667094" />
+          <EdgeIndicator
+            itemType="last"
+            orient="right"
+            edgeAt="right"
+            yAccessor={(d) => d.close}
+            fill="#009CCD"
+            lineStroke="#fff"
+          />
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
           </g>
