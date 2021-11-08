@@ -19,7 +19,7 @@ import styles from '../styles.module.scss';
 import { margin } from '../index';
 import { ChartMenuIndicator, ChartType, IndicatorType } from '../../../../hooks/mainChart/useChartMenuHandlers';
 
-export const getGrid = (height = 500, width = 500, isLast = false,) => {
+export const getGrid = (height = 500, width = 500, isLast = false) => {
   const gridHeight = height - margin.top - margin.bottom;
   const gridWidth = width - margin.left - margin.right;
 

@@ -52,6 +52,7 @@ const MainChart: FC<Props> = ({
     xScale,
     displayXAccessor,
     setTime,
+    ref,
   } = useMainChart(activeIndicators);
   
   const timeClickHandler = useCallback(
@@ -70,6 +71,7 @@ const MainChart: FC<Props> = ({
   return (
     <div className={styles.wrap}>
       <ChartCanvas
+        ref={ref}
         height={height}
         width={width}
         ratio={1}

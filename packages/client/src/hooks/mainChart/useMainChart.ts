@@ -1,8 +1,8 @@
 import {
-  useCallback, useEffect, useMemo, useState,
+  useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import * as d3 from 'd3';
-import { discontinuousTimeScaleProvider, last } from 'react-financial-charts';
+import { discontinuousTimeScaleProvider, last, ChartCanvas } from 'react-financial-charts';
 import { isBefore } from 'date-fns';
 import { ChartMenuIndicator } from './useChartMenuHandlers';
 
@@ -13,6 +13,8 @@ const xScaleProvider = discontinuousTimeScaleProvider
   .inputDateAccessor((d) => d.date);
 
 export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
+  const ref = useRef<ChartCanvas<number>>(null);
+
   const [initialData, setData] = useState<any>();
   useEffect(() => {
     d3.tsv(link, (e: any) => {
@@ -50,10 +52,10 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
 
   const {
     data,
-    xScale,
-    xAccessor,
     displayXAccessor,
-  } = xScaleProvider(calculatedData || []);
+    xAccessor,
+    xScale,
+  } = useMemo(() => xScaleProvider(calculatedData || []), [calculatedData]);
 
   const end = xAccessor(last(data));
   const start = xAccessor(data[data.length - 150]);
@@ -61,7 +63,10 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
   const [xExtents, setXExtents] = useState<number[]>([]);
 
   const setTime = useCallback((calc: (date: Date) => Date) => {
-    const lastData = last(data);
+    if (!ref.current) return;
+    const { plotData } = ref.current.getDataInfo();
+
+    const lastData = last(plotData);
     const calcDate = calc(lastData.date);
     let startData = data[data.length - 100];
     
@@ -76,7 +81,7 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
     const xEnd = xAccessor(lastData);
 
     setXExtents([xStart, xEnd]);
-  }, [data, xAccessor]);
+  }, [data, xAccessor, ref]);
   
   console.log(data);
 
@@ -95,5 +100,6 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
     xAccessor,
     data,
     setTime,
+    ref,
   };
 };
