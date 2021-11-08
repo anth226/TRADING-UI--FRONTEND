@@ -3,16 +3,22 @@ import {
   Chart,
   ChartCanvas,
   CrossHairCursor,
-  OHLCTooltip, XAxis, YAxis,
+  OHLCTooltip,
+  XAxis,
+  YAxis,
   ZoomButtons,
 } from 'react-financial-charts';
 import { format } from 'd3';
 import styles from './styles.module.scss';
 import {
   chartTypeContainer,
-  getGrid, getMouseCoordinates,
-  mainChartIndicators, getIndicatorSeries,
-  movingAverageTooltip, indicatorTooltip, mainChartIndicatorTooltip,
+  getGrid,
+  getIndicatorSeries,
+  getMouseCoordinates, getTimeMarks, getUserMarks,
+  indicatorTooltip,
+  mainChartIndicators,
+  mainChartIndicatorTooltip,
+  movingAverageTooltip,
 } from './chartUtils';
 import { MainChartMenu } from '../MainChartMenu';
 import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
@@ -44,6 +50,8 @@ const MainChart: FC<Props> = ({
     zoomOut,
     activeIndicators,
     activeTime,
+    toggleUserMarks,
+    userMarksActive,
   } = useChartMenuHandlers();
 
   const {
@@ -59,10 +67,10 @@ const MainChart: FC<Props> = ({
     setTime,
     ref,
   } = useMainChart(activeIndicators);
-  
+
   const timeClickHandler = useCallback(
-    (timeFormat: MainChartTimeFormat, calc: (date: Date) => Date) => {
-      timeClick(timeFormat);
+    (tFormat: MainChartTimeFormat, calc: (date: Date) => Date) => {
+      timeClick(tFormat);
       setTime(calc);
     }, [setTime, timeClick],
   );
@@ -72,7 +80,7 @@ const MainChart: FC<Props> = ({
   if (!calculatedData) {
     return null;
   }
-  
+
   return (
     <div className={styles.wrap}>
       <ChartCanvas
@@ -100,6 +108,10 @@ const MainChart: FC<Props> = ({
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
           </g>
+
+          {/* TODO: Delete marks after implementing backend */}
+          {getTimeMarks(data, height)}
+          {getUserMarks(data, userMarksActive)}
         </Chart>
 
         {newChartIndicators.map((indicator, index) => (
@@ -148,6 +160,8 @@ const MainChart: FC<Props> = ({
         onIndicatorChecked={onCheckIndicator}
         onZoomIn={zoomIn}
         onZoomOut={zoomOut}
+        toggleUserMark={toggleUserMarks}
+        userMarksIsActive={userMarksActive}
       />
     </div>
   );

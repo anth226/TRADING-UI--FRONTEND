@@ -209,6 +209,7 @@ export const useChartMenuHandlers = () => {
   const [chartTypeNum, setChartTypeNum] = useState(0);
   const [zoomInElement, setZoomInElement] = useState<Element>();
   const [zoomOutElement, setZoomOutElement] = useState<Element>();
+  const [userMarksActive, setUserMarks] = useState(false);
   
   const onCheckIndicator = useCallback((indicator: ChartMenuIndicator) => {
     const newIndicators = [...indicators];
@@ -273,6 +274,10 @@ export const useChartMenuHandlers = () => {
   }, [zoomOutElement]);
   
   const activeIndicators = indicators.filter((indicator) => indicator.checked);
+  
+  const toggleUserMarks = useCallback(() => {
+    setUserMarks((prevState) => !prevState);
+  }, []);
 
   return {
     onCheckIndicator,
@@ -285,5 +290,7 @@ export const useChartMenuHandlers = () => {
     zoomOut,
     activeIndicators,
     activeTime,
+    userMarksActive,
+    toggleUserMarks,
   };
 };

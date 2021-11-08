@@ -17,7 +17,7 @@ import {
   StochasticTooltip,
   MovingAverageTooltip,
   BollingerBandTooltip,
-  MACDTooltip,
+  MACDTooltip, Annotate,
 } from 'react-financial-charts';
 import { format, timeFormat } from 'd3';
 import styles from '../styles.module.scss';
@@ -26,6 +26,8 @@ import { margin } from '../index';
 import {
   ChartMenuIndicator, ChartType, fullSTO, IndicatorType, rsi14, bb, macdCalculator,
 } from '../../../../hooks/mainChart/useChartMenuHandlers';
+import { UserMark } from '../UserMark';
+import { TimeMark, TimeMarkType } from '../TimeMark';
 
 export const getGrid = (height = 500, width = 500, isLast = false) => {
   const gridWidth = width - margin.left - margin.right;
@@ -260,3 +262,35 @@ export const movingAverageTooltip = (activeIndicators: ChartMenuIndicator[]) => 
     <MovingAverageTooltip textFill="#667094" origin={[40, 15]} options={options} />
   );
 };
+
+export const getUserMarks = (data: any[], isActive = false) => {
+  if (!isActive) return null;
+  
+  return (
+    <>
+      <Annotate
+        when={(d) => d.date === data[data.length - 75].date}
+        with={UserMark}
+      />
+      <Annotate
+        when={(d) => d.date === data[data.length - 125].date}
+        with={UserMark}
+      />
+    </>
+  );
+};
+
+export const getTimeMarks = (data: any[], height: number) => (
+  <>
+    <Annotate
+      when={(d) => d.date === data[data.length - 1].date}
+      with={TimeMark}
+      usingProps={{ height, type: TimeMarkType.End }}
+    />
+    <Annotate
+      when={(d) => d.date === data[data.length - 50].date}
+      with={TimeMark}
+      usingProps={{ height, type: TimeMarkType.Start }}
+    />
+  </>
+);

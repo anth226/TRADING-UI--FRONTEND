@@ -16,6 +16,8 @@ interface Props {
   onZoomOut?: () => void
   onChangeCharType?: () => void
   onIndicatorChecked: (indicator: ChartMenuIndicator) => void
+  userMarksIsActive?: boolean
+  toggleUserMark?: () => void
 }
 
 const MainChartMenu: FC<Props> = ({
@@ -28,6 +30,8 @@ const MainChartMenu: FC<Props> = ({
   onZoomOut,
   onChangeCharType,
   onIndicatorChecked,
+  toggleUserMark,
+  userMarksIsActive,
 }) => {
   const timeClickHandler = 
     useCallback((format: MainChartTimeFormat, func: (date: Date) => Date) => () => {
@@ -70,6 +74,16 @@ const MainChartMenu: FC<Props> = ({
           <div className={styles.divider} />
         </React.Fragment>
       ))}
+
+      <button
+        onClick={toggleUserMark}
+        className={cx(
+          styles.button,
+          { [styles.active_button]: userMarksIsActive },
+        )}
+      >
+        <FontIcon size={12} name={FontIconName.Fire} />
+      </button>
 
       <button onClick={onChangeCharType} className={styles.button}>
         <FontIcon size={12} name={FontIconName.Info} />
