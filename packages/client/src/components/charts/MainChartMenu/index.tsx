@@ -48,7 +48,7 @@ const MainChartMenu: FC<Props> = ({
         className={styles.button}
         onClick={onZoomIn}
       >
-        <FontIcon size={12} name={FontIconName.Info} />
+        <FontIcon size={12} name={FontIconName.ZoomIn} />
       </button>
       <div className={styles.divider} />
 
@@ -56,7 +56,7 @@ const MainChartMenu: FC<Props> = ({
         onClick={onZoomOut}
         className={styles.button}
       >
-        <FontIcon size={12} name={FontIconName.Info} />
+        <FontIcon size={12} name={FontIconName.ZoomOut} />
       </button>
       <div className={styles.divider} />
 
@@ -82,11 +82,12 @@ const MainChartMenu: FC<Props> = ({
           { [styles.active_button]: userMarksIsActive },
         )}
       >
-        <FontIcon size={12} name={FontIconName.Fire} />
+        <FontIcon size={12} name={FontIconName.AddUser} />
       </button>
+      <div className={styles.divider} />
 
       <button onClick={onChangeCharType} className={styles.button}>
-        <FontIcon size={12} name={FontIconName.Info} />
+        <FontIcon size={12} name={FontIconName.ChartLine} />
       </button>
       <div className={styles.divider} />
 
@@ -112,7 +113,7 @@ const MainChartMenu: FC<Props> = ({
       )}
       >
         <button className={styles.button}>
-          <FontIcon size={12} name={FontIconName.Info} />
+          <FontIcon size={12} name={FontIconName.ChartBar} />
         </button>
       </Tippy>
 

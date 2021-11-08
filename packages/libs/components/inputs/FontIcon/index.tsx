@@ -49,6 +49,11 @@ export enum FontIconName {
   Statistics = 'icon-statistics',
   UnStake = 'icon-unstake',
   Affiliates = 'icon-affiliates-1',
+  ZoomIn = 'icon-zoom-in',
+  ZoomOut = 'icon-zoom-out',
+  AddUser = 'icon-user-add',
+  ChartLine = 'icon-chart-line',
+  ChartBar = 'icon-chart-bar',
 }
 
 const FontIcon: FC<IProps> = ({ name, size = 24, className }) => (

@@ -4,6 +4,7 @@
 .icon-instagram:before { content: '\e801'; } /* '' */
 .icon-play-circle2:before { content: '\e802'; } /* '' */
 .icon-twitter:before { content: '\e803'; } /* '' */
+.icon-chart-bar:before { content: '\e804'; } /* '' */
 .icon-notify:before { content: '\e805'; } /* '' */
 .icon-telegram:before { content: '\e806'; } /* '' */
 .icon-arrow-bottom:before { content: '\e807'; } /* '' */
@@ -18,6 +19,7 @@
 .icon-live:before { content: '\e810'; } /* '' */
 .icon-analytics:before { content: '\e811'; } /* '' */
 .icon-smile:before { content: '\e812'; } /* '' */
+.icon-chart-line:before { content: '\e813'; } /* '' */
 .icon-chat:before { content: '\e814'; } /* '' */
 .icon-housegame:before { content: '\e815'; } /* '' */
 .icon-doc:before { content: '\e816'; } /* '' */
@@ -42,6 +44,7 @@
 .icon-arrow-right:before { content: '\e829'; } /* '' */
 .icon-arrow-left-bold:before { content: '\e82a'; } /* '' */
 .icon-arrow-right-bold:before { content: '\e82b'; } /* '' */
+.icon-user-add:before { content: '\e82c'; } /* '' */
 .icon-darts:before { content: '\e831'; } /* '' */
 .icon-featured:before { content: '\e832'; } /* '' */
 .icon-google:before { content: '\e83d'; } /* '' */
@@ -72,4 +75,6 @@
 .icon-stake:before { content: '\e85b'; } /* '' */
 .icon-statistics:before { content: '\e85c'; } /* '' */
 .icon-unstake:before { content: '\e85d'; } /* '' */
+.icon-zoom-in:before { content: '\f07e'; } /* '' */
+.icon-zoom-out:before { content: '\f07f'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
