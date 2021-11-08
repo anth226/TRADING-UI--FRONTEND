@@ -97,12 +97,13 @@ const Header: FC<Props> = ({
           img="/avatar.png"
         />
         {isAuth && (
-          <HeaderBalance
-            onChange={onBalanceChange}
-            options={options}
-            className={styles.balance}
-            defaultValue={defaultOption}
-          />
+          <div className={styles.balance}>
+            <HeaderBalance
+              onChange={onBalanceChange}
+              options={options}
+              defaultValue={defaultOption}
+            />
+          </div>
         )}
         {!isMobile && (
           <Button size={32} color="orange" className={styles.login}>

@@ -46,6 +46,7 @@ const MainLayout: FC<IProps> = ({ children }) => {
               activeNavItem={activeNavItem}
             />
             <LeftSidebar activeNavigation={activeNavItem} onBack={closeSidebar} />
+            {children}
             <RightSidebar />
           </>
         )}
@@ -65,7 +66,6 @@ const MainLayout: FC<IProps> = ({ children }) => {
             />
           </>
         )}
-        {children}
       </div>
     </div>
   );

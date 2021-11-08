@@ -5,6 +5,7 @@ import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/Fon
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { RightSidebarTime } from '@option-blitz/libs/components/rightSidebar/RightSidebarTime';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
+import cx from 'classnames';
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
 import { useClassicSidebarHandlers } from '../../../hooks/rightSidebar/useClassicSidebarHandlers';
 import styles from './styles.module.scss';
@@ -94,7 +95,7 @@ const RightSidebarClassic: FC = () => {
           </div>
           <div className={styles.second_input_wrap}>
             <RightSidebarInput
-              className={styles.input}
+              className={cx(styles.input, styles.target_price)}
               label="Target price"
               symbol="$"
               onFirstBtnClick={upPrice}
