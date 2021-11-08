@@ -32,19 +32,17 @@ export const getGrid = (height = 500, width = 500, isLast = false) => {
 
   return (
     <>
-      {isLast && (
-        <XAxis
-          fontSize={8}
-          axisAt="bottom"
-          orient="bottom"
-          innerTickSize={-1 * height}
-          tickStrokeDasharray="Solid"
-          domainClassName={styles.grid}
-          tickStrokeStyle="rgba(102, 112, 148, 0.2)"
-          tickLabelFill="rgba(102, 112, 148, 0.2)"
-          strokeStyle="transport"
-        />
-      )}
+      <XAxis
+        fontSize={8}
+        axisAt="bottom"
+        orient="bottom"
+        innerTickSize={-1 * height}
+        tickStrokeDasharray="Solid"
+        domainClassName={styles.grid}
+        tickStrokeStyle="rgba(102, 112, 148, 0.2)"
+        tickLabelFill={isLast ? 'rgba(102, 112, 148, 0.2)' : 'transparent'}
+        strokeStyle="transparent"
+      />
       <YAxis
         fontSize={8}
         axisAt="right"
