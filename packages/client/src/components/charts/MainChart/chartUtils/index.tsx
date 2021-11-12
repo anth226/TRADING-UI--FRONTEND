@@ -66,7 +66,7 @@ export const getMouseCoordinates = (isLast = false) => (
       <MouseCoordinateX
         at="bottom"
         orient="bottom"
-        displayFormat={timeFormat('%Y-%m-%d')}
+        displayFormat={timeFormat('%Y-%m-%d %H:%M:%S')}
       />
     )}
     <MouseCoordinateY
@@ -288,7 +288,7 @@ export const getTimeMarks = (data: any[], height: number) => (
       usingProps={{ height, type: TimeMarkType.End }}
     />
     <Annotate
-      when={(d) => d.date === data[data.length - 50].date}
+      when={(d) => d.date === data[data.length - 60].date}
       with={TimeMark}
       usingProps={{ height, type: TimeMarkType.Start }}
     />

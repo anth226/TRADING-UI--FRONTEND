@@ -2,9 +2,11 @@ import {
   useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { timeParse, csv } from 'd3';
-import { discontinuousTimeScaleProvider, last, ChartCanvas } from 'react-financial-charts';
+import {
+  discontinuousTimeScaleProvider, last, ChartCanvas, kagi, renko, elderRay, change,
+} from 'react-financial-charts';
 import { isBefore } from 'date-fns';
-import { ChartMenuIndicator } from './useChartMenuHandlers';
+import { ChartMenuIndicator, ChartType } from './useChartMenuHandlers';
 
 const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitfinex_xbtusd_1m.csv';
 const parseDate = timeParse('%Y-%m-%d %H:%M:%S');
@@ -12,7 +14,7 @@ const parseDate = timeParse('%Y-%m-%d %H:%M:%S');
 const xScaleProvider = discontinuousTimeScaleProvider
   .inputDateAccessor((d) => d.date);
 
-export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
+export const useMainChart = (activeIndicators: ChartMenuIndicator[], chartType: ChartType) => {
   const ref = useRef<ChartCanvas<number>>(null);
 
   const [initialData, setData] = useState<any>();
@@ -30,18 +32,36 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[]) => {
       setData(value);
     });
   }, []);
+  
+  const calculateDataForChartType = useCallback((data: any) => {
+    const kagiCalculator = kagi();
+    const renkoCalculator = renko();
+    const elderCalculator = elderRay();
+    const changeCalculator = change();
+    
+    switch (chartType) {
+      case ChartType.Kagi:
+        return kagiCalculator(data);
+      case ChartType.Renko:
+        return renkoCalculator(data);
+      case ChartType.Ohlc:
+        return changeCalculator(elderCalculator(data));
+      default:
+        return data;
+    }
+  }, [chartType]);
 
   const calculatedData = useMemo(() => {
     if (!initialData) return undefined;
 
     let data = initialData;
-
+    data = calculateDataForChartType(data);
     activeIndicators.forEach(({ value }) => {
       data = value(data);
     });
 
     return data;
-  }, [activeIndicators, initialData]);
+  }, [activeIndicators, initialData, calculateDataForChartType]);
 
   const indicatorsHeight = activeIndicators
     .map((i) => i.height)

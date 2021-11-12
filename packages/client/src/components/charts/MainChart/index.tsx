@@ -67,7 +67,7 @@ const MainChart: FC<Props> = ({
     displayXAccessor,
     setTime,
     ref,
-  } = useMainChart(activeIndicators);
+  } = useMainChart(activeIndicators, chartType);
 
   const timeClickHandler = useCallback(
     (tFormat: MainChartTimeFormat, calc: (date: Date) => Date) => {

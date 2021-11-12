@@ -33,8 +33,7 @@ const MobileNavigationBar: FC<Props> = ({
         <CloseIcon size={20} className={styles.close} onClick={onClose} />
 
         {rootItems.map((root) => (
-          
-          <>
+          <React.Fragment key={root.type}>
             <Collapse
               contentClassName={styles.collapse_content}
               titleClassName={styles.collapse_title} 
@@ -44,6 +43,7 @@ const MobileNavigationBar: FC<Props> = ({
             >
               {root.items.map((item) => (
                 <button
+                  key={item.type}
                   onClick={navigationClickHandler(item.type)}
                   className={cx(
                     styles.button,
@@ -56,7 +56,7 @@ const MobileNavigationBar: FC<Props> = ({
               ))}
             </Collapse>
             <div className={styles.divider} />
-          </>
+          </React.Fragment>
           
         ))}
 
