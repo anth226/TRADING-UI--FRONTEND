@@ -4,9 +4,10 @@ import { GenericChartComponent } from 'react-financial-charts';
 interface Props {
   value: number
   width: number
+  isActive: boolean
 }
 
-const ClassicBarrier: FC<Props> = ({ width, value }) => {
+const ClassicBarrier: FC<Props> = ({ width, value, isActive }) => {
   const render = ({ chartConfig: { yScale } }: any) => {
     const y = yScale(value);
     const blockWidth = 50;
@@ -28,7 +29,9 @@ const ClassicBarrier: FC<Props> = ({ width, value }) => {
   };
   
   return (
-    <GenericChartComponent clip={false} svgDraw={render} drawOn={['pan']} />
+    <>
+      {isActive && <GenericChartComponent clip={false} svgDraw={render} drawOn={['pan']} />}
+    </>
   );
 };
 

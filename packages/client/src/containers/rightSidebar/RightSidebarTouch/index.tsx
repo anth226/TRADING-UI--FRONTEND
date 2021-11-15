@@ -9,13 +9,22 @@ import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
 import { useTouchSidebarHandlers } from '../../../hooks/rightSidebar/useTouchSidebarHandlers';
 import { useInputHandlers } from '../../../hooks/rightSidebar/useInputHandlers';
-import { useCheckbox } from '../../../hooks/useCheckbox';
 import { RightSidebarPosInfo } from '../../../components/rightSidebar/RightSidebarPosInfo';
+import { useShallowSelector } from '../../../hooks/useShallowSelector';
+import { selectTouch } from '../../../store/touch/selectors';
 
 const RightSidebarTouch: FC = () => {
   const {
+    putCheck, callCheck, putPrice, callPrice, 
+  } = useShallowSelector(selectTouch);
+  
+  const {
     trade: {
       placeTrade,
+      setCallPrice,
+      setPutPrice,
+      toggleCall,
+      togglePut,
     },
     positions: {
       positionItems,
@@ -36,24 +45,14 @@ const RightSidebarTouch: FC = () => {
     secondBtnClick: callDown,
     value: callValue,
     onChange: callChange,
-  } = useInputHandlers('437.1');
+  } = useInputHandlers(`${callPrice}`, setCallPrice);
 
   const {
     firstBtnClick: putUp,
     secondBtnClick: putDown,
     value: putValue,
     onChange: putChange,
-  } = useInputHandlers('437.1');
-  
-  const {
-    checkbox: callCheckbox,
-    onCheckboxChange: callCheckboxChange,
-  } = useCheckbox(true);
-
-  const {
-    checkbox: putCheckbox,
-    onCheckboxChange: putCheckboxChange,
-  } = useCheckbox(true);
+  } = useInputHandlers(`${putPrice}`, setPutPrice);
   
   return (
     <div className={styles.wrap}>
@@ -61,7 +60,7 @@ const RightSidebarTouch: FC = () => {
         <div>
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Touch call</p>
-            <Checkbox size={14} iconSize={7} checked={callCheckbox} onCheck={callCheckboxChange} />
+            <Checkbox size={14} iconSize={7} checked={callCheck} onCheck={toggleCall} />
           </div>
           <RightSidebarInput
             value={callValue}
@@ -78,7 +77,7 @@ const RightSidebarTouch: FC = () => {
           />
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Touch put</p>
-            <Checkbox size={14} iconSize={7} checked={putCheckbox} onCheck={putCheckboxChange} />
+            <Checkbox size={14} iconSize={7} checked={putCheck} onCheck={togglePut} />
           </div>
           <RightSidebarInput
             value={putValue}

@@ -13,7 +13,7 @@ export const useInputHandlers = (initialValue = '0', callback?: (value: string) 
 
     if (!callback) return;
     callback(`${intValue}`);
-  }, [value]);
+  }, [value, callback]);
   
   const secondBtnClick = useCallback(() => {
     const intValue = parseFloat(value) - 1;
@@ -21,13 +21,13 @@ export const useInputHandlers = (initialValue = '0', callback?: (value: string) 
     
     if (!callback) return;
     callback(`${intValue}`);
-  }, [value]);
+  }, [value, callback]);
   
   const onChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => {
     setValue(e.currentTarget.value);
     if (!callback) return;
     callback(e.currentTarget.value);
-  }, []);
+  }, [callback]);
   
   return {
     value,

@@ -4,7 +4,7 @@ import { classicHandlers } from './handlers';
 
 export const initialState: Readonly<ClassicState> = {
   targetPrice: 431,
-  takeProfitCheck: false,
+  takeProfitCheck: true,
 };
 
 export default createReducer(initialState, classicHandlers);
