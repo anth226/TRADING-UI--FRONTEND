@@ -11,9 +11,12 @@ import { useClassicSidebarHandlers } from '../../../hooks/rightSidebar/useClassi
 import styles from './styles.module.scss';
 import { ClassicPositions } from './ClassicPositions';
 import { ProfitChart } from '../../../components/charts/ProfitChart';
-import { useCheckbox } from '../../../hooks/useCheckbox';
+import { useShallowSelector } from '../../../hooks/useShallowSelector';
+import { selectClassic } from '../../../store/classic/selectors';
 
 const RightSidebarClassic: FC = () => {
+  const { targetPrice, takeProfitCheck } = useShallowSelector(selectClassic);
+
   const {
     trade: {
       activeButton,
@@ -21,15 +24,17 @@ const RightSidebarClassic: FC = () => {
       putClick,
       placeOrderClick,
       profitItems,
+      toggleTakeProfit,
+      setTargetPrice,
     },
   } = useClassicSidebarHandlers();
-
+  
   const {
     firstBtnClick: upPrice,
     secondBtnClick: downPrice,
     onChange: changePrice,
     value: price,
-  } = useInputHandlers();
+  } = useInputHandlers(`${targetPrice}`, setTargetPrice);
 
   const {
     firstBtnClick: upQty,
@@ -44,11 +49,6 @@ const RightSidebarClassic: FC = () => {
     onChange: changePriority,
     value: priority,
   } = useInputHandlers();
-  
-  const {
-    checkbox,
-    onCheckboxChange,
-  } = useCheckbox();
 
   return (
     <div className={styles.wrap}>
@@ -91,7 +91,7 @@ const RightSidebarClassic: FC = () => {
 
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Take Profit</p>
-            <Checkbox size={14} iconSize={7} checked={checkbox} onCheck={onCheckboxChange} />
+            <Checkbox size={14} iconSize={7} checked={takeProfitCheck} onCheck={toggleTakeProfit} />
           </div>
           <div className={styles.second_input_wrap}>
             <RightSidebarInput

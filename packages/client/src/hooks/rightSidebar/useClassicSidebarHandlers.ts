@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { profitItemsMock } from '../../mock/rightSidebar/classicSidebar';
 import { PositionItem } from './useTouchSidebarHandlers';
+import { classicSetTargetPrice, classicToggleTakeProfit } from '../../store/classic/actionCreators';
 
 const positionItems: PositionItem[] = [
   { label: 'Investment', value: '$10' },
@@ -22,6 +24,7 @@ export interface ProfitChartItem {
 }
 
 export const useClassicSidebarHandlers = () => {
+  const dispatch = useDispatch();
   const [activeButton, setActiveButton] = useState<ActiveButton>('call');
   
   const callClick = useCallback(() => {
@@ -47,6 +50,14 @@ export const useClassicSidebarHandlers = () => {
   const settleClick = useCallback(() => {
 
   }, []);
+  
+  const toggleTakeProfit = useCallback(() => {
+    dispatch(classicToggleTakeProfit());
+  }, [dispatch]);
+
+  const setTargetPrice = useCallback((price: string) => {
+    dispatch(classicSetTargetPrice(parseFloat(price || '0')));
+  }, [dispatch]);
 
   return {
     trade: {
@@ -55,6 +66,8 @@ export const useClassicSidebarHandlers = () => {
       putClick,
       placeOrderClick,
       profitItems: profitItemsMock,
+      toggleTakeProfit,
+      setTargetPrice,
     },
     positions: {
       targetPriceClick,
