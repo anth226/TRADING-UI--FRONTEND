@@ -70,6 +70,7 @@ export const getMouseCoordinates = (isLast = false) => (
       />
     )}
     <MouseCoordinateY
+      arrowWidth={10}
       at="right"
       orient="right"
       fontSize={10}

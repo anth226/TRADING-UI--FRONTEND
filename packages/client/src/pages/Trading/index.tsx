@@ -1,17 +1,12 @@
 import React, { FC } from 'react';
-import { AutoSizer } from 'react-virtualized';
 import { MainLayout } from '../../layouts/MainLayout';
-import { MainChart } from '../../components/charts/MainChart';
 import styles from './styles.module.scss';
+import { MainChartContainer } from '../../containers/charts/MainChartContainer';
 
 const Trading: FC = () => (
   <MainLayout>
     <div className={styles.chart_wrap}>
-      <AutoSizer>
-        {({ width, height }) => (
-          <MainChart width={width} height={height} />
-        )}
-      </AutoSizer>
+      <MainChartContainer />
     </div>
   </MainLayout>
 );

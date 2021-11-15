@@ -39,6 +39,7 @@ interface Props {
 const MainChart: FC<Props> = ({
   width = 800,
   height = 500,
+  children,
 }) => {
   const {
     onCheckIndicator,
@@ -107,6 +108,7 @@ const MainChart: FC<Props> = ({
 
           <OHLCTooltip origin={[40, 0]} textFill="#667094" />
           <EdgeIndicator
+            arrowWidth={10}
             itemType="last"
             orient="right"
             edgeAt="right"
@@ -121,6 +123,8 @@ const MainChart: FC<Props> = ({
           {/* TODO: Delete marks after implementing backend */}
           {getTimeMarks(data, height)}
           {getUserMarks(data, userMarksActive)}
+
+          {children}
         </Chart>
 
         {newChartIndicators.map((indicator, index) => (
