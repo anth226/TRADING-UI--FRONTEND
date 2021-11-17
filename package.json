@@ -45,7 +45,7 @@
     "husky": "4.3.0",
     "lerna": "4.0.0",
     "lint-staged": "10.4.0",
-    "node-sass": "5.0.0",
+    "node-sass": "6.0.1",
     "plop": "2.7.4",
     "react-docgen-typescript-loader": "3.7.2",
     "react-docgen-typescript-webpack-plugin": "1.1.0",

@@ -32,7 +32,7 @@
     "date-fns": "2.0.1",
     "formik": "2.2.6",
     "history": "4.10.0",
-    "node-sass": "4.14.1",
+    "node-sass": "6.0.1",
     "react": "16.13.1",
     "@types/react": "16.14.15",
     "react-dom": "16.13.1",

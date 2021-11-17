@@ -12,7 +12,6 @@ const productType =
   keys(ProductType).reduce((acc, key) => ({ ...acc, [key]: ProductType[key] }), {});
 
 storiesOf('Common', module).add('HeaderTab', () => {
-  const value = text('Value', '1.3334');
   const interest = text('interest', '4');
   
   const isActive = boolean('isActive', false);
@@ -23,12 +22,15 @@ storiesOf('Common', module).add('HeaderTab', () => {
   const onClose = action('onClose');
   const onClick = action('onClick');
   return (
-    <HeaderTab 
-      value={value}
-      interest={interest}
-      productType={productTypeSelect}
-      countries={countriesSelect}
-      isActive={isActive}
+    <HeaderTab
+      data={{
+        value: 'tab',
+        isActive,
+        id: 1,
+        interest,
+        productType: productTypeSelect,
+        countries: countriesSelect,
+      }}
       onClick={onClick}
       onClose={onClose}
     />

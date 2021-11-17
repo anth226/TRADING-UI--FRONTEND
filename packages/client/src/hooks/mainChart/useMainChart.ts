@@ -28,7 +28,6 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[], chartType: 
       e.volume = +e.volume;
       return e;
     }).then((value) => {
-      console.log(value);
       setData(value);
     });
   }, []);

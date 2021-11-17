@@ -1,6 +1,6 @@
 import { ProductType } from '@option-blitz/libs/constants/product';
 import { Countries } from '@option-blitz/libs/constants/countries';
-import { HeaderTabItem } from 'hooks/header/useHeaderHandlers';
+import { HeaderTabItem } from '../../hooks/header/useHeaderHandlers';
 
 export const tabsMock: HeaderTabItem[] = [
   {
