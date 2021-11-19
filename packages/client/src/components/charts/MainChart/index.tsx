@@ -7,7 +7,6 @@ import {
   XAxis,
   YAxis,
   ZoomButtons,
-  EdgeIndicator,
 } from 'react-financial-charts';
 import { format } from 'd3';
 import styles from './styles.module.scss';
@@ -24,6 +23,7 @@ import {
 import { MainChartMenu } from '../MainChartMenu';
 import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
 import { useMainChart } from '../../../hooks/mainChart/useMainChart';
+import { LivePriceTicker } from './LivePriceTicker';
 
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
@@ -107,15 +107,6 @@ const MainChart: FC<Props> = ({
           {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
           <OHLCTooltip origin={[40, 0]} textFill="#667094" />
-          <EdgeIndicator
-            arrowWidth={10}
-            itemType="last"
-            orient="right"
-            edgeAt="right"
-            yAccessor={(d) => d.close}
-            fill="#009CCD"
-            lineStroke="#fff"
-          />
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
           </g>
@@ -123,6 +114,8 @@ const MainChart: FC<Props> = ({
           {/* TODO: Delete marks after implementing backend */}
           {getTimeMarks(data, height)}
           {getUserMarks(data, userMarksActive)}
+
+          <LivePriceTicker width={width} lastDatum={data[data.length - 1]} />
 
           {children}
         </Chart>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import { GenericChartComponent } from 'react-financial-charts';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ClassicBarrier: FC<Props> = ({ width, value, isActive }) => {
-  const render = ({ chartConfig: { yScale } }: any) => {
+  const render = useCallback(({ chartConfig: { yScale } }: any) => {
     const y = yScale(value);
     const blockWidth = 50;
     const height = 22;
@@ -26,7 +26,7 @@ const ClassicBarrier: FC<Props> = ({ width, value, isActive }) => {
         </svg>
       </g>
     );
-  };
+  }, [width, value]);
   
   return (
     <>
