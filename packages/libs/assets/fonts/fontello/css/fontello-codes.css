@@ -27,7 +27,7 @@
 .icon-slots:before { content: '\e818'; } /* '' */
 .icon-support:before { content: '\e819'; } /* '' */
 .icon-tournaments:before { content: '\e81a'; } /* '' */
-.icon-virtuals:before { content: '\e81b'; } /* '' */
+.icon-search:before { content: '\e81b'; } /* '' */
 .icon-dark:before { content: '\e81c'; } /* '' */
 .icon-light:before { content: '\e81d'; } /* '' */
 .icon-smile-1:before { content: '\e81e'; } /* '' */
@@ -51,7 +51,6 @@
 .icon-email:before { content: '\e83e'; } /* '' */
 .icon-checked:before { content: '\e83f'; } /* '' */
 .icon-casino:before { content: '\e840'; } /* '' */
-.icon-live-casino-play:before { content: '\e841'; } /* '' */
 .icon-deleted:before { content: '\e842'; } /* '' */
 .icon-affiliates-1:before { content: '\e843'; } /* '' */
 .icon-plus:before { content: '\e845'; } /* '' */

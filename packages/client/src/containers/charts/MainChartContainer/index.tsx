@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import { ProductType } from '@option-blitz/libs/constants/product';
+import useResize from '@option-blitz/libs/hooks/useResize';
 import { MainChart } from '../../../components/charts/MainChart';
 import { ClassicBarrier } from '../../../components/charts/MainChart/barriers/ClassicBarrier';
 import { useShallowSelector } from '../../../hooks/useShallowSelector';
@@ -15,11 +16,12 @@ const MainChartContainer: FC = () => {
   const {
     callPrice, putPrice, callCheck, putCheck, 
   } = useShallowSelector(selectTouch);
+  const { isMobile } = useResize();
   
   return (
     <AutoSizer>
       {({ width, height }) => (
-        <MainChart width={width} height={height}>
+        <MainChart isMobile={isMobile} width={width} height={isMobile ? height - 50 : height}>
           {activeProductType === ProductType.Classic && (
             <ClassicBarrier isActive={takeProfitCheck} value={targetPrice} width={width} />
           )}

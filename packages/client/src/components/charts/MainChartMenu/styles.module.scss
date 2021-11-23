@@ -50,3 +50,69 @@
 .dropdown {
   pointer-events: initial;
 }
+
+.mobile_button {
+  @include flexbox();
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1px solid var(--color-grey);
+  color: var(--color-dark-blue);
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.mobile_wrap {
+  @include flexbox();
+
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 10px;
+  z-index: 50;
+}
+
+.mobile_zoom_wrap {
+  @include flexbox(center, space-between);
+
+  width: 76px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid var(--color-grey);
+  color: var(--color-dark-blue);
+  margin-bottom: 50px;
+
+  button {
+    width: 20px;
+    height: 100%;
+    padding-bottom: 5px;
+  }
+}
+
+.times_container_mobile {
+  @include flexbox();
+
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.time_button_mobile {
+  white-space: nowrap;
+  color: #667094;
+  font-family: $font-cabin;
+  font-size: 12px;
+  padding: 7px 0;
+  width: 100%;
+}
+
+.time_button_active_mobile {
+  color: var(--color-green);
+  border-bottom: 2px solid var(--color-green);
+}

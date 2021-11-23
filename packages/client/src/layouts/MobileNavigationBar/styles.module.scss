@@ -8,8 +8,9 @@
   width: 314px;
   background-color: #111724;
   padding: 8px;
-  transform: $transition-time;
+  transition: $transition-time;
   overflow: auto;
+  z-index: 60;
 
   &::-webkit-scrollbar {
     display: none;

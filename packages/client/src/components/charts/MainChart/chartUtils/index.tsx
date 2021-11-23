@@ -228,6 +228,7 @@ export const mainChartIndicatorTooltip = ({ type, value, tooltipLabel }: ChartMe
     case IndicatorType.BollingerBar:
       return (
         <BollingerBandTooltip
+          key={type}
           origin={[150, 12]}
           yAccessor={value.accessor()}
           options={bb.options()}
@@ -237,6 +238,7 @@ export const mainChartIndicatorTooltip = ({ type, value, tooltipLabel }: ChartMe
     case IndicatorType.SAR:
       return (
         <SingleValueTooltip
+          key={type}
           yLabel={tooltipLabel || ''}
           yAccessor={value.accessor()}
           origin={[40, 12]}

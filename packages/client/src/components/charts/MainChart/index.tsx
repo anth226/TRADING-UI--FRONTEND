@@ -34,12 +34,14 @@ const marginBetweenCharts = 10;
 interface Props {
   height?: number
   width?: number
+  isMobile?: boolean
 }
 
 const MainChart: FC<Props> = ({
   width = 800,
   height = 500,
   children,
+  isMobile,
 }) => {
   const {
     onCheckIndicator,
@@ -85,6 +87,21 @@ const MainChart: FC<Props> = ({
 
   return (
     <div className={styles.wrap}>
+      <MainChartMenu
+        activeTime={activeTime}
+        className={styles.menu}
+        indicators={indicators}
+        times={times}
+        onTimeClick={timeClickHandler}
+        onChangeCharType={changeChartType}
+        onIndicatorChecked={onCheckIndicator}
+        onZoomIn={zoomIn}
+        onZoomOut={zoomOut}
+        toggleUserMark={toggleUserMarks}
+        userMarksIsActive={userMarksActive}
+        isMobile={isMobile}
+      />
+
       <ChartCanvas
         ref={ref}
         height={height}
@@ -106,7 +123,7 @@ const MainChart: FC<Props> = ({
           {movingAverageTooltip(activeIndicators)}
           {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
-          <OHLCTooltip origin={[40, 0]} textFill="#667094" />
+          <OHLCTooltip origin={[isMobile ? 0 : 40, 0]} textFill="#667094" />
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
           </g>
@@ -155,20 +172,6 @@ const MainChart: FC<Props> = ({
         ))}
         <CrossHairCursor />
       </ChartCanvas>
-
-      <MainChartMenu
-        activeTime={activeTime}
-        className={styles.menu}
-        indicators={indicators}
-        times={times}
-        onTimeClick={timeClickHandler}
-        onChangeCharType={changeChartType}
-        onIndicatorChecked={onCheckIndicator}
-        onZoomIn={zoomIn}
-        onZoomOut={zoomOut}
-        toggleUserMark={toggleUserMarks}
-        userMarksIsActive={userMarksActive}
-      />
     </div>
   );
 };
