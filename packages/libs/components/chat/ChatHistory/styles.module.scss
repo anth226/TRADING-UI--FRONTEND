@@ -1,0 +1,17 @@
+.hud {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background-color: var(--color-warning);
+  padding: 10px;
+  border-radius: 4px 0 0 0;
+}
+
+.row {
+  padding: 8px 16px;
+}
+
+.list {
+}
+

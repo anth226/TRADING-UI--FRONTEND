@@ -1,0 +1,114 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.trades_wrap {
+  margin: 0 16px;
+  min-height: 190px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.button {
+  padding: 13px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.returns {
+  margin-bottom: 8px;
+}
+
+.input_wrap {
+  @include flexbox();
+
+  margin-bottom: 8px;
+}
+
+.trade_amount {
+  width: 50%;
+  margin-right: 8px;
+}
+
+.time {
+  width: 50%;
+}
+
+.returns {
+  @include flexbox();
+}
+
+.checkbox_wrap {
+  @include flexbox(center ,space-between);
+
+  &:first-child {
+    margin-top: 8px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.up_icon {
+  transform: rotate(-90deg);
+}
+
+.down_icon {
+  transform: rotate(90deg);
+}
+
+.strike_price {
+  width: 50%;
+}
+
+.checkbox_label {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.collapse_title {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.collapse {
+  margin-bottom: 8px;
+}
+
+.position_button {
+  text-transform: uppercase;
+  padding: 13px 0;
+  font-size: 15px;
+  width: 100%;
+}
+
+.positions {
+  @include flexbox();
+
+  flex-direction: column;
+  margin: 0 16px 8px;
+  padding: 24px 16px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.trade {
+  @include flexbox();
+
+  flex-direction: column;
+  height: 100%;
+}
+
+.positions_wrap {
+  margin-top: 6px;
+  margin-bottom: auto;
+}
+
+.chart_wrap {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,8 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.close {
+  @include flexbox(center, center);
+
+  position: absolute;
+  color: var(--color-grey-light);
+}

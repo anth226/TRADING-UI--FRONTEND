@@ -1,0 +1,104 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.wrap {
+  @include flexbox(center, space-between);
+
+  height: $header-height;
+  width: 100%;
+  border-bottom: 1px solid var(--color-grey);
+
+  @include mobile {
+    height: $mobile-header-height;
+    padding: 3px 0;
+  }
+}
+
+.icon {
+  color: var(--color-dark-blue);
+  margin-left: 20px;
+
+  @include mobile {
+    margin-left: 6px;
+  }
+}
+
+.logo {
+  text-transform: uppercase;
+  font-family: $font-conthrax;
+  font-size: 16px;
+  margin-left: 30px;
+  color: white;
+}
+
+.logo_blitz {
+  color: var(--color-green);
+}
+
+.tabs {
+  @include flexbox();
+
+  margin-left: 90px;
+}
+
+.tab {
+  height: 45px;
+
+  &:not(:first-child) {
+    margin-left: 6px;
+  }
+}
+
+.plus {
+  @include flexbox();
+
+  height: 45px;
+  width: 45px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+
+  @include mobile {
+    height: 34px;
+    width: 34px;
+  }
+}
+
+.plus_icon {
+  color: var(--color-grey-light);
+}
+
+.login {
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 0 16px;
+  margin: 0 12px;
+}
+
+.avatar {
+  height: 45px;
+  margin-left: 6px;
+
+  @include mobile {
+    height: initial;
+  }
+}
+
+.section {
+  @include flexbox();
+  height: 100%;
+}
+
+.balance {
+  margin-left: 10px;
+  height: 45px;
+
+  @include mobile {
+    height: 100%;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+.tab_selector {
+  margin-left: 10px;
+}

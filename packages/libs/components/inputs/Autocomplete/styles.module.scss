@@ -1,0 +1,40 @@
+@import "../../../assets/styles/mixins";
+
+.wrapper {
+  width: 100%;
+
+  button {
+    color: inherit;
+  }
+}
+
+.float {
+  @include max_dropdown_height;
+
+  background-color: $color-dropdown-background;
+  border: 1px solid $color-dropdown-border;
+  overflow: auto;
+  border-radius: 4px;
+
+  &.hidden {
+    @include hidden;
+  }
+}
+
+.list {
+  @include flexbox(flex-start, flex-start);
+
+  flex-direction: column;
+
+  button {
+    color: $color-input-text;
+  }
+}
+
+.variant {
+  @include flexbox(center, flex-start);
+
+  width: 100%;
+  min-height: 32px;
+  padding: 0 8px;
+}

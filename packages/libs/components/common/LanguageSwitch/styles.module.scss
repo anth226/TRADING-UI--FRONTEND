@@ -1,0 +1,23 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.button {
+
+}
+
+.popup {
+  @include max_dropdown_height;
+  background: $color-dropdown-background;
+  overflow: auto;
+  border-radius: 4px;
+}
+
+.list {
+  @include flexbox(flex-start, flex-start);
+  flex-direction: column;
+  color: $color-input-text;
+}
+
+.row {
+  padding: 10px;
+}

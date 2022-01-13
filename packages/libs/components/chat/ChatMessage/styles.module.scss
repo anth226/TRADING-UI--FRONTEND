@@ -1,0 +1,8 @@
+@import "../../../assets/styles/variables";
+
+.message {
+  border-radius: 8px;
+  background: $color-checkbox-active;
+  color: $color-input-text;
+  padding: 10px;
+}

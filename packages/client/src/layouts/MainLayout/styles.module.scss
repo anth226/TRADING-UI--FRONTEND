@@ -1,0 +1,26 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.container {
+  @include flexbox(initial, initial);
+
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.body {
+  @include flexbox(initial, initial);
+
+  position: relative;
+  height: calc(100% - #{$header-height});
+  width: 100%;
+
+  @include mobile {
+    height: calc(100% - #{$mobile-header-height});
+  }
+}
+
+.left_navigation_bar {
+  height: 100%;
+}

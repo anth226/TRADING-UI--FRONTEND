@@ -1,0 +1,9 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.mobile_wrap {
+  @include flexbox(initial, flex-end);
+
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}

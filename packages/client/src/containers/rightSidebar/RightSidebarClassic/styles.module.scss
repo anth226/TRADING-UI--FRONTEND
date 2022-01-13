@@ -1,0 +1,80 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 235px;
+}
+
+.button_wrap {
+  @include flexbox();
+
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  margin-bottom: 16px;
+
+  button.button {
+    @include flexbox();
+
+    width: 50%;
+    border: none;
+    text-transform: uppercase;
+  }
+}
+
+.up_icon {
+  transform: rotate(-90deg);
+}
+
+.down_icon {
+  transform: rotate(90deg);
+}
+
+.input_wrap {
+  @include flexbox();
+
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input {
+  margin-bottom: 8px;
+}
+
+.second_input_wrap {
+  @include flexbox();
+
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.checkbox_wrap {
+  @include flexbox(center, space-between);
+
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.checkbox_label {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.button_order {
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.call_arrow {
+  transform: rotate(-45deg);
+}
+
+.put_arrow {
+  transform: rotate(45deg);
+}
+
+.time {
+  width: 100%;
+}
+
+.target_price {
+  margin-right: 8px;
+}

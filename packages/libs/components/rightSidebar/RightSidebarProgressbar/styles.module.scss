@@ -1,0 +1,55 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.wrap {
+  width: 100%;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: var(--color-dark-blue);
+  margin-bottom: 8px;
+}
+
+.progress_wrap {
+  position: relative;
+  width: 100%;
+  height: 8px;
+}
+
+.line {
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-radius: 4px;
+  height: 8px;
+}
+
+.green_line {
+  background-color: var(--color-green);
+  border-right: 1px solid var(--color-background);
+  z-index: 1;
+  transition: $transition-time;
+}
+
+.red_line {
+  width: 100%;
+  background-color: var(--color-secondary);
+  z-index: 0;
+}
+
+.values_wrap {
+  @include flexbox(center, space-between);
+
+  margin-top: 4px;
+  font-size: 9px;
+}
+
+.green_value {
+  color: var(--color-green);
+}
+
+.red_value {
+  color: var(--color-secondary);
+}

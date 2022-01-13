@@ -1,0 +1,12 @@
+@import "../../../assets/styles/variables";
+.new_messages {
+  background: $color-checkbox-error;
+  color: white;
+  position: absolute;
+  height: 30px;
+  bottom: -1px;
+  width: 100%;
+  left: 0;
+  font-size: 12px;
+  line-height: 16px;
+}

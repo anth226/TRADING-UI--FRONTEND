@@ -1,0 +1,47 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.expandable_wrap_active {
+  background-color: #191E2F;
+}
+
+.expandable_btn {
+  position: relative;
+  height: 54px;
+  width: 100%;
+
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.expandable_btn_active {
+  border-bottom: none;
+  border-left: 3px solid var(--color-green);
+  color: var(--color-green);
+}
+
+.expandable_wrap {
+  @include flexbox();
+
+  width: 100%;
+  flex-direction: column;
+  color: var(--color-dark-blue);
+}
+
+.expandable_content {
+  @include flexbox();
+
+  flex-direction: column;
+}
+
+.arrow {
+  color: var(--color-dark-blue);
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.not_active_arrow {
+  &:before {
+    transform: rotate(-90deg);
+  }
+}

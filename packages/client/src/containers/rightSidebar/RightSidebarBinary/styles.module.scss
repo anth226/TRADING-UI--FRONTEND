@@ -1,0 +1,64 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 155px;
+}
+
+.label {
+  font-size: 8px;
+  color: var(--color-dark-blue);
+}
+
+.amount {
+  margin-bottom: 16px;
+}
+
+.time {
+  margin-bottom: 24px;
+}
+
+.returns {
+  margin-bottom: 22px;
+}
+
+.button_wrap {
+  @include flexbox();
+
+  flex-direction: column;
+}
+
+.button {
+  height: initial;
+  width: 100%;
+  padding: 17px 0;
+  font-size: 15px;
+  text-transform: uppercase;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.progressbar {
+  margin-bottom: 30px;
+}
+
+.coin {
+  height: 16px;
+}
+
+.call_arrow {
+  transform: rotate(-45deg);
+}
+
+.pull_arrow {
+  transform: rotate(45deg);
+}
+
+.position_button {
+  text-transform: uppercase;
+  margin-top: 15px;
+  width: 100%;
+  font-size: 11px;
+  padding: 11px 0;
+}

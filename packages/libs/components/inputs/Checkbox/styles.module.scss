@@ -1,0 +1,29 @@
+@import "../../../assets/styles/mixins";
+
+.checkbox {
+  @include flexbox();
+  color: inherit;
+}
+
+.inner {
+  @include flexbox(center, center);
+
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  transition: all $transition-time;
+  overflow: hidden;
+  border: 1px solid var(--color-green);
+
+  .checked & {
+    color: var(--color-green);
+  }
+}
+
+.label {
+  margin-left: 16px;
+}
+
+.error {
+  border-color: $color-checkbox-error;
+}

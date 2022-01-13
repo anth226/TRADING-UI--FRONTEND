@@ -1,0 +1,57 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+@import "~@option-blitz/libs/assets/styles/variables";
+
+.wrap {
+  width: 100%;
+}
+
+.date {
+  font-size: 9px;
+  color: var(--color-green);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.item {
+  @include flexbox(center, space-between);
+
+  font-size: 12px;
+  margin-bottom: 7px;
+  font-family: $font-cabin;
+}
+
+.item_label {
+  color: var(--color-blue-light);
+}
+
+.title_section {
+  @include flexbox(center, space-between)
+}
+
+.title_wrap {
+  @include flexbox(center, flex-start);
+
+  text-transform: uppercase;
+  font-size: 9px;
+  margin-bottom: 5px;
+}
+
+.title {
+  margin: 0 7px;
+}
+
+.coin {
+  height: 16px;
+}
+
+.title_wrap_small {
+  font-size: 11px;
+}
+
+.item_label_small {
+  font-size: 13px;
+}
+
+.item_value_small {
+  font-size: 15px;
+}

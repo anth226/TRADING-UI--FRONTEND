@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.toggle {
+  display: inline-flex;
+  position: relative;
+  background-color: $color-input-background;
+  transition: all $transition-time;
+
+  &.active {
+    background-color: $color-toggle-active;
+  }
+}
+
+.dot {
+  @include flexbox(center, center);
+
+  position: absolute;
+  background-color: $color-toggle-dot;
+  border-radius: 100%;
+  transition: all $transition-time;
+  color: $color-input-background;
+
+  .disabled & {
+    opacity: 0.5;
+  }
+
+  .active & {
+    color: $color-toggle-active;
+  }
+}

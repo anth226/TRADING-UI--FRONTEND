@@ -1,0 +1,32 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.option_wrap {
+  @include flexbox(center, flex-start);
+}
+
+.label {
+  font-size: 9px;
+}
+
+.product {
+  font-size: 7px;
+}
+
+.icon {
+  width: 20px;
+  margin-right: 8px;
+
+  @include mobile {
+    width: 15px;
+  }
+}
+
+.single_value_wrap {
+  @include flexbox();
+
+  margin: 0 20px 0 10px;
+
+  @include mobile {
+    margin: 0;
+  }
+}
