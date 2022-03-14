@@ -9,7 +9,7 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
     color: 'var(--color-text)',
     '&:hover': {},
     boxShadow: 'none',
-    height: '100%',
+    height: '43px',
     minHeight: '34px',
   }),
   singleValue: (provided) => ({
@@ -60,5 +60,6 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
   dropdownIndicator: (provider) => ({
     ...provider,
     padding: '0 4px',
+    marginTop: '-18px',
   }),
 });

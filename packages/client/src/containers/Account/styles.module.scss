@@ -1,0 +1,102 @@
+.wrap {
+  width: 100%;
+
+  .title {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .address {
+    margin-top: 16px;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #00CD86;
+  }
+
+  .container {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+
+    .col {
+      flex: 1;
+      height: 100%;
+      width: 100%;
+
+      .online {
+        margin-top: 18px;
+
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 12px;
+
+        display: flex;
+        align-items: center;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        color: #00CD86;
+
+        &::after {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          left: 321px;
+          top: 286px;
+
+          background: #00CD86;
+        }
+      }
+      .level {
+        margin-top: 18px;
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.04em;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        
+        color: #FFFFFF;
+      }
+
+      .containerItem {
+        margin-top: 12px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .item {
+          flex: 1;
+          display: flex;
+          .labelItem {
+            flex: 1;
+            font-family: Conthrax;
+            font-weight: 600;
+            font-size: 8px;
+            line-height: 10px;
+          }
+          .valueItem {
+            flex: 1;
+            font-family: Conthrax;
+            font-weight: 600;
+            font-size: 8px;
+            line-height: 10px;
+            color: #00CD86;
+          }
+        }
+      }
+    }
+
+    .colRight {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      gap: 8px;
+    }
+  }
+}

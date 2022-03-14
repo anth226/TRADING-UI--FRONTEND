@@ -55,6 +55,8 @@ export enum FontIconName {
   ChartLine = 'icon-chart-line',
   ChartBar = 'icon-chart-bar',
   Search = 'icon-search',
+  Up = 'icon-up',
+  Down = 'icon-down',
 }
 
 const FontIcon: FC<IProps> = ({ name, size = 24, className }) => (

@@ -11,9 +11,11 @@ import { MobileProducts } from '../../containers/MobileProducts';
 import { MobileNavigationBar } from '../MobileNavigationBar';
 import { MobileNavigation } from '../../containers/MobileNavigation';
 
-interface IProps {}
+interface IProps {
+  isRightSideBar?: boolean;
+}
 
-const MainLayout: FC<IProps> = ({ children }) => {
+const MainLayout: FC<IProps> = ({ children, isRightSideBar }) => {
   const {
     rootItems,
     activeRootItem,
@@ -47,7 +49,9 @@ const MainLayout: FC<IProps> = ({ children }) => {
             />
             <LeftSidebar activeNavigation={activeNavItem} onBack={closeSidebar} />
             {children}
-            <RightSidebar />
+            {isRightSideBar && (
+              <RightSidebar />
+            )}
           </>
         )}
 

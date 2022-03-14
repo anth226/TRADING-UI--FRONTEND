@@ -3,21 +3,23 @@
 .tabs {
   @include flexbox(stretch, flex-start);
   flex-direction: row;
-  border-bottom: 1px solid var(--color-line-1);
+  border-bottom: 1px solid #2F394A;
+  margin-bottom: 3px;
 }
 
 .tab {
   @include flexbox(center, center);
 
-  color: inherit;
+  color: var(--color-dark-blue);
   min-height: 48px;
-  padding: 0 32px;
-  border-right: 1px solid var(--color-line-1);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
+  padding: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
 
   &.active {
-    border-bottom: 2px solid var(--color-brand);
+    color: var(--color-green);
+    border-bottom: 2px solid var(--color-green);
   }
 }

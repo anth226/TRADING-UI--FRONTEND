@@ -1,5 +1,5 @@
 {
-  "name": "option-blitz",
+  "name": "option-blitz-app",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
@@ -7,14 +7,15 @@
   ],
   "resolutions": {
     "babel-loader": "8.1.0",
+    "react-router": "5.2.0",
     "webpack": "4.44.2"
   },
   "scripts": {
     "lint": "yarn eslint . --cache --fix --ext js,jsx,ts,tsx && :",
     "tsc": "yarn lerna run tsc && :",
-    "start:client": "yarn lerna run start:client",
-    "build:client": "yarn lerna run build:client",
-    "storybook": "start-storybook -p 6006 -s packages/client/public",
+    "start:client": "yarn lerna run build:libs && yarn lerna run start:client",
+    "build:client": "yarn lerna run build:libs && yarn lerna run build:client",
+    "storybook": "FAST_REFRESH=false start-storybook -p 6006 -s packages/client/public",
     "fontello": "bash ./fontello.sh",
     "fontello:open": "fontello-cli --config packages/libs/assets/fonts/fontello/config.json open"
   },
@@ -32,15 +33,17 @@
       "yarn tsc"
     ]
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-knobs": "^6.3.0",
     "@storybook/addon-viewport": "^6.3.7",
+    "@storybook/preset-create-react-app": "^4.0.1",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.3.7",
     "@types/node": "12.0.0",
-    "css-loader": "5.2.4",
+    "awesome-typescript-loader": "5.2.1",
+    "css-loader": "^6.6.0",
     "fontello-cli": "0.6.2",
     "husky": "4.3.0",
     "lerna": "4.0.0",
@@ -50,9 +53,8 @@
     "react-docgen-typescript-loader": "3.7.2",
     "react-docgen-typescript-webpack-plugin": "1.1.0",
     "resolve-url-loader": "4.0.0",
-    "sass-loader": "10.1.1",
+    "sass-loader": "^12.6.0",
     "storybook-addon-jsx": "7.3.12",
-    "awesome-typescript-loader": "5.2.1",
-    "style-loader": "^2.0.0"
+    "style-loader": "^3.3.1"
   }
 }

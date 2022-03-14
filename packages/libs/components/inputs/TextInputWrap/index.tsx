@@ -6,10 +6,11 @@ interface IProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   ref?: React.Ref<HTMLDivElement>;
   error?: boolean;
+  label?: string;
 }
 
 const TextInputWrap: FC<IProps> = ({
-  children, ref, className, error, ...props 
+  children, ref, className, error, label = 'label', ...props 
 }) => (
   <div
     className={classNames(
@@ -19,7 +20,12 @@ const TextInputWrap: FC<IProps> = ({
     ref={ref}
     {...props}
   >
-    {children}
+    <span className={styles.label}>
+      {label}
+    </span>
+    <div className={styles.containerInput}>
+      {children}
+    </div>
   </div>
 );
 

@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { MainChartContainer } from '../../containers/charts/MainChartContainer';
 
 const Trading: FC = () => (
-  <MainLayout>
+  <MainLayout isRightSideBar>
     <div className={styles.chart_wrap}>
       <MainChartContainer />
     </div>
