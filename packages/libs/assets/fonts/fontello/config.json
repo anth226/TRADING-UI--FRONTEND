@@ -995,6 +995,34 @@
       "src": "fontawesome"
     },
     {
+      "uid": "b84caf2708f0481c164c853bea46fb44",
+      "css": "up",
+      "code": 59437,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M311.7 68.1L16.8 601.6 238.6 551.1 238.6 911.8 378.6 911.8 378.6 552.8 616.6 597.8 311.7 68.1Z",
+        "width": 700
+      },
+      "search": [
+        "up"
+      ]
+    },
+    {
+      "uid": "47f5c3fa71c10c1f1d873256e6c54cee",
+      "css": "down",
+      "code": 59460,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M410.4 450.8L410.4 90 270.4 90 270.4 449.1 32.5 404 337.3 933.8 632.3 400.2 410.4 450.8Z",
+        "width": 700
+      },
+      "search": [
+        "down"
+      ]
+    },
+    {
       "uid": "32da5f3e403c3a44631ef2b1650770f1",
       "css": "virtuals",
       "code": 59419,

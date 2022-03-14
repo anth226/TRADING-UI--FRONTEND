@@ -28,7 +28,7 @@ const customStyles = getCustomStyles<OptionItem>();
 customStyles.indicatorSeparator = () => ({ display: 'none' });
 customStyles.valueContainer = (provided) => ({
   ...provided,
-  padding: 8,
+  padding: 6,
 });
 customStyles.option = (provided, state) => ({
   ...provided,

@@ -5,6 +5,8 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-knobs',
+    '@storybook/preset-create-react-app',
+    '@storybook/preset-scss',
     'storybook-addon-jsx',
     '@storybook/addon-viewport',
   ],
@@ -29,5 +31,9 @@ module.exports = {
     config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
+  },
+  reactOptions: {
+    fastRefresh: false,
+    strictMode: false,
   },
 };

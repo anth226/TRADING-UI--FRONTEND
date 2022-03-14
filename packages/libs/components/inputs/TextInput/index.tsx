@@ -9,6 +9,7 @@ import { TextInputWrap } from '../TextInputWrap';
 export interface TextInputProps extends HTMLProps<HTMLInputElement> {
   left?: JSX.Element | string;
   right?: JSX.Element | string;
+  label?: string; 
   error?: boolean;
   hasError?: boolean;
 }
@@ -29,6 +30,7 @@ const TextInput: FC<TextInputProps> = ({
   type = 'text',
   left,
   right,
+  label,
   hasError,
   className,
   ...props

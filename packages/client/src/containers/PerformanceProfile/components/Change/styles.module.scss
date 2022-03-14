@@ -1,0 +1,43 @@
+.container {
+  width: 164px;
+  height: 99px;
+
+  border: 1px solid #292F47;
+  border-radius: 4px;
+
+  padding: 10px;
+
+  background-image: url('./background.svg');
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.value {
+  margin-top: 21px;
+
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.rowTrade {
+  margin-top: 3px;
+
+  font-family: Cabin;
+
+  font-size: 11px;
+  line-height: 13px;
+
+  display: flex;
+  flex-direction: row;
+
+  .lastTrade {
+    margin-right: 14px;
+
+  }
+
+}

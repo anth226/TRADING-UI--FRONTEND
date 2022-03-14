@@ -1,9 +1,9 @@
 $transition-time: 0.1s;
 
 $color-input-background: var(--color-secondary);
-$color-input-text: var(--color-white);
+$color-input-text: var(--color-green);
 $color-input-error: var(--color-danger);
-$color-input-border: var(--color-secondary);
+$color-input-border: var(--color-grey);
 
 $color-toggle-active: var(--color-primary);
 $color-toggle-dot: var(--color-white);
@@ -26,6 +26,9 @@ $color-checkbox-error: var(--color-error);
 $color-checkbox-check: $color-input-text;
 
 $color-link: var(--color-primary);
+
+$color-table-head: var(--color-dark-blue);
+$color-divide: var(--color-divide);
 
 $color-radio-background: $color-checkbox-background;
 $color-radio-active: $color-checkbox-active;
