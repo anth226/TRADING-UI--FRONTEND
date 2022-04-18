@@ -49,7 +49,7 @@ const HotAssets: FC<Props> = ({
       <div className={isMobile ? styles.mobile_select : styles.select}>
         <DefaultSelect
           type={isMobile ? 'small' : 'normal'}
-          title="Sort by"
+          // title="Sort by"
           onChange={sortChange}
           options={sortOptions}
           defaultValue={sortOptions[0]}
