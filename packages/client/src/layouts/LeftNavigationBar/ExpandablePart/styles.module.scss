@@ -7,7 +7,7 @@
 .expandable_btn {
   position: relative;
   height: 54px;
-  width: 100%;
+  width: 60px;
 
   border-bottom: 1px solid var(--color-grey);
 }
@@ -35,7 +35,7 @@
 .arrow {
   color: var(--color-dark-blue);
   position: absolute;
-  right: 10%;
+  right: 9%;
   top: 50%;
   transform: translateY(-50%);
 }

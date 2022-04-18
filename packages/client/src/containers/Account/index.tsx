@@ -50,7 +50,7 @@ const Account: FC<Props> = () => (
         />
         <DefaultSelect
           type="small"
-          title="Sort by"
+          // title="Sort by"
           onChange={() => {}}
           options={sortOptions}
           defaultValue={sortOptions[0]}
