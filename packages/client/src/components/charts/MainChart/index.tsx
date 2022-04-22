@@ -15,7 +15,7 @@ import {
   getGrid,
   getIndicatorSeries,
   getMouseCoordinates, getTimeMarks, getUserMarks,
-  indicatorTooltip,
+  // indicatorTooltip,
   mainChartIndicators,
   mainChartIndicatorTooltip,
   movingAverageTooltip,
@@ -28,7 +28,12 @@ import { LivePriceTicker } from './LivePriceTicker';
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
 };
-
+export const paddingTB = {
+  left: 0, right: 0, top: 40, bottom: 0,
+};
+export const paddingLR = {
+  left: 0, right: 150, top: 40, bottom: 0,
+};
 const marginBetweenCharts = 10;
 
 interface Props {
@@ -80,7 +85,6 @@ const MainChart: FC<Props> = ({
   );
 
   const mainChartHeight = height - indicatorsHeight - margin.top - margin.bottom;
-
   if (!calculatedData) {
     return null;
   }
@@ -107,6 +111,7 @@ const MainChart: FC<Props> = ({
         height={height}
         width={width}
         ratio={1}
+        padding={paddingLR}
         margin={margin}
         seriesName="MSFT"
         data={data}
@@ -115,7 +120,12 @@ const MainChart: FC<Props> = ({
         displayXAccessor={displayXAccessor}
         xExtents={xExtents}
       >
-        <Chart height={mainChartHeight} id={0} yExtents={(d) => [d.high, d.low]}>
+        <Chart
+          height={mainChartHeight}
+          id={0}
+          yExtents={(d) => [d.high, d.low]} 
+          padding={paddingTB}
+        >
           {getGrid(mainChartHeight, width, mainChartIsLast)}
           {getMouseCoordinates(mainChartIsLast)}
           {chartTypeContainer(chartType)}
@@ -124,6 +134,7 @@ const MainChart: FC<Props> = ({
           {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
           <OHLCTooltip origin={[isMobile ? 0 : 40, 0]} textFill="#667094" />
+
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
           </g>
@@ -166,8 +177,10 @@ const MainChart: FC<Props> = ({
             />
 
             {getMouseCoordinates(index === 0)}
-            {getIndicatorSeries(indicator)}
-            {indicatorTooltip(indicator)}
+            <g className={styles.testing}>
+              {getIndicatorSeries(indicator)}
+            </g>
+            {/* {indicatorTooltip(indicator)} */}
           </Chart>
         ))}
         <CrossHairCursor />

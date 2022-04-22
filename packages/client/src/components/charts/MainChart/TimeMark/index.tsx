@@ -18,7 +18,7 @@ interface Props {
 const TimeMark: FC<Props> = ({
   height, xAccessor, xScale, datum, yScale, type,
 }) => {
-  const y = useMemo(() => yScale(datum.close) - 50, [datum, yScale]);
+  const y = useMemo(() => yScale(datum.close) - 45, [datum, yScale]);
   const x = useMemo(() => xScale(xAccessor(datum)), [datum, xAccessor, xScale]);
   const value = useMemo(() => timeFormat('%y:%m:%d')(datum.date), [datum]);
 
@@ -66,7 +66,7 @@ const TimeMark: FC<Props> = ({
         strokeWidth="2"
       />
 
-      <svg width="20" height="60" viewBox="0 0 18 60" x={x - 10} fill="none" y={height - 100}>
+      <svg width="20" height="60" viewBox="0 0 18 60" x={x - 10} fill="none" y={height - 250}>
         <path fill={`${type === TimeMarkType.End ? '#EA221D' : '#59648A'}`} d="M16.0578 6.82533C16.7891 7.5301 17.2022 8.502 17.2022 9.51758L17.2022 40.0087C17.2022 41.6608 15.8629 43 14.2109 43H3.74131C2.08926 43 0.750006 41.6607 0.750006 40.0087L0.750006 9.51758C0.750006 8.502 1.16311 7.5301 1.89436 6.82533L7.41922 1.5005C8.28819 0.662998 9.664 0.662996 10.533 1.5005L16.0578 6.82533Z" />
         <text fontFamily="Cabin" x="10" y="10" fill="white" fontSize="8px" writingMode="vertical-rl">{value}</text>
       </svg>

@@ -99,10 +99,30 @@ export const getIndicatorSeries = ({ type, value }: ChartMenuIndicator) => {
       );
     case IndicatorType.MACD:
       return (
-        <MACDSeries
-          yAccessor={value.accessor()}
-        />
+        <>
+          <foreignObject className="node" x="0" y="-10" width="96%" height="100">
+
+            <div style={{ borderTop: '1px solid white' }}>
+              <div style={{ border: '1px solid white', width: '55px', fontSize: '12px' }}>
+                MACD
+              </div>
+            </div>
+          </foreignObject>
+          <MACDSeries
+            yAccessor={value.accessor()}
+            fillStyle={{ divergence: 'rgba(123,133,167,1)' }}
+            clip={false}
+            strokeStyle={
+              {
+                macd: 'rgba(255,255,255,0)',
+                signal: 'rgba(255,255,255,0)',
+                zero: 'rgba(0,0,0,0)',
+              }
+            }
+          />
+        </>
       );
+        
     case IndicatorType.Stochastic:
       return (
         <StochasticSeries
@@ -124,11 +144,21 @@ export const getIndicatorSeries = ({ type, value }: ChartMenuIndicator) => {
       );
   }
 };
-
 export const chartTypeContainer = (activeChart: ChartType) => (
   <>
     {activeChart === ChartType.Area && (
-      <AreaSeries yAccessor={(d) => d.close} />
+      <AreaSeries
+        yAccessor={(d) => d.close}
+        fillStyle={(context) => {
+          const gradient = context.createLinearGradient(0, 300, 0, 900);
+          gradient.addColorStop(0, 'rgba(18, 97, 190, 0.31)');
+          gradient.addColorStop(1, 'rgba(18, 45, 184, 0)');
+          return gradient;
+        }}
+        strokeWidth={2}
+        strokeStyle="#009CCD"
+      />
+
     )}
     {activeChart === ChartType.Line && (
       <LineSeries yAccessor={(d) => d.close} />
@@ -152,11 +182,11 @@ export const mainChartIndicators = (activeIndicators: ChartMenuIndicator[]) => (
 
 const macdAppearance = {
   strokeStyle: {
-    macd: '#FF0000',
-    signal: '#00F300',
+    macd: 'rgba(255,255,255,0)',
+    signal: 'rgba(255,255,255,0)',
   },
   fillStyle: {
-    divergence: '#4682B4',
+    divergence: '#ffffff',
   },
 };
 

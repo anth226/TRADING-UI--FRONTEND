@@ -65,7 +65,6 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[], chartType: 
   const indicatorsHeight = activeIndicators
     .map((i) => i.height)
     .reduce<number>((sum, current) => sum + current, 0);
-
   const newChartIndicators = activeIndicators.filter((i) => i.isNewChart);
   const mainChartIsLast = activeIndicators.length === 0;
 

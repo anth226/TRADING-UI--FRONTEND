@@ -169,7 +169,7 @@ const mainChartIndicators: ChartMenuIndicator[] = [
     type: IndicatorType.BollingerBar, label: 'BOLLINGER BAR', checked: false, height: 0, value: bb,
   },
   {
-    type: IndicatorType.MACD, label: 'MACD', checked: false, height: 125, value: macdCalculator, isNewChart: true,
+    type: IndicatorType.MACD, label: 'MACD', checked: true, height: 125, value: macdCalculator, isNewChart: true,
   },
   {
     type: IndicatorType.ATR,
@@ -274,7 +274,7 @@ export const useChartMenuHandlers = () => {
   }, [zoomOutElement]);
   
   const activeIndicators = indicators.filter((indicator) => indicator.checked);
-  
+  // const activeIndicators = indicators.filter((indicator) => indicator.label==="MACD");
   const toggleUserMarks = useCallback(() => {
     setUserMarks((prevState) => !prevState);
   }, []);
