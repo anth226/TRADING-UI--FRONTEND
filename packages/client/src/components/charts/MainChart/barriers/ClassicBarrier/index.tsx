@@ -10,7 +10,7 @@ interface Props {
 const ClassicBarrier: FC<Props> = ({ width, value, isActive }) => {
   const render = useCallback(({ chartConfig: { yScale } }: any) => {
     const y = yScale(value);
-    const blockWidth = 50;
+    const blockWidth = 70;
     const height = 22;
     return (
       <g>

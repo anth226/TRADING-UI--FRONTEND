@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import {
   AreaSeries, BollingerSeries,
@@ -42,7 +44,7 @@ export const getGrid = (height = 500, width = 500, isLast = false) => {
         tickStrokeDasharray="Solid"
         domainClassName={styles.grid}
         tickStrokeStyle="rgba(102, 112, 148, 0.2)"
-        tickLabelFill={isLast ? 'rgba(102, 112, 148, 0.2)' : 'transparent'}
+        tickLabelFill={isLast ? 'rgba(102, 112, 148, 1)' : 'transparent'}
         strokeStyle="transparent"
       />
       <YAxis
@@ -53,7 +55,7 @@ export const getGrid = (height = 500, width = 500, isLast = false) => {
         tickStrokeDasharray="Solid"
         domainClassName={styles.grid}
         strokeStyle="transport"
-        tickLabelFill="rgba(102, 112, 148, 0.2)"
+        tickLabelFill="rgba(102, 112, 148, 1)"
         tickStrokeStyle="rgba(102, 112, 148, 0.2)"
       />
     </>
@@ -102,8 +104,8 @@ export const getIndicatorSeries = ({ type, value }: ChartMenuIndicator) => {
         <>
           <foreignObject className="node" x="0" y="-10" width="96%" height="100">
 
-            <div style={{ borderTop: '1px solid white' }}>
-              <div style={{ border: '1px solid white', width: '55px', fontSize: '12px' }}>
+            <div style={{ borderTop: '1px solid #7B85A7' }}>
+              <div style={{ border: '1px solid #7B85A7', width: '55px', fontSize: '12px' }}>
                 MACD
               </div>
             </div>
@@ -150,7 +152,7 @@ export const chartTypeContainer = (activeChart: ChartType) => (
       <AreaSeries
         yAccessor={(d) => d.close}
         fillStyle={(context) => {
-          const gradient = context.createLinearGradient(0, 300, 0, 900);
+          const gradient = context.createLinearGradient(0, 300, 0, 700);
           gradient.addColorStop(0, 'rgba(18, 97, 190, 0.31)');
           gradient.addColorStop(1, 'rgba(18, 45, 184, 0)');
           return gradient;

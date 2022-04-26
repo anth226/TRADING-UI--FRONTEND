@@ -3,6 +3,12 @@
 .expandable_wrap_active {
   background-color: #191E2F;
 }
+.expandable_wrap_active:nth-child(2) div button{
+  padding-left: 5px;
+}
+.expandable_wrap_active:nth-child(3) div button{
+  padding-left: 5px;
+}
 
 .expandable_btn {
   position: relative;
@@ -24,6 +30,12 @@
   width: 100%;
   flex-direction: column;
   color: var(--color-dark-blue);
+}
+.expandable_wrap:nth-child(2) button i:first-child{
+  padding-right: 3px;
+}
+.expandable_wrap:nth-child(3) button i:first-child{
+  padding-right: 3px;
 }
 
 .expandable_content {

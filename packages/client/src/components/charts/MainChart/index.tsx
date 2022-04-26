@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC, useCallback } from 'react';
 import {
   Chart,
@@ -133,7 +134,7 @@ const MainChart: FC<Props> = ({
           {movingAverageTooltip(activeIndicators)}
           {activeIndicators.map((i) => (mainChartIndicatorTooltip(i)))}
 
-          <OHLCTooltip origin={[isMobile ? 0 : 40, 0]} textFill="#667094" />
+          {/* <OHLCTooltip origin={[isMobile ? 0 : 40, 0]} textFill="#667094" /> */}
 
           <g className={styles.zoom_buttons}>
             <ZoomButtons heightFromBase={0} strokeWidth={0} fillOpacity={0.1} />
@@ -162,7 +163,7 @@ const MainChart: FC<Props> = ({
                 orient="bottom"
                 fontSize={8}
                 tickStrokeStyle="rgba(102, 112, 148, 0.2)"
-                tickLabelFill="rgba(102, 112, 148, 0.2)"
+                tickLabelFill="rgba(102, 112, 148, 1)"
                 strokeStyle="transport"
               />
             )}
@@ -171,7 +172,7 @@ const MainChart: FC<Props> = ({
               orient="right"
               fontSize={8}
               tickStrokeStyle="rgba(102, 112, 148, 0.2)"
-              tickLabelFill="rgba(102, 112, 148, 0.2)"
+              tickLabelFill="rgba(102, 112, 148, 1)"
               strokeStyle="transport"
               tickFormat={format('.3s')}
             />

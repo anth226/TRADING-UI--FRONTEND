@@ -14,7 +14,7 @@ const TouchBarrier: FC<Props> = ({
 }) => {
   const renderPut = useCallback(({ chartConfig: { yScale } }: any) => {
     const y = yScale(putValue);
-    const blockWidth = 50;
+    const blockWidth = 70;
 
     return (
       <>
@@ -29,7 +29,7 @@ const TouchBarrier: FC<Props> = ({
 
   const renderCall = useCallback(({ chartConfig: { yScale } }: any) => {
     const y = yScale(callValue);
-    const blockWidth = 50;
+    const blockWidth = 70;
 
     return (
       <>

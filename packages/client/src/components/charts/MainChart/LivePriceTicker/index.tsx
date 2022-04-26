@@ -11,7 +11,7 @@ const LivePriceTicker: FC<Props> = ({ width, lastDatum }) => {
     chartConfig: { yScale },
   }: any) => {
     const y = yScale(lastDatum.close);
-    const blockWidth = 50;
+    const blockWidth = 70;
     const height = 22;
     return (
       <g>

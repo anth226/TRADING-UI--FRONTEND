@@ -121,7 +121,7 @@ export const rootNavigationParts: RootNavigationPart[] = [
     name: rootPartNames[RootPart.Affiliates],
     items: affiliatesItems, 
     icon: FontIconName.Affiliates,
-    size: 18,
+    size: 16,
     type: RootPart.Affiliates,
   },
   {
