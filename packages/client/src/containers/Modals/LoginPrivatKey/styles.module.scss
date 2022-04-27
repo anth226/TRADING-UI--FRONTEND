@@ -1,0 +1,83 @@
+.background {
+  position: absolute;
+  background-color: rgba(2, 6, 16, 0.8);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalInviseble {
+  display: none;
+}
+
+.modal {
+  overflow: hidden;
+  background-color: #181d2d;
+  display: flex;
+  flex-direction: column;
+  width: 675px;
+  height: 280px;
+
+}
+
+.login {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 21px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #374459;
+  margin-bottom: 37px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main span {
+  display: none;
+}
+
+.button {
+  color: #0d1422;
+  border: 1px solid #374459;
+  min-width: 311px;
+  height: 44px !important;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  border-radius: 10px !important;
+}
+
+.input {
+  font-family: Cabin;
+  font-size: 13px;
+}
+
+.pointer {
+  display: flex;
+  column-gap: 12px;
+}
+
+.back {
+  font-size: 9px;
+  color: rgba(78, 167, 90, 1);
+  font-size: 15px;
+  cursor: pointer !important;
+}
+
+
+.hr {
+  width: 100%;
+  background-color: #374459;
+  height: 1px;
+  border: none;
+}

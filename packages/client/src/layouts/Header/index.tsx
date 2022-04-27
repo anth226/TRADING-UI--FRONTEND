@@ -1,4 +1,5 @@
-import React, { FC, useCallback, useMemo } from 'react';
+/* eslint-disable */
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { HeaderTab } from '@option-blitz/libs/components/common/HeaderTab';
 import cx from 'classnames';
@@ -10,6 +11,10 @@ import { HeaderTabSelect, HeaderTabSelectChange } from '@option-blitz/libs/compo
 import styles from './styles.module.scss';
 import { Routes } from '../../constants/routes';
 import { HeaderTabItem } from '../../hooks/header/useHeaderHandlers';
+import { LoginModal } from '../../containers/Modals/LoginModal';
+import { LoginPrivatKey } from '../../containers/Modals/LoginPrivatKey';
+import { WalletConnected } from '../../containers/Modals/WalletConnected';
+import { CreateNewAccount } from '../../containers/Modals/CreateNewAccount';
 
 interface Props {
   onAddTab: () => void
@@ -42,8 +47,18 @@ const Header: FC<Props> = ({
     if (!value) return;
     onTabClick(value.id);
   }, []);
-  
+
   const activeTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [ wallet, setWallet] =useState(false)
+  const [privatkey, setPrivatkey]=useState(false)
+  const [createaccount, setCreateaccount]=useState(false)
+
+  const handleChange = () => {
+    setModalVisible(true)
+
+  }
 
   return (
     <div className={styles.wrap}>
@@ -92,7 +107,7 @@ const Header: FC<Props> = ({
 
       <div className={styles.section}>
         <HeaderUser
-          isActive={userAvatarIsActive} 
+          isActive={userAvatarIsActive}
           className={styles.avatar}
           img="/avatar.png"
         />
@@ -106,10 +121,14 @@ const Header: FC<Props> = ({
           </div>
         )}
         {!isMobile && (
-          <Button size={32} color="orange" className={styles.login}>
+          <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
             {address || 'login'}
           </Button>
         )}
+        <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} />
+        <LoginPrivatKey active={privatkey} setActive={setPrivatkey} mainmodal={setModalVisible} />
+        <WalletConnected active={wallet} setActive={setWallet} />
+        <CreateNewAccount active={createaccount} setActive={setCreateaccount} setWallet={setWallet} />
       </div>
     </div>
   );

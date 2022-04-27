@@ -15,6 +15,7 @@
   position: relative;
   height: calc(100% - #{$header-height});
   width: 100%;
+  z-index: 1;
 
   @include mobile {
     height: calc(100% - #{$mobile-header-height});

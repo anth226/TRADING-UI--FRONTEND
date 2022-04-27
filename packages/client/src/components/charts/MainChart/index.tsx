@@ -25,6 +25,8 @@ import { MainChartMenu } from '../MainChartMenu';
 import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
 import { useMainChart } from '../../../hooks/mainChart/useMainChart';
 import { LivePriceTicker } from './LivePriceTicker';
+import Button from '@option-blitz/libs/components/inputs/Button';
+import { LoginModal } from '../../../containers/Modals/LoginModal';
 
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
@@ -124,7 +126,7 @@ const MainChart: FC<Props> = ({
         <Chart
           height={mainChartHeight}
           id={0}
-          yExtents={(d) => [d.high, d.low]} 
+          yExtents={(d) => [d.high, d.low]}
           padding={paddingTB}
         >
           {getGrid(mainChartHeight, width, mainChartIsLast)}

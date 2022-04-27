@@ -49,7 +49,7 @@ export const useHeaderHandlers = () => {
     defaultOption: headerOptionsMock[0],
     isAuth: true,
     userAvatarIsActive: false,
-    address: '0x00...0000',
+    address: 'Login',
     onTabClick,
     openMobileNavigation,
   };
