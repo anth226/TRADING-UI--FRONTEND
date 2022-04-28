@@ -25,8 +25,6 @@ import { MainChartMenu } from '../MainChartMenu';
 import { MainChartTimeFormat, useChartMenuHandlers } from '../../../hooks/mainChart/useChartMenuHandlers';
 import { useMainChart } from '../../../hooks/mainChart/useMainChart';
 import { LivePriceTicker } from './LivePriceTicker';
-import Button from '@option-blitz/libs/components/inputs/Button';
-import { LoginModal } from '../../../containers/Modals/LoginModal';
 
 export const margin = {
   left: 0, right: 50, top: 10, bottom: 30,
@@ -92,6 +90,7 @@ const MainChart: FC<Props> = ({
     return null;
   }
 
+
   return (
     <div className={styles.wrap}>
       <MainChartMenu
@@ -143,7 +142,7 @@ const MainChart: FC<Props> = ({
           </g>
 
           {/* TODO: Delete marks after implementing backend */}
-          {getTimeMarks(data, height)}
+          {getTimeMarks(data, mainChartHeight )}
           {getUserMarks(data, userMarksActive)}
 
           <LivePriceTicker width={width} lastDatum={data[data.length - 1]} />

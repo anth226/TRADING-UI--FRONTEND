@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React, { FC, useMemo } from 'react';
 import { ScaleContinuousNumeric, timeFormat } from 'd3';
+import { useMainChart } from '../../../../hooks/mainChart/useMainChart';
 
 export enum TimeMarkType {
   End,
@@ -21,11 +23,10 @@ const TimeMark: FC<Props> = ({
   const y = useMemo(() => yScale(datum.close) - 45, [datum, yScale]);
   const x = useMemo(() => xScale(xAccessor(datum)), [datum, xAccessor, xScale]);
   const value = useMemo(() => timeFormat('%y:%m:%d')(datum.date), [datum]);
-
   return (
     <g>
       <g
-        transform={`translate(${x - 15}, ${y - 40})`}
+        transform={`translate(${x - 14}, ${5})`}
       >
         {type === TimeMarkType.End && (
           <svg width="30" height="30" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,11 +49,11 @@ const TimeMark: FC<Props> = ({
           x2={x}
           y2={height - 60}
           x1={x}
-          y1={y}
+          y1={50}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor={`${type === TimeMarkType.End ? '#EA221D' : '#fff'}`} offset="0" />
-          <stop stopColor={`${type === TimeMarkType.End ? '#EA221D' : '#fff'}`} offset=".7" />
+          <stop stopColor={`${type === TimeMarkType.End ? 'rgba(234,34,29,1)' : 'rgba(255,255,255,0.75)'}`} offset="0" />
+          <stop stopColor={`${type === TimeMarkType.End ? 'rgba(234,34,29,0)' : 'rgba(255,255,255,0)'}`} offset="1" />
           <stop stopColor="transparent" offset="1" />
         </linearGradient>
       </defs>
@@ -61,12 +62,13 @@ const TimeMark: FC<Props> = ({
         x1={x}
         y1={height - 60}
         x2={x}
-        y2={y}
+        y2={50}
         stroke={`url(#marker_gradient_${type})`}
         strokeWidth="2"
       />
 
-      <svg width="20" height="60" viewBox="0 0 18 60" x={x - 10} fill="none" y={height - 250}>
+
+      <svg width="20" height="60" viewBox="0 0 18 60" x={x - 10} fill="none" y={height - 50  }>
         <path fill={`${type === TimeMarkType.End ? '#EA221D' : '#59648A'}`} d="M16.0578 6.82533C16.7891 7.5301 17.2022 8.502 17.2022 9.51758L17.2022 40.0087C17.2022 41.6608 15.8629 43 14.2109 43H3.74131C2.08926 43 0.750006 41.6607 0.750006 40.0087L0.750006 9.51758C0.750006 8.502 1.16311 7.5301 1.89436 6.82533L7.41922 1.5005C8.28819 0.662998 9.664 0.662996 10.533 1.5005L16.0578 6.82533Z" />
         <text fontFamily="Cabin" x="10" y="10" fill="white" fontSize="8px" writingMode="vertical-rl">{value}</text>
       </svg>
