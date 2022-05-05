@@ -6,7 +6,7 @@ import cx from 'classnames';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { HeaderUser } from '@option-blitz/libs/components/common/HeaderUser';
 import { HeaderBalance, HeaderSelectItem } from '@option-blitz/libs/components/common/HeaderBalance';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { HeaderTabSelect, HeaderTabSelectChange } from '@option-blitz/libs/components/inputs/HeaderTabSelect';
 import styles from './styles.module.scss';
 import { Routes } from '../../constants/routes';
@@ -57,8 +57,13 @@ const Header: FC<Props> = ({
 
   const handleChange = () => {
     setModalVisible(true)
-
   }
+
+  const history = useHistory();
+  const handlerChange = () => {
+    history.push('/profile');
+  };
+
 
   return (
     <div className={styles.wrap}>
@@ -107,6 +112,7 @@ const Header: FC<Props> = ({
 
       <div className={styles.section}>
         <HeaderUser
+          onClick={handlerChange}
           isActive={userAvatarIsActive}
           className={styles.avatar}
           img="/avatar.png"
