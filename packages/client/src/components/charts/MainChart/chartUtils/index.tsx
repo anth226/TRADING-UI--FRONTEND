@@ -102,12 +102,22 @@ export const getIndicatorSeries = ({ type, value }: ChartMenuIndicator) => {
     case IndicatorType.MACD:
       return (
         <>
-          <foreignObject className="node" x="0" y="-10" width="96%" height="100">
-
-            <div style={{ borderTop: '1px solid #7B85A7' }}>
-              <div style={{ border: '1px solid #7B85A7', width: '55px', fontSize: '12px' }}>
-                MACD
-              </div>
+          <foreignObject className="node" x="0" y="-10" width="96%" height="100" style={{ paddingBottom: '1px' }} >
+            <div style={{ borderTop: '1px solid #7B85A7'}}>
+              <svg width="39" height="14" viewBox="0 0 39 14"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_b_7640_91625)">
+                  <path d="M1.36873 13.5H29.3239C30.4152 13.5 31.4155 12.8917 31.9175 11.9228L37.836 0.5H0.500309V12.6316C0.500309 13.1112 0.889114 13.5 1.36873 13.5Z" stroke="#7B85A7"/>
+                  <text fill="white" fontFamily="Cabin" fontSize={7} x={7} y={10} >MACD</text>
+                </g>
+                <defs>
+                  <filter id="filter0_b_7640_91625" x="-13.6842" y="-13.6842" width="66.0266" height="41.3684" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feGaussianBlur in="BackgroundImage" stdDeviation="6.84211"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_7640_91625"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_7640_91625" result="shape"/>
+                  </filter>
+                </defs>
+              </svg>
             </div>
           </foreignObject>
           <MACDSeries
