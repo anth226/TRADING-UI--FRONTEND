@@ -16,52 +16,8 @@
 .zoom_buttons {
   display: none;
 }
-/////////
-////////
-////////
-.modal{
-  overflow: hidden;
-  background-color: #181d2d;
-  display: flex;
-  flex-direction: column;
-  width: 675px;
-  height: 340px;
+.nod{
+  position: absolute;
+  top: -3px;
+  left: 0;
 }
-.login{
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 25px;
-}
-.main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-
-}
-.method{
-  font-size: 9px;
-}
-.button{
-  color: #0d1422;
-  border: 1px solid #374459;
-  min-width: 311px;
-  height: 44px;
-}
-.account{
-  padding: 10px;
-  font-size: 9px;
-}
-.fonts { button {
-color: white !important;}
-}
-.hr{
-  width: 100%;
-  background-color:#374459;
-  height: 1px;
-  border: none;
-}
-/////////
-//////////
-/////////

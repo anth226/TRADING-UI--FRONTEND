@@ -162,7 +162,7 @@ const MainChart: FC<Props> = ({
               <XAxis
                 axisAt="bottom"
                 orient="bottom"
-                fontSize={8}
+                fontSize={10}
                 tickStrokeStyle="rgba(102, 112, 148, 0.2)"
                 tickLabelFill="rgba(102, 112, 148, 1)"
                 strokeStyle="transport"
@@ -171,7 +171,7 @@ const MainChart: FC<Props> = ({
             <YAxis
               axisAt="right"
               orient="right"
-              fontSize={8}
+              fontSize={10}
               tickStrokeStyle="rgba(102, 112, 148, 0.2)"
               tickLabelFill="rgba(102, 112, 148, 1)"
               strokeStyle="transport"
@@ -179,9 +179,7 @@ const MainChart: FC<Props> = ({
             />
 
             {getMouseCoordinates(index === 0)}
-            <g className={styles.testing}>
               {getIndicatorSeries(indicator)}
-            </g>
             {/* {indicatorTooltip(indicator)} */}
           </Chart>
         ))}
