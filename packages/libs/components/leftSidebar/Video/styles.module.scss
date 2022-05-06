@@ -1,0 +1,30 @@
+.container {
+  width: 196px;
+  height: 118px;
+  margin-bottom: 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;;
+  width: 196px;
+  height: 118px;
+  margin-bottom: 20px;
+  background: rgba(25, 34, 53, 0.7);
+}
+
+.icon {
+  margin-top: auto;
+}
+
+.title {
+  margin-top: auto;
+  font-family: Conthrax;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 0px 16px;
+  margin-bottom: 5px;
+}
+
