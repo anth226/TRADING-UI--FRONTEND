@@ -274,7 +274,6 @@ export const useChartMenuHandlers = () => {
   }, [zoomOutElement]);
   
   const activeIndicators = indicators.filter((indicator) => indicator.checked);
-  // const activeIndicators = indicators.filter((indicator) => indicator.label==="MACD");
   const toggleUserMarks = useCallback(() => {
     setUserMarks((prevState) => !prevState);
   }, []);

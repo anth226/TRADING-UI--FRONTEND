@@ -1,0 +1,170 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 220px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap_mobile {
+  @include flexbox(initial, initial);
+
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card_wrap {
+  @include flexbox(center, initial);
+
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    max-width: 300px;
+    margin-bottom: 8px;
+  }
+
+}
+
+.gird_card_wrap {
+  @include flexbox();
+
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 10px;
+}
+.select span{
+  display: none
+}
+
+.mobile_select {
+  margin-bottom: 8px;
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}
+
+
+
+.header_small {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 20px;
+}
+
+.title_wrap_mobile {
+  @include flexbox();
+}
+
+.icon {
+  color: var(--color-green);
+  margin-right: 10px;
+}
+
+.title_small {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.input{
+  font-family: Cabin;
+  font-size:13px;
+}
+.iconSearch{
+  color: white;
+}
+.price{
+  padding-left: 15px;
+  height: 40px;
+}
+.iconBinocular{
+  padding-right: 15px;
+}
+/////////
+
+.iconArrowBack{
+  color: white;
+  padding-right: 10px;
+}
+.addAlert{
+  height: 40px;
+  font-size: 13px;
+}
+.testAlert{
+  margin-top: 100px;
+}
+.map{
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-around;
+  font-family: Cabin;
+  font-size: 12px;
+  margin-bottom: 100px;
+}
+.iconClose{
+  color: #00CD86;
+}
+.iconRight{
+  color: white !important;
+  border-bottom: 1px solid white;
+}
+.cancelAlert{
+  height: 40px;
+  font-size: 13px;
+  color: #ea221c !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.symbol{
+  display: flex;
+  justify-content: space-around;
+  font-size: 10px;
+  color: #545870;
+}
+.hr{
+  border: 0px;
+  height: 1px;
+  background-color: #545870;;
+
+}

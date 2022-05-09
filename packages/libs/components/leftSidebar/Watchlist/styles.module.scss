@@ -1,0 +1,148 @@
+@import '~@option-blitz/libs/assets/styles/mixins';
+
+.wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-grey);
+
+  &:focus {
+    background-color: #052C48;
+  }
+}
+
+.coin_wrap {
+  @include flexbox();
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin: 8px 8px 0;
+}
+
+.info_wrap {
+  @include flexbox();
+
+  flex-direction: column;
+  font-family: $font-cabin;
+}
+
+.first_value {
+  font-size: 13px;
+}
+
+.second_value {
+  font-size: 11px;
+  color: var(--color-green);
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.diagram {
+  width: 100%;
+}
+
+.buttonPlus {
+  @include flexbox();
+
+  position: absolute;
+  bottom: 10px;
+  right:40px;
+
+  width: 23px;
+  height: 23px;
+  border-radius: 45px;
+  background-color: #0F5D66;
+}
+.buttonMinus {
+  @include flexbox();
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  width: 23px;
+  height: 23px;
+  border-radius: 45px;
+  background-color: #ea221c;
+}
+.BinocularChecked{
+  @include flexbox();
+  column-gap: 4px;
+  position: absolute;
+  bottom: 10px;
+  right: 160px;
+
+  width: 50px;
+  height: 22px;
+  border-radius: 45px;
+  background-color: #0F5D66;
+}
+
+
+.wrap_small {
+  width: 170px;
+  height: 150px;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--color-grey);
+
+  &:focus {
+    background-color: #052C48;
+  }
+}
+
+.title_wrap_small {
+  @include flexbox();
+
+  flex-direction: column;
+  height: 100%;
+  z-index: 2;
+}
+
+.diagram_small {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+
+.first_value_small {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.second_value_small {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.title_small {
+  font-size: 11px;
+}
+
+.icon_wrap_small {
+  @include flexbox();
+
+  padding: 5px;
+  box-shadow: 0 0 10px var(--color-green);
+  border-radius: 100%;
+  border: 2px solid var(--color-green);
+  margin-bottom: 8px;
+  background-color: var(--color-background);
+  z-index: 2;
+}
+
+.button_small {
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+}
+
