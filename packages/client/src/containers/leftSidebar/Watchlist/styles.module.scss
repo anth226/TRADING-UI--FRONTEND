@@ -74,6 +74,11 @@
   font-size: 11px;
   text-transform: uppercase;
 }
+.alert{
+  font-size: 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
 .arrow_wrap {
   @include flexbox();
@@ -122,6 +127,8 @@
   padding-right: 15px;
 }
 /////////
+//alerts///
+//////////
 
 .iconArrowBack{
   color: white;
@@ -156,15 +163,48 @@
   background-color: rgba(255, 255, 255, 0) !important;
 }
 
-.symbol{
+.tableHead{
   display: flex;
-  justify-content: space-around;
-  font-size: 10px;
+  font-size: 13px;
+  font-family: Cabin;
   color: #545870;
+}
+.symbol{
+  margin-right: 25px;
+}
+.condition{
+  margin-right: 35px;
+}
+.table{
+  display: flex;
+  align-items: center;
+  font-family: Cabin;
+  font-size: 13px;
+}
+.iconRightEquals{
+  border-bottom: 1px solid white;
+}
+.money{
+  margin-right: 40px;
+}
+.big{
+  font-size: 25px;
+}
+.second{
+  align-items: center;
+  display: flex;
+
+}
+.num{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  width: 85px;
+  margin-right:20px;
 }
 .hr{
   border: 0px;
   height: 1px;
   background-color: #545870;;
-
 }
+///////

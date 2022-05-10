@@ -1,0 +1,33 @@
+.container {
+  width: 196px;
+  margin-bottom: 15px;
+  flex-direction: column;
+}
+.icon{
+  display: flex;
+  column-gap: 15px;
+  margin-bottom: 7px;
+}
+.title{
+  color: #00CD86;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.minutes{
+  color: #545870;
+  font-size: 9px;
+}
+.img{
+  margin-bottom: 5px;
+}
+.descriptions{
+  font-family: Cabin;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.readMore{
+  color: #545870;
+  font-family: Cabin;
+  font-size: 12px;
+}

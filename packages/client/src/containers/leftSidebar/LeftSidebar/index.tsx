@@ -4,6 +4,7 @@ import { Navigation } from '../../../constants/navigation/navigation';
 import { HotAssets } from '../HotAssets';
 import { Video } from '../Video';
 import { Watchlist } from '../Watchlist';
+import { News } from '../News';
 
 interface Props {
   activeNavigation?: Navigation
@@ -18,6 +19,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.HotAssets && <HotAssets onBack={onBack} />}
     {activeNavigation === Navigation.VideoTutorials && <Video onBack={onBack} />}
     {activeNavigation === Navigation.WatchList && <Watchlist onBack={onBack} />}
+    {activeNavigation === Navigation.News && <News onBack={onBack} />}
   </div>
 );
 

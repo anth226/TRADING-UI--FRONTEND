@@ -1,13 +1,32 @@
 @import "~@option-blitz/libs/assets/styles/mixins";
 
 .wrap {
-  width: 220px;
+  width: 229px;
   height: 100%;
 
   display: flex;
   flex-direction: column;
 }
-
+.disable{
+  width: 50%;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.active{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  width: 50%;
+  color: #00CD86;
+  border-bottom: 1px solid #00CD86;
+  cursor: pointer;
+}
 .wrap_mobile {
   @include flexbox(initial, initial);
 
@@ -37,7 +56,18 @@
   }
 
 }
-
+.news{
+  height: 55px;
+  border-bottom: 1px solid #2F394A;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.economic{
+  max-width: 77px;
+}
 .title_wrap {
   @include flexbox(center, space-between);
 

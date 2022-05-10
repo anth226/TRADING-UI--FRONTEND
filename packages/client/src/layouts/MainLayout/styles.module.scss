@@ -12,7 +12,6 @@
 .body {
   @include flexbox(initial, initial);
 
-  position: relative;
   height: calc(100% - #{$header-height});
   width: 100%;
   z-index: 1;
