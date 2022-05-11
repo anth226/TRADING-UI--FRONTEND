@@ -1,0 +1,278 @@
+h4 {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.container {
+  border: 1px solid #374459;
+  margin-top: 5px;
+  padding-top: 25px;
+  padding-left: 20px;
+  margin-right: 12px;
+  width: 100%;
+  overflow-y: scroll;
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 4px;
+}
+.cardList {
+  padding-bottom: 50px;
+}
+.navigation {
+  display: flex;
+  border-bottom: 1px solid #2F394A;
+  margin-bottom: 25px;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  padding-bottom: 18px;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
+  div {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #59648A;
+    text-transform: uppercase;
+  }
+}
+
+.navItemActive {
+  @extend .navItem;
+  border-bottom: 1px solid #00CD86;
+  div {
+    color: #00CD86;
+  }
+  svg {
+    path, line {
+      fill: #00CD86;
+      stroke: #00CD86;
+    }
+  }
+}
+.balanceSection {
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+.balance {
+  display: flex;
+  padding-bottom: 25px;
+}
+.cardOuter {
+  width: 30%;
+}
+.method {
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+.search {
+  padding-right: 20px;
+  padding-bottom: 25px;
+  span {
+    display: none;
+  }
+}
+.iconSearch{
+  color: white;
+}
+.input{
+  font-family: Cabin;
+  font-size:13px;
+}
+
+.payment {
+  display: flex;
+}
+.paymentSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  border-right: 1px solid #374459;
+  &:first-child {
+    width: 30%;
+    padding-left: 0;
+  }
+  &:nth-child(2) {
+    width: 15%;
+  }
+  &:nth-child(3) {
+    width: 25%;
+  }
+  &:nth-child(4) {
+    border-right: none;
+    width: 30%;
+  }
+}
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  width: 100%;
+  cursor: pointer;
+  img {
+    margin-right: 10px;
+  }
+  div {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+
+
+    color: #ACBDCF;
+  }
+}
+.coinActive {
+  @extend .coin;
+  background: #192235;
+  border-radius: 6px;
+}
+.methodOuter {
+  border-bottom: 1px solid #2F394A;
+}
+.ratesSection {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.rates {
+  display: flex;
+  flex-direction: column;
+}
+.rate {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  /* identical to box height */
+  margin-bottom: 10px;
+  color: #ACBDCF;
+}
+.noFee {
+  width: fit-content;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 11px;
+  /* identical to box height */
+  color: #ACBDCF;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #00CD86;
+}
+.expectedRate {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  /* identical to box height */
+  border-bottom: 1px dashed #00CD86;
+  height: fit-content;
+  color: #00CD86;
+}
+.keySection {
+  display: flex;
+  word-break: break-all;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.paymentTitle {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  /* or 16px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.copy {
+  padding: 20px;
+  border-left: 1px solid #374459;
+  margin-left: 10px;
+}
+.key {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #00CD86;
+  word-wrap: break-word;
+}
+.qrCodeBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+  span {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 140%;
+    /* or 16px */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+  }
+}
+.qrCode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 134px;
+  height: 134px;
+  background: #192235;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+.subInfo {
+  display: flex;
+  flex-direction: column;
+  span {
+    &:first-child {
+      color: #59648A;
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 15px;
+      margin-bottom: 8px;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+    }
+    &:last-child {
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 15px;
+      margin-bottom: 8px;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+
+      color: #FFFFFF;
+    }
+  }
+}
+
