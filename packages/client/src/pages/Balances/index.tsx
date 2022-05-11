@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {FC, useState} from 'react';
 import {MainLayout} from "../../layouts/MainLayout";
 import styles from './styles.module.scss'

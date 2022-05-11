@@ -48,7 +48,7 @@ const Video: FC<Props> = ({
     ]
 
   return (
-    <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
+    <div className={styles.wrap}>
       <div className={styles.title_wrap}>
         <p className={styles.title}>Video Tutorials</p>
         <button onClick={onBack} className={styles.arrow_wrap}>

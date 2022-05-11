@@ -63,6 +63,9 @@ const Header: FC<Props> = ({
   const handlerChange = () => {
     history.push('/profile');
   };
+  const goToBalances = () => {
+    history.push('/balances');
+  };
 
 
   return (
@@ -111,6 +114,7 @@ const Header: FC<Props> = ({
       </div>
 
       <div className={styles.section}>
+        <button onClick={goToBalances}>BALANCES</button>
         <HeaderUser
           onClick={handlerChange}
           isActive={userAvatarIsActive}

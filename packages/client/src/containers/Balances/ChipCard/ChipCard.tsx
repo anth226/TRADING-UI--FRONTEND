@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {FC, useState} from 'react';
 import styles from "./styles.module.scss";
 import right_arrow from "@option-blitz/libs/assets/images/balances/icons/right_arrow.svg";

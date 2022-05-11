@@ -1,0 +1,181 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 220px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card_wrap {
+  @include flexbox(center, initial);
+
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    max-width: 300px;
+    margin-bottom: 8px;
+  }
+
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  font-size: 11px;
+  font-family: Cabin;
+}
+
+.row {
+  display: flex;
+  column-gap: 15px;
+  background-color: #191E2F;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modal {
+  display: flex;
+  column-gap: 8px;
+}
+
+.href {
+  font-family: Conthrax;
+  font-size: 9px;
+  color: #00CD86;
+}
+
+.days {
+  font-family: Conthrax;
+  font-size: 11px;
+  color: #00CD86;
+  margin: 15px 0px;
+}
+
+.time {
+  font-family: Cabin;
+  font-size: 9px;
+  color: #59638A;
+}
+
+.bet {
+  font-size: 11px;
+}
+
+.fl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lineFirst {
+  height: 1px;
+  background-color: #3F4965;
+  width: 60px;
+}
+
+.lineSecond {
+  display: flex;
+  justify-content: flex-start;
+  height: 1px;
+  background-color: #3F4965;
+  width: 87px;
+}
+
+.spase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.sp {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.text {
+  font-family: Cabin;
+  font-size: 10px;
+}
+
+.priceWhite {
+  font-size: 11px;
+  font-family: Cabin;
+}
+
+.priceGreen {
+  font-size: 11px;
+  color: #00CD86;
+  font-family: Cabin;
+}
+
+.priceRed {
+  font-size: 11px;
+  color: red;
+  font-family: Cabin;
+}
+
+.second {
+  width: 165px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+
+.card {
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 20px;
+}
+
+.checked {
+  color: #00CD86;
+}
+
+.close {
+  color: red;
+}
+
+.background {
+  margin-top: 10px;
+  background-color: #020610;
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
