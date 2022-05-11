@@ -114,7 +114,6 @@ const Header: FC<Props> = ({
       </div>
 
       <div className={styles.section}>
-        <button onClick={goToBalances}>BALANCES</button>
         <HeaderUser
           onClick={handlerChange}
           isActive={userAvatarIsActive}
@@ -127,6 +126,7 @@ const Header: FC<Props> = ({
               onChange={onBalanceChange}
               options={options}
               defaultValue={defaultOption}
+              onClick={goToBalances}
             />
           </div>
         )}

@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Routes } from '../../../constants/routes';
 import { Trading } from '../../../pages/Trading';
 import { Profile } from '../../../pages/Profile';
-import { Balances } from "../../../pages/Balances";
+import { Balances } from '../../../pages/Balances';
 
 interface IProps {}
 
