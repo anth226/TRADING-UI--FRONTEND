@@ -1,0 +1,78 @@
+.title {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  /* identical to box height */
+
+
+  color: #ACBDCF;
+  margin-bottom: 12px;
+}
+
+.amount {
+  max-width: 400px;
+  width: 100%;
+}
+.select {
+  margin-bottom: 8px;
+  div > div > div{
+    margin-top: 0 ;
+  }
+}
+
+.withdraw {
+  display: flex;
+  margin-bottom: 16px;
+  div {
+    width: 100%;
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+.balance {
+  margin-bottom: 8px;
+}
+.labelBlock {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+.amountLabel {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  color: #59648A;
+}
+
+.withdrawLabel {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* green active */
+
+  color: #00CD86;
+}
+
+.button {
+  width: 100%;
+}

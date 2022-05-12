@@ -1,0 +1,84 @@
+.infoBlock {
+  width: 50%;
+}
+.cardBlock {
+  border-bottom: 1px solid #2F394A;;
+  div {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 25px;
+    div {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
+.blxTitle {
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+.subtitle {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 15px;
+}
+
+.feeLvl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #00CD86;
+  }
+}
+.lvlLine {
+  display: flex;
+  border-radius: 33px;
+  height: 5px;
+  div {
+    &:first-child {
+      height: 5px;
+      width: 35%;
+      background: #D6C747;
+    }
+    &:last-child {
+      width: 65%;
+      height: 5px;
+      background: #59648A;
+    }
+  }
+}
+
+.infoTitle {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  color: rgba(102, 112, 148, 0.6);
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.text {
+  color: #D6C747;
+}

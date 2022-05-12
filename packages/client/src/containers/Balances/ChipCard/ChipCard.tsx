@@ -13,8 +13,8 @@ interface ICard {
 }
 interface Props {
     card: ICard,
-    index: number,
-    cardActive: number,
+    index?: number | any,
+    cardActive?: number,
     titleColor?: string
 }
 
