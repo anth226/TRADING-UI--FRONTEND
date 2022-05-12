@@ -53,9 +53,9 @@ const LeftNavigationBar: FC<NavigationBarProps> = ({
     </div>
 
     <div className={styles.section}>
-      <Link className={styles.link} to={Routes.Homepage}>
+      <div className={styles.link}>
         <FontIcon className={styles.link_icon} size={20} name={FontIconName.Info} />
-      </Link>
+      </div>
       <Link className={styles.link} to={Routes.Homepage}>
         <FontIcon className={styles.link_icon} size={20} name={FontIconName.Settings} />
       </Link>

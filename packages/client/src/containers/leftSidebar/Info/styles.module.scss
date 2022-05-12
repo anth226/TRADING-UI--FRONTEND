@@ -1,0 +1,60 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 229px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}
+.main{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #19213D;
+  margin: 10px 0px;
+}
+.question{
+  font-family: Cabin;
+  font-size: 13.5px;
+}
+.answer{
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color: #222A3F;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-family: Cabin;
+  font-size: 11.5px;
+  line-height: 17px;
+}
+.none{
+  display: none;
+}
+
+

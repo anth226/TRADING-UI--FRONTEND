@@ -7,6 +7,8 @@ import { Watchlist } from '../Watchlist';
 import { News } from '../News';
 import { Signals } from '../Signals';
 import { Notifications } from '../Notifications';
+import { Info } from '../Info';
+import { OpenPosition } from '../OpenPosition';
 
 interface Props {
   activeNavigation?: Navigation
@@ -24,6 +26,8 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.News && <News onBack={onBack} />}
     {activeNavigation === Navigation.Signals && <Signals onBack={onBack} />}
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
+    {activeNavigation === Navigation.Stake && <Info onBack={onBack} />}
+    {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
   </div>
 );
 
