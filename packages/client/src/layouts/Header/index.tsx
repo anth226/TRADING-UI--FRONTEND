@@ -66,7 +66,9 @@ const Header: FC<Props> = ({
   const goToBalances = () => {
     history.push('/balances');
   };
-
+  const goToSelection = () => {
+    history.push('/selections');
+  };
 
   return (
     <div className={styles.wrap}>
@@ -106,7 +108,7 @@ const Header: FC<Props> = ({
           />
         )}
         <button
-          onClick={onAddTab}
+          onClick={goToSelection}
           className={cx(styles.tab, styles.plus)}
         >
           <FontIcon size={16} className={styles.plus_icon} name={FontIconName.Plus} />

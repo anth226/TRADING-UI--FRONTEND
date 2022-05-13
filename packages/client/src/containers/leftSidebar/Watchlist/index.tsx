@@ -32,7 +32,7 @@ const Watchlist: FC<Props> = ({
 
   return (
 
-    <div>
+    <div className={styles.wrap}>
       {show?
         <Alert close={onBack} back={setShow}/>
         :
