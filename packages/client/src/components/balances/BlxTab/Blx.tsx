@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {FC} from 'react';
 import styles from "./styles.module.scss";
 import ChipCard from "../../../containers/Balances/ChipCard/ChipCard";

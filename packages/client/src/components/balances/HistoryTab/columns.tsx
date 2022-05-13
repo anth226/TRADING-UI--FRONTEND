@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import cx from 'classnames';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {FC} from 'react';
 import styles from './styles.module.scss'
 import bonus_icon from "@option-blitz/libs/assets/images/balances/icons/bonus.svg";

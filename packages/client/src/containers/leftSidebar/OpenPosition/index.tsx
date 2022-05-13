@@ -3,10 +3,12 @@ import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import arrow from '../../../../../libs/assets/images/arrow-back.svg';
 import Button from '@option-blitz/libs/components/inputs/Button';
-import { DepositIcon } from '../../../components/balances/DepositIcon';
-import { WithdrawIcon } from '../../../components/balances/WithdrawIcon';
-import { HistoryIcon } from '../../../components/balances/HistoryIcon';
-import lock from '../../Modals/ModalIcons/lock.svg';
+import Clasic from "./ClasicTab/Clasic";
+import Binary from "./BinaryTab/Binary";
+import TurboRush from "./TurboRushTab/TurboRush";
+import Rush from "./RushTab/Rush";
+import NoTuch from "./NoTouchTab/NoTuch";
+import Touch from "./TouchTab/Touch";
 
 interface Props {
   onBack?: () => void;
@@ -41,6 +43,23 @@ const OpenPosition: FC<Props> = ({
 
   const [activeButton, setActiveButton] = useState(1)
 
+  const whichTab = () => {
+    switch (activeButton) {
+      case 1:
+        return <Clasic/>
+      case 2:
+        return <Binary/>
+      case 3:
+        return <TurboRush/>
+      case 4:
+        return <Rush/>
+      case 5:
+        return <Touch/>
+      default:
+        return <NoTuch/>
+    }
+  }
+
   return (
 
     <div className={styles.wrap}>
@@ -51,12 +70,14 @@ const OpenPosition: FC<Props> = ({
         </button>
       </div>
       <div style={{display:'flex', columnGap: '12px'}}>
-        {buttons.map((item, )=>(
-          <Button color={'transparent_primary'} className={styles.button} size={5}>
+        {buttons.map((item,i )=>(
+          <Button color={'transparent_primary'} className={activeButton === i + 1 ? styles.buttonActive : styles.button}
+                  size={5} onClick={() => setActiveButton(i + 1)}>
           <p>{item.name}</p>
           </Button>
         ))}
       </div>
+      {whichTab()}
     </div>
   );
 };
