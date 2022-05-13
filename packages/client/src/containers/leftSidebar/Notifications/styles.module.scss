@@ -178,4 +178,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.scroll{
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

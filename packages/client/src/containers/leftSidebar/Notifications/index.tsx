@@ -41,158 +41,158 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
         <div><FontIcon name={FontIconName.Close} size={10}/></div>
         </div>
       </div>
+      <div className={styles.scroll}>
+        <div className={styles.days}>TODAY</div>
 
-      <div className={styles.days}>TODAY</div>
-
-      <div className={styles.card}>
-        <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
-        <div className={styles.second}>
-          <div className={styles.time}>20 minutes ago</div>
-          <div className={styles.fl}>
-            <div className={styles.bet}>NEW BET BOW</div>
-            <div>{view}</div>
-          </div>
-
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Trade Amount:</div>
-              <div className={styles.lineFirst}></div>
+        <div className={styles.card}>
+          <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
+          <div className={styles.second}>
+            <div className={styles.time}>20 minutes ago</div>
+            <div className={styles.fl}>
+              <div className={styles.bet}>NEW BET BOW</div>
+              <div>{view}</div>
             </div>
-            <div className={styles.priceWhite}>$75</div>
-          </div>
 
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Payout:</div>
-              <div className={styles.lineSecond}></div>
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Trade Amount:</div>
+                <div className={styles.lineFirst}></div>
+              </div>
+              <div className={styles.priceWhite}>$75</div>
             </div>
-            <div className={styles.priceGreen}>$27.5</div>
-          </div>
-        </div>
-      </div>
 
-      <div className={styles.card}>
-        <div className={styles.background}>
-          <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
-        </div>
-        <div className={styles.second}>
-          <div className={styles.time}>20 minutes ago</div>
-          <div className={styles.fl}>
-            <div className={styles.bet}>NEW BET LOST</div>
-            <div>{view}</div>
-          </div>
-
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Trade Amount:</div>
-              <div className={styles.lineFirst}></div>
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Payout:</div>
+                <div className={styles.lineSecond}></div>
+              </div>
+              <div className={styles.priceGreen}>$27.5</div>
             </div>
-            <div className={styles.priceWhite}>$75</div>
           </div>
+        </div>
 
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Payout:</div>
-              <div className={styles.lineSecond}></div>
+        <div className={styles.card}>
+          <div className={styles.background}>
+            <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
+          </div>
+          <div className={styles.second}>
+            <div className={styles.time}>20 minutes ago</div>
+            <div className={styles.fl}>
+              <div className={styles.bet}>NEW BET LOST</div>
+              <div>{view}</div>
             </div>
-            <div className={styles.priceRed}>$27.5</div>
-          </div>
-        </div>
-      </div>
 
-
-
-      <div className={styles.card}>
-      <div className={styles.background}>
-        <FontIcon name={FontIconName.Notify} size={11} />
-      </div>
-      <div className={styles.second}>
-          <div className={styles.time}>1 hour ago</div>
-          <div className={styles.bet}>PRICE ALERT</div>
-        <div className={styles.text}>EUR/USD is up +10.06% to 1.3456 in the last 2 hours</div>
-      </div>
-      </div>
-
-      <div className={styles.card}>
-        <div className={styles.background}>
-          <FontIcon name={FontIconName.Info} size={11} />
-        </div>
-        <div className={styles.second}>
-          <div className={styles.time}>1 hour ago</div>
-          <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
-          <div className={styles.text}>Option Bliz most popular trading product</div>
-        </div>
-      </div>
-
-      <div className={styles.card}>
-        <div className={styles.background}>
-          <FontIcon name={FontIconName.Info} size={11} />
-        </div>
-        <div className={styles.second}>
-          <div className={styles.time}>1 hour ago</div>
-          <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
-          <div className={styles.text}>Option Bliz most popular trading product</div>
-        </div>
-      </div>
-
-      <div className={styles.days}>YESTERDAY</div>
-
-      <div className={styles.card}>
-        <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
-        <div className={styles.second}>
-          <div className={styles.time}>20 minutes ago</div>
-          <div className={styles.fl}>
-            <div className={styles.bet}>NEW BET BOW</div>
-            <div>{view}</div>
-          </div>
-
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Trade Amount:</div>
-              <div className={styles.lineFirst}></div>
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Trade Amount:</div>
+                <div className={styles.lineFirst}></div>
+              </div>
+              <div className={styles.priceWhite}>$75</div>
             </div>
-            <div className={styles.priceWhite}>$75</div>
-          </div>
 
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Payout:</div>
-              <div className={styles.lineSecond}></div>
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Payout:</div>
+                <div className={styles.lineSecond}></div>
+              </div>
+              <div className={styles.priceRed}>$27.5</div>
             </div>
-            <div className={styles.priceGreen}>$27.5</div>
+          </div>
+        </div>
+
+
+
+        <div className={styles.card}>
+          <div className={styles.background}>
+            <FontIcon name={FontIconName.Notify} size={11} />
+          </div>
+          <div className={styles.second}>
+            <div className={styles.time}>1 hour ago</div>
+            <div className={styles.bet}>PRICE ALERT</div>
+            <div className={styles.text}>EUR/USD is up +10.06% to 1.3456 in the last 2 hours</div>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.background}>
+            <FontIcon name={FontIconName.Info} size={11} />
+          </div>
+          <div className={styles.second}>
+            <div className={styles.time}>1 hour ago</div>
+            <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
+            <div className={styles.text}>Option Bliz most popular trading product</div>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.background}>
+            <FontIcon name={FontIconName.Info} size={11} />
+          </div>
+          <div className={styles.second}>
+            <div className={styles.time}>1 hour ago</div>
+            <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
+            <div className={styles.text}>Option Bliz most popular trading product</div>
+          </div>
+        </div>
+
+        <div className={styles.days}>YESTERDAY</div>
+
+        <div className={styles.card}>
+          <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
+          <div className={styles.second}>
+            <div className={styles.time}>20 minutes ago</div>
+            <div className={styles.fl}>
+              <div className={styles.bet}>NEW BET BOW</div>
+              <div>{view}</div>
+            </div>
+
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Trade Amount:</div>
+                <div className={styles.lineFirst}></div>
+              </div>
+              <div className={styles.priceWhite}>$75</div>
+            </div>
+
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Payout:</div>
+                <div className={styles.lineSecond}></div>
+              </div>
+              <div className={styles.priceGreen}>$27.5</div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.background}>
+            <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
+          </div>
+          <div className={styles.second}>
+            <div className={styles.time}>20 minutes ago</div>
+            <div className={styles.fl}>
+              <div className={styles.bet}>NEW BET LOST</div>
+              <div>{view}</div>
+            </div>
+
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Trade Amount:</div>
+                <div className={styles.lineFirst}></div>
+              </div>
+              <div className={styles.priceWhite}>$75</div>
+            </div>
+
+            <div className={styles.spase}>
+              <div className={styles.sp}>
+                <div className={styles.text}>Payout:</div>
+                <div className={styles.lineSecond}></div>
+              </div>
+              <div className={styles.priceRed}>$27.5</div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className={styles.card}>
-        <div className={styles.background}>
-          <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
-        </div>
-        <div className={styles.second}>
-          <div className={styles.time}>20 minutes ago</div>
-          <div className={styles.fl}>
-            <div className={styles.bet}>NEW BET LOST</div>
-            <div>{view}</div>
-          </div>
-
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Trade Amount:</div>
-              <div className={styles.lineFirst}></div>
-            </div>
-            <div className={styles.priceWhite}>$75</div>
-          </div>
-
-          <div className={styles.spase}>
-            <div className={styles.sp}>
-              <div className={styles.text}>Payout:</div>
-              <div className={styles.lineSecond}></div>
-            </div>
-            <div className={styles.priceRed}>$27.5</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 };
