@@ -3,5 +3,5 @@ export enum Routes {
   Trading = '/trading',
   Profile = '/profile',
   Balances = '/balances',
-  Selections = '/selections'
+  Selections = '/selections',
 }

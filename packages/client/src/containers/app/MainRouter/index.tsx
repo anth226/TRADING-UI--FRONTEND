@@ -1,10 +1,11 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Routes } from '../../../constants/routes';
 import { Trading } from '../../../pages/Trading';
 import { Profile } from '../../../pages/Profile';
 import { Balances } from '../../../pages/Balances';
-import Selections from "../../../pages/Selections";
+import Selections from '../../../pages/Selections';
 
 interface IProps {}
 
