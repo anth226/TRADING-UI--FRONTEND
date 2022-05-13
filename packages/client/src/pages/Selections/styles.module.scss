@@ -1,0 +1,112 @@
+.balances {
+  display: flex;
+  width: 100%;
+  margin-top: 24px;
+  margin-right: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #374459;
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 4px;
+}
+.balancesLeft {
+  padding-right: 24px;
+  padding-left: 12px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 30%;
+  border-right: 1px solid #374459;
+}
+.balancesRight {
+  width: 70%;
+}
+
+.balancesInner {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 10px;
+  border-top: 1px solid #19213D;
+  &:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+}
+.titleBlock {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-weight: 600;
+  font-size: 10.4679px;
+  line-height: 13px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-left: 10px;
+
+  color: #00CD86;
+}
+.badge {
+  background: #59648A;
+  border-radius: 50%;
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9.77005px;
+  line-height: 12px;
+  /* identical to box height */
+  height: 16px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  background: #060A16;
+  border: 1px solid #19213D;
+  border-radius: 2px;
+  padding: 12px 10px 12px 35px;
+  div {
+    &:nth-child(1) {
+      div {
+        h4 {
+          font-weight: 600;
+          font-size: 9.07219px;
+          line-height: 11px;
+          display: flex;
+          align-items: center;
+          font-feature-settings: 'pnum' on, 'lnum' on;
+
+          color: #00CD86;
+        }
+        span {
+          font-family: 'Cabin';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 140%;
+          /* or 15px */
+
+          font-feature-settings: 'pnum' on, 'lnum' on;
+        }
+      }
+    }
+  }
+}
+.optionTitle {
+  display: flex;
+  align-items: flex-start;
+  img {
+    margin-right: 16px;
+  }
+}
