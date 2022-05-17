@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import Link from '@option-blitz/libs/components/inputs/Link';
@@ -15,7 +16,6 @@ export interface NavigationBarProps {
   rootItems: RootNavigationPart[]
   activeRootItem?: string
 }
-
 const LeftNavigationBar: FC<NavigationBarProps> = ({
   setActiveNavItem,
   setActiveRootType,
@@ -53,8 +53,8 @@ const LeftNavigationBar: FC<NavigationBarProps> = ({
     </div>
 
     <div className={styles.section}>
-      <div className={styles.link}>
-        <FontIcon className={styles.link_icon} size={20} name={FontIconName.Info} />
+      <div className={ styles.link} onClick={ ()=>{setActiveNavItem(Navigation.Stake)} }>
+        <FontIcon className={ activeNavItem===Navigation.Stake ? styles.button_active : styles.link_icon} size={20} name={FontIconName.Info}/>
       </div>
       <Link className={styles.link} to={Routes.Homepage}>
         <FontIcon className={styles.link_icon} size={20} name={FontIconName.Settings} />

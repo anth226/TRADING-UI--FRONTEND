@@ -58,6 +58,14 @@ const Info: FC<Props> = ({
 
   const [activeItem, setActiveItem] = useState(-1)
 
+  const handlerChange = (index: number) => {
+   if(activeItem === index){
+     setActiveItem(-1)
+   }
+   else {
+     setActiveItem(index)
+   }
+  }
   return (
 
     <div className={styles.wrap}>
@@ -69,7 +77,7 @@ const Info: FC<Props> = ({
       </div>
 
       {data.map((item, index) =>(
-        <div key={item.id} onClick={()=> setActiveItem(index)}>
+        <div key={item.id} onClick={()=> handlerChange(index)}>
           <div className={styles.main}>
             <div className={styles.question}>{item.question}</div>
             <div><FontIcon name={FontIconName.SolidArrow} size={12} /></div>

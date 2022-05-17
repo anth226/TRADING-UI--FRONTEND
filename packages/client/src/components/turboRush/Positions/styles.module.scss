@@ -1,0 +1,113 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+@import "~@option-blitz/libs/assets/styles/variables";
+
+.wrap {
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 9px;
+  font-family: $font-cabin;
+}
+
+.input {
+  &:first-child {
+    margin-right: 7px;
+  }
+}
+
+.input_wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.buttons_wrap {
+  @include flexbox();
+
+  width: 100%;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 100%;
+  padding: 12px 0;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.target_price_btn {
+  font-size: 8px;
+  padding: 12px 10px;
+}
+
+.up_icon {
+  transform: rotate(-90deg);
+}
+
+.down_icon {
+  transform: rotate(90deg);
+}
+
+.item_label {
+  color: var(--color-blue-light);
+  font-size: 12px;
+}
+
+
+.title_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 9px;
+  margin-bottom: 9px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  color: #00CD86;
+  font-size: 10px;
+  font-family: Conthrax;
+}
+
+.title {
+  margin: 0 7px;
+}
+
+.item_value {
+  font-size: 11px;
+  font-family: Cabin;
+  line-height: 13px;
+}
+
+.sox {
+  color: #59648A;
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+}
+.profit{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  line-height: 13px;
+}
+.hr {
+  height: 1px;
+  background-color: #374459;
+  border: none;
+  margin: 20px 0px;
+}

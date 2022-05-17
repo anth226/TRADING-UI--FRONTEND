@@ -4,4 +4,5 @@ export enum Routes {
   Profile = '/profile',
   Balances = '/balances',
   Selections = '/selections',
+  TurboRush = '/turboRush',
 }

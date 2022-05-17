@@ -1,0 +1,84 @@
+@import '~@option-blitz/libs/assets/styles/mixins';
+
+.column_select {
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+  margin-bottom: 12px;
+}
+
+.coin_name {
+  font-size: 12px;
+  font-family: Conthrax;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.wrap {
+  position: relative;
+
+  border-left: 1px solid var(--color-grey);
+  border-bottom: 1px solid var(--color-grey);
+
+  &:focus {
+    background-color: #052C48;
+  }
+}
+
+.coin_wrap {
+  @include flexbox();
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin: 8px 8px 0;
+}
+
+.info_wrap {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  font-family: $font-cabin;
+}
+
+.first_value {
+  font-size: 13px;
+}
+
+.second_value {
+  font-size: 11px;
+  color: var(--color-green);
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.diagram {
+  width: 100%;
+}
+.buttonMinus {
+  @include flexbox();
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  width: 23px;
+  height: 23px;
+  border-radius: 45px;
+  background-color: #ea221c;
+}
+.coin_container{
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.main_container{
+  display: flex;
+  justify-content: space-between;
+}
