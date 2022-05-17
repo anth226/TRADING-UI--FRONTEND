@@ -1,15 +1,16 @@
 /* eslint-disable */
 import React from 'react';
-import cx from 'classnames';
-import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
-import { HistoryItem } from './types';
-import styles from './styles.module.scss';
-import Button from "@option-blitz/libs/components/inputs/Button";
+import {TableCell as Cell} from "@option-blitz/libs/components/inputs/Table/types";
+import {HistoryItem} from "../BinaryTab/types";
+import cx from "classnames";
+import styles from "./../styles.module.scss";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
+
 
 export const columns = [
     { Header: 'Date/Time', accessor: 'dateTime' },
-    { Header: 'Investment', accessor: 'investment' },
+    { Header: 'Market', accessor: 'market' },
+    { Header: 'Expired', accessor: 'expired'},
     {
         Header: 'Type',
         accessor: 'type',
@@ -17,29 +18,29 @@ export const columns = [
             const { type } = row.original;
             return (
                 <div className={cx({
-                    [styles.success]: type === 'Call',
+                    [styles.success]: type === 'No-Touch call' || 'Doubleno-touch',
                     [styles.wrong]: type === 'Put',
                 })}
                 >
                     {type}
-                    <FontIcon size={12} name={type === 'Call' ? FontIconName.Up : FontIconName.Down} />
+                    <FontIcon size={12} name={(type === 'Call' || 'Doubleno-touch') ? FontIconName.Up : FontIconName.Down} />
                 </div>
             );
         },
     },
-    { Header: 'Type Of Expiry', accessor: 'typeOfExpiry' },
+    { Header: 'Trade Amount', accessor: 'tradeAmount'},
     {
-        Header: 'Status',
-        accessor: 'status',
+        Header: 'Result',
+        accessor: 'result',
         Cell: ({ row }: Cell<HistoryItem>) => {
-            const { status } = row.original;
+            const { result } = row.original;
             return (
                 <div className={cx({
-                    [styles.success]: status === 'ITM',
-                    [styles.wrong]: status === 'OTM',
+                    [styles.success]: result === 'Win',
+                    [styles.wrong]: result === 'Lose',
                 })}
                 >
-                    {status}
+                    {result}
                 </div>
             );
         },
@@ -61,19 +62,8 @@ export const columns = [
         },
 
     },
-    {
-        Header: '',
-        accessor: 'btn',
-        Cell: ({ row }: Cell<HistoryItem>) => {
-            const { btn } = row.original;
-            return (
-                <Button className={styles.button} size={5} color={"transparent_primary"}               >
-                    <div className={styles.view}>View</div>
-                    <FontIcon size={7} name={FontIconName.ArrowRightBold} className={styles.icon}/>
-                </Button>
-            );
-        },
-    },
+    { Header: 'T x ID', accessor: 'txID'}
+
 ];
 
 

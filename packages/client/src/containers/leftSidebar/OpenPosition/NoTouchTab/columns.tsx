@@ -5,6 +5,7 @@ import {HistoryItem} from "../ClasicTab/types";
 import Button from "@option-blitz/libs/components/inputs/Button";
 import styles from "../ClasicTab/styles.module.scss";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
+import cx from "classnames";
 
 
 export const columns = [
@@ -12,7 +13,23 @@ export const columns = [
     { Header: 'Size', accessor: 'size' },
     { Header: 'Strike Price', accessor: 'strikePrice' },
     { Header: 'Knock-out price', accessor: 'knockOut' },
-    { Header: 'Unrealized PNL (%ROI)', accessor: 'unrealizedPNL' },
+    {
+        Header: 'Unrealized PNL (%ROI)',
+        accessor: 'unrealizedPNL',
+        Cell: ({ row }: Cell<HistoryItem>) => {
+            const { unrealizedPNL } = row.original;
+            return (
+                <div className={cx({
+                    [styles.success]: unrealizedPNL[0] === '+',
+                    [styles.wrong]: unrealizedPNL[0] === '-',
+                })}
+                >
+                    {unrealizedPNL}
+                </div>
+            );
+        },
+
+    },
     {
         Header: '',
         accessor: 'btn',

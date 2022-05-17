@@ -2,7 +2,7 @@
 @import '~@option-blitz/libs/assets/styles/variables';
 
 .wrap {
-  width: 100%;
+  width: 88%;
   border-top: 1px solid $color-divide;
 }
 
@@ -17,12 +17,17 @@
   margin-bottom: 25px;
   display: flex;
   gap: 8px;
-  
-  .button {
+
+  .button{
+    color: white !important;
     font-size: 9px;
-    line-height: 11px;
-    color: #FFFFFF;
-    text-transform: uppercase;
+    background-color: #192235 !important;
+    border: none !important;
+  }
+  .buttonActive{
+    @extend .button;
+    background-color: #4CA357 !important;
+
   }
 }
 

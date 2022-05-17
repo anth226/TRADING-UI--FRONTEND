@@ -30,7 +30,23 @@ export const columns = [
             );
         },
     },
-    { Header: 'Unrealized PNL', accessor: 'unrealizedPNL' },
+    {
+        Header: 'Unrealized PNL',
+        accessor: 'unrealizedPNL',
+        Cell: ({ row }: Cell<HistoryItem>) => {
+            const { unrealizedPNL } = row.original;
+            return (
+                <div className={cx({
+                    [styles.success]: unrealizedPNL[0] === '+',
+                    [styles.wrong]: unrealizedPNL[0] === '-',
+                })}
+                >
+                    {unrealizedPNL}
+                </div>
+            );
+        },
+
+    },
     {
         Header: '',
         accessor: 'btn',

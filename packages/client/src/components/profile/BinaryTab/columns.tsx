@@ -3,26 +3,43 @@ import React from 'react';
 import cx from 'classnames';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import { HistoryItem } from './types';
-import styles from './styles.module.scss';
-import Button from "@option-blitz/libs/components/inputs/Button";
+import styles from './../styles.module.scss';
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 
 export const columns = [
     { Header: 'Date/Time', accessor: 'dateTime' },
-    { Header: 'Investment', accessor: 'investment' },
-    { Header: 'Type Of Expiry', accessor: 'typeOfExpiry' },
+    { Header: 'Market', accessor: 'market' },
+    { Header: 'Expired', accessor: 'expired', },
     {
-        Header: 'Status',
-        accessor: 'status',
+        Header: 'Type',
+        accessor: 'type',
         Cell: ({ row }: Cell<HistoryItem>) => {
-            const { status } = row.original;
+            const { type } = row.original;
             return (
                 <div className={cx({
-                    [styles.success]: status === 'ITM',
-                    [styles.wrong]: status === 'OTM',
+                    [styles.success]: type === 'Call',
+                    [styles.wrong]: type === 'Put',
                 })}
                 >
-                    {status}
+                    {type}
+                    <FontIcon size={12} name={type === 'Call' ? FontIconName.Up : FontIconName.Down} />
+                </div>
+            );
+        },
+    },
+    { Header: 'Trade Amount', accessor: 'tradeAmount'},
+    {
+        Header: 'Result',
+        accessor: 'result',
+        Cell: ({ row }: Cell<HistoryItem>) => {
+            const { result } = row.original;
+            return (
+                <div className={cx({
+                    [styles.success]: result === 'Win',
+                    [styles.wrong]: result === 'Lose',
+                })}
+                >
+                    {result}
                 </div>
             );
         },
@@ -44,19 +61,8 @@ export const columns = [
         },
 
     },
-    {
-        Header: '',
-        accessor: 'btn',
-        Cell: ({ row }: Cell<HistoryItem>) => {
-            const { btn } = row.original;
-            return (
-                <Button className={styles.view} size={5} color={"transparent_primary"}               >
-                    <div>View</div>
-                    <FontIcon size={6} name={FontIconName.ArrowRightBold} className={styles.icon}/>
-                </Button>
-            );
-        },
-    },
+    { Header: 'T x ID', accessor: 'txID'}
 ];
+
 
 

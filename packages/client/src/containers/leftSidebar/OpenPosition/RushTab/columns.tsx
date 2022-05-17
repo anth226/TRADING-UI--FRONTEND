@@ -45,7 +45,23 @@ export const columns = [
             );
         },
     },
-    { Header: 'Profit/Loss', accessor: 'profitLoss' },
+    {
+        Header: 'Profit/Loss',
+        accessor: 'profitLoss',
+        Cell: ({ row }: Cell<HistoryItem>) => {
+            const { profitLoss } = row.original;
+            return (
+                <div className={cx({
+                    [styles.success]: profitLoss[0] === '+',
+                    [styles.wrong]: profitLoss[0] === '-',
+                })}
+                >
+                    {profitLoss}
+                </div>
+            );
+        },
+
+    },
     {
         Header: '',
         accessor: 'btn',
