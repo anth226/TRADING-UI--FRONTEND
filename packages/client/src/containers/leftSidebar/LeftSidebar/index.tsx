@@ -26,7 +26,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.News && <News onBack={onBack} />}
     {activeNavigation === Navigation.Signals && <Signals onBack={onBack} />}
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
-    {activeNavigation === Navigation.Stake && <Info onBack={onBack} />}
+    {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
   </div>
 );

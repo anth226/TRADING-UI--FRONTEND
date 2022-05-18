@@ -18,6 +18,8 @@ export enum Navigation {
   Statistics = 'Statistics',
   Payments = 'Payments',
   AffiliateNews = 'AffiliateNews',
+
+  Info = 'Info',
 }
 
 export const navigationNames: Record<Navigation, string> = {
@@ -40,6 +42,8 @@ export const navigationNames: Record<Navigation, string> = {
   [Navigation.Statistics]: 'Statistics',
   [Navigation.Payments]: 'Payments',
   [Navigation.AffiliateNews]: 'Affiliate News',
+
+  [Navigation.Info]: 'Info',
 
 };
 

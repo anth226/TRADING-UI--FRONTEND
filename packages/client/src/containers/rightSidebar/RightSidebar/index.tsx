@@ -5,7 +5,8 @@ import { useShallowSelector } from '../../../hooks/useShallowSelector';
 import { selectTabsProp } from '../../../store/tabs/selectors';
 import { RightSidebarClassic } from '../RightSidebarClassic';
 import { RightSidebarBinary } from '../RightSidebarBinary';
-import { RightSidebarTouch } from '../RightSidebarTouch';
+// import { RightSidebarTouch } from '../RightSidebarTouch';
+import { RightSidebarTurbo } from '../RightSidebarTurbo';
 
 const RightSidebar: FC = () => {
   const activeProductType = useShallowSelector(selectTabsProp('activeProductType'));
@@ -14,7 +15,7 @@ const RightSidebar: FC = () => {
     <div className={styles.wrap}>
       {activeProductType === ProductType.Classic && <RightSidebarClassic />}
       {activeProductType === ProductType.Binary && <RightSidebarBinary />}
-      {activeProductType === ProductType.Touch && <RightSidebarTouch />}
+      {activeProductType === ProductType.Touch && <RightSidebarTurbo />}
     </div>
   );
 };

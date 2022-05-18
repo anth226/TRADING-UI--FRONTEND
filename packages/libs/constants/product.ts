@@ -3,6 +3,7 @@ export enum ProductType {
   Touch = 'Touch',
   NoTouch = 'NoTouch',
   Classic = 'Classic',
+  Rush = 'Rush',
 }
 
 export const productTypeNames: Record<ProductType, string> = {
@@ -10,4 +11,5 @@ export const productTypeNames: Record<ProductType, string> = {
   [ProductType.Touch]: 'Touch',
   [ProductType.NoTouch]: 'No Touch',
   [ProductType.Classic]: 'Classic',
+  [ProductType.Rush]: 'Rush',
 };
