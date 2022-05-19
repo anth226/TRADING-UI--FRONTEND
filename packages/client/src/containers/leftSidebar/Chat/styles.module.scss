@@ -1,0 +1,113 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.wrap {
+  width: 229px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title_wrap {
+  @include flexbox(center, space-between);
+
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}
+
+.left {
+  background-color: #192235;
+  position:relative;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  text-align:center;
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  font-family: Cabin;
+  font-size: 12px;
+  line-height: 15px;
+  color: #b6c2ea;
+  font-weight: 700;
+}
+.left:after {
+  content:"";
+  transform: rotate(180deg);
+  position:absolute;
+  left: -12px;
+  bottom: 0px;
+  border-right:13px solid transparent;
+  border-left:13px solid transparent;
+  border-top:13px solid #192235;
+}
+.circle_left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Conthrax;
+  font-size: 11px;
+  margin-right: 13px;
+  width: 28px;
+  height: 25px;
+  background-color: #192235;
+  border-radius: 50%;
+}
+.container{
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+.right {
+  background-color: #192235;
+  position:relative;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  text-align:center;
+  height: auto;
+  width: 94%;
+  padding: 10px;
+  font-family: Cabin;
+  font-size: 12px;
+  line-height: 15px;
+  color: #b6c2ea;
+  font-weight: 700;
+}
+.right:after {
+  content:"";
+  transform: rotate(180deg);
+  position:absolute;
+  right: -13px;
+  bottom: 0px;
+  border-right:13px solid transparent;
+  border-left:13px solid transparent;
+  border-top:13px solid #192235;
+}
+.circle_right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Conthrax;
+  font-size: 11px;
+  margin-left: 13px;
+  width: 28px;
+  height: 25px;
+  background-color: #192235;
+  border-radius: 50%;
+}

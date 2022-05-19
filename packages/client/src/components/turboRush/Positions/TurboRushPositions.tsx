@@ -10,7 +10,7 @@ import cx from 'classnames';
 
 
 
-const TurboPositions = () => {
+const TurboRushPositions = () => {
 
   const price = '65.000.00'
   const targerPrice = '199'
@@ -174,6 +174,6 @@ const TurboPositions = () => {
   );
 };
 
-export default TurboPositions;
+export default TurboRushPositions;
 
 

@@ -3,6 +3,7 @@ import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import TurboTabTrade from './Trade';
 import TurboTabPositions from './Positions';
+import OpenOrders from './OpenOrders/OpenOrders';
 
 const RightSidebarTurbo: FC = () => {
 
@@ -13,7 +14,7 @@ const RightSidebarTurbo: FC = () => {
       name: 'TRADE',
     },
     {
-      name: 'POSITIONS',
+      name: 'POSITION',
     },
     {
       name: 'OPEN ORDERS',
@@ -27,7 +28,7 @@ const RightSidebarTurbo: FC = () => {
       case 2:
         return <TurboTabPositions />;
       case 3:
-        return 'open orders';
+        return <OpenOrders/>;
       default:
         return <TurboTabTrade />;
     }

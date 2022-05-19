@@ -9,6 +9,7 @@ import { Signals } from '../Signals';
 import { Notifications } from '../Notifications';
 import { Info } from '../Info';
 import { OpenPosition } from '../OpenPosition';
+import { Chat } from '../Chat';
 
 interface Props {
   activeNavigation?: Navigation
@@ -25,6 +26,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.WatchList && <Watchlist onBack={onBack} />}
     {activeNavigation === Navigation.News && <News onBack={onBack} />}
     {activeNavigation === Navigation.Signals && <Signals onBack={onBack} />}
+    {activeNavigation === Navigation.Chat && <Chat onBack={onBack} />}
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
     {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}

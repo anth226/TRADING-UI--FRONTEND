@@ -4,9 +4,9 @@ import { MainLayout } from '../../layouts/MainLayout';
 import GameHistoryTab from '../../components/turboRush/GameHistoryTab/GameHistoryTab';
 import turboGame from '../../../../libs/assets/images/Turbo/turboGame.png'
 import styles from './styles.module.scss'
-import TurboPositions from '../../components/turboRush/Positions/TurboPositions';
 import TurboTrade from '../../components/turboRush/Trade/TurboTrade';
 import TurboTrader from '../../components/turboRush/Trader/TurboTrader';
+import TurboRushPositions from '../../components/turboRush/Positions/TurboRushPositions';
 
 const TurboRush = () => {
 
@@ -51,7 +51,7 @@ const TurboRush = () => {
       case 1:
         return <TurboTrade/>
       case 2:
-        return <TurboPositions/>
+        return <TurboRushPositions/>
       default:
         return <TurboTrade/>
     }
