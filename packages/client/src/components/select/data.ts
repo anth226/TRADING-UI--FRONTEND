@@ -1,16 +1,10 @@
-import { HistoryItem } from './types';
+import arrows from '@option-blitz/libs/assets/images/arrows.svg';
+import { SelectionMenuTitle } from './types';
 
-export const data: HistoryItem[] = [
+export const data: SelectionMenuTitle[] = [
   {
-    assets: 'XAU/USD',
-    profit1: '84%',
-    profit2: '84%',
-    profit3: '84%',
-    profit4: '84%',
-    profit5: '70%',
-    profit6: '70%',
-    sentiment: 'string',
-    chart: 'string',
-    watchlist: [],
+    icon: arrows,
+    title: 'Binary options',
+    badge: '2',
   },
 ];

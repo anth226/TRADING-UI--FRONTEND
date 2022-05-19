@@ -1,5 +1,8 @@
-export type HistoryItem = {
+export type Forex = {
   assets: string,
+  icon: string,
+  valute: string,
+  course: string,
   profit1: string,
   profit2: string,
   profit3: string,
@@ -8,11 +11,5 @@ export type HistoryItem = {
   profit6: string,
   sentiment: string,
   chart: string,
-  watchlist: object
-};
-
-export type SelectionMenuTitle = {
-  icon: string,
-  title: string,
-  badge: string
+  watchlist: [],
 };

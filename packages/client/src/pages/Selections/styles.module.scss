@@ -23,6 +23,7 @@
 
 .balancesInner {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-left: 15px;
   padding-top: 12px;
@@ -34,9 +35,33 @@
     border-top: none;
   }
 }
+.balancesSubInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-top: 1px solid #19213D;
+  &:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+}
 .titleBlock {
   display: flex;
   align-items: center;
+}
+.titleBlockSub {
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+}
+.titleBlockItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
 }
 .title {
   font-weight: 600;
@@ -51,6 +76,19 @@
 
   color: #00CD86;
 }
+.title_text {
+  font-weight: 400;
+  font-size: 10.4679px;
+  line-height: 12px;
+  /* identical to box height */
+  font-family: "Cabin" !important;
+  display: flex;
+  align-items: center;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-left: 10px;
+
+}
+
 .badge {
   background: #59648A;
   border-radius: 50%;
@@ -71,6 +109,7 @@
 
 .option {
   display: flex;
+
   justify-content: space-between;
   background: #060A16;
   border: 1px solid #19213D;
@@ -103,10 +142,14 @@
     }
   }
 }
+
 .optionTitle {
   display: flex;
   align-items: flex-start;
   img {
     margin-right: 16px;
   }
+}
+.none {
+  display: none;
 }
