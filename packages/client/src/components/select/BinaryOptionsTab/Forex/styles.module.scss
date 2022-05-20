@@ -1,0 +1,27 @@
+.colorGreen{
+  color: #00cd86;
+}
+.img{
+    width:80px;
+    height:25px;
+    fill:none;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+.fl{
+  display: flex;
+  align-items: center;
+  column-gap: 9px;
+  width:80px;
+  height:25px;
+  fill:none;
+}
+.flags{
+  margin-right: 10px;;
+}

@@ -17,6 +17,7 @@ export const data: Forex [] = [
     sentiment,
     chart: '\'http://www.w3.org/2000/svg\'',
     watchlist: [],
+    tradeNow: [],
   },
   {
     assets: 'XAU/USD',
@@ -32,6 +33,7 @@ export const data: Forex [] = [
     sentiment,
     chart: '\'http://www.w3.org/2000/svg\'',
     watchlist: [],
+    tradeNow: [],
   },
   {
     assets: 'XAU/USD',
@@ -47,6 +49,7 @@ export const data: Forex [] = [
     sentiment,
     chart: '\'http://www.w3.org/2000/svg\'',
     watchlist: [],
+    tradeNow: [],
   },
   {
     assets: 'XAU/USD',
@@ -62,6 +65,7 @@ export const data: Forex [] = [
     sentiment,
     chart: '\'http://www.w3.org/2000/svg\'',
     watchlist: [],
+    tradeNow: [],
   },
   {
     assets: 'XAU/USD',
@@ -77,6 +81,7 @@ export const data: Forex [] = [
     sentiment,
     chart: '\'http://www.w3.org/2000/svg\'',
     watchlist: [],
+    tradeNow: [],
   },
 ];
 export const dara = {

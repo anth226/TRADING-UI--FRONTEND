@@ -37,13 +37,15 @@ const BinaryOptionsTab:FC = () => {
         <div className={styles.balancesSubInner}>
             {Binary.map((item, index) =>(
                 <div key={item.title} onClick={()=> handlerChange( index)}>
-                    <div className={styles.titleBlockItem}>
+                    <div className={styles.row}>
                             <img src={item.icon} />
+                        <div className={styles.flex}>
                             <div className={styles.titleBlockSub} >
                                 <span className={styles.title}> {item.title}</span>
                                 <p className={styles.title_text}>{item.text}</p>
                             </div>
-                        <div className={styles.badge}>{item.badge}</div>
+                            <div className={styles.badge}>{item.badge}</div>
+                        </div>
                     </div>
 
                     </div>

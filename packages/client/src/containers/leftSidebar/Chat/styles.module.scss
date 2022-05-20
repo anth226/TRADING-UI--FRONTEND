@@ -6,6 +6,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .title_wrap {
@@ -36,7 +37,7 @@
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;
-  text-align:center;
+  text-align:start;
   height: auto;
   width: 100%;
   padding: 10px;
@@ -79,7 +80,8 @@
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;
-  text-align:center;
+  text-align:start;
+  margin: 0 auto;
   height: auto;
   width: 94%;
   padding: 10px;
@@ -110,4 +112,17 @@
   height: 25px;
   background-color: #192235;
   border-radius: 50%;
+}
+.message{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Conthrax;
+  font-size: 12px;
+  border-top: 1px solid  #2f394a;
+  padding: 20px 20px 20px 0px;
+}
+.chat{
+  height: 100%;
+  overflow-y: scroll;
 }

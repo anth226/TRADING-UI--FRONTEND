@@ -12,4 +12,5 @@ export type Forex = {
   sentiment: string,
   chart: string,
   watchlist: [],
+  tradeNow: [],
 };

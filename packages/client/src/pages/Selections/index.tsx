@@ -32,7 +32,7 @@ const TradingSelectItems = [
 
 
 const Selections:FC = () => {
-    const [activeItemtab, setActiveItemtab] = useState(-1)
+    const [activeItemtab, setActiveItemtab] = useState(0)
 
     const handlerChange = (index: number) => {
         if (activeItemtab === index) {

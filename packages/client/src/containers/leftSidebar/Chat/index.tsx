@@ -2,6 +2,7 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import arrow from '../../../../../libs/assets/images/arrow-back.svg';
+import tellegram from '../../../../../libs/assets/images/tellegram.svg'
 
 interface Props {
   onBack?: () => void;
@@ -17,6 +18,8 @@ const Chat: FC<Props> = ({
   return (
 
     <div className={styles.wrap}>
+
+      <div className={styles.chat}>
       <div className={styles.title_wrap}>
         <p className={styles.title}>CHAT</p>
         <button onClick={onBack} className={styles.arrow_wrap}>
@@ -46,6 +49,12 @@ const Chat: FC<Props> = ({
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
         </div>
+      </div>
+      </div>
+
+      <div className={styles.message}>
+        Message
+        <img src={tellegram} alt='icon' />
       </div>
 
     </div>

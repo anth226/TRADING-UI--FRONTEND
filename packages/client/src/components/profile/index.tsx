@@ -18,10 +18,10 @@ const buttons = [
     name: 'BINARY',
   },
   {
-    name: 'TURBO RUSH',
+    name: 'ClASSIC',
   },
   {
-    name: 'RUSH',
+    name: 'TURBOS',
   },
   {
     name: 'TOUCH',

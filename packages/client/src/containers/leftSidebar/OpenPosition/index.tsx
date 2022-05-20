@@ -23,11 +23,11 @@ const buttons = [
     name: 'BINARY',
   },
   {
-    name: 'TURBO RUSH',
+    name: 'TURBOS',
   },
-  {
-    name: 'RUSH',
-  },
+  // {
+  //   name: 'RUSH',
+  // },
   {
     name: 'TOUCH',
   },
@@ -51,8 +51,8 @@ const OpenPosition: FC<Props> = ({
         return <Binary/>
       case 3:
         return <TurboRush/>
-      case 4:
-        return <Rush/>
+      // case 4:
+      //   return <Rush/>
       case 5:
         return <Touch/>
       default:
