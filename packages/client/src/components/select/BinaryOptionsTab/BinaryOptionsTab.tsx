@@ -4,25 +4,14 @@ import {Binary} from "./data";
 import styles from "../../../pages/Selections/styles.module.scss";
 
 
-
-
 const BinaryOptionsTab:FC = () => {
 
-    const [activeSubItemtab, setActiveSubItemtab] = useState(-1)
-
+  const [activeSubItemtab, setActiveSubItemtab] = useState(-1)
 
     const handlerChange = (index: number) => {
         if (activeSubItemtab === index) {
             setActiveSubItemtab(-1)
-            // console.log(Object.keys(dara))
-            // for (let key in dara) {
-            //     if (key !== title) {
-            //        return
-            //     }else {
-            //         let name = title
-            //         console.log(name)
-            //     }
-            // }
+
         } else {
             setActiveSubItemtab(index)
 
@@ -33,10 +22,14 @@ const BinaryOptionsTab:FC = () => {
     return (
 
 
-
         <div className={styles.balancesSubInner}>
-            {Binary.map((item, index) =>(
-                <div key={item.title} onClick={()=> handlerChange( index)}>
+            {Binary.map((item, index,data) =>(
+                <div key={item.title}
+                     className={activeSubItemtab===index ? styles.chouse: styles.nochouse}
+                     onClick={()=> handlerChange(index)}>
+
+                     <div >
+
                     <div className={styles.row}>
                             <img src={item.icon} />
                         <div className={styles.flex}>
@@ -47,11 +40,13 @@ const BinaryOptionsTab:FC = () => {
                             <div className={styles.badge}>{item.badge}</div>
                         </div>
                     </div>
-
+                     </div>
+                    <hr className={styles.hr} />
                     </div>
-
             ))}
+
         </div>
+
     );
 };
 
