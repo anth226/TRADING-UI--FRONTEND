@@ -4,6 +4,8 @@ import styles from './styles.module.scss'
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import Market from './Market';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 
 const TurboTabTrade = () => {
@@ -32,6 +34,21 @@ const TurboTabTrade = () => {
         return '111'
     }
   }
+  const marks = {
+    10: '10х',
+    30: '20х',
+    60: '25х',
+    90: '50х',
+    120: '100x',
+    150: '150x',
+    180: '200х',
+    // 500: {
+    //   style: {
+    //     color: 'red',
+    //   },
+    //   label: <strong>100°C</strong>,
+    // },
+  };
 
   return (
     <div>
@@ -56,6 +73,20 @@ const TurboTabTrade = () => {
         </Button>
       </div>
       <div className={styles.leverage}>LEVERAGE</div>
+
+      <div className={styles.slider_container}>
+        <Slider
+          activeDotStyle={{borderColor:'rgba(127,115,24,0.76)', backgroundColor: '#f3de2c'}}
+          railStyle={{backgroundColor:'#434c6c'}}
+          trackStyle={{backgroundColor:'#f3de2c'}}
+          min={0}
+          max={200}
+          step={null}
+          marks={marks}
+          defaultValue={150}
+        />
+      </div>
+
       <div className={styles.navigation}>
         {navigationRight.map((link, i) => (
           <div className={activeItem === i + 1 ? styles.navItemActive : styles.navItem}

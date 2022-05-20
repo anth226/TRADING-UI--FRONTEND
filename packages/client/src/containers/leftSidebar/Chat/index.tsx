@@ -50,6 +50,7 @@ const Chat: FC<Props> = ({
           ut labore et dolore magna aliqua.
         </div>
       </div>
+
       </div>
 
       <div className={styles.message}>
