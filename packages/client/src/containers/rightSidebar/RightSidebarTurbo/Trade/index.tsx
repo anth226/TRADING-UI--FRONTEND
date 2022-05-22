@@ -7,7 +7,6 @@ import Market from './Market';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-
 const TurboTabTrade = () => {
   const [activeItem, setActiveItem] = useState(1)
   const [activeButton, setactiveButton] = useState('short')
@@ -34,21 +33,20 @@ const TurboTabTrade = () => {
         return '111'
     }
   }
+  const style ={
+    fontSize: 11,
+    marginTop:5,
+    fontFamily: 'Cabin',
+  }
   const marks = {
-    10: '10х',
-    30: '20х',
-    60: '25х',
-    90: '50х',
-    120: '100x',
-    150: '150x',
-    180: '200х',
-    // 500: {
-    //   style: {
-    //     color: 'red',
-    //   },
-    //   label: <strong>100°C</strong>,
-    // },
-  };
+    5:{ label: '10x', style},
+    15:{ label: '20x', style},
+    25:{ label: '25x', style},
+    35:{ label: '50x', style},
+    45:{ label: '100x', style},
+    55:{ label: '150x', style},
+    65:{ label: '200x', style},
+  }
 
   return (
     <div>
@@ -76,14 +74,33 @@ const TurboTabTrade = () => {
 
       <div className={styles.slider_container}>
         <Slider
-          activeDotStyle={{borderColor:'rgba(127,115,24,0.76)', backgroundColor: '#f3de2c'}}
-          railStyle={{backgroundColor:'#434c6c'}}
-          trackStyle={{backgroundColor:'#f3de2c'}}
+          activeDotStyle={{
+            border:'1px solid rgba(127,115,24,0.76)',
+            backgroundColor: '#f3de2c'
+           }}//АктивныЕ точкИ
+          railStyle={{backgroundColor:'#434c6c',
+          height:'2px',
+          marginTop:1
+          }}//НЕ-Активный трек
+          trackStyle={{backgroundColor:'#f3de2c'}}//Активный трек
+          handleStyle={{
+            backgroundColor: 'rgb(242, 222, 43)',
+            border: 'solid 4px #f2de2be6',
+            width:15,
+            height:15.5,
+            marginTop:-6,
+          }}//Активная точкА
+          dotStyle={{
+            border:'1px solid rgba(255,255,255,0)',
+            backgroundColor:'#434c6c'
+          }}// НЕ-Активные точкИ
+
           min={0}
-          max={200}
+          max={70}
           step={null}
           marks={marks}
-          defaultValue={150}
+          defaultValue={45}
+          draggableTrack={true}
         />
       </div>
 
