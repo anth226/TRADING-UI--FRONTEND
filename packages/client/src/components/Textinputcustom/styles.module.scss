@@ -1,0 +1,87 @@
+@import "../../../../libs/assets/styles/mixins";
+
+.input {
+  height: 100%;
+  font-family: 'Cabin';
+  flex: 1;
+  border: none;
+  color: $color-input-text;
+  background: transparent;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  min-width: 0;
+  width: calc(100%);
+
+  &:focus {
+    outline: none;
+  }
+}
+.wrap {
+  width: auto;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  @include flexbox(center, center);
+  height: 24px;
+  color: #59648A;
+
+  &:first-child {
+    border-left: none;
+    margin-right: 4px;
+  }
+
+  &:last-child {
+    border-right: none;
+    margin-left: 4px;
+  }
+
+  &.text {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: nowrap;
+    border: none;
+
+    &:first-child {
+      padding-right: 0;
+    }
+
+    &:last-child {
+      padding-left: 0;
+    }
+  }
+}
+
+.reveal {
+  color: inherit;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.error {
+  color: $color-input-error;
+}
+.ico {
+ color: #59648A;
+  font-family: 'Cabin';
+}
+.label {
+  color: #59648A;
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+}
+.iconsi {
+  display: flex;
+  align-items: center;
+}
+.content {
+  padding: 8px;
+}

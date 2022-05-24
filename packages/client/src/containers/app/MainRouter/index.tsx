@@ -7,7 +7,7 @@ import { Profile } from '../../../pages/Profile';
 import { Balances } from '../../../pages/Balances';
 import Selections from '../../../pages/Selections';
 import TurboRush from '../../../pages/TurboRush';
-
+import Promocode from "../../../pages/Promo_Code";
 interface IProps {}
 
 const MainRouter: FC<IProps> = () => (
@@ -17,6 +17,7 @@ const MainRouter: FC<IProps> = () => (
     <Route path={Routes.Balances} component={Balances} exact />
     <Route path={Routes.Selections} component={Selections} exact />
     <Route path={Routes.TurboRush} component={TurboRush} exact />
+      <Route path={Routes.PromoCode} component={Promocode} exact />
     <Redirect to={Routes.Trading} />
   </Switch>
 );

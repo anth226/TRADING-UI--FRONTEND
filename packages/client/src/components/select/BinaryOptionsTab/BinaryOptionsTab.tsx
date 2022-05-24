@@ -1,12 +1,19 @@
 /* eslint-disable */
-import React, {FC, useState} from "react";
+import React, {FC,useState} from "react";
 import {Binary} from "./data";
 import styles from "../../../pages/Selections/styles.module.scss";
+import {store} from "../../../index";
+import {useSelector, useStore} from "react-redux";
+
 
 
 const BinaryOptionsTab:FC = () => {
 
-  const [activeSubItemtab, setActiveSubItemtab] = useState(-1)
+const [activeSubItemtab, setActiveSubItemtab] = useState(-1)
+const [value, setValue] = useState([])
+
+
+
 
     const handlerChange = (index: number) => {
         if (activeSubItemtab === index) {
@@ -23,11 +30,10 @@ const BinaryOptionsTab:FC = () => {
 
 
         <div className={styles.balancesSubInner}>
-            {Binary.map((item, index,data) =>(
+            {Binary.map((item, index) =>(
                 <div key={item.title}
                      className={activeSubItemtab===index ? styles.chouse: styles.nochouse}
                      onClick={()=> handlerChange(index)}>
-
                      <div >
 
                     <div className={styles.row}>

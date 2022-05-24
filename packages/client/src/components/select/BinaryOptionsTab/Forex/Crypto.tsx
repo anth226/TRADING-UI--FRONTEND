@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import Table from '@option-blitz/libs/components/inputs/Table';
 import styles from './styles.module.scss';
 import { columns } from './columns';
-import { data } from './data';
+import { crypto } from './crypto';
 
-const Forex: FC = () => (
+const Crypto: FC = () => (
 
   <div className={styles.mar}>
-    <Table className={styles.tabuletTitle} columns={columns} data={data} />
+    <Table columns={columns} data={crypto} />
   </div>
 
 );
-export { Forex };
+export { Crypto };

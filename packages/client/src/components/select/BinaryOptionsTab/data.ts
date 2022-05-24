@@ -5,6 +5,7 @@ import gold from '@option-blitz/libs/assets/images/metals/gold.svg';
 import { money } from './Forex/data';
 import { metals } from './Forex/metals';
 import { energy } from './Forex/energy';
+import { crypto } from './Forex/crypto';
 
 export const Binary = [
   {

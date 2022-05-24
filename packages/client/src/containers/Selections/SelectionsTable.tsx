@@ -7,7 +7,7 @@ import {metals} from "../../components/select/BinaryOptionsTab/Forex/metals";
 
 
 const SelectionsTable: FC = () => (
-  <div className="table">
+  <div className="styles.table">
     <Table  columns={ columns } data={metals} />
   </div>
 );

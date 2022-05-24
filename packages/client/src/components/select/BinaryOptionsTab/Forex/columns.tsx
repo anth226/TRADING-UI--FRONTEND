@@ -137,7 +137,7 @@ export const columns = [
     Cell: ({ row }: Cell<Forex>) => {
       const { sentiment } = row.original;
       return (
-        <div>
+        <div className={styles.iconsal}>
           <FontIcon name={FontIconName.Plus} size={17} />
         </div>
       );
