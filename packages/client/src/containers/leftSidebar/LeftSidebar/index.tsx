@@ -10,6 +10,7 @@ import { Notifications } from '../Notifications';
 import { Info } from '../Info';
 import { OpenPosition } from '../OpenPosition';
 import { Chat } from '../Chat';
+import { Staking } from '../Staking';
 
 interface Props {
   activeNavigation?: Navigation
@@ -30,6 +31,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
     {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
+    {activeNavigation === Navigation.Stake && <Staking onBack={onBack} />}
   </div>
 );
 

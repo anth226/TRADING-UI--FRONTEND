@@ -65,9 +65,10 @@
   font-size: 11px;
   line-height: 13px;
 }
-
+.slider{
+  [class = 'rc-slider-handle rc-slider-handle-dragging'] {border-color: rgba(255, 255, 255, 0) !important; box-shadow: none !important;}
+}
 .funding {
-
   font-family: Conthrax;
   color: #59648A;
   font-size: 8px;

@@ -1,0 +1,19 @@
+.unActive{
+  font-size: 10px;
+  margin-top:5px;
+  font-family: 'Cabin';
+  color: #999;
+}
+.active{
+position: absolute;
+  margin-top: 3px;
+}
+.img{
+  position: relative;
+}
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9.5px;
+}
