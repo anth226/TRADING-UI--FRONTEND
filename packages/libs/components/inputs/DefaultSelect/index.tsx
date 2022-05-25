@@ -15,7 +15,7 @@ export interface OptionItem {
 type SizeType = 'normal' | 'small';
 
 interface Props {
-  options: OptionItem[]
+  options?: OptionItem[]
   defaultValue?: OptionItem
   onChange?: (e: OnChangeValue<OptionItem, false>) => void
   className?: string

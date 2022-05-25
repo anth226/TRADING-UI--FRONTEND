@@ -33,9 +33,13 @@ const TextInputCustom: FC<Props> = ({
                                      }) => (
     <div className={ styles.wrap}>
         <div className={styles.content}>
-            <div className={styles.row}>
+            <div
+                className={styles.row}
+            >
                 <div className={styles.col}>
-                    <div className={styles.input_wrap}>
+                    <div
+                        className={styles.input_wrap}
+                    >
                         <p className={styles.label}>{label}</p>
 
                     </div>
@@ -49,7 +53,7 @@ const TextInputCustom: FC<Props> = ({
                     </div>
                 </div>
                 <div className={styles.iconsi}>
-                    <FontIcon className={styles.ico} size={15} name={Icon} />
+                    <FontIcon className={styles.ico } size={15} name={Icon} />
                     <span className={styles.ico}>{symbol}</span>
                 </div>
 

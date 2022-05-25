@@ -8,6 +8,10 @@ import { Balances } from '../../../pages/Balances';
 import Selections from '../../../pages/Selections';
 import TurboRush from '../../../pages/TurboRush';
 import Promocode from "../../../pages/Promo_Code";
+import Affiliate_BLX from "../../../pages/Promo_Code/BLX_Token";
+import Affiliate_Campaigns from "../../../pages/Promo_Code/Affiliate_Campaigns";
+import {AddCampaign} from "../../../pages/Promo_Code/Modal/AddCampaign";
+import {EditCampaign} from "../../../pages/Promo_Code/Modal/EditCampaign";
 interface IProps {}
 
 const MainRouter: FC<IProps> = () => (
@@ -17,7 +21,7 @@ const MainRouter: FC<IProps> = () => (
     <Route path={Routes.Balances} component={Balances} exact />
     <Route path={Routes.Selections} component={Selections} exact />
     <Route path={Routes.TurboRush} component={TurboRush} exact />
-      <Route path={Routes.PromoCode} component={Promocode} exact />
+      <Route path={Routes.PromoCode} component={EditCampaign} exact />
     <Redirect to={Routes.Trading} />
   </Switch>
 );

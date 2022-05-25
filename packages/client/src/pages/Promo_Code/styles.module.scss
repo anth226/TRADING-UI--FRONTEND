@@ -8,11 +8,18 @@
 .info_text {
   font-family: Cabin;
   margin: 16px 0;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+}
+.info_title {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
 }
 .row {
   display: flex;
@@ -62,7 +69,7 @@
   width: auto;
 }
 .button {
-  width: 215px;
+  width: 180px;
   height: 43px;
   background-color:  #54B163;
   border-radius: 6px;
@@ -89,8 +96,9 @@
   .title {
     text-color: #00CD86;
   }
-
-
+}
+.tabblx {
+  align-content: start;
 }
 .tabule {
   .thead  {
@@ -107,6 +115,17 @@
   flex-direction: row;
   height: 40px;
   background-color: #24C48A;
+  margin: 16px 0;
+  border-radius: 6px;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: center;
+}
+.warning {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  background-color: #E1413E ;
   margin: 16px 0;
   border-radius: 6px;
   justify-content: space-between;
@@ -143,6 +162,12 @@ width: 196px;
 .modal {
   width: 675px;
   height: 587px;
+  background-color: #181D2D;
+  border-radius: 6px;
+}
+.modal_camp {
+  width: 675px;
+  height: 234px;
   background-color: #181D2D;
   border-radius: 6px;
 }
@@ -202,4 +227,82 @@ width: 196px;
   font-size: 10px;
   line-height: 140%;
   color: #59648A;
+}
+.tokenBlock {
+  display: flex;
+  border: 1px solid #374459;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.token {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  span {
+    &:first-child {
+      font-family: 'Conthrax';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 8px;
+      line-height: 10px;
+      /* identical to box height */
+
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+      color: #59648A;
+    }
+    &:last-child {
+      font-family: 'Cabin';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      font-feature-settings: 'pnum' on, 'lnum' on;
+
+      /* green active */
+
+      color: #00CD86;
+    }
+  }
+}
+.rowcam {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+.button_tab {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+}
+
+.hr {
+  width: 100%;
+  background-color: #374459;
+  height: 1px;
+  border: none;
+}
+.input_mod_camp{
+  width: 635px;
+  height: 43px;
+  margin: 12px 0;
+  .span{
+    display: none;
+  }
+}
+.input_mod_camp_text {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
 }

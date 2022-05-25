@@ -21,16 +21,7 @@ const NewPromoCode = () => {
 
     const mas =FontIconName.News
 
-    // const handleChange = () => {
-    //     setActive(false);
-    // };
-    // const newModal = () => {
-    //     setActive(false);
-    // };
-    // const privatKeyModal = () => {
-    //     setActive(false);
-    //     setKey(true);
-    // };
+
 
     return (
         <div className={styles.backfon}>
@@ -48,56 +39,6 @@ const NewPromoCode = () => {
 
                 <hr className={styles.hr} />
 
-                {/*<div >*/}
-                    {/*<div className={styles.row_input}>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TextInput*/}
-                    {/*            label="Target ROI"*/}
-                    {/*            right='$'*/}
-                    {/*            value={25}*/}
-                    {/*        />*/}
-                    {/*       < span className={styles.context}>amount</span>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TargetPriceInput*/}
-                    {/*            label="Target ROI"*/}
-                    {/*            symbol="$"*/}
-                    {/*            value={25}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className={styles.row_input}>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TargetPriceInput*/}
-                    {/*            label="Target ROI"*/}
-                    {/*            symbol="$"*/}
-                    {/*            value={25}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TargetPriceInput*/}
-                    {/*            label="Target ROI"*/}
-                    {/*            symbol="$"*/}
-                    {/*            value={25}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className={styles.row_input}>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TargetPriceInput*/}
-                    {/*            label="Target ROI"*/}
-                    {/*            symbol="$"*/}
-                    {/*            value={25}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*    <div className={styles.input}>*/}
-                    {/*        <TextInput*/}
-
-                    {/*            value="Kamix 85"*/}
-                    {/*            right={icon}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 <div className={styles.row}>
                     <div  className={styles.input}>
                         <TextInputCustom
@@ -160,36 +101,36 @@ const NewPromoCode = () => {
                         <FontIcon name={FontIconName.Info} size={15}/>
                     </div>
                     <div className={styles.info_text}>
-                        <span>
+                        <p className={styles.info_title}>
                             Terms and Conditions:
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             1.  Bonus adds 25% of the deposit to your Live account balance.
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             2.  You may cancel the bonus at any time. In this case, bonus amount
                             will be deducted from your Live account balance.
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             3.  You can withdraw your deposited amount and profit at any moment if you have enough funds on your Live account balance.
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             4.  In case a withdrawal takes place before the bonus is executed, your active
                             unexecuted bonus will be deducted from your Live account balance.
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             5.  You can execute the bonus and withdraw it if your net trading turnover
                             is not less than $1250.
-                        </span>
-                        <span>
+                        </p>
+                        <p>
                             6.  The Company has a right to amend bonus terms or terminate this promotion
                             at any time without any notice.
-                        </span>
+                        </p>
                     </div>
 
                 </div>
                 <div className={styles.butt}>
-                    <Button > CREATE </Button>
+                    <Button className={styles.button}> CREATE </Button>
                 </div>
 
 
