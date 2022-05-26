@@ -9,25 +9,35 @@ import Table from "@option-blitz/libs/components/inputs/Table";
 import {columns} from "../BLX_Token/columns";
 import {firm} from "../BLX_Token/campaigns_data";
 import alerto from './Alert.svg'
+import {AddCampaign} from "../Modal/AddCampaign";
+import {EditCampaign} from "../Modal/EditCampaign";
 
-const Affiliate_Campaigns:FC = () => {
-    const [activeInfo, setActiveInfo] = useState(true)
+
+
+const AffiliateCampaigns:FC = () => {
+    const [activealert, setActivealert] = useState(true)
     const [activesaccess, setActivesaccess] = useState(true)
+    const [addcampaign, setAddcampaign] = useState(false)
+    const [editcampaign, setEditcampaign] = useState(false)
 
-    const closeinfo = () => {
-        setActiveInfo(false)
+    const closealert = () => {
+        setActivealert(false)
     }
 
     const closesuccess = () => {
         setActivesaccess(false)
     }
-
+    const addCampaign = () => {
+        setAddcampaign(true)
+    }
+     const openedit = () => {
+        setEditcampaign(true)
+    }
 
     return (
-        <MainLayout>
+
             <div className={styles.promo}>
                 <h3 className={styles.title}>Campaigns</h3>
-
 
                 <div className= {activesaccess === true ? styles.success: styles.none}>
                     <div className={styles.row}>
@@ -48,7 +58,7 @@ const Affiliate_Campaigns:FC = () => {
                 </div>
 
 
-                <div className= {activesaccess === true ? styles.warning: styles.none}>
+                <div className= {activealert === true ? styles.warning: styles.none}>
                     <div className={styles.row}>
                         <div className={styles.icon_check} >
                             <img src={alerto} />
@@ -60,7 +70,7 @@ const Affiliate_Campaigns:FC = () => {
                         </div>
                     </div>
                     <div className={styles.icon}
-                         onClick={() => closesuccess()}
+                         onClick={() => closealert()}
                     >
                         <FontIcon name={FontIconName.Close} size={12}/>
                     </div>
@@ -91,7 +101,7 @@ const Affiliate_Campaigns:FC = () => {
                     </div>
                     <div className={styles.but}>
                         <button className={styles.button}
-                                onClick={() => close()}>
+                                onClick={() => addCampaign()}>
                             <p className={styles.button_text}>
                                 ADD CAMPAIGN
                             </p>
@@ -102,10 +112,13 @@ const Affiliate_Campaigns:FC = () => {
                 <div className={styles.tabCamp}>
                     <Table  columns={ columns } data={firm}  />
                 </div>
-
+                    <AddCampaign active={addcampaign} setActive={setAddcampaign}/>
+                <EditCampaign active={editcampaign} setActive={setEditcampaign} />
             </div>
-        </MainLayout>
     );
 };
 
-export default Affiliate_Campaigns;
+export default AffiliateCampaigns;
+
+export class openedit {
+}

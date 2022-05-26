@@ -4,11 +4,18 @@ import styles from "../styles.module.scss";
 import Button from "@option-blitz/libs/components/inputs/Button";
 import React from "react";
 import {TextInput} from "@option-blitz/libs/components/inputs/TextInput";
-
-const AddCampaign = () => {
+interface Props {
+    active?: boolean
+    setActive?: any
+    setSuccess?:boolean
+}
+const AddCampaign = ({active, setActive}:Props) => {
+    const close = () => {
+        setActive(false)
+    }
 
     return (
-        <div className={styles.backfon}>
+        <div className={active ? styles.backfon: styles.none}>
             <div className={styles.modal_camp}>
 
                 <div className={styles.border}>
@@ -16,9 +23,9 @@ const AddCampaign = () => {
                         <div className={styles.title} >
                             ADD CAMPAIGN
                         </div>
-                        <div >
+                        <button type='button' onClick={close}>
                             <FontIcon name={FontIconName.Close} size={12}/>
-                        </div>
+                        </button>
                     </div>
 
                     <hr className={styles.hr} />

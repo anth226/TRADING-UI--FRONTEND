@@ -9,7 +9,11 @@ import Table from "@option-blitz/libs/components/inputs/Table";
 import {columns} from "./columns";
 import {firm} from "./campaigns_data";
 
-const Affiliate_BLX:FC = () => {
+interface Props {
+    isMobile?: boolean
+}
+
+const AffiliateBLX:FC = () => {
     const [activeInfo, setActiveInfo] = useState(true)
     const [activesaccess, setActivesaccess] = useState(true)
 
@@ -23,7 +27,6 @@ const Affiliate_BLX:FC = () => {
 
 
     return (
-        <MainLayout>
             <div className={styles.promo}>
                 <h3 className={styles.title}>BLX Token Campaing</h3>
                 <div className={styles.row}>
@@ -64,8 +67,7 @@ const Affiliate_BLX:FC = () => {
                 </div>
 
             </div>
-        </MainLayout>
     );
 };
 
-export default Affiliate_BLX;
+export default AffiliateBLX;

@@ -5,6 +5,7 @@ import {Campaign} from "./typesCampaign";
 import Button from "@option-blitz/libs/components/inputs/Button";
 import {CopyText} from "@option-blitz/libs/components/inputs/CopyText";
 import styles from "./../styles.module.scss";
+import {openedit} from "../Affiliate_Campaigns";
 
 
 export const columns = [
@@ -62,7 +63,8 @@ export const columns = [
             const { } = row.original;
             return (
                 <div>
-                    <Button size={34}
+                    <Button
+                        size={34}
                         color={"transparent_primary"}
                     className={styles.button_tab}>
                         EDIT

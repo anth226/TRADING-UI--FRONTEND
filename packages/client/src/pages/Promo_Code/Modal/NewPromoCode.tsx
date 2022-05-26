@@ -1,30 +1,30 @@
 /* eslint-disable */
 import styles from './../styles.module.scss'
-
 import Button from "@option-blitz/libs/components/inputs/Button";
-
 import React from "react";
-// import {TextInput} from "@option-blitz/libs/components/inputs/TextInput";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
-// import {RightSidebarInput} from "@option-blitz/libs/components/rightSidebar/RightSidebarInput";
-// import {AmountInput} from "@option-blitz/libs/components/inputs/AmountInput";
-// import {Dropdown} from "@option-blitz/libs/components/inputs/Dropdown";
-// import {HeaderTabSelect} from "@option-blitz/libs/components/inputs/HeaderTabSelect";
-// import Loader from "@option-blitz/libs/components/inputs/Loader";
-// import {TextArea} from "@option-blitz/libs/components/inputs/TextArea";
-// import {TextInputWrap} from "@option-blitz/libs/components/inputs/TextInputWrap";
-// import {TargetPriceInput} from "../../../containers/leftSidebar/OpenPosition/TargetPriceInput";
 import {TextInputCustom} from "components/Textinputcustom";
 
+interface Props {
+    active?: boolean
+    setActive?: any
+    setSuccess?:boolean
+}
 
-const NewPromoCode = () => {
+const NewPromoCode = ({active, setActive}:Props) => {
 
     const mas =FontIconName.News
 
-
+    const handleChange = () => {
+        setActive(false);
+    };
+    const create = () => {
+        setActive(false);
+        // setSuccess(true);
+    }
 
     return (
-        <div className={styles.backfon}>
+        <div className={active ? styles.backfon: styles.none}>
         <div className={styles.modal}>
 
             <div className={styles.border}>
@@ -32,9 +32,10 @@ const NewPromoCode = () => {
                     <div className={styles.title} >
                         CREATE NEW PROMO CODE
                     </div>
-                    <div >
+                    <button type='button' onClick={handleChange}>
+
                         <FontIcon name={FontIconName.Close} size={12}/>
-                    </div>
+                    </button>
                 </div>
 
                 <hr className={styles.hr} />
@@ -45,7 +46,6 @@ const NewPromoCode = () => {
                             value='25'
                             label='BONUS'
                             symbol="%"
-
                         />
                         <span className={styles.span}>Largest possible bonus for you current account status is 25%.</span>
                     </div>
@@ -55,7 +55,6 @@ const NewPromoCode = () => {
                             value='25'
                             label='MINIMUM DEPOSIT'
                             symbol="$"
-
                         />
                     </div>
                 </div>
@@ -130,10 +129,8 @@ const NewPromoCode = () => {
 
                 </div>
                 <div className={styles.butt}>
-                    <Button className={styles.button}> CREATE </Button>
+                    <Button className={styles.button} onClick={() => create }> CREATE </Button>
                 </div>
-
-
             </div>
             </div>
 

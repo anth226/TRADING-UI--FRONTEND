@@ -10,46 +10,53 @@ import {TextInput} from "@option-blitz/libs/components/inputs/TextInput";
 import Table from "@option-blitz/libs/components/inputs/Table";
 import {columns} from './columns'
 import {tiket} from "./promcod_data";
+import {NewPromoCode} from "./Modal/NewPromoCode";
 
 
 const Promocode:FC = () => {
     const [activeInfo, setActiveInfo] = useState(true)
-    const [activesaccess, setActivesaccess] = useState(true)
+    const [activesaccess, setActivesaccess] = useState(false)
+    const [createpromo, setCreatepromo]=useState(false)
 
     const closeinfo = () => {
         setActiveInfo(false)
     }
-
     const closesuccess = () => {
         setActivesaccess(false)
+    }
+    const openmodal = ()=> {
+        setCreatepromo(true)
+        setActivesaccess(true)
     }
 
 
     return (
-        <MainLayout>
   <div
       className={styles.promo}
   >
         <h3 className={styles.title}>My Promo Codes</h3>
 
       <div className= {activeInfo === true ? styles.info: styles.none}>
-          <div className={styles.icon}>
-              <FontIcon name={FontIconName.Info} size={15}/>
+          <div className={styles.row}>
+              <div className={styles.icon}>
+                  <FontIcon name={FontIconName.Info} size={15}/>
+              </div>
+              <div className={styles.info_text}>
+                  <p>
+                      Create custom promo codes for your referrals' deposits!
+                      You'll be able to use these codes in your new advertising campaigns.
+                      When a new member signs up using your partner link, they will be offered
+                      a bonus for their Live account. Give out your personal promo codes to your
+                      referrals any way you like it!
+                  </p>
+                  <p>Attention! We have a very cool and important feature to announce! If your promo
+                      code is used by a client who is not registered under any partner, they will be
+                      registered under you as their referrer as soon as the code is activated. You can
+                      create no more than 3 promo codes in 30 days.
+                  </p>
+              </div>
           </div>
-          <div className={styles.info_text}>
-              <p>
-                  Create custom promo codes for your referrals' deposits!
-                  You'll be able to use these codes in your new advertising campaigns.
-                  When a new member signs up using your partner link, they will be offered
-                  a bonus for their Live account. Give out your personal promo codes to your
-                  referrals any way you like it!
-              </p>
-              <p>Attention! We have a very cool and important feature to announce! If your promo
-                  code is used by a client who is not registered under any partner, they will be
-                  registered under you as their referrer as soon as the code is activated. You can
-                  create no more than 3 promo codes in 30 days.
-              </p>
-          </div>
+
           <div className={styles.icon}
                onClick={() => closeinfo()}>
               <FontIcon name={FontIconName.Close} size={12}/>
@@ -74,7 +81,6 @@ const Promocode:FC = () => {
               <FontIcon name={FontIconName.Close} size={12}/>
           </div>
       </div>
-
 
 
       <div className={styles.row}>
@@ -104,7 +110,7 @@ const Promocode:FC = () => {
           </div>
           <div className={styles.but}>
               <button className={styles.button}
-              onClick={() => close()}>
+              onClick={() => openmodal()}>
                   <p className={styles.button_text}>
                       ADD PROMO CODES
                   </p>
@@ -113,12 +119,14 @@ const Promocode:FC = () => {
       </div>
 
       <div className={styles.tabule}>
-          <Table  columns={ columns } data={tiket} />
+          <Table   columns={ columns } data={tiket} />
       </div>
-     {/*< NewPromoCode/>*/}
+
+          < NewPromoCode active={createpromo} setActive={setCreatepromo} />
+
+
 
   </div>
-        </MainLayout>
     );
 };
 

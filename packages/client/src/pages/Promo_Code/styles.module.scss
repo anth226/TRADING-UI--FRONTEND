@@ -1,6 +1,6 @@
 .promo {
   padding: 10px;
-  width: 100%;
+  width: 96vw;
 }
 .title {
   margin: 10px 0;
@@ -49,6 +49,7 @@
 .info {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-color: #222A3F;
   margin: 40px 0;
   border-radius: 6px;
@@ -276,6 +277,7 @@ width: 196px;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
+                     text-align: start;
 }
 .button_tab {
   font-family: 'Conthrax';

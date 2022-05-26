@@ -4,11 +4,19 @@ import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontI
 import {TextInput} from "@option-blitz/libs/components/inputs/TextInput";
 import Button from "@option-blitz/libs/components/inputs/Button";
 import React from "react";
+interface Props {
+    active?: boolean
+    setActive?: any
+    setSuccess?:boolean
+}
 
-const EditCampaign = () => {
+const EditCampaign = ({active, setActive}:Props) => {
 
+    const close = () => {
+        setActive(false)
+    }
     return (
-        <div className={styles.backfon}>
+        <div className={active ? styles.backfon: styles.none}>
         <div className={styles.modal_camp}>
 
         <div className={styles.border}>
@@ -16,9 +24,9 @@ const EditCampaign = () => {
         <div className={styles.title} >
             EDIT CAMPAIGN
     </div>
-    <div >
+    <button type='button' onClick={close}>
     <FontIcon name={FontIconName.Close} size={12}/>
-    </div>
+    </button>
     </div>
 
     <hr className={styles.hr} />
