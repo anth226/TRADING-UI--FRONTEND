@@ -14,16 +14,6 @@ interface Props {
 }
 
 const AffiliateBLX:FC = () => {
-    const [activeInfo, setActiveInfo] = useState(true)
-    const [activesaccess, setActivesaccess] = useState(true)
-
-    const closeinfo = () => {
-        setActiveInfo(false)
-    }
-
-    const closesuccess = () => {
-        setActivesaccess(false)
-    }
 
 
     return (
@@ -53,8 +43,7 @@ const AffiliateBLX:FC = () => {
                         </div>
                     </div>
                     <div className={styles.but}>
-                        <button className={styles.button}
-                                onClick={() => close()}>
+                        <button className={styles.button}>
                             <p className={styles.button_text}>
                                 ADD CAMPAIGN
                             </p>
