@@ -9,15 +9,7 @@ import star from '../../../../libs/assets/images/star.svg'
 // import {SelectionsTable} from "../../containers/Selections/SelectionsTable";
 import BinaryOptionsTab from "../../components/select/BinaryOptionsTab/BinaryOptionsTab";
 import {Forex} from "../../components/select/BinaryOptionsTab/Forex/Forex";
-import Binary from "../../components/profile/BinaryTab/Binary";
-import TurboRush from "../../components/profile/TurboRushTab/TurboRush";
-import Rush from "../../components/profile/RushTab/Rush";
-import Touch from "../../components/profile/TouchTab/Touch";
-import NoTouch from "../../components/profile/NoTouchTab/NoTuch";
-import {SelectionsTable} from "../../containers/Selections/SelectionsTable";
-import {Metals} from "../../components/select/BinaryOptionsTab/Forex/Metals";
-import {Crypto} from "../../components/select/BinaryOptionsTab/Forex/Crypto";
-import Promocode from "../Promo_Code";
+
 
 const TradingSelectItems = [
     {

@@ -10,7 +10,6 @@ import { Notifications } from '../Notifications';
 import { Info } from '../Info';
 import { OpenPosition } from '../OpenPosition';
 import { Chat } from '../Chat';
-import { Staking } from '../Staking';
 import AffiliateBLX from '../../../pages/Promo_Code/BLX_Token';
 import Promocode from '../../../pages/Promo_Code';
 import AffiliateCampaigns from '../../../pages/Promo_Code/Affiliate_Campaigns';
@@ -34,9 +33,6 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
     {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
-    {activeNavigation === Navigation.Stake && <Staking onBack={onBack} />}
-
-    {/* {activeNavigation === Navigation. && <Affiliate_BLX />} */}
     {activeNavigation === Navigation.PromotionalTools && <AffiliateCampaigns />}
     {activeNavigation === Navigation.Statistics && <AffiliateBLX />}
     {activeNavigation === Navigation.Payments && <Promocode />}

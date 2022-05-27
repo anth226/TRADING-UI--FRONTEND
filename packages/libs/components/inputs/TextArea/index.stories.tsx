@@ -7,7 +7,7 @@ import { TextArea } from './index';
 storiesOf('Basic', module).add('TextArea', () => {
   const autoSize = boolean('autosize', true);
   const value = text('Value', 'Sample textarea');
-  const maxLength = number('Max length', 0);
+  const maxLength = number('Buy length', 0);
   const onChange = action('onChange');
 
   return (

@@ -5,5 +5,5 @@ export enum Routes {
   Balances = '/balances',
   Selections = '/selections',
   TurboRush = '/turboRush',
-  // PromoCode = '/promocode',
+  Staking = '/staking',
 }
