@@ -28,8 +28,13 @@ const TradingSelectItems = [
         badge: '72',
     },
     {
-        icon: star,
+        icon: cir,
         title: 'Classic options',
+        badge: '6',
+    },
+    {
+        icon: star,
+        title: 'Turbo',
         badge: '6',
     },
 ]

@@ -24,6 +24,14 @@
   height: 350px;
 
 }
+.modalmob {
+  overflow: hidden;
+  background-color: #181d2d;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  height: 465px;
+}
 
 .login {
   display: flex;
@@ -69,6 +77,14 @@
   margin-bottom: 12px;
   border-radius: 10px !important;
 }
+.button_small {
+  color: #0d1422;
+  border: 1px solid #374459;
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 12px;
+  border-radius: 4px !important;
+}
 
 .account {
   margin-top: 16px;
@@ -106,4 +122,14 @@
 .close_icon {
   top: 4px;
   right: 4px;
+}
+.method_mod {
+  font-size: 9px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.mob {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
