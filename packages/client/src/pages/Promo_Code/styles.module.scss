@@ -2,9 +2,11 @@
   padding: 10px;
   width: 96vw;
 }
+
 .title {
   margin: 10px 0;
 }
+
 .info_text {
   font-family: Cabin;
   margin: 16px 0;
@@ -14,6 +16,7 @@
   letter-spacing: 0em;
   text-align: left;
 }
+
 .info_title {
   font-family: 'Conthrax';
   font-style: normal;
@@ -21,20 +24,24 @@
   font-size: 8px;
   line-height: 10px;
 }
+
 .row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .row_input {
   display: flex;
   flex-direction: row;
 }
+
 .sorttit {
   display: flex;
   align-items: center;
   margin-right: 8px;
 }
+
 .sort {
   height: 12px;
   font-family: Conthrax;
@@ -46,6 +53,7 @@
   //text-align: left;
   color: #59648A;
 }
+
 .info {
   display: flex;
   flex-direction: row;
@@ -54,25 +62,30 @@
   margin: 40px 0;
   border-radius: 6px;
 }
+
 .icon {
   margin: 16px;
 }
+
 .iconinfmod {
   margin: 16px;
   color: #59648A;
 }
+
 .icon_check {
   margin: 15px;
 }
+
 .inputs {
   display: flex;
   flex-direction: row;
   width: auto;
 }
+
 .button {
   width: 180px;
   height: 43px;
-  background-color:  #54B163;
+  background-color: #54B163;
   border-radius: 6px;
   font-family: 'Conthrax';
   font-style: normal;
@@ -80,6 +93,7 @@
   font-size: 13px;
   line-height: 16px;
 }
+
 .button_text {
   font-family: 'Conthrax';
   font-style: normal;
@@ -88,29 +102,35 @@
   line-height: 16px;
   color: #175610;
 }
+
 .select {
   width: 196px;
   margin-right: 20px;
   font-family: Cabin;
-  font-size:13px;
+  font-size: 13px;
 
   .title {
     text-color: #00CD86;
   }
 }
+
 .tabblx {
   align-content: start;
 }
+
 .tabule {
-  .thead  {
+  .thead {
     align-content: center;
   }
+
   margin-top: 25px;
-   text-align: center;
+  text-align: center;
 }
+
 .iconsal {
   align-items: center;
 }
+
 .success {
   display: flex;
   flex-direction: row;
@@ -122,23 +142,27 @@
   align-content: stretch;
   align-items: center;
 }
+
 .warning {
   display: flex;
   flex-direction: row;
   height: 40px;
-  background-color: #E1413E ;
+  background-color: #E1413E;
   margin: 16px 0;
   border-radius: 6px;
   justify-content: space-between;
   align-content: stretch;
   align-items: center;
 }
+
 .success_text {
   margin-left: 10px;
 }
+
 .none {
   display: none;
 }
+
 .butdel {
   width: 96px;
   height: 34px;
@@ -146,32 +170,39 @@
   font-size: 8px;
   line-height: 10px;
 }
+
 .search {
-width: 196px;
+  width: 196px;
+
   span {
     display: none;
   }
 }
-.iconSearch{
+
+.iconSearch {
   color: white;
 }
-.input{
+
+.input {
   width: 305px;
   height: 43px;
   margin: 12px 0;
 }
+
 .modal {
   width: 675px;
   height: 587px;
   background-color: #181D2D;
   border-radius: 6px;
 }
+
 .modal_camp {
   width: 675px;
   height: 234px;
   background-color: #181D2D;
   border-radius: 6px;
 }
+
 .info_text_modal {
   font-family: Cabin;
   margin: 16px 0;
@@ -186,6 +217,7 @@ width: 196px;
 .border {
   margin: 20px;
 }
+
 .backfon {
   position: absolute;
   background-color: rgba(2, 6, 16, 0.8);
@@ -198,11 +230,13 @@ width: 196px;
   justify-content: center;
   align-items: center;
 }
+
 .butt {
   display: flex;
   flex-direction: row;
   justify-content: end;
 }
+
 .context {
   font-family: 'Conthrax';
   font-style: normal;
@@ -218,9 +252,10 @@ width: 196px;
   color: #59648A;
 }
 
-  .main span {
-    display: none;
-  }
+.main span {
+  display: none;
+}
+
 .span {
   font-family: 'Cabin';
   font-style: normal;
@@ -229,6 +264,7 @@ width: 196px;
   line-height: 140%;
   color: #59648A;
 }
+
 .tokenBlock {
   display: flex;
   border: 1px solid #374459;
@@ -243,6 +279,7 @@ width: 196px;
   padding-top: 8px;
   padding-left: 8px;
   padding-bottom: 4px;
+
   span {
     &:first-child {
       font-family: 'Conthrax';
@@ -257,6 +294,7 @@ width: 196px;
       font-feature-settings: 'pnum' on, 'lnum' on;
       color: #59648A;
     }
+
     &:last-child {
       font-family: 'Cabin';
       font-style: normal;
@@ -271,14 +309,16 @@ width: 196px;
     }
   }
 }
+
 .rowcam {
   font-family: 'Conthrax';
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-                     text-align: start;
+  text-align: start;
 }
+
 .button_tab {
   font-family: 'Conthrax';
   font-style: normal;
@@ -293,14 +333,17 @@ width: 196px;
   height: 1px;
   border: none;
 }
-.input_mod_camp{
+
+.input_mod_camp {
   width: 635px;
   height: 43px;
   margin: 12px 0;
-  .span{
+
+  .span {
     display: none;
   }
 }
+
 .input_mod_camp_text {
   font-family: 'Cabin';
   font-style: normal;
@@ -308,11 +351,13 @@ width: 196px;
   font-size: 13px;
   line-height: 16px;
 }
+
 .profitcard {
   width: 200px;
   height: 86px;
   border: 1px solid #3E4868;
   border-radius: 6px;
+
   .title {
     font-family: 'Conthrax';
     font-style: normal;
@@ -321,9 +366,11 @@ width: 196px;
     line-height: 12px;
     margin: 8px 8px 0;
   }
+
   .diagram {
     width: 100%;
   }
+
   .val {
     font-family: 'Cabin';
     font-style: normal;
@@ -332,6 +379,7 @@ width: 196px;
     line-height: 15px;
     margin: 6px 10px 2px 0;
   }
+
   .pin {
     font-family: 'Cabin';
     font-style: normal;
@@ -343,25 +391,36 @@ width: 196px;
     margin-right: 10px;
   }
 }
+
 .col {
   display: flex;
   flex-direction: column;
 }
+
 .img {
   z-index: -8;
   margin-top: -15px;
 }
+
 .row_text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   z-index: 1;
 }
+
 .statistic {
   width: 664px;
   height: 297px;
 }
+
 .traiding {
   width: 660px;
   height: 307px;
+}
+
+.row_second {
+  @extend .row;
+  justify-content: space-around;
+  margin-top: 20px;
 }

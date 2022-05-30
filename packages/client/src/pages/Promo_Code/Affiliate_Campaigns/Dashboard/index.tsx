@@ -101,7 +101,7 @@ const AffiliateDashboard:FC = () => {
                 </div>
             </div>
 
-            <div className={styles.row}>
+            <div className={styles.row_second}>
                 <div>
                     <img src={smalcir} alt='diagram'/>
 
@@ -114,7 +114,7 @@ const AffiliateDashboard:FC = () => {
                 </div>
             </div>
 
-            <div className={styles.row}>
+            <div className={styles.row_second}>
                 <div>
                     <img src={volumtraid} alt='diagram' />
                 </div>
