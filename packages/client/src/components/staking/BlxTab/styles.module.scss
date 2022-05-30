@@ -1,0 +1,68 @@
+.description {
+  font-family: Cabin;
+  font-size: 13px;
+  line-height: 15px;
+  color: #b6c2ea;
+}
+
+.boost {
+  background: linear-gradient(95.7deg, #24C48A 6.16%, #23C3B9 95.49%) !important;
+  box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
+  color: white !important;
+  font-family: Cabin;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+}
+
+.first_block {
+  border: 1px solid #374459;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bost {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: Conthrax;
+}
+
+.minimum {
+  font-family: 'Cabin';
+  font-size: 13px;
+  line-height: 16px;
+  width: 260px;
+  display: flex;
+  margin-right: 155px;
+  color: #b6c2ea;
+}
+
+.max {
+  display: flex;
+  font-family: 'Cabin';
+  font-size: 13px;
+  color: #b6c2ea;
+}
+
+.max_boost {
+  margin-left: 50px;
+}
+
+.buy {
+  width: 315px;
+  height: 44px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.description_second{
+@extend .description;
+  margin-bottom: 15px;
+}

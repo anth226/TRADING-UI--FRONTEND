@@ -2,12 +2,18 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import backgound from '../../../../libs/assets/images/staking/background.png'
+import pool from '../../../../libs/assets/images/staking/rightSideBar/Pool.png'
+import openInteres from '../../../../libs/assets/images/staking/rightSideBar/OpenInteres.png'
+import rate from '../../../../libs/assets/images/staking/rightSideBar/Rate.png'
+import rewards from '../../../../libs/assets/images/staking/rightSideBar/Rewards.png'
 import coin from '../../../../libs/assets/images/staking/power.png'
 import { MainLayout } from '../../layouts/MainLayout';
 import { StakingIcon } from '../../components/staking/StakingIcon';
 import { UnstakeIcon } from '../../components/staking/UnstakeIcon';
 import { BlxIcon } from '../../components/staking/BlxIcon';
 import Stake from '../../components/staking/StakeTab/Stake';
+import BLX from '../../components/staking/BlxTab/BLX';
+import Unstake from '../../components/staking/UnstakeTab/Unstake';
 
 const navigation = [
   {
@@ -37,16 +43,15 @@ const Staking:FC = () => {
       case 1:
         return <Stake/>
       case 2:
-        return '22'
+        return <Unstake/>
       case 3:
-        return '33'
+        return  <BLX/>
       default:
-        return '11'
+        return <Stake/>
     }
   }
 
   return (
-    <MainLayout>
     <div className={styles.wrap}>
       <div className={styles.wrapOne}>
         <div className={styles.first_line}>
@@ -106,9 +111,14 @@ const Staking:FC = () => {
       </div>
       {whichTab()}
       </div>
-      <div className={styles.wrapDwa}>sf</div>
+      <div className={styles.rightBar}>
+        <div className={styles.summary}>ANALYTICS</div>
+        <img src={rewards} alt=''/>
+        <img src={openInteres} alt='' />
+        <img src={pool} alt='' />
+        <img src={rate} alt='' />
+      </div>
     </div>
-    </MainLayout>
   );
 };
 export { Staking };

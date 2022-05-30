@@ -5,5 +5,4 @@ export enum Routes {
   Balances = '/balances',
   Selections = '/selections',
   TurboRush = '/turboRush',
-  Staking = '/staking',
 }

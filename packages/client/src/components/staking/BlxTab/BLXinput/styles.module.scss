@@ -1,0 +1,53 @@
+@import "../../../../../../../node_modules/@option-blitz/libs/assets/styles/mixins";
+@import "../../../../../../../node_modules/@option-blitz/libs/assets/styles/variables";
+
+.wrap {
+  width: auto;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.content {
+  padding: 8px;
+}
+
+.label {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
+}
+
+.input_wrap {
+  @include flexbox(center, space-between);
+  padding: 0px 10px;
+}
+
+.symbol {
+  font-size: 13px;
+  color: var(--color-grey);
+  padding-right: 4px;
+}
+
+.input {
+  width: auto;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--color-green);
+  background-color: transparent;
+  font-family: $font-cabin;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button_wrap {
+  @include flexbox();
+
+  border-top: 1px solid var(--color-grey);
+}
+
+.buttonUp{
+  transform: rotate(-90deg);
+}
+
+

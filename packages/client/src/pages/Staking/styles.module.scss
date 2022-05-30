@@ -1,8 +1,19 @@
 .wrap{
   height: 100%;
-  width: 100%;
+  width: 96vW;
   display: flex;
+  justify-content: space-between;
   margin-top: 20px;
+  padding-right: 20px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
+.wrapOne{
+  margin-right: 20px;
 }
 .card{
   position: relative;
@@ -10,7 +21,7 @@
 }
 .first_line{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   column-gap: 20px;
   margin-bottom: 35px;
 }
@@ -132,4 +143,12 @@
     }
   }
 }
+.rightBar{
+  display: flex;
+  flex-direction: column;
+  img {
+    margin-bottom: 25px !important;
+  }
+}
+
 

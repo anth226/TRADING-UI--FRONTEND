@@ -10,7 +10,7 @@ interface Props {
     type?: Type
     className?: string
     label: string
-    value?: any
+    value?: number
     symbol?: string
     onChange?: any
     onFirstBtnClick: () => void
@@ -23,7 +23,7 @@ interface Props {
     labelClassName?: string
 }
 
-const TargetPriceInput: FC<Props> = ({
+const BLXInput: FC<Props> = ({
                                           type = 'normal',
                                           label,
                                           value,
@@ -63,4 +63,4 @@ const TargetPriceInput: FC<Props> = ({
     </div>
 );
 
-export { TargetPriceInput };
+export { BLXInput };

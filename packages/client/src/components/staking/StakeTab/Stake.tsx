@@ -15,7 +15,7 @@ import backgroundRight from '../../../../../libs/assets/images/staking/stake/rig
 import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/Bg.png'
 import coinRight from '../../../../../libs/assets/images/staking/stake/rightCard/coin.png'
 
-const Deposit: FC = () => {
+const Stake: FC = () => {
   const [numActive, setNumActive]=useState(4)
 
 const numbers = [
@@ -90,6 +90,12 @@ const numbers = [
             </div>
           ))}
         </div>
+        <div style={{display:'flex', alignItems: 'flex-end'}}>
+        <div className={styles.pool}>Pool share:</div>
+        <div className={styles.num}>0%</div>
+        <div className={styles.pool}>Est.APY</div>
+        <div className={styles.num}>80%</div>
+        </div>
       </div>
       <Button className={styles.confirm}>CONFIRM</Button>
 
@@ -98,4 +104,4 @@ const numbers = [
   );
 };
 
-export default Deposit;
+export default Stake;

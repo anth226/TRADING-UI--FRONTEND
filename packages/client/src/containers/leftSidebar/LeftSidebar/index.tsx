@@ -14,6 +14,7 @@ import AffiliateBLX from '../../../pages/Promo_Code/BLX_Token';
 import Promocode from '../../../pages/Promo_Code';
 import AffiliateCampaigns from '../../../pages/Promo_Code/Affiliate_Campaigns';
 import AffiliateDashboard from '../../../pages/Promo_Code/Affiliate_Campaigns/Dashboard';
+import { Staking } from '../../../pages/Staking';
 
 interface Props {
   activeNavigation?: Navigation
@@ -34,7 +35,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
     {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
-
+    {activeNavigation === Navigation.Stake && <Staking />}
     {activeNavigation === Navigation.MyAffiliateProg && <AffiliateDashboard />}
     {activeNavigation === Navigation.PromotionalTools && <AffiliateCampaigns />}
     {activeNavigation === Navigation.Statistics && <AffiliateBLX />}
