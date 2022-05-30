@@ -420,7 +420,7 @@
 }
 
 .row_second {
-  @extend .row;
+  display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
