@@ -23,7 +23,7 @@ export const useHeaderHandlers = () => {
   } = useShallowSelector(selectTabs);
   
   const dispatch = useDispatch();
-  
+
   const onBalanceChange = useCallback(() => {
     
   }, []);

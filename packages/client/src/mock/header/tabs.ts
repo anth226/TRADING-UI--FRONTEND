@@ -25,4 +25,11 @@ export const tabsMock: HeaderTabItem[] = [
     productType: ProductType.Binary,
     countries: Countries.eurJpy,
   },
+  {
+    id: 4,
+    value: '13',
+    interest: '7',
+    productType: ProductType.Turbo,
+    countries: Countries.gbpUsd,
+  },
 ];
