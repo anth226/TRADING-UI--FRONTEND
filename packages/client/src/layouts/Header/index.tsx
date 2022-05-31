@@ -140,7 +140,7 @@ const Header: FC<Props> = ({
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
         <LoginPrivatKey active={privatkey} setActive={setPrivatkey} mainmodal={setModalVisible} />
         <WalletConnected active={wallet} setActive={setWallet} />
-        <CreateNewAccount active={createaccount} setActive={setCreateaccount} setWallet={setWallet} />
+        <CreateNewAccount active={createaccount} setActive={setCreateaccount} setWallet={setWallet} isMobile={isMobile} />
       </div>
     </div>
   );

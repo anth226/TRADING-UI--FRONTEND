@@ -85,6 +85,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                     </Button>
                   </div>
                   )}
+              <div className={styles.pointer}>REGISTER</div>
               <hr className={styles.hr} />
               <div className={styles.account}>DON'T HAVE AN ACCOUNT?</div>
               <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>

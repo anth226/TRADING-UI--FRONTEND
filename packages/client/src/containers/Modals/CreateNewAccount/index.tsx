@@ -2,7 +2,6 @@
 import React from 'react';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
-import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import profile from '../ModalIcons/profile.svg';
 import copy from '../ModalIcons/copy.svg'
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
@@ -12,10 +11,11 @@ interface Props {
   active?: boolean
   setActive?: any
   setWallet?: any
+  isMobile?: boolean
 }
 
 
-const CreateNewAccount = ({active, setActive, setWallet}:Props) => {
+const CreateNewAccount = ({active, setActive, setWallet, isMobile,}:Props) => {
 
   const handleChange = () => {
     setActive(false);
@@ -28,10 +28,10 @@ const CreateNewAccount = ({active, setActive, setWallet}:Props) => {
 
   return (
     <div className={active ? styles.background : styles.modalInviseble}>
-      <div className={styles.modal}>
+      <div className={isMobile ? styles.modal_mob : styles.modal}>
         <div className={styles.login}>
           <div className={styles.pointer}>
-            <div><img src={profile} /></div>
+            <div><img src={profile} alt='' /></div>
             <div>CREATE NEW ACCOUNT</div>
           </div>
           <button type='button' onClick={handleChange}>
@@ -40,9 +40,9 @@ const CreateNewAccount = ({active, setActive, setWallet}:Props) => {
         </div>
         <div className={styles.main}>
           <div className={styles.blockFirst}>
-            <div className={styles.title}>
+            <div className={isMobile ? styles.title_mob : styles.title}>
               Your new Ethereum wallet was generated. Save your private key in safe place.
-              <div className={styles.description}>
+              <div className={isMobile ? styles.description_mob : styles.description}>
                 The wallet was generated in your browser. You are the only one having access to the
                 private key.
               </div>

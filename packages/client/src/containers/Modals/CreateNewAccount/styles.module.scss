@@ -22,7 +22,14 @@
   flex-direction: column;
   width: 675px;
   height: 603px;
-
+}
+.modal_mob {
+  overflow: hidden;
+  background-color: #181d2d;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  height: 563px;
 }
 
 .login {
@@ -79,6 +86,16 @@
   font-size: 14px;
   font-weight: 700;
 }
+.title_mob {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  width: 170px;
+  height: 60px;
+  font-family: Cabin;
+  font-size: 14px;
+  font-weight: 700;
+}
 
 .description {
   color: rgba(84, 88, 112, 1);
@@ -88,6 +105,15 @@
   font-weight: 600;
   width: 232px;
   height: 45px;
+}
+.description_mob {
+  color: rgba(84, 88, 112, 1);
+  margin-top: 12px;
+  font-family: Cabin;
+  font-size: 13px;
+  font-weight: 600;
+  width: 170px;
+  height: 60px;
 }
 
 .pointer {

@@ -60,6 +60,6 @@ export const getCustomStyles = <T>(): StylesConfig<T> => ({
   dropdownIndicator: (provider) => ({
     ...provider,
     padding: '0 4px',
-    marginTop: '-18px',
+    // marginTop: '-18px',
   }),
 });

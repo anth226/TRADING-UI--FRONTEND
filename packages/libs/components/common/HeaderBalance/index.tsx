@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {
   FC, MouseEventHandler, useCallback,
 } from 'react';
@@ -24,7 +25,7 @@ export interface HeaderSelectItem {
   value: number
   coinValue: string
   coin: Coin
-  title: string
+  title?: string
 }
 
 const Option = (optionProps: OptionProps<HeaderSelectItem, false>) => {
@@ -59,17 +60,17 @@ const HeaderBalance: FC<Props> = ({
   
   const SingleValue = useCallback((singleValueProps: SingleValueProps<HeaderSelectItem, false>) => {
     const {
-      data: { title, coin, coinValue },
+      data: { coin, coinValue },
     } = singleValueProps;
 
     return (
       <components.SingleValue {...singleValueProps}>
         <button onClick={onClickHandler} className={styles.content}>
-          <p className={styles.title}>{title}</p>
+          <p className={styles.title}>{coinNames[coin]}</p>
           <p className={styles.value}>
             {coinValue}
             &nbsp;
-            <span className={styles.coin}>{coinNames[coin]}</span>
+            {/*<span className={styles.coin}>{title}</span>*/}
           </p>
         </button>
       </components.SingleValue>
