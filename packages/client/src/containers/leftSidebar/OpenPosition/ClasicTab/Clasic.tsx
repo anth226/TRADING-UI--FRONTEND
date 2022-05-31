@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 import Button from "@option-blitz/libs/components/inputs/Button";
 import {FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 import {TargetPriceInput} from "../TargetPriceInput";
+import btc from '../../../../../../libs/assets/images/coins/BTC.svg'
 
 const Clasic: FC = () => {
 
@@ -41,7 +42,9 @@ const Clasic: FC = () => {
 
     return (
         <div>
-            <h4 className={styles.title}>BTC/USD</h4>
+            <div className={styles.title}>BTC/USD
+                <img src={btc} alt='' />
+            </div>
             <Table
                 columns={columns}
                 data={data}

@@ -43,7 +43,7 @@ const Header: FC<Props> = ({
   isMobile,
   openMobileNavigation,
 }) => {
-  const tabChangeHandler = useCallback<HeaderTabSelectChange>((value) => {
+  const tabChangeHandler = useCallback<HeaderTabSelectChange>((value         ) => {
     if (!value) return;
     onTabClick(value.id);
   }, []);
@@ -70,6 +70,7 @@ const Header: FC<Props> = ({
     history.push('/selections');
   };
 
+  // @ts-ignore
   return (
     <div className={styles.wrap}>
       <div className={styles.section}>

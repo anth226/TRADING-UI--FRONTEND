@@ -10,7 +10,7 @@ import Mark from './Mark/index';
 
 const TurboTabTrade = () => {
   const [activeItem, setActiveItem] = useState(1)
-  const [activeButton, setactiveButton] = useState('short')
+  const [activeButton, setActiveButton] = useState('short')
 
 
   const fundingValue = '0.015%';
@@ -57,6 +57,7 @@ const TurboTabTrade = () => {
         <Button
           className={styles.button}
           color={activeButton === 'long' ? 'primary' : 'transparent_primary'}
+          onClick={()=>{setActiveButton('long')}}
         >
           <FontIcon className={styles.call_arrow} name={FontIconName.ArrowBigRight} />
           <p>long</p>
@@ -64,6 +65,7 @@ const TurboTabTrade = () => {
         <Button
           className={styles.button}
           color={activeButton === 'short' ? 'secondary' : 'transparent_secondary'}
+          onClick={()=>{setActiveButton('short')}}
         >
           <FontIcon className={styles.put_arrow} name={FontIconName.ArrowBigRight} />
           <p>short</p>

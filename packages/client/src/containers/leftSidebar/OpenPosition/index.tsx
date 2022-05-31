@@ -50,13 +50,13 @@ const OpenPosition: FC<Props> = ({
       case 2:
         return <Binary/>
       case 3:
-        return <TurboRush/>
-      // case 4:
-      //   return <Rush/>
-      case 5:
-        return <Touch/>
-      default:
         return <NoTuch/>
+      case 4:
+        return <Rush/>
+      case 5:
+        return <TurboRush/>
+      default:
+        return <Clasic/>
     }
   }
 
