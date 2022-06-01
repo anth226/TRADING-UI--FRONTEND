@@ -38,7 +38,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
 
     <div className={active ? styles.background : styles.modalInviseble}>
 
-          <div className={!isMobile ?  styles.modal : styles.modalmob}>
+          <div className={ styles.modal}>
 
             <div className={styles.login}>
               <div className={styles.pointer}>

@@ -4,7 +4,7 @@ import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import pointer from '../ModalIcons/pointer.svg';
-import lock from '../ModalIcons/lock.svg'
+import lockgrey from '../ModalIcons/lockgrey.svg'
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import {image} from "d3";
 
@@ -39,7 +39,7 @@ const LoginPrivatKey = ({ active, setActive, mainmodal, }: Props) => {
         <div className={styles.main}>
           <div className={styles.fonts}>
             <TextInput
-              left={<img src={lock} />}
+              left={<img src={lockgrey} />}
               type={'text'}
               label={undefined}
               placeholder={'PRIVATE KEY'}

@@ -1,0 +1,166 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
+.background {
+  position: absolute;
+  background-color: rgba(2, 6, 16, 0.8);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalInviseble {
+  display: none;
+}
+
+.modal {
+  overflow: hidden;
+  background-color: #181d2d;
+  display: flex;
+  flex-direction: column;
+  width: 675px;
+  height: 433px;
+  @include mobile {
+    width: 343px;
+    height: 412px;
+    border-radius: 6px;
+  }
+
+}
+.lock {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.login {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-right: 23px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #374459;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: #FFFFFF;
+  border: 1px solid #374459;
+  min-width: 100px;
+  height: 32px !important;
+  margin-bottom: 24px;
+  border-radius: 57px;
+}
+
+.button_text {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 11px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.close {
+  font-size: 9px;
+  color: rgba(78, 167, 90, 1);
+
+  cursor: pointer !important;
+  margin: 33px 0;
+}
+
+.hr {
+  width: 100%;
+  background-color: #374459;
+  height: 1px;
+  border: none;
+}
+
+.title {
+  align-items: center;
+  width: 272px;
+  font-family: Cabin;
+  font-size: 14px;
+  font-weight: 700;
+  @include mobile {
+    width: 272px;
+    height: 17px;
+  }
+}
+.subtitle {
+  display: flex;
+  align-items: center;
+  //width: 272px;
+  font-family: Conthrax;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 11px;
+  @include mobile {
+    //width: 272px;
+    margin-top: 32px;
+    margin-left: 23px;
+    height: 17px;
+  }}
+.lin {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  color: #4EA75A;
+  margin: 0 5px;
+}
+.icon_text {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 140%;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.variant {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+.context {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 140%;
+  margin: 0 16px;
+}

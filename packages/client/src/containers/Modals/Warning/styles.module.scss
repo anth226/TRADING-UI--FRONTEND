@@ -27,8 +27,7 @@
   height: 433px;
   @include mobile {
     width: 343px;
-    height: 392px;
-    border-radius: 6px;
+    height: 282px;
   }
 
 }
@@ -37,26 +36,6 @@
   display: flex;
   align-items: center;
   column-gap: 12px;
-}
-
-.circle {
-  position: relative;
-  border-radius: 50%;
-  background-color: rgba(30, 40, 60, 1);
-  width: 116px;
-  height: 116px;
-  margin-top: 65px;
-  margin-bottom: 51px;
-  @include mobile {
-    margin-bottom: 33px;
-    margin-top: 31px;
-  }
-}
-
-.img {
-  position: absolute;
-  top: 33%;
-  left: 33%;
 }
 
 .login {
@@ -82,6 +61,7 @@
   min-width: 311px;
   height: 44px !important;
   margin-bottom: 24px;
+  border-radius: 8px;
 }
 
 .close {
@@ -91,10 +71,31 @@
   cursor: pointer !important;
 }
 
-
 .hr {
   width: 100%;
   background-color: #374459;
   height: 1px;
   border: none;
+}
+
+.title {
+  margin: 24px 16px;
+  width: 311px;
+  font-family: Cabin;
+  font-size: 14px;
+  font-weight: 700;
+  @include mobile {
+    width: 311px;
+    height: 63px;
+  }
+}
+.lin {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  color: #4EA75A;
+  margin: 0 5px;
 }

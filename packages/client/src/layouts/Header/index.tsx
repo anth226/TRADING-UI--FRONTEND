@@ -15,6 +15,7 @@ import { LoginModal } from '../../containers/Modals/LoginModal';
 import { LoginPrivatKey } from '../../containers/Modals/LoginPrivatKey';
 import { WalletConnected } from '../../containers/Modals/WalletConnected';
 import { CreateNewAccount } from '../../containers/Modals/CreateNewAccount';
+import {Watchlist} from "../../containers/leftSidebar/Watchlist";
 
 interface Props {
   onAddTab: () => void
@@ -138,6 +139,7 @@ const Header: FC<Props> = ({
             {address || 'login'}
           </Button>
         )}
+
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
         <LoginPrivatKey active={privatkey} setActive={setPrivatkey} mainmodal={setModalVisible} />
         <WalletConnected active={wallet} setActive={setWallet} />
