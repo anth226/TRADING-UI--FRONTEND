@@ -1,16 +1,16 @@
 import sentiment from '@option-blitz/libs/assets/images/sentiment.png';
-import aud_jpy from '@option-blitz/libs/assets/images/countries/AUD-JPY.png';
-import aud_usd from '@option-blitz/libs/assets/images/countries/AUD-USD.png';
-import eur_aud from '@option-blitz/libs/assets/images/countries/EUR-AUD.png';
-import eur_cad from '@option-blitz/libs/assets/images/countries/EUR-CAD.png';
-import eur_chf from '@option-blitz/libs/assets/images/countries/EUR-CHF.png';
-import eur_gpb from '@option-blitz/libs/assets/images/countries/EUR-GBP.png';
-import eur_jpy from '@option-blitz/libs/assets/images/countries/EUR-JPY.png';
-import eur_usd from '@option-blitz/libs/assets/images/countries/EUR-USD.png';
-import gbp_jpy from '@option-blitz/libs/assets/images/countries/GBP-JPY.png';
-import gbp_usd from '@option-blitz/libs/assets/images/countries/GBP-USD.png';
-import usd_cad from '@option-blitz/libs/assets/images/countries/USD-CAD.png';
-import usd_jpy from '@option-blitz/libs/assets/images/countries/USD-JPY.png';
+import aud_jpy from '@option-blitz/libs/assets/images/countries/AUD-JPY.svg';
+import aud_usd from '@option-blitz/libs/assets/images/countries/AUD-USD.svg';
+import eur_aud from '@option-blitz/libs/assets/images/countries/EUR-AUD.svg';
+import eur_cad from '@option-blitz/libs/assets/images/countries/EUR-CAD.svg';
+import eur_chf from '@option-blitz/libs/assets/images/countries/EUR-CHF.svg';
+import eur_gpb from '@option-blitz/libs/assets/images/countries/EUR-GBP.svg';
+import eur_jpy from '@option-blitz/libs/assets/images/countries/EUR-JPY.svg';
+import eur_usd from '@option-blitz/libs/assets/images/countries/EUR-USD.svg';
+import gbp_jpy from '@option-blitz/libs/assets/images/countries/GBP-JPY.svg';
+import gbp_usd from '@option-blitz/libs/assets/images/countries/GBP-USD.svg';
+import usd_cad from '@option-blitz/libs/assets/images/countries/USD-CAD.svg';
+import usd_jpy from '@option-blitz/libs/assets/images/countries/USD-JPY.svg';
 import { Forex } from './types';
 
 export const money: Forex [] = [
@@ -289,86 +289,86 @@ export const data: Forex [] = [
     tradeNow: [],
   },
 ];
-export const dara = {
-  Forex: [
-    {
-      assets: {
-        icon: 'icon_url',
-        currency: 'XAU/USD',
-        value: 1.282815,
-      },
-      profit1: 84,
-      profit2: 84,
-      profit3: 84,
-      profit4: 84,
-      profit5: 70,
-      profit6: 70,
-      sentiment: {
-        current: 10,
-        total: 126,
-      },
-      chart: [
-        {
-          1: 100,
-          2: 50,
-          3: 40,
-        },
-      ],
-      watchlist: [],
-    },
-    {
-      assets: {
-        icon: 'icon_url',
-        currency: 'XAU/UAH',
-        value: 0.363637,
-      },
-      profit1: 24,
-      profit2: 81,
-      profit3: 22,
-      profit4: 44,
-      profit5: 56,
-      profit6: 12,
-      sentiment: {
-        current: 5,
-        total: 94,
-      },
-      chart: [
-        {
-          1: 100,
-          2: 50,
-          3: 40,
-        },
-      ],
-      watchlist: [],
-    },
-  ],
-  Crypto: [
-    {
-      assets: {
-        icon: 'icon_url',
-        currency: 'XAU/UAH',
-        value: 0.363637,
-      },
-      profit1: 24,
-      profit2: 81,
-      profit3: 22,
-      profit4: 44,
-      profit5: 56,
-      profit6: 12,
-      sentiment: {
-        current: 5,
-        total: 94,
-      },
-      chart: [
-        {
-          1: 100,
-          2: 50,
-          3: 40,
-        },
-      ],
-      watchlist: [],
-    },
-  ],
-};
+// export const dara = {
+//   Forex: [
+//     {
+//       assets: {
+//         icon: 'icon_url',
+//         currency: 'XAU/USD',
+//         value: 1.282815,
+//       },
+//       profit1: 84,
+//       profit2: 84,
+//       profit3: 84,
+//       profit4: 84,
+//       profit5: 70,
+//       profit6: 70,
+//       sentiment: {
+//         current: 10,
+//         total: 126,
+//       },
+//       chart: [
+//         {
+//           1: 100,
+//           2: 50,
+//           3: 40,
+//         },
+//       ],
+//       watchlist: [],
+//     },
+//     {
+//       assets: {
+//         icon: 'icon_url',
+//         currency: 'XAU/UAH',
+//         value: 0.363637,
+//       },
+//       profit1: 24,
+//       profit2: 81,
+//       profit3: 22,
+//       profit4: 44,
+//       profit5: 56,
+//       profit6: 12,
+//       sentiment: {
+//         current: 5,
+//         total: 94,
+//       },
+//       chart: [
+//         {
+//           1: 100,
+//           2: 50,
+//           3: 40,
+//         },
+//       ],
+//       watchlist: [],
+//     },
+//   ],
+//   Crypto: [
+//     {
+//       assets: {
+//         icon: 'icon_url',
+//         currency: 'XAU/UAH',
+//         value: 0.363637,
+//       },
+//       profit1: 24,
+//       profit2: 81,
+//       profit3: 22,
+//       profit4: 44,
+//       profit5: 56,
+//       profit6: 12,
+//       sentiment: {
+//         current: 5,
+//         total: 94,
+//       },
+//       chart: [
+//         {
+//           1: 100,
+//           2: 50,
+//           3: 40,
+//         },
+//       ],
+//       watchlist: [],
+//     },
+//   ],
+// };
 
 export const menu = [{ id: 1, name: 'Forex' }, { id: 2, name: 'Crypto' }];

@@ -1,15 +1,15 @@
-import AudJpy from '../assets/images/countries/AUD-JPY.png';
-import AudUsd from '../assets/images/countries/AUD-USD.png';
-import EurAur from '../assets/images/countries/EUR-AUD.png';
-import EurCad from '../assets/images/countries/EUR-CAD.png';
-import EurChf from '../assets/images/countries/EUR-CHF.png';
-import EurGbp from '../assets/images/countries/EUR-GBP.png';
-import EurJpy from '../assets/images/countries/EUR-JPY.png';
-import EurUsd from '../assets/images/countries/EUR-USD.png';
-import GbpJpy from '../assets/images/countries/GBP-JPY.png';
-import GbpUsd from '../assets/images/countries/GBP-USD.png';
-import UsdCad from '../assets/images/countries/USD-CAD.png';
-import UsdJpy from '../assets/images/countries/USD-JPY.png';
+import AudJpy from '../assets/images/countries/AUD-JPY.svg';
+import AudUsd from '../assets/images/countries/AUD-USD.svg';
+import EurAur from '../assets/images/countries/EUR-AUD.svg';
+import EurCad from '../assets/images/countries/EUR-CAD.svg';
+import EurChf from '../assets/images/countries/EUR-CHF.svg';
+import EurGbp from '../assets/images/countries/EUR-GBP.svg';
+import EurJpy from '../assets/images/countries/EUR-JPY.svg';
+import EurUsd from '../assets/images/countries/EUR-USD.svg';
+import GbpJpy from '../assets/images/countries/GBP-JPY.svg';
+import GbpUsd from '../assets/images/countries/GBP-USD.svg';
+import UsdCad from '../assets/images/countries/USD-CAD.svg';
+import UsdJpy from '../assets/images/countries/USD-JPY.svg';
 
 export enum Countries {
   audJpy = 'audJpy',

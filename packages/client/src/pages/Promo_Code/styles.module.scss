@@ -1,6 +1,11 @@
 .promo {
   padding: 10px;
   width: 96vw;
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .title {

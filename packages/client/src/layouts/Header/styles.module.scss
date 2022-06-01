@@ -93,8 +93,8 @@
   height: 45px;
 
   @include mobile {
-    height: 100%;
-    margin-left: 6px;
+    //height: 34px;
+    width: 104px;
     margin-right: 6px;
   }
 }

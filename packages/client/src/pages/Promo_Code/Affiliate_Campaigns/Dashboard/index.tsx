@@ -2,9 +2,9 @@
 import React, {FC} from "react";
 import styles from "../../styles.module.scss";
 import hotAssetsDiagram from "@option-blitz/libs/assets/images/hot_assets_diagram.svg";
-import smalcir from "@option-blitz/libs/assets/images/Group 1140.svg"
-import bigcir from "@option-blitz/libs/assets/images/Group 1136.svg"
-import volumtraid from "@option-blitz/libs/assets/images/Group 990.svg"
+import smalcir from "@option-blitz/libs/assets/images/Group 1140.png"
+import bigcir from "@option-blitz/libs/assets/images/Group 1136.png"
+import volumtraid from "@option-blitz/libs/assets/images/Group 990.png"
 import product from "@option-blitz/libs/assets/images/Frame 989.png"
 
 const AffiliateDashboard:FC = () => {
@@ -108,7 +108,9 @@ const AffiliateDashboard:FC = () => {
                 </div>
 
                 <div>
-                    <div className={styles.traiding}>
+                    <div
+                        // className={styles.traiding}
+                    >
                         <img src={bigcir} alt='diagram'/>
                     </div>
                 </div>

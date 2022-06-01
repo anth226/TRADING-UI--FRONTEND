@@ -6,7 +6,7 @@ import { DefaultSelect } from '@option-blitz/libs/components/inputs/DefaultSelec
 import { useHotAssetsHandlers } from '../../../hooks/leftSidebar/useHotAssetsHandlers';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
-import eur from '../../../../../libs/assets/images/countries/EUR-USD.png';
+import eur from '../../../../../libs/assets/images/countries/EUR-USD.svg';
 import sentiment from '../../../../../libs/assets/images/sentiment.png';
 
 interface Props {

@@ -28,21 +28,21 @@ const CreateNewAccount = ({active, setActive, setWallet, isMobile,}:Props) => {
 
   return (
     <div className={active ? styles.background : styles.modalInviseble}>
-      <div className={isMobile ? styles.modal_mob : styles.modal}>
+      <div className={styles.modal}>
         <div className={styles.login}>
           <div className={styles.pointer}>
             <div><img src={profile} alt='' /></div>
-            <div>CREATE NEW ACCOUNT</div>
+            <div className={styles.title_mob}>CREATE NEW ACCOUNT</div>
           </div>
           <button type='button' onClick={handleChange}>
-            <FontIcon name={FontIconName.Close} size={15} />
+            <FontIcon name={FontIconName.Close} size={ isMobile ? 13 : 15} />
           </button>
         </div>
         <div className={styles.main}>
           <div className={styles.blockFirst}>
-            <div className={isMobile ? styles.title_mob : styles.title}>
+            <div className={ styles.title}>
               Your new Ethereum wallet was generated. Save your private key in safe place.
-              <div className={isMobile ? styles.description_mob : styles.description}>
+              <div className={ styles.description}>
                 The wallet was generated in your browser. You are the only one having access to the
                 private key.
               </div>

@@ -1,3 +1,6 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+@import "~@option-blitz/libs/assets/styles/variables.scss";
+
 .background {
   position: absolute;
   background-color: rgba(2, 6, 16, 0.8);
@@ -22,14 +25,11 @@
   flex-direction: column;
   width: 675px;
   height: 603px;
-}
-.modal_mob {
-  overflow: hidden;
-  background-color: #181d2d;
-  display: flex;
-  flex-direction: column;
-  width: 343px;
-  height: 563px;
+  @include mobile {
+    width: 343px;
+    height: 563px;
+    padding: 0 16px;
+  }
 }
 
 .login {
@@ -41,6 +41,9 @@
   padding-bottom: 17px;
   border-bottom: 1px solid #374459;
   margin-bottom: 37px;
+  @include mobile {
+    padding-bottom: 0;
+  }
 }
 
 .main {
@@ -60,6 +63,11 @@
   margin-bottom: 24px;
   border-radius: 10px;
   font-size: 15px;
+  @include mobile {
+    width: 311px;
+    min-width: 0;
+
+  }
 }
 
 .blockFirst {
@@ -85,16 +93,17 @@
   font-family: Cabin;
   font-size: 14px;
   font-weight: 700;
+  @include mobile {
+    width: 170px;
+    height: 60px;
+  }
 }
 .title_mob {
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  width: 170px;
-  height: 60px;
-  font-family: Cabin;
-  font-size: 14px;
-  font-weight: 700;
+  @include mobile {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 .description {
@@ -105,20 +114,19 @@
   font-weight: 600;
   width: 232px;
   height: 45px;
-}
-.description_mob {
-  color: rgba(84, 88, 112, 1);
-  margin-top: 12px;
-  font-family: Cabin;
-  font-size: 13px;
-  font-weight: 600;
-  width: 170px;
-  height: 60px;
+  @include mobile {
+    font-style: normal;
+    font-size: 12px;
+    line-height: 15px;
+    width: 170px;
+    height: 60px;
+  }
 }
 
 .pointer {
   display: flex;
   column-gap: 12px;
+  align-items: center;
 }
 
 .hr {
@@ -127,7 +135,6 @@
   height: 1px;
   border: none;
 }
-
 
 .wallet {
   font-size: 9px;
@@ -144,12 +151,23 @@
   margin-bottom: 44px;
   width: 325px;
   border-right: 1px solid #373359;
+  @include mobile {
+    width: 282px;
+    margin-bottom: 24px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    overflow-wrap: anywhere;
+  }
 }
 
 .img {
   display: flex;
   align-items: center;
   margin-left: 35px;
+  @include mobile {
+    margin-left: 20px;
+  }
 }
 
 .imgsecond {
@@ -162,7 +180,6 @@
   font-family: Conthrax;
   display: flex;
   font-size: 9px;
-
   margin-bottom: 10px;
 }
 
@@ -183,6 +200,11 @@
   margin-bottom: 39px;
   width: 325px;
   border-right: 1px solid #373359;
+  @include mobile {
+    width: 282px;
+    overflow-wrap: anywhere;
+    margin-bottom: 30px;
+  }
 }
 
 .footerBlock {
@@ -193,11 +215,19 @@
   height: 72px;
   background-color: rgba(34, 42, 63, 1);
   margin-bottom: 26px;
+  @include mobile {
+    width: 313px;
+    height: 82px;
+    margin-bottom: 0px;
+  }
 }
 
 .checkbox {
   margin-right: 15px;
   margin-bottom: 20px;
+  @include mobile {
+    margin: 0 15px;
+  }
 }
 
 .footerDescription {
@@ -205,4 +235,7 @@
   font-weight: 400;
   font-size: 11px;
   width: 296px;
+  @include mobile {
+    width: 250px;
+  }
 }
