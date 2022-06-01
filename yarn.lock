@@ -6811,6 +6811,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-react-class@^15.6.2:
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
+  integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 cross-env@7.0.3:
   version "7.0.3"
   resolved "https://registry.npmjs.org/cross-env/-/cross-env-7.0.3.tgz"
@@ -7463,6 +7471,11 @@ d3@7.1.1:
     d3-timer "3"
     d3-transition "3"
     d3-zoom "3"
+
+d3@^3.5.3:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
+  integrity sha512-yFk/2idb8OHPKkbAL8QaOaqENNoMhIaSHZerk3oQsECwkObkCpJyjYwCe+OHiq6UEdhe1m8ZGARRRO3ljFjlKg==
 
 d@1, d@^1.0.1:
   version "1.0.1"
@@ -15279,6 +15292,15 @@ react-copy-to-clipboard@^5.0.3:
   dependencies:
     copy-to-clipboard "^3"
     prop-types "^15.5.8"
+
+react-d3-components@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/react-d3-components/-/react-d3-components-0.9.1.tgz#a110495da37ff9157a60dc89842257bf2c8b4691"
+  integrity sha512-TfUmlheSGDsa/x0h8wJ8FcR2+0zYy+VIF9vRhOFnRavnjkiQHrDzdmiVYoS+6Kte70cLtkr/Tej9vvggzLaqeQ==
+  dependencies:
+    create-react-class "^15.6.2"
+    d3 "^3.5.3"
+    prop-types "^15.6.0"
 
 react-dev-utils@^11.0.3:
   version "11.0.4"

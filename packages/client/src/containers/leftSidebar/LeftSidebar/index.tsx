@@ -35,7 +35,9 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.Notifications && <Notifications onBack={onBack} />}
     {activeNavigation === Navigation.Info && <Info onBack={onBack} />}
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
-    {activeNavigation === Navigation.Stake && <Staking />}
+    {activeNavigation === Navigation.Stake && <Staking active={1} />}
+    {activeNavigation === Navigation.UnStake && <Staking active={2} />}
+    {activeNavigation === Navigation.BLX && <Staking active={3} />}
     {activeNavigation === Navigation.MyAffiliateProg && <AffiliateDashboard />}
     {activeNavigation === Navigation.PromotionalTools && <AffiliateCampaigns />}
     {activeNavigation === Navigation.Statistics && <AffiliateBLX />}

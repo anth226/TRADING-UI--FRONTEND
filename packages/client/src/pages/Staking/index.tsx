@@ -19,6 +19,10 @@ import Stake from '../../components/staking/StakeTab/Stake';
 import BLX from '../../components/staking/BlxTab/BLX';
 import Unstake from '../../components/staking/UnstakeTab/Unstake';
 
+interface Props {
+  active: number;
+}
+
 const navigation = [
   {
     title:'STAKE',
@@ -37,10 +41,9 @@ const navigation = [
 ]
 
 
-const Staking:FC = () => {
+const Staking:FC<Props> = ({active}) => {
 
-
-  const [activeItem, setActiveItem] = useState(1)
+  const [activeItem, setActiveItem] = useState(active)
 
   const whichTab = () => {
     switch (activeItem) {
