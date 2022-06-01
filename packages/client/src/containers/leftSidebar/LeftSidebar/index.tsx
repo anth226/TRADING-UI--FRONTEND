@@ -15,6 +15,7 @@ import Promocode from '../../../pages/Promo_Code';
 import AffiliateCampaigns from '../../../pages/Promo_Code/Affiliate_Campaigns';
 import AffiliateDashboard from '../../../pages/Promo_Code/Affiliate_Campaigns/Dashboard';
 import { Staking } from '../../../pages/Staking';
+import Analytics from '../Analytics/Analytics';
 
 interface Props {
   activeNavigation?: Navigation
@@ -37,6 +38,7 @@ const LeftSidebar: FC<Props> = ({
     {activeNavigation === Navigation.OpenPositions && <OpenPosition onBack={onBack} />}
     {activeNavigation === Navigation.Stake && <Staking active={1} />}
     {activeNavigation === Navigation.UnStake && <Staking active={2} />}
+    {activeNavigation === Navigation.Analytics && <Analytics />}
     {activeNavigation === Navigation.BLX && <Staking active={3} />}
     {activeNavigation === Navigation.MyAffiliateProg && <AffiliateDashboard />}
     {activeNavigation === Navigation.PromotionalTools && <AffiliateCampaigns />}

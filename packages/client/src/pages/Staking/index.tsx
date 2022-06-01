@@ -118,13 +118,6 @@ const Staking:FC<Props> = ({active}) => {
       </div>
       {whichTab()}
       </div>
-      <div className={styles.rightBar}>
-        <div className={styles.summary}>ANALYTICS</div>
-        <img src={rewards} alt=''/>
-        <img src={openInteres} alt='' />
-        <img src={pool} alt='' />
-        <img src={rate} alt='' />
-      </div>
     </div>
   );
 };
