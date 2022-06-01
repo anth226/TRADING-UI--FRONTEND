@@ -91,7 +91,16 @@ const RightSidebarClassic: FC = () => {
 
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Take Profit</p>
-            <Checkbox size={14} iconSize={7} checked={takeProfitCheck} onCheck={toggleTakeProfit} />
+
+            <Checkbox
+              className={takeProfitCheck === true
+                ? styles.check_box_active
+                : styles.check_box_unactive}
+              size={14}
+              iconSize={7}
+              checked={takeProfitCheck}
+              onCheck={toggleTakeProfit}
+            />
           </div>
           <div className={styles.second_input_wrap}>
             <RightSidebarInput

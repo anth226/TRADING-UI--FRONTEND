@@ -1,22 +1,20 @@
 /* eslint-disable */
 import React, {FC, useState} from 'react';
 import styles from "./styles.module.scss";
-import lock from '../../../containers/Modals/ModalIcons/lock.svg'
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
-import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
-import { TargetPriceInput } from '../../../containers/leftSidebar/OpenPosition/TargetPriceInput';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import background from '../../../../../libs/assets/images/staking/stake/leftCard/background.png'
 import bg from '../../../../../libs/assets/images/staking/stake/leftCard/Bg.png'
-import coin from '../../../../../libs/assets/images/staking/stake/leftCard/coin.png'
 import buy from '../../../../../libs/assets/images/staking/stake/leftCard/buy.svg';
 import Max from '@option-blitz/libs/assets/images/staking/stake/leftCard/Max';
 import backgroundRight from '../../../../../libs/assets/images/staking/stake/rightCard/background.png'
 import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/Bg.png'
-import coinRight from '../../../../../libs/assets/images/staking/stake/rightCard/coin.png'
+import blx from '../../../../../libs/assets/images/staking/stake/rightCard/blx.svg'
+import usdCoin from '../../../../../libs/assets/images/staking/stake/leftCard/usdCoin.svg'
 
 const Stake: FC = () => {
   const [numActive, setNumActive]=useState(4)
+  const [activeButton, setActiveButton] = useState('stake')
 
 const numbers = [
   {
@@ -39,7 +37,8 @@ const numbers = [
         <div className={styles.left_card}>
           <img src={background} alt=''  className={styles.background}/>
           <img src={bg} alt='' className={styles.bg} />
-          <img src={coin} alt='' className={styles.coin} />
+          <div className={styles.coin}><img src={usdCoin} alt='' /> <div>USD</div></div>
+
           <img src={buy} alt='' className={styles.buy} />
           <div className={styles.balance}> Balance: 0.0 USDC</div>
           <div className={styles.in}>
@@ -55,7 +54,21 @@ const numbers = [
         <div className={styles.right_card}>
           <img src={backgroundRight} className={styles.background} alt='' />
           <img src={bgRight} alt=''  className={styles.bg_right}/>
-          <img src={coinRight} alt='' className={styles.coin_right} />
+          <div className={styles.coin_right}><img src={blx} alt=''/><div>BLX</div></div>
+          <div className={styles.button_wrap}>
+            <Button
+              className={activeButton === 'stake' ? styles.buttonActive : styles.buttonUnActive}
+              onClick={()=>{setActiveButton('stake')}}
+            >
+              <p>STAKE</p>
+            </Button>
+            <Button
+              className={activeButton === 'burn' ? styles.buttonActive : styles.buttonUnActive}
+              onClick={()=>{setActiveButton('burn')}}
+            >
+              <p>BURN</p>
+            </Button>
+          </div>
           <img src={buy} alt='' className={styles.buy} />
           <div className={styles.balance}> Balance: 0.0 USDC</div>
           <div className={styles.in_two}>

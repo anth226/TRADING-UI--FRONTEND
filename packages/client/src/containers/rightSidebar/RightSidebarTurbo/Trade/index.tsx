@@ -31,7 +31,7 @@ const TurboTabTrade = () => {
       case 2:
         return 'Stop'
       default:
-        return '111'
+        return '404'
     }
   }
   const [mark, SetMark]=useState<number| number[]>(45)

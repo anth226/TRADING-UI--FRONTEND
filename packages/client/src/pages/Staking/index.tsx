@@ -7,6 +7,10 @@ import openInteres from '../../../../libs/assets/images/staking/rightSideBar/Ope
 import rate from '../../../../libs/assets/images/staking/rightSideBar/Rate.png'
 import rewards from '../../../../libs/assets/images/staking/rightSideBar/Rewards.png'
 import coin from '../../../../libs/assets/images/staking/power.png'
+import blur from '../../../../libs/assets/images/staking/blur.svg'
+import sun from '../../../../libs/assets/images/staking/sun.svg'
+import rocket from '../../../../libs/assets/images/staking/rocket.svg'
+import coinGroup from '../../../../libs/assets/images/staking/coinGroup.svg'
 import { MainLayout } from '../../layouts/MainLayout';
 import { StakingIcon } from '../../components/staking/StakingIcon';
 import { UnstakeIcon } from '../../components/staking/UnstakeIcon';
@@ -58,7 +62,7 @@ const Staking:FC = () => {
           <div className={styles.card}>
             <div className={styles.summary}>STAKING</div>
             <img src={backgound} alt='' />
-            <img src={coin} alt=''  className={styles.coin}/>
+            <img src={coinGroup} alt=''  className={styles.coin}/>
             <div className={styles.box}>
               <div className={styles.total}>TOTAL VALUE LOCKED</div>
               <div className={styles.value}>$1,000,000</div>
@@ -82,16 +86,16 @@ const Staking:FC = () => {
                 <div className={styles.first}>Estimated APY:</div>
                 <div style={{display:'flex', columnGap: 15,}}>
                   <div className={styles.mini_box}>
-                    <div>LOW</div>
+                    <div style={{display:'flex', columnGap:5, alignItems:'center', marginBottom:5}}><img src={blur} alt='' />LOW</div>
                     <div className={styles.green_value}>25%</div>
                   </div>
                   <div className={styles.mini_box}>
-                    <div>MID</div>
-                    <div className={styles.green_value}>25%</div>
+                    <div style={{display:'flex', columnGap:5, alignItems:'center', marginBottom:5}}><img src={sun} alt='' />MID</div>
+                    <div className={styles.green_value}>40%</div>
                   </div>
                   <div className={styles.mini_box}>
-                    <div>HIGH</div>
-                    <div className={styles.green_value}>25%</div>
+                    <div style={{display:'flex', columnGap:5, alignItems:'center', marginBottom:5}}><img src={rocket} alt='' />HIGH</div>
+                    <div className={styles.green_value}>80%</div>
                   </div>
                 </div>
               </div>

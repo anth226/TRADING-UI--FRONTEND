@@ -46,7 +46,7 @@ const Unstake: FC = () => {
             right={<Max/>}
           />
         </div>
-        <div className={styles.staked}>STAKED: 0 USDC</div>
+        <div className={styles.staked}>STAKED: 0 BLX</div>
       </div>
 
         <div style={{position: 'relative'}}>
@@ -61,7 +61,7 @@ const Unstake: FC = () => {
               right={<Max/>}
             />
           </div>
-          <div className={styles.staked}>REWARDS: 0 USDC</div>
+          <div className={styles.staked}>REWARDS: 0 USDT</div>
         </div>
 
       </div>

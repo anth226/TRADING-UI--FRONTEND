@@ -58,6 +58,9 @@
   position: relative;
 }
 .coin{
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
   position: absolute;
   top: 20px;
   left: 30px;
@@ -116,6 +119,9 @@
   left: 14px;
 }
 .coin_right{
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
   position: absolute;
   top: 20px;
   left: 30px;
@@ -147,4 +153,30 @@
 .num{
   font-family: Cabin;
   font-size: 15px;
+}
+.button_wrap{
+  display: flex;
+  height: 30px;
+  position: absolute;
+  top: 24px;
+  left: 195px;
+
+}
+.buttonActive{
+  color: #22c1b7 !important;
+  background: white !important;
+  border: 1px solid white !important;
+  border-radius: 4px;
+  font-family: Conthrax;
+  font-size: 11px;
+
+}
+.buttonUnActive{
+  color: white !important;
+  background-color: rgba(255,255,255,0) !important;
+  border: 1px solid white !important;
+  border-radius: 4px;
+  font-family: Conthrax;
+  font-size: 11px;
+
 }

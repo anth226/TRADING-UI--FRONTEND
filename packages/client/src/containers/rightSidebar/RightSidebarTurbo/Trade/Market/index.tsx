@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';
@@ -10,12 +10,12 @@ import { Letter, letterIcons } from '../../../../../constants/letters/letters';
 import Button from '@option-blitz/libs/components/inputs/Button';
 
 const Market = () => {
-
+  const [active, setActive] = useState(true)
   return (
     <div>
       <div className={styles.checkbox_wrap}>
         <p className={styles.checkbox_label}>Take Profit</p>
-        <Checkbox size={14} iconSize={7} checked={true} onCheck={()=>{}}/>
+        <Checkbox size={14} iconSize={7} checked={active} onCheck={()=>{setActive(!active)}} className={active === true ? styles.check_box_active : styles.check_box_unactive}/>
       </div>
       <div className={styles.second_input_wrap}>
         <RightSidebarInput
