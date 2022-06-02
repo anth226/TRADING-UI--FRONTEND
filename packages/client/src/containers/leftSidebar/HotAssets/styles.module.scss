@@ -118,3 +118,13 @@
   font-size: 14px;
   text-transform: uppercase;
 }
+.arrow_wrap {
+  @include flexbox();
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(2, 6, 16, 0.88);
+  border: 1px solid var(--color-grey);
+  border-radius: 100%;
+}

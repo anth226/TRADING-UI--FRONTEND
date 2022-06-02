@@ -9,7 +9,7 @@ import {useSelector, useStore} from "react-redux";
 
 const BinaryOptionsTab:FC = () => {
 
-const [activeSubItemtab, setActiveSubItemtab] = useState(-1)
+const [activeSubItemtab, setActiveSubItemtab] = useState(0)
 const [value, setValue] = useState([])
 
 

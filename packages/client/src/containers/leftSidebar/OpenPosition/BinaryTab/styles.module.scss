@@ -8,6 +8,15 @@
 .success{
   color: #00CD86;
 }
+.bt{
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  font-family: Conthrax;
+  font-size: 12px;
+  line-height: 13px;
+  column-gap: 10px;
+}
 .wrong{
   color: red;
 }

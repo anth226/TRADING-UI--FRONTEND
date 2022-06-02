@@ -8,7 +8,7 @@ export type TableCell<T extends object = {}> = ReactTableCell<T>;
 export type TableRow<T extends object = {}> = ReactTableRow<T>;
 
 export interface TableProps<T extends object = {}> extends TableOptions<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-LpPoolBalance @typescript-eslint/no-explicit-any
   getClassNameRow?: (value: any) => string,
   classNameRow?: string,
   className?: string,

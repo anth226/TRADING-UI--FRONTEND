@@ -2,7 +2,7 @@
 import React from 'react';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import { Forex } from './types';
-import violan from './../../../../../../libs/assets/images/Turbo/volatility.png';
+import graphic from './../../../../../../libs/assets/images/SelectionMiniChart.svg';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import styles from './styles.module.scss';
 
@@ -125,7 +125,7 @@ export const columns = [
       const { chart } = row.original;
       return (
         <div className={styles.fl}>
-          <img src={violan} alt='chart' className={styles.img} />
+          <img src={graphic} alt='chart' className={styles.img} />
         </div>
       );
     },

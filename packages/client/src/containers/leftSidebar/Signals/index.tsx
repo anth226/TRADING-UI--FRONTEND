@@ -8,6 +8,7 @@ import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/Fon
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import eur from '../../../../../libs/assets/images/countries/EUR-USD.svg';
 import sentiment from '../../../../../libs/assets/images/sentiment.png';
+import chart from '../../../../../libs/assets/images/SignalsMiniChart.svg'
 
 interface Props {
   onBack?: () => void;
@@ -47,19 +48,6 @@ const Signals: FC<Props> = ({
     filterOptions,
     filterChange,
   } = useHotAssetsHandlers();
-  const graphic = <svg width='80' height='25' viewBox='0 0 80 25' fill='none'
-                       xmlns='http://www.w3.org/2000/svg'>
-    <path opacity='1'
-          d='M60.2898 15.6345H65.3358L79.2122 8.934L79.2122 24.3896H0L8.8212 7.7551L14.3717 2.69334L20.4269 0H27.4912L34.3032 2.69334L40.6107 0L54.487 6.04358L60.2898 15.6345Z'
-          fill='url(#paint0_linear_1893_1035)' />
-    <defs>
-      <linearGradient id='paint0_linear_1893_1035' x1='47.8596' y1='16.3749' x2='47.8596' y2='28'
-                      gradientUnits='userSpaceOnUse'>
-        <stop stop-color='#00CD86' />
-        <stop offset='1' stop-color='#00CD86' stop-opacity='0' />
-      </linearGradient>
-    </defs>
-  </svg>;
   return (
     <div className={styles.wrap}>
       <div className={styles.title_wrap}>
@@ -116,7 +104,7 @@ const Signals: FC<Props> = ({
                 </div>
                 <div className={styles.col}>
                   <div className={styles.fl}>
-                    {graphic}
+                    <img src={chart} alt='' />
                   </div>
                 </div>
 

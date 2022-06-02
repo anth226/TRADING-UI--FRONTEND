@@ -2,16 +2,10 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import backgound from '../../../../libs/assets/images/staking/background.png'
-import pool from '../../../../libs/assets/images/staking/rightSideBar/Pool.png'
-import openInteres from '../../../../libs/assets/images/staking/rightSideBar/OpenInteres.png'
-import rate from '../../../../libs/assets/images/staking/rightSideBar/Rate.png'
-import rewards from '../../../../libs/assets/images/staking/rightSideBar/Rewards.png'
-import coin from '../../../../libs/assets/images/staking/power.png'
 import blur from '../../../../libs/assets/images/staking/blur.svg'
 import sun from '../../../../libs/assets/images/staking/sun.svg'
 import rocket from '../../../../libs/assets/images/staking/rocket.svg'
 import coinGroup from '../../../../libs/assets/images/staking/coinGroup.svg'
-import { MainLayout } from '../../layouts/MainLayout';
 import { StakingIcon } from '../../components/staking/StakingIcon';
 import { UnstakeIcon } from '../../components/staking/UnstakeIcon';
 import { BlxIcon } from '../../components/staking/BlxIcon';
@@ -79,7 +73,7 @@ const Staking:FC<Props> = ({active}) => {
             <div className={styles.summary}>YOUR SUMMARY</div>
             <div className={styles.border_box}>
               <div style={{display:'flex', flexDirection:'column', rowGap: 8,}}>
-                <div className={styles.first}>Staked amount: <div className={styles.second_value}>0 USDC 0 BLX</div></div>
+                <div className={styles.first}>Staked amount: <div className={styles.second_value            }>0 USDC 0 BLX</div></div>
                 <div className={styles.first}>Pool share:<div className={styles.second_value}>0%</div></div>
                 <div className={styles.first}>Total rewards:<div className={styles.second_value}>0 USDC</div></div>
                 <div className={styles.first}>Lock duration:<div className={styles.second_value}>0 weeks</div></div>

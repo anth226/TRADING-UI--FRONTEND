@@ -5,6 +5,8 @@ import rewards from '@option-blitz/libs/assets/images/staking/rightSideBar/Rewar
 import openInteres from '@option-blitz/libs/assets/images/staking/rightSideBar/OpenInteres.png';
 import pool from '@option-blitz/libs/assets/images/staking/rightSideBar/Pool.png';
 import rate from '@option-blitz/libs/assets/images/staking/rightSideBar/Rate.png';
+import { OpenInterest } from '../../../components/staking/graf/OpenInterest/OpenInterest';
+import LineGraf from '../../../components/staking/graf/LpPoolBalance/LineGraf';
 
 const Analytics = () => {
   return (
@@ -18,6 +20,8 @@ const Analytics = () => {
           <img src={pool} alt='' />
           <img src={rate} alt='' />
         </div>
+        {/* <OpenInterest/> */}
+        {/* <LineGraf/> */}
       </div>
     </div>
 

@@ -223,7 +223,7 @@ export const useChartMenuHandlers = () => {
       .filter((i) => i.checked)
       .forEach((i) => {
         offset += i.height;
-        // eslint-disable-next-line no-param-reassign
+        // eslint-disable-next-LpPoolBalance no-param-reassign
         i.offset = offset;
       });
 

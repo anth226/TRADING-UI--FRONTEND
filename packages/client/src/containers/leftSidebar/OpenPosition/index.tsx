@@ -17,7 +17,7 @@ interface Props {
 
 const buttons = [
   {
-    name: 'CLASIC',
+    name: 'CLASSIC',
   },
   {
     name: 'BINARY',

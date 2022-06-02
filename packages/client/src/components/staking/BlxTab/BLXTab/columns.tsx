@@ -65,7 +65,7 @@ export const columns = [
   {
     Header: '',
     accessor: 'btn',
-    // eslint-disable-next-line no-empty-pattern
+    // eslint-disable-next-LpPoolBalance no-empty-pattern
     Cell: ({}: Cell<HistoryItem>) => (
       <Button className={styles.btn} size={5} color="primary">
         <div>BUY</div>

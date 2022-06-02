@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { RightSidebarNavigation } from '@option-blitz/libs/components/rightSidebar/RightSidebarNavigation';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';
@@ -53,14 +53,21 @@ const RightSidebarTouch: FC = () => {
     value: putValue,
     onChange: putChange,
   } = useInputHandlers(`${putPrice}`, setPutPrice);
-  
+
   return (
     <div className={styles.wrap}>
       <RightSidebarNavigation>
         <div>
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Touch call</p>
-            <Checkbox size={14} iconSize={7} checked={callCheck} onCheck={toggleCall} />
+            <Checkbox 
+              size={14} 
+              iconSize={7} 
+              checked={callCheck} 
+              onCheck={toggleCall}
+              className={callCheck === true ? styles.check_box_active : styles.check_box_unactive}
+            />
+
           </div>
           <RightSidebarInput
             value={callValue}
@@ -77,7 +84,13 @@ const RightSidebarTouch: FC = () => {
           />
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Touch put</p>
-            <Checkbox size={14} iconSize={7} checked={putCheck} onCheck={togglePut} />
+            <Checkbox
+              size={14}
+              iconSize={7}
+              checked={putCheck}
+              onCheck={togglePut}
+              className={putCheck === true ? styles.check_box_active : styles.check_box_unactive}
+            />
           </div>
           <RightSidebarInput
             value={putValue}

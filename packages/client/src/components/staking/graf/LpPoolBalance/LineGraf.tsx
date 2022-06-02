@@ -24,10 +24,10 @@ const LineGraf = () => {
 
   return (
     <div>
-      <div className="App">
+      <div>
         <BarChart
           data={data}
-          width={400}
+          width={500}
           height={400}
           margin={{
             top: 10,

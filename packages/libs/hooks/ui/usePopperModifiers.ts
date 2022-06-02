@@ -7,11 +7,11 @@ const sameWidth = {
   phase: 'beforeWrite',
   requires: ['computeStyles'],
   fn: ({ state }: { state: any }) => {
-    // eslint-disable-next-line no-param-reassign
+    // eslint-disable-next-LpPoolBalance no-param-reassign
     state.styles.popper.width = `${state.rects.reference.width}px`;
   },
   effect: ({ state }: { state: any }) => {
-    // eslint-disable-next-line no-param-reassign
+    // eslint-disable-next-LpPoolBalance no-param-reassign
     state.elements.popper.style.width = `${
       state.elements.reference.offsetWidth
     }px`;

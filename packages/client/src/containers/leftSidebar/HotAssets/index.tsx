@@ -3,6 +3,7 @@ import { HotAssetsCard } from '@option-blitz/libs/components/leftSidebar/HotAsse
 import { DefaultSelect } from '@option-blitz/libs/components/inputs/DefaultSelect';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { MobileViewMode, ViewMode } from '@option-blitz/libs/components/common/MobileViewMode';
+import arrow from '@option-blitz/libs/assets/images/arrow-back.svg';
 import styles from './styles.module.scss';
 import { useHotAssetsHandlers } from '../../../hooks/leftSidebar/useHotAssetsHandlers';
 
@@ -30,8 +31,7 @@ const HotAssets: FC<Props> = ({
         <div className={styles.title_wrap}>
           <p className={styles.title}>Hot assets</p>
           <button onClick={onBack} className={styles.arrow_wrap}>
-            <FontIcon className={styles.arrow} size={8} name={FontIconName.ArrowRight} />
-            <FontIcon className={styles.arrow} size={8} name={FontIconName.ArrowRight} />
+            <img src={arrow} alt="back" />
           </button>
         </div>
       )}

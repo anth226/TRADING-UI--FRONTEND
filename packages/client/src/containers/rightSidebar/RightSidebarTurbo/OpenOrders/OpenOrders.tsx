@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss'
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import Button from '@option-blitz/libs/components/inputs/Button';
@@ -26,10 +26,11 @@ const OpenOrders = () => {
       tittleSecond: 'Take profit Trigger',
     }
   ]
+  const [active, setActive] = useState(true)
   return (
     <div>
         <div className={styles.first_block}>
-         <div className={styles.hide}> <Checkbox size={14} iconSize={7} checked={true} onCheck={()=>{}}/> HIDE OTHER PAIRS</div>
+         <div className={styles.hide}> <Checkbox size={14} iconSize={7} checked={active} onCheck={()=>{setActive(!active)}} className={active === true ? styles.check_box_active : styles.check_box_unactive}/> HIDE OTHER PAIRS</div>
           <Button  className={styles.button_cancel_all}>CANCEL ALL</Button>
         </div>
 
