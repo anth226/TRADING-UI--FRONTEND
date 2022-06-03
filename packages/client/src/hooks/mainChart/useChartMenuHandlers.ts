@@ -224,6 +224,7 @@ export const useChartMenuHandlers = () => {
       .forEach((i) => {
         offset += i.height;
         // eslint-disable-next-LpPoolBalance no-param-reassign
+        // eslint-disable-next-line no-param-reassign
         i.offset = offset;
       });
 

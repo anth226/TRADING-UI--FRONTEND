@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import React from 'react';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import Button from '@option-blitz/libs/components/inputs/Button';
@@ -66,7 +67,7 @@ export const columns = [
     Header: '',
     accessor: 'btn',
     // eslint-disable-next-LpPoolBalance no-empty-pattern
-    Cell: ({}: Cell<HistoryItem>) => (
+    Cell: ({row}: Cell<HistoryItem>) => (
       <Button className={styles.btn} size={5} color="primary">
         <div>BUY</div>
       </Button>

@@ -6,7 +6,9 @@ import openInteres from '@option-blitz/libs/assets/images/staking/rightSideBar/O
 import pool from '@option-blitz/libs/assets/images/staking/rightSideBar/Pool.png';
 import rate from '@option-blitz/libs/assets/images/staking/rightSideBar/Rate.png';
 import { OpenInterest } from '../../../components/staking/graf/OpenInterest/OpenInterest';
-import LineGraf from '../../../components/staking/graf/LpPoolBalance/LineGraf';
+import Line from '../../../components/staking/graf/LpPoolBalance/Line';
+import ProjectTool from '../../../components/staking/graf/ProjectTool/ProjectTool';
+import Referals from '../../../components/staking/graf/Referals/Referals';
 
 const Analytics = () => {
   return (
@@ -21,7 +23,8 @@ const Analytics = () => {
           <img src={rate} alt='' />
         </div>
         {/* <OpenInterest/> */}
-        {/* <LineGraf/> */}
+        {/* <Line/> */}
+        {/* <ProjectTool/> */}
       </div>
     </div>
 

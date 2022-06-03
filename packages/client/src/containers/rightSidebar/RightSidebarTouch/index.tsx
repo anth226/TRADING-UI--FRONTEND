@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { RightSidebarNavigation } from '@option-blitz/libs/components/rightSidebar/RightSidebarNavigation';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';

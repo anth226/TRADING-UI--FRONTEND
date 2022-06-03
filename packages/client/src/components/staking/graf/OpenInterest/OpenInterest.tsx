@@ -43,7 +43,7 @@ const OpenInterest: FC<Props> = ({
     chartType,
     activeIndicators,
   } = useChartMenuHandlers();
-  console.log({ activeIndicators });
+  console.log({ chartType });
 
   const {
     calculatedData,
