@@ -7,7 +7,7 @@ import Clasic from "./ClasicTab/Clasic";
 import Binary from "./BinaryTab/Binary";
 import TurboRush from "./TurboRushTab/TurboRush";
 import Rush from "./RushTab/Rush";
-import NoTuch from "./NoTouchTab/NoTuch";
+import NoTouch from "./NoTouchTab/NoTuch";
 import Touch from "./TouchTab/Touch";
 
 interface Props {
@@ -50,7 +50,7 @@ const OpenPosition: FC<Props> = ({
       case 2:
         return <Binary/>
       case 3:
-        return <NoTuch/>
+        return <NoTouch/>
       case 4:
         return <Rush/>
       case 5:

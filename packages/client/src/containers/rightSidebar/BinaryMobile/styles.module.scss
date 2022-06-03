@@ -9,10 +9,16 @@
 .amount {
   width: 50%;
   margin-right: 8px;
+  @include mobile {
+    height: 43px;
+  }
 }
 
 .time {
   width: 50%;
+  height: 48px;
+  @include mobile {
+  }
 }
 
 .button_wrap {
@@ -23,7 +29,6 @@
 
 .button {
   @include flexbox();
-
   width: 100%;
   padding: 13px 0;
   text-transform: uppercase;
@@ -31,6 +36,10 @@
 
   &:not(:last-child) {
     margin-right: 8px;
+  }
+  @include mobile {
+    height: 44px;
+    width: 166px;
   }
 }
 

@@ -70,7 +70,7 @@ const BinaryMobile: FC<Props> = ({ mainChart }) => {
             </Button>
             <Button onClick={pullClick} color="secondary" className={styles.button}>
               <FontIcon size={16} className={styles.pull_arrow} name={FontIconName.ArrowBigRight} />
-              Pull
+              Put
             </Button>
           </div>
         </div>

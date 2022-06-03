@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { ProductType } from '@option-blitz/libs/constants/product';
 import styles from './styles.module.scss';

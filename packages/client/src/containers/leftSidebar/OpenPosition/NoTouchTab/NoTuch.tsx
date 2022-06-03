@@ -9,7 +9,7 @@ import {FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 import {TargetPriceInput} from "../TargetPriceInput";
 import btc from '@option-blitz/libs/assets/images/coins/BTC.svg';
 
-const NoTuch:FC = () => {
+const NoTouch:FC = () => {
 
     const [price, setPrice]=useState(6500000)
     const [roi, setRoi]=useState(10)
@@ -79,4 +79,4 @@ const NoTuch:FC = () => {
     );
 };
 
-export default NoTuch;
+export default NoTouch;

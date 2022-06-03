@@ -1,0 +1,232 @@
+@import "~@option-blitz/libs/assets/styles/mixins.scss";
+
+.input_wrap {
+  @include flexbox();
+
+  margin-bottom: 8px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.row_check {
+  display: flex;
+  flex-direction: row;
+  width: 175px;
+  align-items: center;
+}
+.row_bet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.trade_amount {
+  width: 168px;
+  height: 43px;
+
+}
+.time {
+  width: 45%;
+  height: 51px;
+  margin-right: 8px;
+  @include mobile {
+    height: 47px;
+  }
+}
+
+.button_wrap {
+  @include flexbox();
+  //margin-bottom: 8px;
+  //border: 1px solid var(--color-grey);
+  width: 187px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.button {
+  @include flexbox();
+  width: 100%;
+  padding: 13px 0;
+  text-transform: uppercase;
+  font-size: 15px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+  @include mobile {
+    height: 44px;
+    width: 166px;
+  }
+}
+.button_radio {
+  width: 96px;
+  height: 29px;
+}
+
+
+
+.call_arrow {
+  transform: rotate(-45deg);
+}
+
+.pull_arrow {
+  transform: rotate(45deg);
+}
+
+.returns {
+  @include flexbox();
+
+  margin-bottom: 8px;
+}
+
+.positions {
+  @include flexbox();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 16px 8px;
+  padding: 24px 16px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.position_button {
+  text-transform: uppercase;
+  padding: 13px 0;
+  width: 100%;
+  font-size: 15px;
+}
+
+.trade {
+  //@include flexbox();
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.trade_wrap {
+  margin: 0 16px;
+}
+
+.positions_wrap {
+  display: flex;
+  //justify-content: center;
+  flex-direction: column;
+  margin: 0 16px 8px;
+  padding: 24px 16px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  height:100%;
+}
+
+.chart_wrap {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  margin-top: 17px;
+  margin-left: 33px;
+  margin-bottom: 42px;
+}
+
+.check_box_active{
+  box-shadow: 0px 0px 12px rgba(38, 169, 127, 0.80);
+  margin-right: 10px;
+}
+.mult {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  color: #B6C2EA;
+}
+.multval {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20.25px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #00CD86;
+}
+.check_text {
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-family: $font-cabin;
+}
+.item_value {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+}
+.item_label {
+  color: var(--color-blue-light);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+}
+.title_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 9px;
+  margin-bottom: 9px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  color: #00CD86;
+  font-size: 10px;
+  font-family: Conthrax;
+}
+
+.title {
+  margin: 0 7px;
+}
+.target_price_btn {
+  width: 144px;
+  height: 44px;
+  font-size: 11px;
+  line-height: 13px;
+  border-radius: 8px;
+}
+.sell_btn {
+  width: 65px;
+  font-size: 11px;
+  line-height: 13px;
+  border-radius: 8px;
+}
+.settle_btn {
+  line-height: 13px;
+  width: 86px;
+  border-radius: 8px;
+}
+.buttons_wrap {
+  display: flex;
+  flex-direction: row;
+}

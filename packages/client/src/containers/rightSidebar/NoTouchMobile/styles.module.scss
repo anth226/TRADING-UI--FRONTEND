@@ -16,6 +16,9 @@
   text-transform: uppercase;
   font-size: 15px;
   margin-bottom: 8px;
+  @include mobile {
+    border-radius: 8px;
+  }
 }
 
 .returns {
@@ -86,6 +89,9 @@
   padding: 13px 0;
   font-size: 15px;
   width: 100%;
+  @include mobile {
+    border-radius: 8px;
+  }
 }
 
 .positions {

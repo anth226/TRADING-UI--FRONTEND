@@ -32,4 +32,18 @@ export const tabsMock: HeaderTabItem[] = [
     productType: ProductType.Turbo,
     countries: Countries.gbpUsd,
   },
+  {
+    id: 5,
+    value: '4',
+    interest: '22',
+    productType: ProductType.NoTouch,
+    countries: Countries.eurChf,
+  },
+  {
+    id: 6,
+    value: '13',
+    interest: '7',
+    productType: ProductType.Rush,
+    countries: Countries.gbpUsd,
+  },
 ];
