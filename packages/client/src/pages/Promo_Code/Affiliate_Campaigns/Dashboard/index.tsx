@@ -6,6 +6,8 @@ import smalcir from "@option-blitz/libs/assets/images/Group 1140.png"
 import bigcir from "@option-blitz/libs/assets/images/Group 1136.png"
 import volumtraid from "@option-blitz/libs/assets/images/Group 990.png"
 import product from "@option-blitz/libs/assets/images/Frame 989.png"
+import Referals from '../../../../components/staking/graf/Referals/Referals';
+import { TradingVolume } from '../../../../components/staking/graf/TradingVolume/TradingVolume';
 
 const AffiliateDashboard:FC = () => {
 
@@ -118,10 +120,12 @@ const AffiliateDashboard:FC = () => {
 
             <div className={styles.row_second}>
                 <div>
-                    <img src={volumtraid} alt='diagram' />
+                    {/* <img src={volumtraid} alt='diagram' /> */}
+                    <TradingVolume/>
                 </div>
                 <div>
-                    <img  src={product} alt='diagram'/>
+                    {/* <img  src={product} alt='diagram'/> */}
+                    <Referals/>
                 </div>
             </div>
 

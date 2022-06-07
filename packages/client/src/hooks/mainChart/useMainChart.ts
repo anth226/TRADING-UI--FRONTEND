@@ -9,6 +9,8 @@ import { isBefore } from 'date-fns';
 import { ChartMenuIndicator, ChartType } from './useChartMenuHandlers';
 
 const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitfinex_xbtusd_1m.csv';
+// const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitstamp_xbtusd_5m.csv';
+
 const parseDate = timeParse('%Y-%m-%d %H:%M:%S');
 
 const xScaleProvider = discontinuousTimeScaleProvider

@@ -6,25 +6,23 @@ import openInteres from '@option-blitz/libs/assets/images/staking/rightSideBar/O
 import pool from '@option-blitz/libs/assets/images/staking/rightSideBar/Pool.png';
 import rate from '@option-blitz/libs/assets/images/staking/rightSideBar/Rate.png';
 import { OpenInterest } from '../../../components/staking/graf/OpenInterest/OpenInterest';
-import Line from '../../../components/staking/graf/LpPoolBalance/Line';
 import ProjectTool from '../../../components/staking/graf/ProjectTool/ProjectTool';
 import Referals from '../../../components/staking/graf/Referals/Referals';
+import PoolBalance from '../../../components/staking/graf/LpPoolBalance/PoolBalance';
+import { TradingVolume } from '../../../components/staking/graf/TradingVolume/TradingVolume';
 
 const Analytics = () => {
   return (
     <div className={styles.main}>
       <div className={styles.wrap}>
         <div style={{display:'flex', justifyContent:'space-around'}}>
-          <img src={rewards} alt=''/>
-          <img src={openInteres} alt='' />
+          <OpenInterest/>
+          <OpenInterest/>
         </div>
         <div style={{display:'flex', justifyContent:'space-around'}}>
-          <img src={pool} alt='' />
-          <img src={rate} alt='' />
+          <ProjectTool/>
+          <PoolBalance/>
         </div>
-        {/* <OpenInterest/> */}
-        {/* <Line/> */}
-        {/* <ProjectTool/> */}
       </div>
     </div>
 

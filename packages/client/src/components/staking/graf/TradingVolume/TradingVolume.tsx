@@ -4,7 +4,7 @@ import {
   AreaSeries,
   Chart,
   ChartCanvas,
-  CrossHairCursor, LineSeries, XAxis,
+  CrossHairCursor, XAxis,
   YAxis,
 } from 'react-financial-charts';
 
@@ -26,11 +26,11 @@ interface Props {
   isMobile?: boolean
 }
 
-const OpenInterest: FC<Props> = ({
-                                width = 800,
-                                height = 500,
-                                children,
-                              }) => {
+const TradingVolume: FC<Props> = ({
+                                   width = 800,
+                                   height = 500,
+                                   children,
+                                 }) => {
   const {
     chartType,
     activeIndicators,
@@ -54,10 +54,9 @@ const OpenInterest: FC<Props> = ({
     return null;
   }
 
-
   return (
     <div className={styles.wrap}>
-      <div className={styles.title}>OPEN INTEREST</div>
+      <div className={styles.title}>30 DAYS TRADING VOLUME</div>
       <ChartCanvas
         ref={ref}
         height={height}
@@ -82,19 +81,15 @@ const OpenInterest: FC<Props> = ({
           <AreaSeries
             yAccessor={(d) => d.close}
             fillStyle={(context) => {
-              const gradient = context.createLinearGradient(0, 300, 0, 700);
-              gradient.addColorStop(0, 'rgba(18, 97, 190, 0.31)');
-              gradient.addColorStop(1, 'rgba(18, 45, 184, 0)');
+              const gradient = context.createLinearGradient(0, 200, 0, 800);
+              gradient.addColorStop(0, 'rgba(0, 205, 134, 0.4)');
+              gradient.addColorStop(1, 'rgba(0, 205, 134, 0)');
               return gradient;
             }}
             strokeWidth={2}
-            strokeStyle="#009CCD"
-          />
-          {/* <LineSeries  yAccessor={(d) => d.open} */}
-          {/*              strokeWidth={2} */}
-          {/*              strokeStyle="#ff7f0e" */}
+            strokeStyle="#00CD86"
 
-          {/* /> */}
+          />
           <YAxis
             fontSize={10}
             axisAt="left"
@@ -153,5 +148,5 @@ const OpenInterest: FC<Props> = ({
   );
 };
 
-export { OpenInterest };
+export { TradingVolume };
 

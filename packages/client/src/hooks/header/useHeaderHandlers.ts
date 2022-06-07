@@ -3,6 +3,7 @@ import { headerOptionsMock } from '@option-blitz/libs/mock/header/HeaderSelectIt
 import { useDispatch } from 'react-redux';
 import { ProductType } from '@option-blitz/libs/constants/product';
 import { Countries } from '@option-blitz/libs/constants/countries';
+import { useHistory } from 'react-router-dom';
 import { useShallowSelector } from '../useShallowSelector';
 import { selectTabs } from '../../store/tabs/selectors';
 import { tabsSetActiveTab } from '../../store/tabs/actionCreators';
@@ -18,6 +19,7 @@ export interface HeaderTabItem {
 }
 
 export const useHeaderHandlers = () => {
+  const history = useHistory();
   const {
     items: tabs,
   } = useShallowSelector(selectTabs);
@@ -35,6 +37,7 @@ export const useHeaderHandlers = () => {
   const onTabClick = useCallback((id: number) => {
     dispatch(tabsSetActiveTab(id));
     dispatch(navigationSetItem(undefined));
+    history.push('/trading');
   }, [dispatch]);
   
   const openMobileNavigation = useCallback(() => {

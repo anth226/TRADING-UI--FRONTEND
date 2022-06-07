@@ -33,7 +33,6 @@ import { TimeMark, TimeMarkType } from '../TimeMark';
 
 export const getGrid = (height = 500, width = 500, isLast = false) => {
   const gridWidth = width - margin.left - margin.right;
-  const macdLineWith = gridWidth - 100
 
   return (
     <>

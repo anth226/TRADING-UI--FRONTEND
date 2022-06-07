@@ -38,6 +38,8 @@ const ProjectTool = () => {
 
   return (
     <div className={styles.wrap}>
+      <div className={styles.title}>POJECT POOL PNL BASEDOM SPOT</div>
+      <div className={styles.title_}>PRICE CHANGE</div>
         <Line
           data={data}
           options={options}
