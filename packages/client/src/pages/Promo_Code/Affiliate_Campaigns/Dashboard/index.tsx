@@ -8,6 +8,7 @@ import volumtraid from "@option-blitz/libs/assets/images/Group 990.png"
 import product from "@option-blitz/libs/assets/images/Frame 989.png"
 import Referals from '../../../../components/staking/graf/Referals/Referals';
 import { TradingVolume } from '../../../../components/staking/graf/TradingVolume/TradingVolume';
+import DoughnutS from '../../../../components/staking/graf/DoughnutSmall/DoughnutS';
 
 const AffiliateDashboard:FC = () => {
 
@@ -104,10 +105,20 @@ const AffiliateDashboard:FC = () => {
             </div>
 
             <div className={styles.row_second}>
-                <div>
-                    <img src={smalcir} alt='diagram'/>
+               <div className={styles.stat}>
+                   <div className={styles.st}>STATISTIC</div>
+                   <div className={styles.box}>
+                       <div className={styles.boxing}>
+                           <DoughnutS/>
+                           <DoughnutS/>
+                       </div>
+                       <div className={styles.boxing}>
+                           <DoughnutS/>
+                           <DoughnutS/>
+                       </div>
+                   </div>
+               </div>
 
-                </div>
 
                 <div>
                     <div

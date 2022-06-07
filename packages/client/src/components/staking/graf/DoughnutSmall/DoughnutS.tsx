@@ -110,14 +110,14 @@ const DoughnutS = () => {
                             // ctx.font = options.plugins.chart_center_label.fontSize  + options.plugins.chart_center_label.fontFamily;
                             ctx.textBaseline = 'top';
                             const  textA   = DATA_COUNT;
-                            const textAX = Math.round((width - ctx.measureText(String(textA)).width) / 4 +7);
+                            const textAX = Math.round((width - ctx.measureText(String(textA)).width) / 4 +13);
                             const textAY = height / 2 +2;
                             // ctx.fillStyle = 'rgba(19, 101, 200, 1)';
                             ctx.fillStyle =  'rgba(19, 101, 200, 1)';
                             ctx.fillText(String(textA), textAX, textAY);
 
                             const  textB   = DATA_COUNT1;
-                            const textBX = Math.round((width - ctx.measureText(String(textB)).width) / 4 +7);
+                            const textBX = Math.round((width - ctx.measureText(String(textB)).width) / 4 +13);
                             const textBY = height / 2 +17;
                             ctx.fillStyle = 'rgba(135, 21, 163, 1)';
                             ctx.fillText(String(textB), textBX, textBY);

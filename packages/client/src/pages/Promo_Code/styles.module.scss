@@ -429,3 +429,21 @@
   justify-content: space-around;
   margin-top: 20px;
 }
+.box{
+  display: flex;
+  column-gap: 20px;
+}
+.boxing {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.stat{
+  display: flex;
+  flex-direction: column;
+}
+.st{
+  font-family: Conthrax;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
