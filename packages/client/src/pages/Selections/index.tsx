@@ -8,7 +8,6 @@ import mol from '../../../../libs/assets/images/mol.svg'
 import star from '../../../../libs/assets/images/star.svg'
 import BinaryOptionsTab from "../../components/select/BinaryOptionsTab/BinaryOptionsTab";
 import {Forex} from "../../components/select/BinaryOptionsTab/Forex/Forex";
-
 const TradingSelectItems = [
     {
       icon: arrows,
@@ -79,7 +78,6 @@ const Selections:FC = () => {
                 <div className={styles.balancesRight} >
                     <Forex/>
                     {/*<SelectionsTable/>  */}
-
                 </div>
             </div>
         </MainLayout>

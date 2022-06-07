@@ -9,6 +9,7 @@ import product from "@option-blitz/libs/assets/images/Frame 989.png"
 import Referals from '../../../../components/staking/graf/Referals/Referals';
 import { TradingVolume } from '../../../../components/staking/graf/TradingVolume/TradingVolume';
 import DoughnutS from '../../../../components/staking/graf/DoughnutSmall/DoughnutS';
+import DoughnutB from "../../../../components/staking/graf/DoughnutBig/DoughnutB";
 
 const AffiliateDashboard:FC = () => {
 
@@ -121,10 +122,11 @@ const AffiliateDashboard:FC = () => {
 
 
                 <div>
-                    <div
+                    <div className={styles.st}>Total Trading Volume</div>
+                    <div className={styles.boxBig}
                         // className={styles.traiding}
                     >
-                        <img src={bigcir} alt='diagram'/>
+                       <DoughnutB/>
                     </div>
                 </div>
             </div>
