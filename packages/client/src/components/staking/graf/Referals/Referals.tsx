@@ -23,6 +23,7 @@ ChartJS.register(
 );
 ChartJS.register(...registerables);
 
+
 const Referals = () => {
 
   const labels = ['BINARY', 'TOUCH', 'NO TOUCH','DOUBLE TOUCH', 'DOUBLE NO TOUCH'];

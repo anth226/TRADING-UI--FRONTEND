@@ -16,6 +16,8 @@ import quest from './../../Modals/ModalIcons/question.svg'
 import {Letter, letterIcons} from "../../../constants/letters/letters";
 import cx from 'classnames';
 import {Collapse} from "@option-blitz/libs/components/common/Collapse";
+import ProjectTool from "../../../components/staking/graf/ProjectTool/ProjectTool";
+
 
 interface Props {
     mainChart?: React.ReactNode
@@ -72,7 +74,7 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
     return (
         <RightSidebarNavigation isMobile>
             <div className={styles.chart_wrap}>
-                {mainChart}
+                {ProjectTool}
             </div>
 
             <div className={styles.trade}>

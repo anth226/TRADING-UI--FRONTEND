@@ -6,12 +6,8 @@ import arrows from '../../../../libs/assets/images/arrows.svg'
 import cir from '../../../../libs/assets/images/circle.svg'
 import mol from '../../../../libs/assets/images/mol.svg'
 import star from '../../../../libs/assets/images/star.svg'
-// import {SelectionsTable} from "../../containers/Selections/SelectionsTable";
 import BinaryOptionsTab from "../../components/select/BinaryOptionsTab/BinaryOptionsTab";
 import {Forex} from "../../components/select/BinaryOptionsTab/Forex/Forex";
-import {Warning} from "../../containers/Modals/Warning/Warning";
-import {WalletIsNotConnected} from "../../containers/Modals/WalletIsNotConnected/WalletIsNotConnected";
-
 
 const TradingSelectItems = [
     {
@@ -58,8 +54,6 @@ const Selections:FC = () => {
 
     return (
         <MainLayout>
-            {/*<WalletIsNotConnected/>*/}
-            {/*<Promocode/>*/}
              <div className={styles.balances}>
                  <div className={styles.balancesLeft}>
                      <div className={styles.balancesInner}>

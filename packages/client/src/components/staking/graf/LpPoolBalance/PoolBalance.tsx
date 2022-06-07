@@ -52,6 +52,42 @@ const PoolBalance = () => {
         stack: 'Stack 0',
         barThickness: 120,
       },
+      {
+        label: 'Dataset 3',
+        data: [360],
+        backgroundColor: 'rgb(0, 156, 205, 1)',
+        stack: 'Stack 1',
+      },
+      {
+        label: 'Dataset 4',
+        data: [40],
+        backgroundColor: 'rgb(0, 156, 205,0.3)',
+        stack: 'Stack 1',
+      },
+      {
+        label: 'Dataset 1',
+        data: [320],
+        backgroundColor: 'rgb(0, 156, 205, 1)',
+        stack: 'Stack 2',
+      },
+      {
+        label: 'Dataset 2',
+        data: [80],
+        backgroundColor: 'rgb(0, 156, 205,0.3)',
+        stack: 'Stack 2',
+      },
+      {
+        label: 'Dataset 1',
+        data: [320],
+        backgroundColor: 'rgb(0, 156, 205, 1)',
+        stack: 'Stack 3',
+      },
+      {
+        label: 'Dataset 2',
+        data: [80],
+        backgroundColor: 'rgb(0, 156, 205,0.3)',
+        stack: 'Stack 3',
+      },
     ],
   };
 
