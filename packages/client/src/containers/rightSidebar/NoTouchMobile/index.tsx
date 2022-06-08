@@ -92,7 +92,7 @@ const NoTouchMobile: FC<Props> = ({ mainChart }) => {
                 onCheck={callCheckboxChange}
                 labelClassName={styles.checkbox_label}
               >
-                Touch Call
+                No-Touch Call
               </Checkbox>
               <RightSidebarInput
                 type="small"
@@ -117,7 +117,7 @@ const NoTouchMobile: FC<Props> = ({ mainChart }) => {
                 onCheck={putCheckboxChange}
                 labelClassName={styles.checkbox_label}
               >
-                Touch Put
+                No-Touch Put
               </Checkbox>
               <RightSidebarInput
                 type="small"

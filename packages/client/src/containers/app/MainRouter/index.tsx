@@ -17,7 +17,7 @@ const MainRouter: FC<IProps> = () => (
     <Route path={Routes.Profile} component={Profile} exact />
     <Route path={Routes.Balances} component={Balances} exact />
     <Route path={Routes.Selections} component={Selections} exact />
-    <Route path={Routes.TurboRush} component={TurboRush} exact />
+    {/*<Route path={Routes.TurboRush} component={TurboRush} exact />*/}
     <Redirect to={Routes.Trading} />
   </Switch>
 );

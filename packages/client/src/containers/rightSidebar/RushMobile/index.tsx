@@ -171,10 +171,10 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
                         <div className={styles.title_wrap}>
                             <div className={styles.flex}>
                                 <img src={letterIcons[Letter.L]} alt="letter" />
-                                <p className={styles.title}>BTCUSD</p>
-                                <p className={styles.sox}>SOX</p>
+                                <p className={styles.title_position}>BTCUSD</p>
+                                <p className={styles.sox}>5OX</p>
                             </div>
-                            <div className={styles.time}>{item.time}</div>
+                            <div className={styles.time_position}>{item.time}</div>
                         </div>
 
                         <div className={styles.item} key={item.size}>

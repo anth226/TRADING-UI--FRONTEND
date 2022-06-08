@@ -39,11 +39,11 @@ export const tabsMock: HeaderTabItem[] = [
     productType: ProductType.NoTouch,
     countries: Countries.eurChf,
   },
-  {
-    id: 6,
-    value: '13',
-    interest: '7',
-    productType: ProductType.Rush,
-    countries: Countries.gbpUsd,
-  },
+  // {
+  //   id: 6,
+  //   value: '13',
+  //   interest: '7',
+  //   productType: ProductType.Rush,
+  //   countries: Countries.gbpUsd,
+  // },
 ];

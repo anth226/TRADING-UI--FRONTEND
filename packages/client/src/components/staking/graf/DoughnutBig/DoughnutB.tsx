@@ -25,6 +25,21 @@ export const data = {
     ],
     datasets: [
         {
+          data:[0, 0, 0, 0, 0, 0,0 ],
+            backgroundColor: [
+                'rgba(212, 175, 54, 1)',
+                'rgba(89, 100, 138, 1)',
+                'rgba(135, 21, 163, 1)',
+                'rgba(8, 154, 110, 1)',
+                'rgba(176, 110, 36, 1)',
+                'rgba(19, 98, 195, 1)',
+                'rgba(83, 18, 160, 1)',
+            ],
+            borderColor: [
+                'transparent'
+            ],
+        },
+        {
             label: 'Binary Options',
             data: [80,  20],
             backgroundColor: [

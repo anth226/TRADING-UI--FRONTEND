@@ -52,9 +52,11 @@ const OpenPosition: FC<Props> = ({
       case 3:
         return <NoTouch/>
       case 4:
-        return <Rush/>
-      case 5:
-        return <TurboRush/>
+      return <Touch/>
+      // case 4:
+      //   return <Rush/>
+      // case 5:
+      //   return <TurboRush/>
       default:
         return <Clasic/>
     }

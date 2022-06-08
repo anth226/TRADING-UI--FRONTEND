@@ -72,8 +72,8 @@ const Staking:FC<Props> = ({active}) => {
           <div>
             <div className={styles.summary}>YOUR SUMMARY</div>
             <div className={styles.border_box}>
-              <div style={{display:'flex', flexDirection:'column', rowGap: 8,}}>
-                <div className={styles.first}>Staked amount: <div className={styles.second_value            }>0 USDC 0 BLX</div></div>
+              <div style={{display:'flex', flexDirection:'column', rowGap: 8, width: 225 }}>
+                <div className={styles.first}>Staked amount:    <div className={styles.second_value }> 0 USDC 0 BLX</div></div>
                 <div className={styles.first}>Pool share:<div className={styles.second_value}>0%</div></div>
                 <div className={styles.first}>Total rewards:<div className={styles.second_value}>0 USDC</div></div>
                 <div className={styles.first}>Lock duration:<div className={styles.second_value}>0 weeks</div></div>

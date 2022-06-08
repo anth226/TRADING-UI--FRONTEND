@@ -32,6 +32,16 @@ export const dato = {
     ],
     datasets: [
         {
+          data: [0, 0],
+            backgroundColor: [
+                'rgba(135, 21, 163, 1)',
+                'rgba(19, 101, 200, 1)',
+            ],
+            borderColor: [
+                'transparent'
+            ],
+        },
+        {
             label: 'This Month',
             data: [Number.count, Number.max - Number.count],
             backgroundColor: [

@@ -9,6 +9,7 @@ import { RightSidebarBinary } from '../RightSidebarBinary';
 // import { RightSidebarTouch } from '../RightSidebarTouch';
 import { RightSidebarTurbo } from '../RightSidebarTurbo';
 import { RightSidebarTouch } from '../RightSidebarTouch';
+import {RightSidebarNoTouch} from "../RightSidebarNoTouch";
 
 const RightSidebar: FC = () => {
   const activeProductType = useShallowSelector(selectTabsProp('activeProductType'));
@@ -18,7 +19,9 @@ const RightSidebar: FC = () => {
       {activeProductType === ProductType.Classic && <RightSidebarClassic />}
       {activeProductType === ProductType.Binary && <RightSidebarBinary />}
       {activeProductType === ProductType.Touch && <RightSidebarTouch />}
+      {activeProductType === ProductType.NoTouch && <RightSidebarNoTouch />}
       {activeProductType === ProductType.Turbo && <RightSidebarTurbo />}
+
     </div>
   );
 };

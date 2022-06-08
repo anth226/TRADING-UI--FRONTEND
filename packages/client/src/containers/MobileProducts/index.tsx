@@ -7,7 +7,6 @@ import { TouchMobile } from '../rightSidebar/TouchMobile';
 import { useShallowSelector } from '../../hooks/useShallowSelector';
 import { selectTabsProp } from '../../store/tabs/selectors';
 import { NoTouchMobile } from '../rightSidebar/NoTouchMobile';
-import { RushMobile } from '../rightSidebar/RushMobile';
 
 interface Props {
   mainChart: React.ReactNode
@@ -21,7 +20,7 @@ const MobileProducts: FC<Props> = ({ mainChart }) => {
       {activeProductType === ProductType.Binary && <BinaryMobile mainChart={mainChart} />}
       {activeProductType === ProductType.Touch && <TouchMobile mainChart={mainChart} />}
       {/* {activeProductType === ProductType.Turbo && <TurboMobile mainChart={mainChart}/>} */}
-      {activeProductType === ProductType.Rush && <RushMobile mainChart={mainChart} />}
+      {/* {activeProductType === ProductType.Rush && <RushMobile mainChart={mainChart} />} */}
       {activeProductType === ProductType.NoTouch && <NoTouchMobile mainChart={mainChart} />}
     </div>
   );
