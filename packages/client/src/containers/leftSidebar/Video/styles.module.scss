@@ -3,11 +3,14 @@
 .wrap {
   width: 220px;
   height: 100%;
-
   display: flex;
   flex-direction: column;
 }
-
+.wrap_nino{
+  width: 200px;
+  height: 200px;
+  background-color: #2B83D4;
+}
 
 .card_wrap {
   @include flexbox(center, initial);

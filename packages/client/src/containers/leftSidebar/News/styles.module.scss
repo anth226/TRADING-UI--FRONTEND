@@ -39,6 +39,10 @@
     display: none;
   }
 }
+.icon {
+  color: var(--color-green);
+  margin-right: 10px;
+}
 
 .card_wrap {
   @include flexbox(center, initial);
@@ -53,9 +57,35 @@
   .card {
     max-width: 300px;
     margin-bottom: 8px;
+    @include mobile{
+      width: 343px;
+      height: 350px;
+      border: 1px solid #374459;
+      border-radius: 4px;
+    }
+  }
+}
+
+.card_wrap_mobile {
+  @include flexbox(center, initial);
+
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 
+  .container {
+      width: 343px;
+      height: 350px;
+      margin: 16px;
+      border: 1px solid #374459;
+      border-radius: 4px;
+    }
+
 }
+
 .news{
   height: 55px;
   border-bottom: 1px solid #2F394A;
@@ -91,7 +121,9 @@
 }
 
 .title_wrap_mobile {
-  @include flexbox();
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 

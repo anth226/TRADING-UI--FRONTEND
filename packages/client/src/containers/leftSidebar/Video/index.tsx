@@ -48,13 +48,23 @@ const Video: FC<Props> = ({
     ]
 
   return (
-    <div className={styles.wrap}>
+    <div className={ isMobile ? styles :  styles.wrap}>
       <div className={styles.title_wrap}>
         <p className={styles.title}>Video Tutorials</p>
         <button onClick={onBack} className={styles.arrow_wrap}>
           <img src={arrow} alt='back' />
         </button>
       </div>
+      {isMobile && (
+          <div className={styles.card_wrap}>
+            {data.map((item) => (
+                <VideoCard
+                    icon={item.icon}
+                    title={item.title}
+                />
+            ))}
+          </div>
+      )}
 
       <div className={styles.card_wrap}>
         {data.map((item) => (

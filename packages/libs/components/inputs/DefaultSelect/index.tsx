@@ -8,7 +8,7 @@ import { getCustomStyles } from '../../../constants/select';
 import { Time } from '../../rightSidebar/RightSidebarTime';
 
 export interface OptionItem {
-  value: string
+  value: any
   label?: string
 }
 
