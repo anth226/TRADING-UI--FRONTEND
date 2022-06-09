@@ -1,3 +1,5 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
 .background {
   position: absolute;
   background-color: rgba(2, 6, 16, 0.8);
@@ -9,6 +11,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile{
+    padding: 0 15px 0 15px;
+  }
 }
 
 .modalInviseble {
@@ -93,14 +98,11 @@
   font-family: Cabin;
 }
 
-.popUp {
-  margin-bottom: 19px;
-  font-size: 12px;
-}
-
-.telegram {
-  margin-bottom: 25.5px;
-  font-size: 12px;
+.box {
+ display: flex;
+  column-gap: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 
 .textArea {
@@ -141,3 +143,10 @@
 .value{
   color: #00CD86;
 }
+.check_box_unactive{
+
+}
+.check_box_active{
+  box-shadow: 0px 0px 12px rgba(38, 169, 127, 0.80);
+}
+

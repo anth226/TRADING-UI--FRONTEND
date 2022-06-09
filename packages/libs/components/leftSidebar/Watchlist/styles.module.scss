@@ -59,7 +59,11 @@
   border-radius: 45px;
   background-color: #0F5D66;
 }
-.buttonMinus {
+.buttonPlusMobile{
+  @extend .buttonPlus;
+  right: 10px;
+}
+.buttonClose {
   @include flexbox();
 
   position: absolute;
@@ -71,12 +75,17 @@
   border-radius: 45px;
   background-color: #ea221c;
 }
+.buttonCloseMobile{
+  @extend  .buttonClose;
+  top: 10px;
+  left: 8px;
+}
 .BinocularChecked{
   @include flexbox();
   column-gap: 4px;
   position: absolute;
   bottom: 10px;
-  right: 160px;
+  left: 8px;
 
   width: 50px;
   height: 22px;

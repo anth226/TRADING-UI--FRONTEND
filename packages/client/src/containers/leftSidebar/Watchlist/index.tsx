@@ -32,9 +32,9 @@ const Watchlist: FC<Props> = ({
 
   return (
 
-    <div className={styles.wrap}>
-      {show?
-        <Alert close={onBack} back={setShow}/>
+    <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
+      {show ?
+        <Alert close={onBack} back={setShow} isMobile={isMobile}/>
         :
       <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
         {!isMobile && (
@@ -49,7 +49,7 @@ const Watchlist: FC<Props> = ({
           <div className={styles.header_small}>
             <div className={styles.title_wrap_mobile}>
               <FontIcon className={styles.icon} name={FontIconName.Fire} />
-              <p className={styles.title_small}>Hot assets</p>
+              <p className={styles.title_small}>Watchlist</p>
             </div>
 
             <MobileViewMode mode={viewMode} modeSelect={setViewMode} />
@@ -63,9 +63,10 @@ const Watchlist: FC<Props> = ({
             placeholder={'Search'}
             className={styles.input}
           />
-          <Button className={styles.price} onClick={showAlert}>
+          <Button className={isMobile ? styles.price_mobile : styles.price} onClick={showAlert}>
             <FontIcon  size={17} className={styles.iconBinocular} name={FontIconName.Binocular} />
-            PRICE ALERT</Button>
+            PRICE ALERT
+          </Button>
         </div>
         <div>
 

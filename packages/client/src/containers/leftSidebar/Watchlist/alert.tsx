@@ -10,9 +10,10 @@ import { PriceAlert } from '../../Modals/PriceAlert';
 interface Props {
   close?: () => void
   back?:any
+  isMobile?: boolean
 }
 
-const Alert: FC<Props>  = ({ close, back }) => {
+const Alert: FC<Props>  = ({ close, back, isMobile}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [testAlert, setTestAlert]=useState(false)
   const handleChange = () => {
@@ -26,20 +27,20 @@ function goBack() {
 }
   return (
 
-    <div className={styles.wrap}>
+    <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
         <div className={styles.title_wrap}>
           <p className={styles.alert} onClick={goBack}>
             <FontIcon className={styles.iconArrowBack} size={10} name={FontIconName.ArrowLeftBold} />
             Alerts
           </p>
-          <button onClick={close} className={styles.arrow_wrap}>
+          <button onClick={close} className={isMobile ? styles.none : styles.arrow_wrap}>
             <img src={arrowBack} alt='back' />
           </button>
         </div>
 
 
 
-      <div className={styles.select}>
+      <div className={ isMobile ? styles.none : styles.select}>
         <Button className={styles.addAlert} onClick={handleChange}>ADD NEW PRICE ALERT</Button>
         <Button className={styles.cancelAlert}>CANCEL ALL ALERTS</Button>
       </div>
@@ -80,9 +81,13 @@ function goBack() {
           </div>
         </div>
         <hr className={styles.hr}/>
-        <CreatePriceAlert active={modalVisible} setActive={setModalVisible}/>
         <Button className={styles.testAlert} onClick={testChange}>Test price alert </Button>
-        <PriceAlert active={testAlert} setActive={setTestAlert}/>
+        <div className={ isMobile ? styles.select : styles.none}>
+          <Button className={styles.addAlert} onClick={handleChange}>ADD NEW PRICE ALERT</Button>
+          <Button className={styles.cancelAlert}>CANCEL ALL ALERTS</Button>
+        </div>
+        <CreatePriceAlert active={modalVisible} setActive={setModalVisible}/>
+        <PriceAlert active={testAlert} setActive={setTestAlert} isMobile={isMobile}/>
       </div>
     </div>
 

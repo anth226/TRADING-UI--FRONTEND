@@ -1,3 +1,5 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
 .background {
   position: absolute;
   background-color: rgba(2, 6, 16, 0.8);
@@ -9,6 +11,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile{
+    padding: 0 15px 0 15px;
+  }
 }
 
 .modalInviseble {
@@ -98,4 +103,10 @@ height: 44px;
   font-size: 13px;
   margin-top: 19px;
   margin-left: 14px;
+}
+.wrap{
+  padding: 0 15px 0 15px;
+}
+.none{
+
 }

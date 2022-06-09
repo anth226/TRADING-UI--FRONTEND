@@ -19,13 +19,21 @@ interface Props {
 
 const CreatePriceAlert = ({active, setActive, onChange }:Props) => {
 
+  const [value, setValue] = useState(100)
+  const [firstBox, setFirstBox] = useState(true)
+  const [secondBox, setSecondBox] = useState(true)
+
   const close = () => {
     setActive(false);
   };
-  // const newModal = () => {
-  //   setActive(false);
-  //   setCreateaccount(true);
-  // };
+
+const changeFirstBox = () => {
+setFirstBox(!firstBox)
+}
+
+const changeSecondBox = () => {
+  setSecondBox(!secondBox)
+}
 
  const options = [
    { value: 'EURUSD'},
@@ -33,7 +41,7 @@ const CreatePriceAlert = ({active, setActive, onChange }:Props) => {
    { value: 'UAHUSD'},
    { value: 'DIRUSD'},
  ]
-const [value, setValue] = useState(100)
+
 
   return (
     <div className={active ? styles.background : styles.modalInviseble}>
@@ -68,8 +76,18 @@ const [value, setValue] = useState(100)
               <div onClick={()=>setValue(value-1)}><FontIcon name={FontIconName.Minus} className={styles.iconMinus} size={13}  /></div>
             </div>
           </div>
-          <div className={styles.popUp}><Checkbox size={16} checked={true} onCheck={() => {}} >SHOW POP-UP</Checkbox></div>
-          <div className={styles.telegram}><Checkbox size={16} checked={true} onCheck={() => {}} > NOTIFY TELEGRAM</Checkbox></div>
+          <div className={styles.box}>
+            <Checkbox size={16} checked={firstBox}
+                      onCheck={changeFirstBox}
+                      className={firstBox === true ? styles.check_box_active : styles.check_box_unactive}/>
+            SHOW POP-UP
+          </div>
+          <div className={styles.box}>
+            <Checkbox size={16} checked={secondBox}
+                      onCheck={changeSecondBox}
+                      className={secondBox === true ? styles.check_box_active : styles.check_box_unactive}/>
+            NOTIFY TELEGRAM
+          </div>
           <div className={styles.input}>
             <TextInput
               type={'text'}
