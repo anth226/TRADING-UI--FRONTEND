@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import { DefaultSelect } from '@option-blitz/libs/components/inputs/DefaultSelect';
 import { FontIconName, FontIcon } from '@option-blitz/libs/components/inputs/FontIcon';
 import imageTemp from './imageTemp.svg';
 import styles from './styles.module.scss';
+import pan from '../../../../libs/assets/images/pan.svg'
 
 const elements = {
   nothing: undefined,
@@ -11,20 +13,22 @@ const elements = {
   icon: <FontIcon name={FontIconName.View} size={16} />,
 };
 
+
 const sortOptions = [
   { value: 'Most Traded' },
   { value: 'Biggest Rise' },
   { value: 'Biggest fall over last 24' },
 ];
 
-type Props = {
-};
 
-const Account: FC<Props> = () => (
-  <div className={styles.wrap}>
+interface Props {
+  isMobile?: boolean
+}
+
+const Account: FC<Props> = ({ isMobile }) => (
+  <div className={ isMobile ? styles.wrapMobile : styles.wrap}>
     <p className={styles.title}>Blockchain account ID:</p>
     <p className={styles.address}>TrClexlde123exTrClexlde123ex...</p>
-
     <div className={styles.container}>
       <div className={styles.col}>
         <img src={imageTemp} alt="img" />
@@ -44,6 +48,7 @@ const Account: FC<Props> = () => (
       </div>
       <div className={styles.colRight}>
         <TextInput
+          className={styles.username}
           value="Kamix 85"
           onChange={() => {}}
           right={elements.icon}
@@ -54,6 +59,16 @@ const Account: FC<Props> = () => (
           onChange={() => {}}
           options={sortOptions}
           defaultValue={sortOptions[0]}
+        />
+        <TextInput
+          value="@Kamix 85"
+          onChange={() => {}}
+          right={<img src={pan} alt='' />}
+        />
+        <TextInput
+          value="max@gmail.com"
+          onChange={() => {}}
+          right={<img src={pan} alt='' />}
         />
         
       </div>

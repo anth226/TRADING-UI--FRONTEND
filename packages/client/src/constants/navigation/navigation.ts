@@ -51,12 +51,10 @@ export enum RootPart {
   Trading = 'Trading',
   Staking = 'Staking',
   Affiliates = 'Affiliates',
-  Info = 'Info',
 }
 
 export const rootPartNames: Record<RootPart, string> = {
   [RootPart.Trading]: 'Trading',
   [RootPart.Staking]: 'Staking',
   [RootPart.Affiliates]: 'Affiliates',
-  [RootPart.Info]: 'Affiliates',
 };

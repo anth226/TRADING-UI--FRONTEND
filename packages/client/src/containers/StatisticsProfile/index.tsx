@@ -1,20 +1,22 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { Tabs } from '@option-blitz/libs/components/inputs/Tabs';
 import styles from './styles.module.scss';
 
-type Props = {
+interface Props  {
+  isMobile?: boolean;
 };
 
-const StatisticsProfile: FC<Props> = () => {
+const StatisticsProfile: FC<Props> = ({isMobile}) => {
   const active = 0;
   const controlled = false;
   const onChange = () => {};
   return (
-    <div className={styles.wrap}>
-      <p className={styles.title}>Statistics</p>
+    <div className={isMobile ? styles.wrapMobile : styles.wrap}>
+      <p className={ isMobile? styles.none : styles.title}>Statistics</p>
 
       <Tabs active={active} onChange={onChange} controlled={controlled}>
-        <Tabs.Head>
+        <Tabs.Head className={styles}>
           <div>Today</div>
           <div>Yesterday</div>
           <div>All time</div>

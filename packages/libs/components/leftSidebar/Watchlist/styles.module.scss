@@ -80,7 +80,7 @@
   top: 10px;
   left: 8px;
 }
-.BinocularChecked{
+.binocularChecked{
   @include flexbox();
   column-gap: 4px;
   position: absolute;
@@ -91,6 +91,11 @@
   height: 22px;
   border-radius: 45px;
   background-color: #0F5D66;
+}
+.BinocularCheckedGrid{
+  @extend .binocularChecked;
+  column-gap: 0;
+  width: 35px;
 }
 
 

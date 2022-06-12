@@ -1,3 +1,4 @@
+
 .wrap {
   width: 100%;
 
@@ -99,4 +100,10 @@
       gap: 8px;
     }
   }
+}
+.wrapMobile{
+  @extend .wrap;
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 20px;
 }

@@ -32,3 +32,16 @@
     color: #00CD86;
   }
 }
+.none{
+  display: none;
+}
+.wrapMobile{
+  @extend .wrap;
+  padding: 0 15px;
+  button{
+    width: 100%;
+  }
+}
+.test{
+  width: 100%;
+}

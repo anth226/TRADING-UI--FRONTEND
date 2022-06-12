@@ -58,7 +58,11 @@
 .select span{
   display: none
 }
-
+.box{
+  @extend .select;
+  margin-bottom: 0px;
+  margin-top: 100%;
+}
 .mobile_select {
   margin-bottom: 8px;
 }
@@ -181,6 +185,11 @@
   font-family: Cabin;
   color: #545870;
 }
+.tableHeadMobile{
+  @extend .tableHead;
+  justify-content: space-around;
+  margin-right: 45px;
+}
 .symbol{
   margin-right: 25px;
 }
@@ -192,6 +201,10 @@
   align-items: center;
   font-family: Cabin;
   font-size: 13px;
+}
+.tableMobile{
+  @extend .table;
+  justify-content: space-around;
 }
 .iconRightEquals{
   border-bottom: 1px solid white;

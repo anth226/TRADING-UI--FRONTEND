@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC, useCallback } from 'react';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import ReactDOM from 'react-dom';
@@ -60,11 +61,11 @@ const MobileNavigationBar: FC<Props> = ({
           
         ))}
 
-        <div className={styles.section}>
-          <Link className={styles.link} to={Routes.Homepage}>
+        <div className={styles.section} >
+          <div onClick={() => { setActiveNavItem(Navigation.Info); }} className={styles.link}>
             <FontIcon className={styles.icon} size={20} name={FontIconName.Info} />
             <p className={styles.ling_text}>Info</p>
-          </Link>
+          </div>
           <Link className={styles.link} to={Routes.Homepage}>
             <FontIcon className={styles.icon} size={20} name={FontIconName.Settings} />
             <p className={styles.ling_text}>Settings</p>

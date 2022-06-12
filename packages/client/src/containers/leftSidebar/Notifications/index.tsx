@@ -22,10 +22,14 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
 </svg>
 
   return (
-    <div className={styles.wrap}>
+    <div className={isMobile ? styles.wrapMobile: styles.wrap}>
       <div className={styles.title_wrap}>
-        <p className={styles.title}>NOTIFICATIONS</p>
-        <button onClick={onBack} className={styles.arrow_wrap}>
+        <div style={{display:'flex', alignItems: 'center'}}>
+          { isMobile ? <FontIcon  size={17} name={FontIconName.Fire} className={styles.fire} /> : ''}
+          <p className={styles.title}>NOTIFICATIONS</p>
+        </div>
+
+        <button onClick={onBack} className={ isMobile ? styles.none  : styles.arrow_wrap}>
           <img src={arrow} alt='back' />
         </button>
       </div>
@@ -46,7 +50,7 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
 
         <div className={styles.card}>
           <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
-          <div className={styles.second}>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
             <div className={styles.time}>20 minutes ago</div>
             <div className={styles.fl}>
               <div className={styles.bet}>NEW BET BOW</div>
@@ -54,17 +58,17 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Trade Amount:</div>
-                <div className={styles.lineFirst}></div>
+                <div className={ isMobile ? styles.lineFirstMobile : styles.lineFirst}></div>
               </div>
               <div className={styles.priceWhite}>$75</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Payout:</div>
-                <div className={styles.lineSecond}></div>
+                <div className={ isMobile ? styles.lineSecondMobile : styles.lineSecond}></div>
               </div>
               <div className={styles.priceGreen}>$27.5</div>
             </div>
@@ -75,25 +79,25 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
           <div className={styles.background}>
             <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
           </div>
-          <div className={styles.second}>
-            <div className={styles.time}>20 minutes ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>20 minutes ago</div>
             <div className={styles.fl}>
               <div className={styles.bet}>NEW BET LOST</div>
               <div>{view}</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Trade Amount:</div>
-                <div className={styles.lineFirst}></div>
+                <div className={ isMobile ? styles.lineFirstMobile : styles.lineFirst}></div>
               </div>
               <div className={styles.priceWhite}>$75</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Payout:</div>
-                <div className={styles.lineSecond}></div>
+                <div className={ isMobile ? styles.lineSecondMobile : styles.lineSecond}></div>
               </div>
               <div className={styles.priceRed}>$27.5</div>
             </div>
@@ -106,8 +110,8 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
           <div className={styles.background}>
             <FontIcon name={FontIconName.Notify} size={11} />
           </div>
-          <div className={styles.second}>
-            <div className={styles.time}>1 hour ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>1 hour ago</div>
             <div className={styles.bet}>PRICE ALERT</div>
             <div className={styles.text}>EUR/USD is up +10.06% to 1.3456 in the last 2 hours</div>
           </div>
@@ -117,8 +121,8 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
           <div className={styles.background}>
             <FontIcon name={FontIconName.Info} size={11} />
           </div>
-          <div className={styles.second}>
-            <div className={styles.time}>1 hour ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>1 hour ago</div>
             <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
             <div className={styles.text}>Option Bliz most popular trading product</div>
           </div>
@@ -128,8 +132,8 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
           <div className={styles.background}>
             <FontIcon name={FontIconName.Info} size={11} />
           </div>
-          <div className={styles.second}>
-            <div className={styles.time}>1 hour ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>1 hour ago</div>
             <div className={styles.col}>HAVE YOU TRIED TURBO RUSH?</div>
             <div className={styles.text}>Option Bliz most popular trading product</div>
           </div>
@@ -139,25 +143,25 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
 
         <div className={styles.card}>
           <div className={styles.background}><FontIcon name={FontIconName.Checked} size={11} className={styles.checked} /></div>
-          <div className={styles.second}>
-            <div className={styles.time}>20 minutes ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>20 minutes ago</div>
             <div className={styles.fl}>
               <div className={styles.bet}>NEW BET BOW</div>
               <div>{view}</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Trade Amount:</div>
-                <div className={styles.lineFirst}></div>
+                <div className={ isMobile ? styles.lineFirstMobile : styles.lineFirst}></div>
               </div>
               <div className={styles.priceWhite}>$75</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Payout:</div>
-                <div className={styles.lineSecond}></div>
+                <div className={ isMobile ? styles.lineSecondMobile : styles.lineSecond}></div>
               </div>
               <div className={styles.priceGreen}>$27.5</div>
             </div>
@@ -168,25 +172,25 @@ const view = <svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="
           <div className={styles.background}>
             <FontIcon name={FontIconName.Close} size={11} className={styles.close} />
           </div>
-          <div className={styles.second}>
-            <div className={styles.time}>20 minutes ago</div>
+          <div className={isMobile ? styles.secondMobile : styles.second}>
+          <div className={styles.time}>20 minutes ago</div>
             <div className={styles.fl}>
               <div className={styles.bet}>NEW BET LOST</div>
               <div>{view}</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Trade Amount:</div>
-                <div className={styles.lineFirst}></div>
+                <div className={ isMobile ? styles.lineFirstMobile : styles.lineFirst}></div>
               </div>
               <div className={styles.priceWhite}>$75</div>
             </div>
 
             <div className={styles.spase}>
-              <div className={styles.sp}>
+              <div className={ isMobile ? styles.spMobile : styles.sp}>
                 <div className={styles.text}>Payout:</div>
-                <div className={styles.lineSecond}></div>
+                <div className={ isMobile ? styles.lineSecondMobile : styles.lineSecond}></div>
               </div>
               <div className={styles.priceRed}>$27.5</div>
             </div>

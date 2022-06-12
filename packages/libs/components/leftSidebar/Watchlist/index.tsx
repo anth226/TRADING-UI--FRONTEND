@@ -55,7 +55,7 @@ const WatchlistCard: FC<Props> = ({
             <FontIcon size={12} name={FontIconName.Close} />
           </button>
 
-          <button className={styles.BinocularChecked}>
+          <button className={styles.binocularChecked}>
             <FontIcon size={12} name={FontIconName.Binocular} />
             <FontIcon size={12} name={FontIconName.Checked} />
           </button>
@@ -75,12 +75,16 @@ const WatchlistCard: FC<Props> = ({
             >
               {secondValue}
             </span>
+            <button className={styles.BinocularCheckedGrid}>
+              <FontIcon size={10} name={FontIconName.Binocular} />
+              <FontIcon size={10} name={FontIconName.Checked} />
+            </button>
             <p className={cx(styles.title, styles.title_small)}>{title}</p>
             <button className={styles.buttonPlusMobile}>
-              <FontIcon size={12} name={FontIconName.Plus} />
+              <FontIcon size={10} name={FontIconName.Plus} />
             </button>
             <button className={styles.buttonCloseMobile}>
-              <FontIcon size={12} name={FontIconName.Close} />
+              <FontIcon size={10} name={FontIconName.Close} />
             </button>
           </div>
         </a>

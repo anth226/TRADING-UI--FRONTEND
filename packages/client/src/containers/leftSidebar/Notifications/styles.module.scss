@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 }
+.wrapMobile{
+  @extend .wrap;
+  width: 100%;
+}
 
 .card_wrap {
   @include flexbox(center, initial);
@@ -32,7 +36,7 @@
 }
 
 .title {
-  font-size: 11px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
@@ -102,13 +106,20 @@
   background-color: #3F4965;
   width: 60px;
 }
-
+.lineFirstMobile{
+  @extend .lineFirst;
+  width: 70%;
+}
 .lineSecond {
   display: flex;
   justify-content: flex-start;
   height: 1px;
   background-color: #3F4965;
   width: 87px;
+}
+.lineSecondMobile{
+  @extend .lineSecond;
+  width: 82%;
 }
 
 .spase {
@@ -122,6 +133,10 @@
   display: flex;
   align-items: center;
   column-gap: 15px;
+}
+.spMobile{
+  @extend .sp;
+  width: 100%;
 }
 
 .text {
@@ -151,6 +166,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 3px;
+}
+.secondMobile{
+  @extend .second;
+  width: 100%;
 }
 
 .card {
@@ -183,4 +202,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+.none{
+  display: none;
+}
+.fire{
+  color: #00cd86;
+  margin-right: 5px;
 }

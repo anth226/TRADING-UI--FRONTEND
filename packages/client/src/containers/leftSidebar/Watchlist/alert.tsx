@@ -48,13 +48,13 @@ function goBack() {
 
       </div>
       <div>
-        <div className={styles.tableHead}>
+        <div className={ isMobile ? styles.tableHeadMobile : styles.tableHead}>
           <div className={styles.symbol}>Symbol</div>
           <div className={styles.condition}>Condition</div>
           <div>Price</div>
         </div>
         <hr className={styles.hr}/>
-        <div className={styles.table}>
+        <div className={ isMobile ? styles.tableMobile : styles.table}>
           <div className={styles.money}>EURUSD</div>
           <div className={styles.big}> ≥ </div>
           <div className={styles.second}>
@@ -63,7 +63,7 @@ function goBack() {
           </div>
         </div>
         <hr className={styles.hr}/>
-        <div className={styles.table}>
+        <div className={ isMobile ? styles.tableMobile : styles.table}>
           <div className={styles.money}>BTCUSD</div>
           <div className={styles.big}> ≤ </div>
           <div className={styles.second}>
@@ -72,7 +72,7 @@ function goBack() {
           </div>
         </div>
         <hr className={styles.hr}/>
-        <div className={styles.table}>
+        <div className={ isMobile ? styles.tableMobile : styles.table}>
           <div className={styles.money}>ETHUSD</div>
           <div className={styles.big}> ≤ </div>
           <div className={styles.second}>
@@ -82,7 +82,7 @@ function goBack() {
         </div>
         <hr className={styles.hr}/>
         <Button className={styles.testAlert} onClick={testChange}>Test price alert </Button>
-        <div className={ isMobile ? styles.select : styles.none}>
+        <div className={ isMobile ? styles.box : styles.none}>
           <Button className={styles.addAlert} onClick={handleChange}>ADD NEW PRICE ALERT</Button>
           <Button className={styles.cancelAlert}>CANCEL ALL ALERTS</Button>
         </div>

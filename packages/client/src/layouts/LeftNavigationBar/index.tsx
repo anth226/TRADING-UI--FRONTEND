@@ -53,8 +53,8 @@ const LeftNavigationBar: FC<NavigationBarProps> = ({
     </div>
 
     <div className={styles.section}>
-      <div className={ styles.link} onClick={ ()=>{setActiveNavItem(Navigation.Info)} }>
-        <FontIcon className={ activeNavItem===Navigation.Info ? styles.button_active : styles.link_icon} size={20} name={FontIconName.Info}/>
+      <div className={ styles.link} onClick={ ()=>{setActiveNavItem(Navigation.Info)}  }>
+        <FontIcon className={ activeNavItem === Navigation.Info ? styles.button_active : styles.link_icon} size={20} name={FontIconName.Info}/>
       </div>
       <Link className={styles.link} to={Routes.Homepage}>
         <FontIcon className={styles.link_icon} size={20} name={FontIconName.Settings} />

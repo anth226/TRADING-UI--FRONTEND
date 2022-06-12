@@ -19,3 +19,36 @@
 iframe {
   display: none;
 }
+.navigation {
+  display: flex;
+  border-bottom: 1px solid #2F394A;
+  height: 40px;
+  margin-top: 10px;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  width: 100%;
+
+  div {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+.navItemActive {
+  @extend .navItem;
+  border-bottom: 1px solid #00CD86;
+
+  div {
+    color: #00CD86;
+  }
+}

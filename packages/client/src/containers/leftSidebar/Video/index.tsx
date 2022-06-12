@@ -51,7 +51,7 @@ const Video: FC<Props> = ({
     <div className={ isMobile ? styles :  styles.wrap}>
       <div className={styles.title_wrap}>
         <p className={styles.title}>Video Tutorials</p>
-        <button onClick={onBack} className={styles.arrow_wrap}>
+        <button onClick={onBack} className={ isMobile ? styles.none : styles.arrow_wrap}>
           <img src={arrow} alt='back' />
         </button>
       </div>
@@ -61,6 +61,7 @@ const Video: FC<Props> = ({
                 <VideoCard
                     icon={item.icon}
                     title={item.title}
+                    isMobile={isMobile}
                 />
             ))}
           </div>
@@ -71,6 +72,7 @@ const Video: FC<Props> = ({
           <VideoCard
             icon={item.icon}
             title={item.title}
+            isMobile={isMobile}
           />
         ))}
       </div>

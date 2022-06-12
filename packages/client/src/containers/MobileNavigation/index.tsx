@@ -8,6 +8,8 @@ import { Watchlist } from '../leftSidebar/Watchlist';
 import { Video } from '../leftSidebar/Video';
 import { News } from '../leftSidebar/News';
 import { Chat } from '../leftSidebar/Chat';
+import { Notifications } from '../leftSidebar/Notifications';
+import { Info } from '../leftSidebar/Info';
 
 const MobileNavigation: FC = () => {
   const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
@@ -18,6 +20,8 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.VideoTutorials && <Video isMobile />}
       {activeItem === Navigation.News && <News isMobile />}
       {activeItem === Navigation.Chat && <Chat isMobile /> }
+      {activeItem === Navigation.Notifications && <Notifications isMobile /> }
+      {activeItem === Navigation.Info && <Info isMobile /> }
 
     </div>
   );

@@ -3,9 +3,11 @@
 .wrap {
   width: 229px;
   height: 100%;
-
   display: flex;
   flex-direction: column;
+}
+.wrapMobile{
+  width: 100%;
 }
 
 .title_wrap {

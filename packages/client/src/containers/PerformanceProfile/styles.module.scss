@@ -1,7 +1,11 @@
 .wrap {
   width: 100%;
 }
-
+.wrapMobile{
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 10px;
+}
 .title {
   font-size: 11px;
   text-transform: uppercase;
@@ -15,4 +19,8 @@
 .row {
   display: flex;
   gap: 16px;
+}
+.rowMobile{
+  display: flex;
+  justify-content: space-around;
 }

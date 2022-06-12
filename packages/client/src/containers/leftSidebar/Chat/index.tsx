@@ -39,10 +39,10 @@ const Chat: FC<Props> = ({
                 return <Intro/>
             case 2:
                 return <English/>
-            // case 3:
-            //     return <Russian/>
-            // case 4:
-            //     return <Chinese/>
+            case 3:
+                return 'Russian'
+            case 4:
+                return 'Chinese'
             default:
                 return <English/>
         }

@@ -68,10 +68,10 @@ const Info: FC<Props> = ({
   }
   return (
 
-    <div className={styles.wrap}>
+    <div className={ isMobile ? styles.wrapMobile : styles.wrap} >
       <div className={styles.title_wrap}>
         <p className={styles.title}>HELP</p>
-        <button onClick={onBack} className={styles.arrow_wrap}>
+        <button onClick={onBack} className={ isMobile ? styles.none : styles.arrow_wrap }>
           <img src={arrow} alt='back' />
         </button>
       </div>
