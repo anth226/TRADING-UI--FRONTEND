@@ -10,6 +10,7 @@ import { News } from '../leftSidebar/News';
 import { Chat } from '../leftSidebar/Chat';
 import { Notifications } from '../leftSidebar/Notifications';
 import { Info } from '../leftSidebar/Info';
+import { OpenPosition } from '../leftSidebar/OpenPosition';
 
 const MobileNavigation: FC = () => {
   const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
@@ -22,6 +23,7 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.Chat && <Chat isMobile /> }
       {activeItem === Navigation.Notifications && <Notifications isMobile /> }
       {activeItem === Navigation.Info && <Info isMobile /> }
+      {activeItem === Navigation.OpenPositions && <OpenPosition isMobile /> }
 
     </div>
   );

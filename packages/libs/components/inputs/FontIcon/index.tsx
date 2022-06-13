@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-  name: FontIconName;
+  name?: FontIconName;
   size?: number;
   className?: string;
 }

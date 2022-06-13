@@ -22,7 +22,7 @@ interface WrapperProps {
   onCheckboxChange: (val: boolean) => void
 }
 
-const Wrapper: FC<WrapperProps> = ({
+export const Wrapper: FC<WrapperProps> = ({
   children, checkbox, onCheckboxChange, isMobile, 
 }) => {
   const {

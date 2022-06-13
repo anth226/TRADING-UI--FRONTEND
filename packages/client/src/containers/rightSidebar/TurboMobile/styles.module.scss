@@ -1,0 +1,286 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
+.trades_wrap {
+  margin: 0 16px;
+  min-height: 190px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.button_wrap {
+  @include flexbox();
+  margin: 0 16px;
+
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  //margin-bottom: 8px;
+
+
+  button.button {
+    @include flexbox();
+
+    width: 50%;
+    border: none;
+    text-transform: uppercase;
+  }
+}
+.button {
+  padding: 13px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+  //margin: 4px;
+}
+.call_arrow {
+  transform: rotate(-45deg);
+}
+
+.put_arrow {
+  transform: rotate(45deg);
+}
+
+
+.returns {
+  margin-bottom: 8px;
+}
+
+.input_wrap {
+  @include flexbox();
+  margin-bottom: 8px;
+}
+
+.trade_amount {
+  width: 50%;
+  margin-right: 8px;
+  @include mobile {
+    height: 43px;
+  }
+}
+
+.time {
+  width: 50%;
+}
+
+.returns {
+  @include flexbox();
+}
+
+.checkbox_wrap {
+  @include flexbox(center ,space-between);
+
+  &:first-child {
+    margin-top: 8px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.up_icon {
+  transform: rotate(-90deg);
+}
+
+.down_icon {
+  transform: rotate(90deg);
+}
+
+.strike_price {
+  width: 50%;
+}
+
+.checkbox_label {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.collapse_title {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.collapse {
+  margin: 16px;
+}
+.position_button {
+  text-transform: uppercase;
+  padding: 13px 0;
+  font-size: 15px;
+  width: 100%;
+}
+
+.positions {
+  @include flexbox();
+
+  flex-direction: column;
+  margin: 8px 16px 8px;
+  padding: 24px 16px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+}
+
+.trade {
+  //@include flexbox();
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.title_text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #59648A;
+  margin-top: 13px;
+  margin-left: 16px;
+}
+.percent {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #00CD86;
+  text-shadow: -1px 0px 6px rgba(2, 3, 16, 0.91);
+  margin: 6px 16px;
+}
+
+.positions_wrap {
+  margin-top: 6px;
+  margin-bottom: auto;
+}
+
+.chart_wrap {
+  width: 100%;
+  height: 100%;
+}
+//.navItemActive {
+//  @extend .navItem;
+//  border-bottom: 1px solid #00CD86;
+//
+//  div {
+//    color: #00CD86;
+//  }
+//}
+
+.leverage {
+  margin: 15px;
+  font-size: 11px;
+  line-height: 13px;
+}
+//.slider{
+//  [class = 'rc-slider-handle rc-slider-handle-dragging'] {border-color: rgba(255, 255, 255, 0) !important; box-shadow: none !important;}
+//}
+//.funding {
+//  font-family: Conthrax;
+//  color: #59648A;
+//  font-size: 8px;
+//}
+
+//.funding_value {
+//  color: #00CD86;
+//  margin-bottom: 13px;
+//}
+.slider_container{
+  margin-bottom: 25px;
+}
+.buttons_wrap {
+  @include flexbox();
+  width: 100%;
+}
+.target_price_btn {
+  font-size: 8px;
+  padding: 12px 10px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.row_trade {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 35px;
+}
+.row_profit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 11px;
+
+}
+.row_title {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+.button_cancell_all {
+  width: 143px;
+  height: 32px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+}
+.title_orders {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-left: 8px;
+}
+.collapse_position {
+  border: none;
+  width: 100%;
+  padding: 0;
+  margin: 4px;
+}
+.container_profit {
+  display: flex;
+  flex-direction: column;
+}
+.row_input {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+.input {
+  margin-left: 7px;
+}
+.cancel {
+  margin-top: 16px;
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+.take_profit {
+  width: 166px;
+  height: 178px;
+  border-radius: 6px;
+  background: #192235;
+}
+.input_trade {
+  width: 142px;
+  margin-top: 12px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

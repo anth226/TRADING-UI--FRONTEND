@@ -12,10 +12,10 @@ interface Props {
   value?: string
   symbol?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
-  onFirstBtnClick: () => void
-  onSecondBtnClick: () => void
-  firstBtnIcon: FontIconName
-  secondBtnIcon: FontIconName
+  onFirstBtnClick?: () => void
+  onSecondBtnClick?: () => void
+  firstBtnIcon?: FontIconName
+  secondBtnIcon?: FontIconName
   firstIconClassName?: string
   secondIconClassName?: string
   inputClassName?: string
@@ -69,7 +69,7 @@ const RightSidebarInput: FC<Props> = ({
         </div>
         <div className={styles.button_wrap_small}>
           <button onClick={onFirstBtnClick} className={styles.button_small}>
-            <FontIcon className={firstIconClassName} size={10} name={firstBtnIcon} />
+            <FontIcon name={firstBtnIcon} className={firstIconClassName} size={10} />
           </button>
           <input
             onChange={onChange}
