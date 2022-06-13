@@ -10,6 +10,7 @@ import Binary from "./BinaryTab/Binary";
 import NoTouch from "./NoTouchTab/NoTuch";
 import Touch from "./TouchTab/Touch";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
+import Turbos from "./Turbos/Turbos";
 
 interface Props {
   onBack?: () => void;
@@ -59,8 +60,8 @@ const OpenPosition: FC<Props> = ({
         return <NoTouch isMobile={isMobile}/>
       case 4:
       return <Touch isMobile={isMobile}/>
-      // case 4:
-      //   return <Rush/>
+      case 5:
+        return <Turbos isMobile={isMobile}/>
       // case 5:
       //   return <TurboRush/>
       default:

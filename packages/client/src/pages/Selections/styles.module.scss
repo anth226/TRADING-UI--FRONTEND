@@ -1,3 +1,5 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
 .balances {
   display: flex;
   width: 100%;
@@ -38,6 +40,7 @@
     padding-top: 0;
     border-top: none;
   }
+
 }
 .balancesSubInner {
   display: flex;
@@ -193,4 +196,8 @@
 }
 .mag {
   margin-top: 5px;
+  @include mobile {
+
+    background: #020610;
+  }
 }
