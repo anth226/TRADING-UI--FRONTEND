@@ -10,12 +10,16 @@ import {Forex} from "./Forex/Forex";
 const BinaryOptionsTab:FC = () => {
 
 const [activeSubItemtab, setActiveSubItemtab] = useState(0)
+    const [modal, setModal] = useState(false)
     const { isMobile } = useResize();
     const handlerChange = (index: number) => {
         if (activeSubItemtab === index) {
             setActiveSubItemtab(-1)
+            setModal(true)
+
         } else {
             setActiveSubItemtab(index)
+            setModal(false)
         }
     }
 
@@ -39,7 +43,7 @@ const [activeSubItemtab, setActiveSubItemtab] = useState(0)
                             <div className={styles.badge}>{item.badge}</div>
                         </div>
                         {isMobile && (
-                            <div className={activeSubItemtab === index ? styles.check: styles.none}><Forex isMobile /></div>
+                            <div className={modal ? styles.check: styles.none}><Forex isMobile /></div>
                         )}
 
                     </div>

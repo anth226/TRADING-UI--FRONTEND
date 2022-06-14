@@ -1,21 +1,20 @@
 /* eslint-disable */
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
-import { HeaderTab } from '@option-blitz/libs/components/common/HeaderTab';
+import React, {FC, useCallback, useMemo, useState} from 'react';
+import {FontIcon, FontIconName} from '@option-blitz/libs/components/inputs/FontIcon';
+import {HeaderTab} from '@option-blitz/libs/components/common/HeaderTab';
 import cx from 'classnames';
 import Button from '@option-blitz/libs/components/inputs/Button';
-import { HeaderUser } from '@option-blitz/libs/components/common/HeaderUser';
-import { HeaderBalance, HeaderSelectItem } from '@option-blitz/libs/components/common/HeaderBalance';
-import { Link, useHistory } from 'react-router-dom';
-import { HeaderTabSelect, HeaderTabSelectChange } from '@option-blitz/libs/components/inputs/HeaderTabSelect';
+import {HeaderUser} from '@option-blitz/libs/components/common/HeaderUser';
+import {HeaderBalance, HeaderSelectItem} from '@option-blitz/libs/components/common/HeaderBalance';
+import {Link, useHistory} from 'react-router-dom';
+import {HeaderTabSelect, HeaderTabSelectChange} from '@option-blitz/libs/components/inputs/HeaderTabSelect';
 import styles from './styles.module.scss';
-import { Routes } from '../../constants/routes';
-import { HeaderTabItem } from '../../hooks/header/useHeaderHandlers';
-import { LoginModal } from '../../containers/Modals/LoginModal';
-import { LoginPrivatKey } from '../../containers/Modals/LoginPrivatKey';
-import { WalletConnected } from '../../containers/Modals/WalletConnected';
-import { CreateNewAccount } from '../../containers/Modals/CreateNewAccount';
-import {Watchlist} from "../../containers/leftSidebar/Watchlist";
+import {Routes} from '../../constants/routes';
+import {HeaderTabItem} from '../../hooks/header/useHeaderHandlers';
+import {LoginModal} from '../../containers/Modals/LoginModal';
+import {LoginPrivatKey} from '../../containers/Modals/LoginPrivatKey';
+import {WalletConnected} from '../../containers/Modals/WalletConnected';
+import {CreateNewAccount} from '../../containers/Modals/CreateNewAccount';
 
 interface Props {
   onAddTab: () => void
@@ -54,13 +53,16 @@ const Header: FC<Props> = ({
   const [modalVisible, setModalVisible] = useState(false);
   const [ wallet, setWallet] =useState(false)
   const [privatkey, setPrivatkey]=useState(false)
-  const [createaccount, setCreateaccount]=useState(false)
+  const [createaccount, setCreateaccount] = useState(false)
+
+  const [openselection, setOpenselection] = useState(false)
 
   const handleChange = () => {
     setModalVisible(true)
   }
 
   const history = useHistory();
+
   const handlerChange = () => {
     history.push('/profile');
   };
@@ -70,6 +72,19 @@ const Header: FC<Props> = ({
   const goToSelection = () => {
     history.push('/selections');
   };
+
+  const plusik = () => {
+    if (openselection == false) {
+      setOpenselection(true)
+      goToSelection()
+    }  else {
+      setOpenselection(false)
+      history.push('/trading');
+    }
+  }
+
+
+
 
   // @ts-ignore
   return (
@@ -110,10 +125,11 @@ const Header: FC<Props> = ({
           />
         )}
         <button
-          onClick={goToSelection}
-          className={cx(styles.tab, styles.plus)}
+            onClick={plusik}
+          // onClick={goToSelection}
+          className={cx(styles.tab, !openselection ? styles.plus : styles.minus)}
         >
-          <FontIcon size={16} className={styles.plus_icon} name={ FontIconName.Plus} />
+          <FontIcon size={16} className={styles.plus_icon} name={ openselection ? FontIconName.Minus : FontIconName.Plus } />
         </button>
       </div>
 

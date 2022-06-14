@@ -93,7 +93,6 @@ const Selections:FC = () => {
              <div className={styles.balances}>
                  <div className={styles.balancesLeft}>
                      <div className={styles.balancesInner}>
-
                          {TradingSelectItems.map((item, index) =>(
                             <div key={item.title} className={styles.mag} >
                                 <hr className={styles.hr} />
@@ -112,10 +111,10 @@ const Selections:FC = () => {
                 </div>
                 <div className={styles.balancesRight} >
                     <Forex/>
-                    {/*<SelectionsTable/>  */}
                 </div>
             </div>
             )}
+
             {isMobile && (
                 <div className={styles.selection}>
                     {TradingSelectItemsMob.map((item, index) =>(

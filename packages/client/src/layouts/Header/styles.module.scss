@@ -59,6 +59,18 @@
     width: 34px;
   }
 }
+.minus {
+  @include flexbox();
+  background-color: #00cd86;
+  height: 45px;
+  width: 45px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  @include mobile {
+    height: 34px;
+    width: 34px;
+  }
+}
 
 .plus_icon {
   color: var(--color-grey-light);
