@@ -13,3 +13,9 @@
 .pending {
   color: #D6C747;
 }
+.scroll{
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}

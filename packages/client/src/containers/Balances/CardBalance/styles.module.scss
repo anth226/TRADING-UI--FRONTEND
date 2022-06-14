@@ -1,0 +1,52 @@
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 11px;
+  column-gap: 11px;
+}
+.card{
+  width: 170px;
+  background-color: rgba(25, 34, 53, 0.5);
+  height: 150px;
+  border-radius: 6px;
+  padding: 15px 10px 25px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 11px;
+  column-gap: 11px;
+}
+.title{
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  width: 80px;
+  margin-left: 10px;
+}
+.coin_name{
+  font-family: 'Conthrax';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 10px;
+  color: #59648A;
+  margin-bottom: 5px;
+}
+.value{
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  color: #00cd86;
+  display: flex;
+  justify-content: space-between;
+}
+.description{
+  @extend .value;
+  color: white;
+}

@@ -1,6 +1,9 @@
 .infoBlock {
   width: 50%;
 }
+.infoBlockMobile{
+  width: 100%;
+}
 .cardBlock {
   border-bottom: 1px solid #2F394A;;
   div {
@@ -81,4 +84,10 @@
 }
 .text {
   color: #D6C747;
+}
+.scroll{
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 }

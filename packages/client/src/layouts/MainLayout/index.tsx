@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import cx from 'classnames';
 import { HeaderContainer } from 'containers/HeaderContainer';

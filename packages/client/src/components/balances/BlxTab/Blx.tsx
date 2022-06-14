@@ -6,6 +6,7 @@ import balance_icon from "@option-blitz/libs/assets/images/balances/icons/balanc
 import Table from "@option-blitz/libs/components/inputs/Table";
 import {columns} from "./columns";
 import {data} from './data'
+import useResize from '@option-blitz/libs/hooks/useResize';
 
 const card = {
     title: 'blx balance',
@@ -16,12 +17,13 @@ const card = {
 
 
 const Blx:FC = () => {
+    const { isMobile } = useResize();
     return (
         <div>
             <div className={styles.cardBlock}>
                 <ChipCard card={card}/>
             </div>
-            <div className={styles.infoBlock}>
+            <div className={ isMobile ? styles.infoBlockMobile : styles.infoBlock}>
                 <h4 className={styles.blxTitle}>blx</h4>
                 <div className={styles.feeLvl}>
                     <p className={styles.subtitle}>your trading fee level</p>
@@ -32,7 +34,9 @@ const Blx:FC = () => {
                     <div></div>
                 </div>
                 <p className={styles.infoTitle}>Use BLX to boost staking rewards by up to 100% and spend it to pay for transactions fees with up to 40% discount. Refer other traders and earn an extra 10% of their fees when they pay in BLX.</p>
-                <Table columns={columns} data={data}/>
+                <div className={styles.scroll}>
+                    <Table columns={columns} data={data}/>
+                </div>
             </div>
         </div>
     );

@@ -21,6 +21,7 @@
 
 .payment {
   display: flex;
+  flex-wrap: wrap;
 }
 .paymentSection {
   display: flex;
@@ -40,6 +41,23 @@
   &:nth-child(4) {
     border-right: none;
     width: 30%;
+  }
+}
+.paymentSectionMobile{
+  @extend .paymentSection;
+  &:first-child {
+    width: 100%;
+    padding-left: 0;
+  }
+  &:nth-child(2) {
+    width: 100%;
+  }
+  &:nth-child(3) {
+    width: 100%;
+  }
+  &:nth-child(4) {
+    border-right: none;
+    width: 100%;
   }
 }
 .coin {

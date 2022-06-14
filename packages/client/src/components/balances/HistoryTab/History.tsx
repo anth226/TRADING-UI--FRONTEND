@@ -7,10 +7,13 @@ import styles from './styles.module.scss';
 const History:FC = () => (
   <div>
     <h4 className={styles.title}>History</h4>
-    <Table
-      columns={columns}
-      data={data}
-    />
+    <div className={styles.scroll}>
+      <Table
+        columns={columns}
+        data={data}
+      />
+    </div>
+    
   </div>
 );
 

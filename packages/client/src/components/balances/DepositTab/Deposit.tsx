@@ -10,6 +10,7 @@ import bonus_icon from "@option-blitz/libs/assets/images/balances/icons/bonus.sv
 import balance_icon from "@option-blitz/libs/assets/images/balances/icons/balance.svg";
 import bitcoin_icon from "@option-blitz/libs/assets/images/balances/icons/bitcoin.svg";
 import {ChooseBalance} from "../ChooseBalance/ChooseBalance";
+import useResize from '@option-blitz/libs/hooks/useResize';
 
 const chooseBalanceData = [
     {
@@ -85,6 +86,9 @@ const Deposit: FC = () => {
     const [coinActive, setCoinActive] = useState(1)
 
     const [copied, setCopied] = useState(false)
+
+    const { isMobile } = useResize();
+
     return (
         <div>
             <ChooseBalance chooseBalanceData={chooseBalanceData}/>
@@ -100,14 +104,14 @@ const Deposit: FC = () => {
                         />
                     </div>
                     <div className={styles.payment}>
-                        <div className={styles.paymentSection}>
+                        <div className={isMobile ? styles.paymentSectionMobile : styles.paymentSection}>
                             {paymentMethods.map((method, i) => (
                                 <div className={methodActive === i + 1 ? '' : styles.methodOuter} onClick={() => setMethodActive(i + 1)}>
                                     <ChipCard card={method} titleColor="#00CD86" index={i} cardActive={methodActive}/>
                                 </div>
                             ))}
                         </div>
-                        <div className={styles.paymentSection}>
+                        <div className={isMobile ? styles.paymentSectionMobile : styles.paymentSection}>
                             {coins.map((coin, i) => (
                                 <div className={coinActive === i + 1 ? styles.coinActive : styles.coin} onClick={() => setCoinActive(i + 1)}>
                                     <img src={coin.icon}/>
@@ -115,7 +119,7 @@ const Deposit: FC = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className={styles.paymentSection}>
+                        <div className={isMobile ? styles.paymentSectionMobile : styles.paymentSection}>
                             <div className={styles.youSend}>
                                 <TextInput
                                     type={'text'}
@@ -137,7 +141,7 @@ const Deposit: FC = () => {
                                 className={styles.exchange}
                             />
                         </div>
-                        <div className={styles.paymentSection}>
+                        <div className={isMobile ? styles.paymentSectionMobile : styles.paymentSection}>
                             <p className={styles.paymentTitle}>Send the funds you would like to deoposit to this address</p>
                             <div className={styles.keySection}>
                                 <span className={styles.key}>36HSSbUoPUCVwdJ6XqjPEYARM8qRheFo5z</span>
