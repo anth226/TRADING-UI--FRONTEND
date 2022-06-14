@@ -7,9 +7,7 @@ import useResize from '@option-blitz/libs/hooks/useResize';
 import { MainLayout } from '../../layouts/MainLayout';
 import styles from './styles.module.scss';
 
-
 const Profile = () => {
-
   const { isMobile } = useResize();
   const [activeItem, setActiveItem] = useState(1)
 
@@ -64,7 +62,6 @@ const Profile = () => {
           <div>{whichTab()}</div>
       </div>
       }
-
     </MainLayout>
   );
 };

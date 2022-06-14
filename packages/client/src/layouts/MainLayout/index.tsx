@@ -11,6 +11,7 @@ import { useLeftNavigationBarHandlers } from '../../hooks/leftSidebar/useLeftNav
 import { MobileProducts } from '../../containers/MobileProducts';
 import { MobileNavigationBar } from '../MobileNavigationBar';
 import { MobileNavigation } from '../../containers/MobileNavigation';
+import Div100vh, { use100vh } from 'react-div-100vh';
 
 interface IProps {
   isRightSideBar?: boolean;
@@ -30,12 +31,14 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar }) => {
   } = useLeftNavigationBarHandlers();
   
   const { isMobile } = useResize();
-  
+  const height = use100vh();
+
   return (
+    <Div100vh>
+
     <div
-      className={cx(
-        styles.container,
-      )}
+      className={cx(styles.container,)}
+      style={{maxHeight : height ? height : '100vh'}}
     >
       <HeaderContainer />
       <div className={styles.body}>
@@ -73,6 +76,7 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar }) => {
         )}
       </div>
     </div>
+      </Div100vh>
   );
 };
 
