@@ -113,7 +113,7 @@ const Header: FC<Props> = ({
           onClick={goToSelection}
           className={cx(styles.tab, styles.plus)}
         >
-          <FontIcon size={16} className={styles.plus_icon} name={FontIconName.Plus} />
+          <FontIcon size={16} className={styles.plus_icon} name={ FontIconName.Plus} />
         </button>
       </div>
 

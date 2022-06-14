@@ -203,12 +203,16 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
               <div className={styles.take_profit}>
                   <div className={styles.row_profit}>
                       <div className={styles.title_text}>Take Profit</div>
-                      <Checkbox
-                          size={18}
-                          iconSize={14}
-                          checked={checkbox}
-                          onCheck={onCheckboxChange}
-                      />
+                      <div className={styles.checkbox}>
+                          <Checkbox
+                              size={18}
+                              iconSize={14}
+                              checked={checkbox}
+                              onCheck={onCheckboxChange}
+                              className={checkbox ? styles.check_box_active : styles.check_box_unactive}
+                          />
+                      </div>
+
                   </div>
                   <div className={styles.column}>
 
@@ -334,7 +338,12 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
 
             <div className={styles.row_title}>
                 <div className={styles.row}>
-                    <Checkbox size={18} iconSize={14} checked={checkbox} onCheck={onCheckboxChange} />
+                    <Checkbox size={18}
+                              iconSize={14}
+                              checked={checkbox}
+                              onCheck={onCheckboxChange}
+                              className={checkbox ? styles.check_box_active : styles.check_box_unactive}
+                    />
                     <div className={styles.title_orders}>Hide other pairs</div>
                 </div>
 

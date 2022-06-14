@@ -77,13 +77,15 @@ const changeSecondBox = () => {
             </div>
           </div>
           <div className={styles.box}>
-            <Checkbox size={16} checked={firstBox}
+            <Checkbox size={16}
+                      checked={firstBox}
                       onCheck={changeFirstBox}
                       className={firstBox === true ? styles.check_box_active : styles.check_box_unactive}/>
             SHOW POP-UP
           </div>
           <div className={styles.box}>
-            <Checkbox size={16} checked={secondBox}
+            <Checkbox size={16}
+                      checked={secondBox}
                       onCheck={changeSecondBox}
                       className={secondBox === true ? styles.check_box_active : styles.check_box_unactive}/>
             NOTIFY TELEGRAM

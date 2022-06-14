@@ -1,6 +1,13 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
 .colorGreen{
   color: #00cd86;
   font-family: "Conthrax";
+}
+.colorGreenMob {
+  font-family: 'Conthrax';
+    color: #00cd86;
+    font-size: 8.54615px;
+    line-height: 10px;
 }
 .img{
     width:80px;
@@ -28,8 +35,31 @@
 }
 .mar {
   margin: 15px;
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .iconsal {
   align-items: center!important;
+}
+.tabuletTitle {
+  text-align: center;
+}
+.titlemob {
+  position: relative;
+  padding-left: 10px;
+  padding-top: 30px;
+  text-align: left;
+  font-size: 11px;
+  line-height: 13px;
+  font-family: "Cabin";
+}
+.none {
+}
+.check {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
 }

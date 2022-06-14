@@ -2,29 +2,22 @@
 import React, {FC,useState} from "react";
 import {Binary} from "./data";
 import styles from "../../../pages/Selections/styles.module.scss";
-import {store} from "../../../index";
-import {useSelector, useStore} from "react-redux";
+import useResize from "@option-blitz/libs/hooks/useResize";
+import {Forex} from "./Forex/Forex";
 
 
 
 const BinaryOptionsTab:FC = () => {
 
 const [activeSubItemtab, setActiveSubItemtab] = useState(0)
-const [value, setValue] = useState([])
-
-
-
-
+    const { isMobile } = useResize();
     const handlerChange = (index: number) => {
         if (activeSubItemtab === index) {
             setActiveSubItemtab(-1)
-
         } else {
             setActiveSubItemtab(index)
-
         }
     }
-
 
     return (
 
@@ -37,7 +30,7 @@ const [value, setValue] = useState([])
                      <div >
 
                     <div className={styles.row}>
-                            <img src={item.icon} />
+                            <img src={item.icon}  alt=''/>
                         <div className={styles.flex}>
                             <div className={styles.titleBlockSub} >
                                 <span className={styles.title}> {item.title}</span>
@@ -45,12 +38,16 @@ const [value, setValue] = useState([])
                             </div>
                             <div className={styles.badge}>{item.badge}</div>
                         </div>
+                        {isMobile && (
+                            <div className={activeSubItemtab === index ? styles.check: styles.none}><Forex isMobile /></div>
+                        )}
+
                     </div>
                      </div>
                     <hr className={styles.hr} />
+
                     </div>
             ))}
-
         </div>
 
     );

@@ -22,6 +22,17 @@
 .balancesRight {
   width: 70%;
   text-align: center;
+  @include mobile {
+    width: 100%;
+  }
+}
+.mobile_modals {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .tabuletTitle {
   text-align: center;
@@ -60,6 +71,9 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  @include mobile {
+    align-items: flex-start;
+  }
 }
 .titleBlockSub {
   display: flex;
@@ -71,6 +85,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px 10px 0px 10px;
+  @include mobile {
+    align-items: flex-start;
+    padding: 10px;
+  }
 }
 .row{
   display: flex;
@@ -93,8 +111,13 @@
   align-items: center;
   font-feature-settings: 'pnum' on, 'lnum' on;
   margin-left: 10px;
-
   color: #00CD86;
+  @include mobile {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
 .title_text {
   font-weight: 400;
@@ -106,7 +129,24 @@
   align-items: center;
   font-feature-settings: 'pnum' on, 'lnum' on;
   margin-left: 10px;
+  @include mobile {
+    width: 230px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 140%;
+  }
 
+}
+.subtitle {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 140%;
+  margin-left: 10px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #B6C2EA;
 }
 
 .badge {
@@ -124,12 +164,15 @@
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  @include mobile {
+    margin-top: 10px;
+    height: 22px;
+    width: 22px;
+  }
 }
 
 .option {
   display: flex;
-
   justify-content: space-between;
   background: #060A16;
   border: 1px solid #19213D;
@@ -155,7 +198,6 @@
           font-size: 12px;
           line-height: 140%;
           /* or 15px */
-
           font-feature-settings: 'pnum' on, 'lnum' on;
         }
       }
@@ -197,7 +239,37 @@
 .mag {
   margin-top: 5px;
   @include mobile {
-
     background: #020610;
   }
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 245px;
+}
+.selection {
+  height: 90vh;
+
+  //margin-top: 33px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.check {
+  padding-top: 30px;
+  //margin-top: 30px;
+  position: absolute;
+  background-color: black;
+  width: 100vw;
+  height: 110vh;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

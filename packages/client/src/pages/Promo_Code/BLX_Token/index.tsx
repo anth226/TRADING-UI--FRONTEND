@@ -18,7 +18,7 @@ const AffiliateBLX:FC = () => {
 
     return (
             <div className={styles.promo}>
-                <h3 className={styles.title}>BLX Token Campaing</h3>
+                <h3 className={styles.title}>THX Token Campaing</h3>
                 <div className={styles.row}>
                     <div>
                         <div className={styles.inputs}>
