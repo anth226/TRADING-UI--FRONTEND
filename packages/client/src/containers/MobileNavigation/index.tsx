@@ -11,6 +11,8 @@ import { Chat } from '../leftSidebar/Chat';
 import { Notifications } from '../leftSidebar/Notifications';
 import { Info } from '../leftSidebar/Info';
 import { OpenPosition } from '../leftSidebar/OpenPosition';
+import { Signals } from '../leftSidebar/Signals';
+import { Staking } from '../../pages/Staking';
 
 const MobileNavigation: FC = () => {
   const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
@@ -24,7 +26,10 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.Notifications && <Notifications isMobile /> }
       {activeItem === Navigation.Info && <Info isMobile /> }
       {activeItem === Navigation.OpenPositions && <OpenPosition isMobile /> }
-
+      {activeItem === Navigation.Signals && <Signals isMobile /> }
+      {activeItem === Navigation.Stake && <Staking active={1} /> }
+      {activeItem === Navigation.BLX && <Staking active={3} />}
+      {activeItem === Navigation.UnStake && <Staking active={2} />}
     </div>
   );
 };

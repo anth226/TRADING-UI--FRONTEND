@@ -1,13 +1,13 @@
-@import "../../../../../../../node_modules/@option-blitz/libs/assets/styles/mixins";
-@import "../../../../../../../node_modules/@option-blitz/libs/assets/styles/variables";
+@import "../../../../../../node_modules/@option-blitz/libs/assets/styles/mixins";
+@import "../../../../../../node_modules/@option-blitz/libs/assets/styles/variables";
 
 .wrap {
   width: auto;
   border: 1px solid var(--color-grey);
   border-radius: 4px;
 }
-.wrapMobile{
-  @extend .wrap;
+.wrap_mobile{
+  @extend  .wrap;
   width: 163px;
 }
 .content {
@@ -46,7 +46,6 @@
   @extend .input;
   width: 70px;
 }
-
 .button_wrap {
   @include flexbox();
 
@@ -56,5 +55,7 @@
 .buttonUp{
   transform: rotate(-90deg);
 }
-
+.buttonDown{
+  transform: rotate(90deg);
+}
 

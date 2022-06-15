@@ -49,10 +49,10 @@ const Signals: FC<Props> = ({
     filterChange,
   } = useHotAssetsHandlers();
   return (
-    <div className={styles.wrap}>
+    <div className={isMobile ? styles.wrapMobile : styles.wrap}>
       <div className={styles.title_wrap}>
         <p className={styles.title}>Signals</p>
-        <button onClick={onBack} className={styles.arrow_wrap}>
+        <button onClick={onBack} className={ isMobile ? styles.none : styles.arrow_wrap}>
           <img src={arrow} alt='back' />
         </button>
       </div>
@@ -63,14 +63,14 @@ const Signals: FC<Props> = ({
         summary derived from simple and exponential moving averages along with key technical
         indicators.
       </div>
-      <div className={styles.areas}>
+      <div className={isMobile ? styles.areasMobile : styles.areas}>
         <DefaultSelect
-          className={styles.select}
+          className={isMobile ? styles.selectMobile : styles.select}
           onChange={filterChange}
           options={filterOptions}
           defaultValue={filterOptions[0]}
         />
-        <div className={styles.label}>
+        <div className={isMobile ? styles.selectMobile : styles.label}>
           <TextInput
             left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search} />}
             type={'text'}

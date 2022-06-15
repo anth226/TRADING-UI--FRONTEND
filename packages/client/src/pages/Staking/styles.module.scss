@@ -9,9 +9,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
-
 }
-
+.wrap_mobile{
+  @extend .wrap;
+  width: 100vw;
+}
 .wrapOne{
   margin-right: 20px;
   width: 100%;

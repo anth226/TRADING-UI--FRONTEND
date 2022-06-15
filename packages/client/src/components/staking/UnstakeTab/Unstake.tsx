@@ -10,8 +10,12 @@ import tron from '../../../../../libs/assets/images/staking/unStake/tron.png';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import Max from '@option-blitz/libs/assets/images/staking/stake/leftCard/Max';
 import Button from '@option-blitz/libs/components/inputs/Button';
+import useResize from '@option-blitz/libs/hooks/useResize';
 
 const Unstake: FC = () => {
+
+  const { isMobile } = useResize();
+
   return (
     <div>
       <div className={styles.description}>Withdraw funds from the liquidity pool and claim your rewards. Unstaking transfers funds
@@ -73,8 +77,11 @@ const Unstake: FC = () => {
             <div className={styles.pool}>Est. APY:<div>80%</div></div>
           </div>
         </div>
-        <Button className={styles.unstake}>UNSTAKE</Button>
+        {!isMobile &&<Button className={styles.unstake}>UNSTAKE</Button>}
       </div>
+      {isMobile && <div className={styles.test}>
+        <Button className={styles.unstake_mobile}>UNSTAKE</Button>
+      </div>}
 
 
     </div>

@@ -34,7 +34,7 @@ const Profile = () => {
     }
   }
   return (
-    <MainLayout>
+    <MainLayout type={'profile'}>
       {!isMobile &&
         <div className={styles.container}>
           <div className={styles.row}>

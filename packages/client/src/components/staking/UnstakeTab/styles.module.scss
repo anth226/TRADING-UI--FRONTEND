@@ -67,6 +67,10 @@
   background: linear-gradient(180deg, #54B163 0%, #4CA357 100%);
   border-radius: 8px;
 }
+.unstake_mobile{
+  @extend .unstake;
+  width: 100%;
+}
 .lock{
   font-family: Conthrax;
   font-style: normal;

@@ -51,8 +51,34 @@
   color: #b6c2ea;
 }
 
+.max_mobile {
+  @extend .max;
+  width: 163px;
+}
+
 .max_boost {
   margin-left: 50px;
+}
+
+.max_boost_mobile {
+  margin-left: 20px;
+  font-family: 'Cabin';
+  font-size: 15px;
+}
+
+.stake {
+  height: 25px;
+  font-size: 8px;
+  width: 55px;
+}
+
+.burn {
+  height: 25px;
+  font-size: 8px;
+  width: 55px;
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  border: 1px solid #374459;
 }
 
 .buy {
@@ -62,7 +88,25 @@
   margin-top: 20px;
 }
 
-.description_second{
-@extend .description;
+.description_second {
+  @extend .description;
   margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.buttons_mobile {
+  @extend .buttons;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.boost_mobile {
+  @extend .boost;
+  width: 165px;
 }

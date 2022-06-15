@@ -12,6 +12,7 @@ import { BlxIcon } from '../../components/staking/BlxIcon';
 import Stake from '../../components/staking/StakeTab/Stake';
 import BLX from '../../components/staking/BlxTab/BLX';
 import Unstake from '../../components/staking/UnstakeTab/Unstake';
+import useResize from '@option-blitz/libs/hooks/useResize';
 
 interface Props {
   active: number;
@@ -37,6 +38,8 @@ const navigation = [
 
 const Staking:FC<Props> = ({active}) => {
 
+  const { isMobile } = useResize();
+
   const [activeItem, setActiveItem] = useState(active)
 
   const whichTab = () => {
@@ -53,9 +56,9 @@ const Staking:FC<Props> = ({active}) => {
   }
 
   return (
-    <div className={styles.wrap}>
+    <div className={isMobile ?styles.wrap_mobile :styles.wrap}>
       <div className={styles.wrapOne}>
-        <div className={styles.first_line}>
+        {!isMobile && <> <div className={styles.first_line}>
           <div className={styles.card}>
             <div className={styles.summary}>STAKING</div>
             <img src={backgound} alt='' />
@@ -98,18 +101,20 @@ const Staking:FC<Props> = ({active}) => {
               </div>
             </div>
           </div>
-        </div>
+        </div></>}
 
-
-      <div className={styles.navigation}>
-        {navigation.map((link, i) => (
-          <div className={activeItem === i + 1 ? styles.navItemActive : styles.navItem}
-               onClick={() => setActiveItem(i + 1)}>
-            {link.icon}
-            <div>{link.title}</div>
+        {!isMobile && <>
+          <div className={styles.navigation}>
+            {navigation.map((link, i) => (
+              <div className={activeItem === i + 1 ? styles.navItemActive : styles.navItem}
+                   onClick={() => setActiveItem(i + 1)}>
+                {link.icon}
+                <div>{link.title}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>}
+
       {whichTab()}
       </div>
     </div>

@@ -6,6 +6,10 @@
   display: flex;
   flex-direction: column;
 }
+.wrapMobile{
+  @extend .wrap;
+  width: 100%;
+}
 
 .card_wrap {
   @include flexbox(center, initial);
@@ -57,9 +61,17 @@
   column-gap: 5px;
   margin-bottom: 15px;
 }
+.areasMobile{
+  @extend  .areas;
+  flex-direction: column;
+  row-gap: 8px;
+}
 
 .select {
   width: 200px;
+}
+.selectMobile{
+  width: 100%;
 }
 
 .input {
@@ -163,4 +175,7 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+.none{
+  display: none;
 }

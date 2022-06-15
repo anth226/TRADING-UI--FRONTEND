@@ -15,9 +15,10 @@ import Div100vh, { use100vh } from 'react-div-100vh';
 
 interface IProps {
   isRightSideBar?: boolean;
+  type?: 'profile' | 'chart';
 }
 
-const MainLayout: FC<IProps> = ({ children, isRightSideBar }) => {
+const MainLayout: FC<IProps> = ({ children, isRightSideBar, type='chart' }) => {
   const {
     rootItems,
     activeRootItem,
@@ -61,8 +62,9 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar }) => {
 
         {isMobile && (
           <>
-            {!activeNavigation && <MobileProducts mainChart={children} />}
-            {activeNavigation && <MobileNavigation />}
+            {type === 'profile' &&   <div className={styles.mobile_wrap}>{children}</div>}
+            {type === 'chart' && <>
+              {activeNavigation ? <MobileNavigation /> : <MobileProducts mainChart={children} />} </>}
             <MobileNavigationBar
               onClose={toggleMobileNavigation}
               isOpen={mobileSidebarIsOpen}

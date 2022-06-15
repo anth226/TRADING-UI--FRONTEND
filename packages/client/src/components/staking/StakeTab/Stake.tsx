@@ -11,8 +11,12 @@ import backgroundRight from '../../../../../libs/assets/images/staking/stake/rig
 import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/Bg.png'
 import blx from '../../../../../libs/assets/images/staking/stake/rightCard/blx.svg'
 import usdCoin from '../../../../../libs/assets/images/staking/stake/leftCard/usdCoin.svg'
+import useResize from '@option-blitz/libs/hooks/useResize';
 
 const Stake: FC = () => {
+
+  const { isMobile } = useResize();
+
   const [numActive, setNumActive]=useState(4)
   const [activeButton, setActiveButton] = useState('stake')
 
@@ -87,8 +91,8 @@ const numbers = [
      <div className={styles.description}>Enter any duration to lock funds in liquidity pool to earn duration multiplier and boost reward. Or enter 0 for no lock duration to enable unstake and withdraw on demand.</div>
     <div className={styles.duration}>LOCK DURATION</div>
 
-      <div style={{display: 'flex', alignItems: 'center'}}>
-        <div className={styles.input_wrap}>
+      <div style={{display: 'flex', alignItems: 'center'}} className={isMobile ? styles.box_mobile : styles.box}>
+        <div className={isMobile ? styles.input_wrap_mobile : styles.input_wrap}>
           <TextInput
             type={'text'}
             label={undefined}
@@ -110,7 +114,7 @@ const numbers = [
         <div className={styles.num}>80%</div>
         </div>
       </div>
-      <Button className={styles.confirm}>CONFIRM</Button>
+      <Button className={isMobile ? styles.confirm_mobile : styles.confirm}>CONFIRM</Button>
 
 
     </div>
