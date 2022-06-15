@@ -252,9 +252,12 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
               title='SUMMARY'
               className={styles.collapse}
           >
-              <RightSidebarPosInfo type={type} title="BTCUSD" items={bra} date={date} />
+              <RightSidebarPosInfo
+                  type={type} title="BTCUSD"
+                  items={bra} date={date} />
           </Collapse>
-          <div>
+
+          <div className={styles.cancel_button}>
               <Button
                   className={styles.cancel}
                   color="primary"
@@ -267,11 +270,12 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
       <div className={styles.positions_wrap}>
         <div className={styles.positions}>
             <RightSidebarPosInfo type={type} title="BTCUSD" items={abra} date={date} />
-            <div className={styles.aps}>
+            {/*<div className={styles.aps}>*/}
                 <Collapse
                     title='take profit'
                     className={styles.collapse_position}
-                    contentClassName={styles.container_profit}
+                    // className={styles.collapse_position}
+                    // contentClassName={styles.container_profit}
                 >
                     <div className={styles.row_input}>
                         <RightSidebarInput
@@ -329,7 +333,7 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
                     </div>
 
                 </Collapse>
-            </div>
+            {/*</div>*/}
 
         </div>
       </div>

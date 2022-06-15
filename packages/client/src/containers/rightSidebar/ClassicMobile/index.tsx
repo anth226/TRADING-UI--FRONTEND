@@ -60,6 +60,20 @@ const ClassicMobile: FC<Props> = ({ mainChart }) => {
       </div>
 
       <div className={styles.trade}>
+        <div className={styles.input_wrap}>
+          <RightSidebarInput
+            type="small"
+            className={styles.input}
+            label="Qty"
+            onFirstBtnClick={downQty}
+            onSecondBtnClick={upQty}
+            onChange={changeQty}
+            value={qty}
+            firstBtnIcon={FontIconName.Minus}
+            secondBtnIcon={FontIconName.Plus}
+          />
+          <RightSidebarTime className={styles.time} type="small" />
+        </div>
         <div className={styles.button_wrap}>
           <Button
             onClick={callClick}
@@ -78,19 +92,9 @@ const ClassicMobile: FC<Props> = ({ mainChart }) => {
             <p>Put</p>
           </Button>
         </div>
-        <div className={styles.input_wrap}>
-          <RightSidebarInput
-            type="small"
-            className={styles.input}
-            label="Qty"
-            onFirstBtnClick={downQty}
-            onSecondBtnClick={upQty}
-            onChange={changeQty}
-            value={qty}
-            firstBtnIcon={FontIconName.Minus}
-            secondBtnIcon={FontIconName.Plus}
-          />
-          <RightSidebarTime className={styles.time} type="small" />
+
+        <div className={styles.text}>
+          Returns
         </div>
 
         <ProfitChart isMobile profitItems={profitItems} />

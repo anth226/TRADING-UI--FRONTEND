@@ -2,7 +2,6 @@
 
 .mobile_wrap {
   @include flexbox(initial, flex-end);
-
   flex-direction: column;
   height: 100%;
   width: 100%;

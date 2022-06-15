@@ -50,7 +50,7 @@ const BinaryMobile: FC<Props> = ({ mainChart }) => {
               type="small"
               className={styles.amount}
               label="Trade amount"
-              symbol="$"
+              // symbol="$"
               value={inputValue}
               onFirstBtnClick={minusClick}
               onSecondBtnClick={plusClick}
