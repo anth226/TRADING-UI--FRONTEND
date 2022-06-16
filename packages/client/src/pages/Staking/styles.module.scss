@@ -12,6 +12,7 @@
 }
 .wrap_mobile{
   @extend .wrap;
+  padding-right: 0;
   width: 100vw;
 }
 .wrapOne{

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
-import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
+import {FontIcon, FontIconName} from '@option-blitz/libs/components/inputs/FontIcon';
 import { BLXInput } from './BLXinput';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { BLXTab } from './BLXTab/BLXTab';
@@ -15,6 +15,14 @@ const BLX: FC = () => {
   const blx = 0
   return (
     <div>
+        {isMobile && (
+            <button className={styles.row_bottom_mob} >
+                <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
+                <div style={{marginLeft: '10px'}}>
+                    BLX
+                </div>
+            </button>
+        )}
       <div className={styles.description}>Dual staking BLX with USDС supercharges your rewards by up to 100%. Use the calculator
         below to work how much you can multiply your yield. Don’t have any BLX? Follow the      links to
         buy it at the best price. Learn more about BLX and what else you can do with it here.

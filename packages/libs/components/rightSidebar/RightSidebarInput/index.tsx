@@ -8,7 +8,7 @@ type Type = 'normal' | 'small';
 interface Props {
   type?: Type
   className?: string
-  label: string
+  label?: string
   value?: string
   symbol?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
@@ -20,6 +20,7 @@ interface Props {
   secondIconClassName?: string
   inputClassName?: string
   labelClassName?: string
+  valueClassName?: string
 }
 
 const RightSidebarInput: FC<Props> = ({
@@ -32,9 +33,10 @@ const RightSidebarInput: FC<Props> = ({
   onSecondBtnClick,
   firstBtnIcon,
   secondBtnIcon,
-  className,
+  className, valueClassName,
   firstIconClassName,
   secondIconClassName,
+
 }) => (
   <div className={cx(styles.wrap, className)}>
     {type === 'normal' && (
@@ -73,7 +75,7 @@ const RightSidebarInput: FC<Props> = ({
           </button>
           <input
             onChange={onChange}
-            className={cx(styles.input, styles.input_small)}
+            className={cx(styles.input, styles.input_small, valueClassName)}
             type="text"
             value={value}
           />

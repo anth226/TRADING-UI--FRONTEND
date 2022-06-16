@@ -104,3 +104,8 @@
 .row{
   display: flex;
 }
+.row_bottom_mob{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px ;
+}

@@ -11,6 +11,7 @@ import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import Max from '@option-blitz/libs/assets/images/staking/stake/leftCard/Max';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import useResize from '@option-blitz/libs/hooks/useResize';
+import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 
 const Unstake: FC = () => {
 
@@ -18,11 +19,19 @@ const Unstake: FC = () => {
 
   return (
     <div>
+      {isMobile && (
+          <button className={styles.row_bottom_mob} >
+            <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
+            <div style={{marginLeft: '10px'}}>
+              UNSTAKE
+            </div>
+          </button>
+      )}
       <div className={styles.description}>Withdraw funds from the liquidity pool and claim your rewards. Unstaking transfers funds
         to your live balance. Funds left after lock period ends continue to yield at the same level.
       </div>
       <div className={styles.enter}>Enter the amount of funds you wish to withdraw</div>
-      <div className={isMobile ? styles.column : styles.gap}>
+      <div className={isMobile ? styles.column : styles.row}>
         <div style={{position: 'relative'}}>
           <img src={bgFirst} alt='' className={styles.bg}/>
           <img src={dol} alt='' className={styles.dol}/>

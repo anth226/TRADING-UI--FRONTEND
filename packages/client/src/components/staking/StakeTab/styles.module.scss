@@ -1,3 +1,4 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
 .description {
   font-family: Cabin;
   font-weight: 400;
@@ -29,6 +30,15 @@
   display: flex;
   column-gap: 10px;
 }
+.section_mobile {
+  width: 100%;
+  display: flex;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  margin: 10px 0;
+  justify-content: space-between;
+}
+
 
 .valueActive {
   @extend .value;
@@ -42,19 +52,39 @@
   align-items: center;
   width: 75px;
   height: 45px;
+  @include mobile {
+    height: 30px;
+  }
   border-radius: 4px;
   border: 1px solid #374459;
   background-color: #0d1422;
 }
-
+.card_wrap {
+  display:flex;
+}
+.card_wrap_mob {
+  display: flex;
+  justify-content: space-between;
+}
 .background {
   position: relative;
+}
+.background_mob {
+  width: 180px;
+  height: 190px;
 }
 
 .bg {
   position: absolute;
   top: 8px;
   left: 15px;
+}
+.bg_mob {
+  position: absolute;
+  top: 46px;
+  left: -80px;
+  height: 130px;
+  width: 250px;
 }
 
 .left_card {
@@ -73,17 +103,39 @@
   top: 20px;
   left: 30px;
 }
+.coin_mob {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
 
 .buy {
   position: absolute;
   top: 24px;
   left: 454px;
 }
+.buy_mob {
+  position: absolute;
+  top: 15px;
+  left: 135px;
+}
 
 .balance {
   position: absolute;
   top: 97px;
   left: 35px;
+  font-family: Raleway;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 11px;
+}
+.balance_mob {
+  position: absolute;
+  top: 95px;
+  left: 20px;
   font-family: Raleway;
   font-size: 13px;
   font-weight: 500;
@@ -125,7 +177,32 @@
     color: white;
   }
 }
+.in_mob {
+  height: 43px;
+  display: flex;
+  align-items: center;
 
+  span {
+    display: none;
+  }
+  border: 1px solid white !important;
+  border-radius: 4px;
+  position: absolute;
+  top: 115px;
+  left: 20px;
+  width: 132px;
+  div {
+    border: none !important;
+  }
+
+  ::-webkit-input-placeholder {
+    color: white;
+  }
+
+  ::-moz-placeholder {
+    color: white;
+  }
+}
 .input {
   font-family: Cabin;
   font-size: 13px;
@@ -137,6 +214,13 @@
   top: 7px;
   left: 14px;
 }
+.bg_right_mob {
+  width: 330px;
+  height: 140px;
+  position: absolute;
+  top: 30px;
+  left: -120px;
+}
 
 .coin_right {
   display: flex;
@@ -145,6 +229,14 @@
   position: absolute;
   top: 20px;
   left: 30px;
+}
+.coin_right_mob {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 .card_description {
@@ -162,6 +254,41 @@
   @extend .in;
   width: 460px;
 }
+.in_two_mob {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  width: 132px;
+  position: absolute;
+  top: 115px;
+  left: 20px;
+  border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+
+    span {
+      display: none;
+    }
+    border: 1px solid white !important;
+    //border-radius: 4px;
+    //position: absolute;
+    //top: 115px;
+    //left: 20px;
+    //width: 132px;
+    div {
+      border: none !important;
+    }
+    ::-webkit-input-placeholder {
+      color: white;
+    }
+    ::-moz-placeholder {
+      color: white;
+    }
+}
+.balance_input_mob {
+  border: 1px solid white !important;
+}
 
 .pool {
   font-family: Cabin;
@@ -170,12 +297,17 @@
   color: #b6c2ea;
   margin-left: 20px;
   margin-right: 10px;
-
+  @include mobile {
+  margin-left: 0;
+}
 }
 
 .num {
   font-family: Cabin;
   font-size: 15px;
+  @include mobile{
+    margin-right: 20px;
+  }
 }
 
 .button_wrap {
@@ -184,7 +316,14 @@
   position: absolute;
   top: 24px;
   left: 195px;
-
+}
+.button_wrap_mob {
+  display: flex;
+  height: 26px;
+  width: 110px;
+  position: absolute;
+  top: 65px;
+  left: 20px;
 }
 
 .buttonActive {
@@ -215,5 +354,37 @@
 .box_mobile {
   display: flex;
   flex-direction: column;
+}
+.burn_button {
+  padding: 12px 8px;
+  height: 24px;
+  font-size: 8px;
+  line-height: 10px;
 
+}
+.value_mob_two {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFFFFF!important;
+  line-height: 19px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px ;
+}
+.rez {
+  display: flex;
+  align-items: flex-end;
+}
+.rez_mob {
+  display: flex;
+  align-self: baseline;
+}
+.row_bottom_mob{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px ;
 }
