@@ -15,6 +15,7 @@ import {LoginModal} from '../../containers/Modals/LoginModal';
 import {LoginPrivatKey} from '../../containers/Modals/LoginPrivatKey';
 import {WalletConnected} from '../../containers/Modals/WalletConnected';
 import {CreateNewAccount} from '../../containers/Modals/CreateNewAccount';
+import {log} from "util";
 
 interface Props {
   onAddTab: () => void
@@ -67,7 +68,8 @@ const Header: FC<Props> = ({
     history.push('/profile');
   };
   const goToBalances = () => {
-    history.push('/balances');
+    history.push('/balances')
+    console.log(22)
   };
   const goToSelection = () => {
     history.push('/selections');
@@ -141,8 +143,9 @@ const Header: FC<Props> = ({
           img="/avatar.png"
         />
         {isAuth && (
-          <div className={styles.balance}>
+          <div className={isMobile ? styles.balance_mob : styles.balance}>
             <HeaderBalance
+                className={styles.balance_head}
               onChange={onBalanceChange}
               options={options}
               defaultValue={defaultOption}

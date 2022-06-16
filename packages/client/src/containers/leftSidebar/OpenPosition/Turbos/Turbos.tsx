@@ -128,28 +128,28 @@ const Turbos: FC<Props> = ({isMobile}) => {
                                         color="transparent_primary"
                                         className={cx(styles.button, styles.target_price_btn, styles.buttons_turbos)}
                                     >
-                                        - target price
+                                        - TARGET PRICE
                                     </Button>
                                     <Button
                                         onClick={sellClick}
                                         color="transparent_primary"
                                         className={cx(styles.button, styles.buttons_turbos)}
                                     >
-                                        sell
+                                        SELL
                                     </Button>
                                     <Button
                                         onClick={sellClick}
                                         color="transparent_primary"
                                         className={cx(styles.button,  styles.buttons_turbos)}
                                     >
-                                        view
+                                        VIEW
                                     </Button>
                                     <Button
                                         onClick={settleClick}
                                         className={cx(styles.button, styles.buttons_turbos)}
                                         color="primary"
                                     >
-                                        settle
+                                        SETTLE
                                     </Button>
                                 </div>
 
@@ -189,7 +189,7 @@ const Turbos: FC<Props> = ({isMobile}) => {
                         />
                         <Button className={styles.button} color={"transparent_primary"}>- TARGET PRICE</Button>
                         <Button className={styles.button} color={"transparent_primary"}>SELL</Button>
-                        <Button className={styles.button}>SETTLE</Button>
+                        <Button className={styles.button} >SETTLE</Button>
                     </div>
                 </div>
             )}

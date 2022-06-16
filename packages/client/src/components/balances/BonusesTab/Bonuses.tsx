@@ -36,7 +36,10 @@ const Bonuses:FC = () => {
                 </div>
                 <div className={styles.convert}>
                     <h4 className={styles.convertTitle}>Convert to USDС</h4>
-                    <p className={styles.subtitle}>Balance available to convert 0.0 BLZ minimum wager x20. You must turn more over BLZ to redeem funds.</p>
+                    <p className={styles.subtitle}>
+                        Balance available to convert 0.0 BLZ
+                        minimum wager x20. You must turn more over BLZ to redeem funds.
+                    </p>
                 </div>
                 <div>
                     <h4 className={styles.redeemTitle}>Redeem</h4>

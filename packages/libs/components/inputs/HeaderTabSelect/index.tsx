@@ -40,7 +40,7 @@ customStyles.control = ((provided) => ({
   '&:hover': {},
   boxShadow: 'none',
   height: '100%',
-  minHeight: '34px',
+  minHeight: '32px',
 }));
 
 const Option = (optionProps: OptionProps<HeaderTabItem, false>) => {

@@ -44,7 +44,7 @@
   height: 45px;
 
   &:not(:first-child) {
-    margin-left: 6px;
+    //margin-left: 6px;
   }
 }
 
@@ -85,7 +85,7 @@
 
 .avatar {
   height: 45px;
-  margin-left: 6px;
+  margin: 0 6px;
 
   @include mobile {
     height: initial;
@@ -100,14 +100,12 @@
 .balance {
   margin-left: 10px;
   height: 45px;
-
-  @include mobile {
-    //height: 34px;
+}
+.balance_mob {
     width: 104px;
     margin-right: 6px;
-  }
 }
 
 .tab_selector {
-  margin: 0 14px;
+  margin: 0 6px;
 }

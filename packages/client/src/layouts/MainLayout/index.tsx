@@ -64,7 +64,7 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar, type='chart' }) => {
           <>
             {type === 'profile' &&   <div className={styles.mobile_wrap}>{children}</div>}
             {type === 'chart' && <>
-              {activeNavigation ? <MobileNavigation /> : <MobileProducts mainChart={children} />} </>}
+              {activeNavigation ? <MobileNavigation /> : <MobileProducts   mainChart={children} />} </>}
             <MobileNavigationBar
               onClose={toggleMobileNavigation}
               isOpen={mobileSidebarIsOpen}

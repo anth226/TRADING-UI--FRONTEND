@@ -24,7 +24,8 @@
 .single_value_wrap {
   @include flexbox();
 
-  margin: 0 20px 0 10px;
+  padding: 0 22px;
+  margin: 0 10px 0 10px;
 
   @include mobile {
     margin: 0;

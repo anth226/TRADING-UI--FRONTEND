@@ -251,6 +251,7 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
           <Collapse
               title='SUMMARY'
               className={styles.collapse}
+              titleClassName={styles.collapse_position_title}
           >
               <RightSidebarPosInfo
                   type={type} title="BTCUSD"
@@ -273,6 +274,7 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
             {/*<div className={styles.aps}>*/}
                 <Collapse
                     title='take profit'
+                    titleClassName={styles.collapse_position_title}
                     className={styles.collapse_position}
                     // className={styles.collapse_position}
                     // contentClassName={styles.container_profit}

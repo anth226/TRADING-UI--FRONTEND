@@ -33,7 +33,10 @@ const Blx:FC = () => {
                     <div></div>
                     <div></div>
                 </div>
-                <p className={styles.infoTitle}>Use BLX to boost staking rewards by up to 100% and spend it to pay for transactions fees with up to 40% discount. Refer other traders and earn an extra 10% of their fees when they pay in BLX.</p>
+                <p className={styles.infoTitle}>Use BLX to boost staking rewards by up to 100%
+                    and spend it to pay for transactions fees with up to 40% discount. Refer other
+                    traders and earn an extra 10% of their fees when they pay in BLX.
+                </p>
                 <div className={styles.scroll}>
                     <Table columns={columns} data={data}/>
                 </div>

@@ -35,7 +35,13 @@ export const Wrapper: FC<WrapperProps> = ({
         <>
           <div className={styles.checkbox_wrap}>
             <p className={styles.checkbox_label}>Take Profit</p>
-            <Checkbox size={14} iconSize={7} checked={checkbox} onCheck={onCheckboxChange} />
+            <Checkbox
+              size={14}
+              iconSize={7}
+              checked={checkbox}
+              onCheck={onCheckboxChange}
+              className={checkbox ? styles.check_box_active : styles.check_box_unactive}
+            />
           </div>
           <div className={styles.inputs_wrap}>
             {children}
