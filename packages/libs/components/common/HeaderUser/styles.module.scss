@@ -3,8 +3,10 @@
 
 .wrap {
   @include flexbox();
-
   position: relative;
+@include mobile {
+  height: 34px !important;
+}
 }
 
 .wrap_border {

@@ -85,86 +85,117 @@ const Header: FC<Props> = ({
     }
   }
 
-
-
-
   // @ts-ignore
   return (
     <div className={styles.wrap}>
-      <div className={styles.section}>
-        <button onClick={isMobile ? openMobileNavigation : undefined}>
-          <FontIcon
-            name={FontIconName.Menu}
-            size={20}
-            className={styles.icon}
-          />
-        </button>
-        {!isMobile && (
-          <Link className={styles.logo} to={Routes.Homepage}>
-            Option
-            <span className={styles.logo_blitz}>Blitz</span>
-          </Link>
-        )}
-        {!isMobile && (
-          <div className={styles.tabs}>
-            {tabs.map((tab) => (
-              <HeaderTab
-                key={tab.id}
-                data={tab}
-                className={styles.tab}
-                onClick={onTabClick}
-              />
-            ))}
-          </div>
-        )}
-        {isMobile && (
-          <HeaderTabSelect
-            className={styles.tab_selector}
-            onChange={tabChangeHandler}
-            tabs={tabs}
-            defaultValue={activeTab}
-            value={activeTab}
-          />
-        )}
-        <button
-            onClick={plusik}
-          // onClick={goToSelection}
-          className={cx(styles.tab, !openselection ? styles.plus : styles.minus)}
-        >
-          <FontIcon size={16} className={styles.plus_icon} name={ openselection ? FontIconName.Minus : FontIconName.Plus } />
-        </button>
-      </div>
-
-      <div className={styles.section}>
-        <HeaderUser
-          onClick={handlerChange}
-          isActive={userAvatarIsActive}
-          className={styles.avatar}
-          img="/avatar.png"
-        />
-        {isAuth && (
-          <div className={styles.balance}>
-            <HeaderBalance
-                className={styles.balance_head}
-              onChange={onBalanceChange}
-              options={options}
-              defaultValue={defaultOption}
-              onClick={goToBalances}
+      {isMobile ?
+        <>
+          <button onClick={openMobileNavigation}>
+            <FontIcon
+              name={FontIconName.Menu}
+              size={20}
+              className={styles.icon}
             />
-          </div>
+          </button>
+            <HeaderTabSelect
+              className={styles.tab_selector}
+              onChange={tabChangeHandler}
+              tabs={tabs}
+              defaultValue={activeTab}
+              value={activeTab}
+            />
+          <button
+            onClick={plusik}
+            // onClick={goToSelection}
+            className={cx(styles.tab, !openselection ? styles.plus : styles.minus)}
+          >
+            <FontIcon size={16} className={styles.plus_icon} name={ openselection ? FontIconName.Minus : FontIconName.Plus } />
+          </button>
+
+          <HeaderUser
+            onClick={handlerChange}
+            isActive={userAvatarIsActive}
+            className={styles.avatar}
+            img="/avatar.png"
+          />
+          {isAuth && (
+            <div className={styles.balance}>
+              <HeaderBalance
+                className={styles.balance_head}
+                onChange={onBalanceChange}
+                options={options}
+                defaultValue={defaultOption}
+                onClick={goToBalances}
+              />
+            </div>
+          )}
+
+          <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
+          <LoginPrivatKey active={privatkey} setActive={setPrivatkey} mainmodal={setModalVisible} />
+          <WalletConnected active={wallet} setActive={setWallet} />
+          <CreateNewAccount active={createaccount} setActive={setCreateaccount} setWallet={setWallet} isMobile={isMobile} />
+        </>
+
+        :
+
+        <>
+        <div className={styles.section}>
+        <Link className={styles.logo} to={Routes.Homepage}>
+        Option
+        <span className={styles.logo_blitz}>Blitz</span>
+        </Link>
+        <div className={styles.tabs}>
+      {tabs.map((tab) => (
+        <HeaderTab
+        key={tab.id}
+        data={tab}
+        className={styles.tab}
+        onClick={onTabClick}
+        />
+        ))}
+        </div>
+
+        <button
+        onClick={plusik}
+        // onClick={goToSelection}
+        className={cx(styles.tab, !openselection ? styles.plus : styles.minus)}
+        >
+        <FontIcon size={16} className={styles.plus_icon} name={ openselection ? FontIconName.Minus : FontIconName.Plus } />
+        </button>
+        </div>
+
+        <div className={styles.section}>
+        <HeaderUser
+        onClick={handlerChange}
+        isActive={userAvatarIsActive}
+        className={styles.avatar}
+        img="/avatar.png"
+        />
+      {isAuth && (
+        <div className={styles.balance}>
+        <HeaderBalance
+        className={styles.balance_head}
+        onChange={onBalanceChange}
+        options={options}
+        defaultValue={defaultOption}
+        onClick={goToBalances}
+        />
+        </div>
         )}
-        {!isMobile && (
-          <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
-            {address || 'login'}
-          </Button>
-        )}
+
+        <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
+      {address || 'login'}
+        </Button>
 
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
         <LoginPrivatKey active={privatkey} setActive={setPrivatkey} mainmodal={setModalVisible} />
         <WalletConnected active={wallet} setActive={setWallet} />
         <CreateNewAccount active={createaccount} setActive={setCreateaccount} setWallet={setWallet} isMobile={isMobile} />
+        </div>
+        </>
+    }
+
       </div>
-    </div>
   );
 };
 
