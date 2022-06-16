@@ -22,7 +22,7 @@ const Unstake: FC = () => {
         to your live balance. Funds left after lock period ends continue to yield at the same level.
       </div>
       <div className={styles.enter}>Enter the amount of funds you wish to withdraw</div>
-      <div style={{display: 'flex'}}>
+      <div className={isMobile ? styles.column : styles.gap}>
         <div style={{position: 'relative'}}>
           <img src={bgFirst} alt='' className={styles.bg}/>
           <img src={dol} alt='' className={styles.dol}/>

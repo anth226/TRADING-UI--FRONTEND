@@ -143,7 +143,7 @@ const Header: FC<Props> = ({
           img="/avatar.png"
         />
         {isAuth && (
-          <div className={isMobile ? styles.balance_mob : styles.balance}>
+          <div className={styles.balance}>
             <HeaderBalance
                 className={styles.balance_head}
               onChange={onBalanceChange}

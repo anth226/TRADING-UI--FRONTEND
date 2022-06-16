@@ -70,6 +70,7 @@
 .unstake_mobile{
   @extend .unstake;
   width: 100%;
+  margin-top: 10px;
 }
 .lock{
   font-family: Conthrax;
@@ -95,5 +96,11 @@
   color: #B6C2EA;
   display: flex;
   column-gap: 20px;
-
+}
+.column{
+  display: flex;
+  flex-direction: column;
+}
+.row{
+  display: flex;
 }

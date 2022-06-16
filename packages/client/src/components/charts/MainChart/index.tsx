@@ -35,6 +35,10 @@ export const paddingTB = {
 export const paddingLR = {
   left: 0, right: 150, top: 40, bottom: 0,
 };
+export const paddingLR_Mobile = {
+  left: 0, right: 0, top: 40, bottom: 0,
+};
+
 const marginBetweenCharts = 10;
 
 interface Props {
@@ -113,7 +117,7 @@ const MainChart: FC<Props> = ({
         height={height}
         width={width}
         ratio={1}
-        padding={paddingLR}
+        padding={ isMobile ? paddingLR_Mobile : paddingLR}
         margin={margin}
         seriesName="MSFT"
         data={data}
