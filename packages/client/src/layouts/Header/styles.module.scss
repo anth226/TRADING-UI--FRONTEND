@@ -103,18 +103,21 @@
 
   @include mobile {
     height: 34px;
+    max-height: 34px!important;
+
     width: 104px;
     margin-right: 6px;
     margin-left: 0;
-    div:first-child {
-      div:last-child {
-        max-height: 34px !important;
-      }
+    div {
+      height: auto;
     }
+    //div:first-child {
+    //  div:last-child {
+    //    max-height: 34px !important;
+    //  }
+    //}
   }
-
 }
-
 .tab_selector {
   //margin:  0 10px;
 }

@@ -42,7 +42,7 @@ const TextInput: FC<TextInputProps> = ({
   ]);
 
   return (
-    <TextInputWrap error={hasError}>
+    <TextInputWrap label={label} error={hasError}>
       <IconRenderer error={hasError}>{left}</IconRenderer>
 
       { /* @ts-ignore */}

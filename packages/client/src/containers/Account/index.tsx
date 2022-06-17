@@ -51,6 +51,7 @@ const Account: FC<Props> = ({ isMobile }) => (
           className={styles.username}
           value="Kamix 85"
           onChange={() => {}}
+          label='USERNAME'
           right={elements.icon}
         />
         <DefaultSelect
@@ -63,11 +64,13 @@ const Account: FC<Props> = ({ isMobile }) => (
         <TextInput
           value="@Kamix 85"
           onChange={() => {}}
+          label='TELEGRAM USERNAME'
           right={<img src={pan} alt='' />}
         />
         <TextInput
           value="max@gmail.com"
           onChange={() => {}}
+          label='EMAIL'
           right={<img src={pan} alt='' />}
         />
         
