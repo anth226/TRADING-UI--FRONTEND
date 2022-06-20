@@ -57,7 +57,7 @@ const Staking:FC<Props> = ({active}) => {
 
   return (
     <div className={isMobile ?styles.wrap_mobile :styles.wrap}>
-      <div className={styles.wrapOne}>
+      <div className={isMobile ? styles.wrap_one_mobile : styles.wrap_one}>
         {!isMobile && <> <div className={styles.first_line}>
           <div className={styles.card}>
             <div className={styles.summary}>STAKING</div>

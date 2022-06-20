@@ -13,3 +13,9 @@
   display: flex;
   align-items: center;
 }
+.table{
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
