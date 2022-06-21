@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';

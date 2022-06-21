@@ -15,7 +15,6 @@ import {LoginModal} from '../../containers/Modals/LoginModal';
 import {LoginPrivatKey} from '../../containers/Modals/LoginPrivatKey';
 import {WalletConnected} from '../../containers/Modals/WalletConnected';
 import {CreateNewAccount} from '../../containers/Modals/CreateNewAccount';
-import {log} from "util";
 
 interface Props {
   onAddTab: () => void
@@ -32,7 +31,6 @@ interface Props {
 }
 
 const Header: FC<Props> = ({
-  onAddTab,
   onBalanceChange,
   options,
   defaultOption,
@@ -69,14 +67,13 @@ const Header: FC<Props> = ({
   };
   const goToBalances = () => {
     history.push('/balances')
-    console.log(22)
   };
   const goToSelection = () => {
     history.push('/selections');
   };
 
   const plusik = () => {
-    if (openselection == false) {
+    if (!openselection ) {
       setOpenselection(true)
       goToSelection()
     }  else {

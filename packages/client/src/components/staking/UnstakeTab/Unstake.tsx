@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styles from './styles.module.scss';
 import bgFirst from '../../../../../libs/assets/images/staking/unStake/first.png';
 import bgSecond from '../../../../../libs/assets/images/staking/unStake/second.png';
@@ -48,7 +48,7 @@ const Unstake: FC = () => {
         </div>
 
       <div style={{position: 'relative'}}>
-        <img src={bgSecond} alt='' />
+        <img src={bgSecond} alt=''  style={{width: '351px'}}/>
         <img src={star} alt='' className={styles.dol}/>
         <div className={styles.in}>
           <TextInput

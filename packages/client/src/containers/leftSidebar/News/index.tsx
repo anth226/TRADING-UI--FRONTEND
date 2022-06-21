@@ -12,7 +12,6 @@ import { NewsCard } from '@option-blitz/libs/components/leftSidebar/News';
 import EconomicCalendar from './Calendar/economicCalendar';
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 import {DefaultSelect, OptionItem} from "@option-blitz/libs/components/inputs/DefaultSelect";
-import {useHotAssetsHandlers} from "../../../hooks/leftSidebar/useHotAssetsHandlers";
 
 interface Props {
   onBack?: () => void
@@ -59,19 +58,12 @@ const [calendar, setCalendar]=useState(false)
   ];
 
 function handlerChange() {
-  setCalendar(true)
+  calendar ? setCalendar(false) : setCalendar(true)
 }
+
 function news() {
   setCalendar(false)
 }
-
-  // const {
-  //   cardItems,
-  //   sortOptions,
-  //   filterOptions,
-  //   filterChange,
-  //   sortChange,
-  // } = useHotAssetsHandlers();
 
 
   return (
@@ -105,8 +97,7 @@ function news() {
                   <div className={styles.mobile_select} >
                     <DefaultSelect
                         type={ 'small' }
-                        // title="Sort by"
-                        // onChange={sortChange}
+                        onChange={handlerChange}
                         options={sortOptions}
                         defaultValue={sortOptions[0]}
                     />

@@ -10,6 +10,7 @@
 .content {
   padding: 8px;
   @include mobile {
+    height: 41px;
     padding: 4px;
   }
 }

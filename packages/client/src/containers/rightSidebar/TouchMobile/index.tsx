@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from 'react';
 import { RightSidebarNavigation } from '@option-blitz/libs/components/rightSidebar/RightSidebarNavigation';
 import { RightSidebarReturns } from '@option-blitz/libs/components/rightSidebar/RightSidebarReturns';
@@ -85,16 +86,19 @@ const TouchMobile: FC<Props> = ({ mainChart }) => {
             onClick={onChangeBuilder}
           >
             <div className={styles.checkbox_wrap}>
-              <Checkbox
-                size={16}
-                iconSize={8}
-                checked={callCheckbox}
-                onCheck={callCheckboxChange}
-                labelClassName={styles.checkbox_label}
-                className={callCheckbox ? styles.check_box_active : styles.check_box_unactive}
-              >
-                Touch Call
-              </Checkbox>
+              <div className={styles.row}>
+                  <Checkbox
+                    size={16}
+                    iconSize={8}
+                    checked={callCheckbox}
+                    onCheck={callCheckboxChange}
+                    className={callCheckbox ? styles.check_box_active : styles.check_box_unactive}
+                  />
+                  <div className={styles.checkbox_label}>
+                    Touch Call
+                  </div>
+              </div>
+
               <RightSidebarInput
                 type="small"
                 value={callValue}
@@ -111,16 +115,20 @@ const TouchMobile: FC<Props> = ({ mainChart }) => {
               />
             </div>
             <div className={styles.checkbox_wrap}>
-              <Checkbox
-                size={16}
-                iconSize={8}
-                checked={putCheckbox}
-                onCheck={putCheckboxChange}
-                labelClassName={styles.checkbox_label}
-                className={putCheckbox ? styles.check_box_active : styles.check_box_unactive}
-              >
-                Touch Put
-              </Checkbox>
+              <div className={styles.row}>
+                    <Checkbox
+                      size={16}
+                      iconSize={8}
+                      checked={putCheckbox}
+                      onCheck={putCheckboxChange}
+                      labelClassName={styles.checkbox_label}
+                      className={putCheckbox ? styles.check_box_active : styles.check_box_unactive}
+                    />
+                    <div className={styles.checkbox_label}>
+                      Touch Put
+                    </div>
+              </div>
+
               <RightSidebarInput
                 type="small"
                 value={putValue}

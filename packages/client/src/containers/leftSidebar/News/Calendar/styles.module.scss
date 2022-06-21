@@ -1,8 +1,13 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
 .wrap {
   width: 229px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  @include mobile {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 .days {
@@ -27,6 +32,10 @@
 
 .table {
   display: flex;
+  @include mobile {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 .first {
@@ -37,6 +46,9 @@
   font-size: 9px;
   font-family: Cabin;
   margin-right: 9px;
+  @include mobile {
+    font-size: 11px;
+  }
 }
 
 .second {
@@ -45,6 +57,9 @@
   font-family: Cabin;
   font-size: 9px;
   row-gap: 4px;
+  @include mobile {
+    font-size: 11px;
+  }
 }
 
 .third {
@@ -54,6 +69,9 @@
   font-family: Cabin;
   font-size: 9px;
   margin-left: 15px;
+  @include mobile {
+    font-size: 11px;
+  }
 }
 
 .row {
