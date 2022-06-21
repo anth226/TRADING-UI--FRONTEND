@@ -14,7 +14,7 @@ interface Props {
   isMobile?: boolean
 }
 
-const desktopWidth = 200;
+const desktopWidth = 310;
 const desktopHeight = 155;
 const mobileHeight = 200;
 

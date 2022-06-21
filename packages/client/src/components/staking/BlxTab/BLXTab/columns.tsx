@@ -45,7 +45,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { total } = row.original;
       return (
-        <div className={styles.text}>
+        <div className={styles.total}>
           {total}
         </div>
       );
@@ -57,7 +57,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { price } = row.original;
       return (
-        <div className={styles.text}>
+        <div className={styles.price}>
           {price}
         </div>
       );
