@@ -11,9 +11,12 @@ import Table from "@option-blitz/libs/components/inputs/Table";
 import {columns} from './columns'
 import {tiket} from "./promcod_data";
 import {NewPromoCode} from "./Modal/NewPromoCode";
+interface Props {
+    onBack?: () => void
+    isMobile?: boolean
+}
 
-
-const Promocode:FC = () => {
+const Promocode:FC<Props> = ({isMobile}) => {
     const [activeInfo, setActiveInfo] = useState(true)
     const [activesaccess, setActivesaccess] = useState(false)
     const [createpromo, setCreatepromo]=useState(false)

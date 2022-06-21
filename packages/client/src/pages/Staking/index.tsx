@@ -16,6 +16,7 @@ import useResize from '@option-blitz/libs/hooks/useResize';
 
 interface Props {
   active: number;
+  isMobile?: boolean
 }
 
 const navigation = [
@@ -36,9 +37,9 @@ const navigation = [
 ]
 
 
-const Staking:FC<Props> = ({active}) => {
+const Staking:FC<Props> = ({active, isMobile}) => {
 
-  const { isMobile } = useResize();
+  // const { isMobile } = useResize();
 
   const [activeItem, setActiveItem] = useState(active)
 

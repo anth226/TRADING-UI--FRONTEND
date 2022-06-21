@@ -119,14 +119,14 @@ export const rootNavigationParts: RootNavigationPart[] = [
     type: RootPart.Trading, 
   },
   {
-    name: rootPartNames[RootPart.Affiliates],
+    name: rootPartNames[RootPart.Staking],
     items: affiliatesItems, 
     icon: FontIconName.Affiliates,
     size: 16,
     type: RootPart.Affiliates,
   },
   {
-    name: rootPartNames[RootPart.Staking],
+    name: rootPartNames[RootPart.Affiliates],
     items: stakingItems,
     icon: FontIconName.AffiliateProg,
     type: RootPart.Staking,

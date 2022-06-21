@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "start": "concurrently \"yarn server\" \"yarn start:client\"",
+    "server": "json-server -w ../../packages/server/database.json -p 3001",
     "start:client": "react-app-rewired start",
     "build:client": "cross-env GENERATE_SOURCEMAP=false cross-env DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
     "test:client": "react-app-rewired test",

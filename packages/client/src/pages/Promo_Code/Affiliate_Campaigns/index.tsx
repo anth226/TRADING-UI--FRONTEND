@@ -12,9 +12,12 @@ import alerto from './Alert.svg'
 import {AddCampaign} from "../Modal/AddCampaign";
 import {EditCampaign} from "../Modal/EditCampaign";
 
+interface Props {
+    onBack?: () => void
+    isMobile?: boolean
+}
 
-
-const AffiliateCampaigns:FC = () => {
+const AffiliateCampaigns:FC<Props> = ({isMobile}) => {
     const [activealert, setActivealert] = useState(true)
     const [activesaccess, setActivesaccess] = useState(true)
     const [addcampaign, setAddcampaign] = useState(false)

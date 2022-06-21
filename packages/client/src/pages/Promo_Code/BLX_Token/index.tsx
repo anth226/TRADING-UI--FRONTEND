@@ -13,43 +13,77 @@ interface Props {
     isMobile?: boolean
 }
 
-const AffiliateBLX:FC = () => {
+const AffiliateBLX:FC<Props> = ({isMobile}) => {
 
 
     return (
             <div className={styles.promo}>
                 <h3 className={styles.title}>THX Token Campaing</h3>
-                <div className={styles.row}>
-                    <div>
-                        <div className={styles.inputs}>
-                            <div className={styles.sorttit}>
-                                <p className={styles.sort}>
-                                    SORT BY
-                                </p>
-                            </div>
-                            <DefaultSelect
-                                title="Created date"
-                                className={styles.select}
-                            />
-                            <div className={styles.search}>
-                                <TextInput
-                                    left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
-                                    type={'text'}
-                                    placeholder={'Search'}
-                                    className={styles.input}
+                {!isMobile && (
+                    <div className={styles.row}>
+                        <div>
+                            <div className={styles.inputs}>
+                                <div className={styles.sorttit}>
+                                    <p className={styles.sort}>
+                                        SORT BY
+                                    </p>
+                                </div>
+                                <DefaultSelect
+                                    title="Created date"
+                                    className={styles.select}
                                 />
-                            </div>
+                                <div className={styles.search}>
+                                    <TextInput
+                                        left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                                        type={'text'}
+                                        placeholder={'Search'}
+                                        className={styles.input}
+                                    />
+                                </div>
 
+                            </div>
+                        </div>
+                        <div className={styles.but}>
+                            <button className={styles.button}>
+                                <p className={styles.button_text}>
+                                    ADD CAMPAIGN
+                                </p>
+                            </button>
                         </div>
                     </div>
-                    <div className={styles.but}>
-                        <button className={styles.button}>
-                            <p className={styles.button_text}>
-                                ADD CAMPAIGN
-                            </p>
-                        </button>
+                )}
+                {isMobile && (
+                    <div className={styles.row}>
+                        <div>
+                            <div className={styles.col}>
+                                <div>
+                                    <DefaultSelect
+                                        title="Created date"
+                                        className={styles.select}
+                                    />
+                                </div>
+
+                                <div className={styles.search}>
+                                    <TextInput
+                                        left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                                        type={'text'}
+                                        placeholder={'Search'}
+                                        className={styles.input}
+                                    />
+                                </div>
+                                <div className={styles.but}>
+                                    <button className={styles.button}>
+                                        <p className={styles.button_text}>
+                                            ADD CAMPAIGN
+                                        </p>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                )}
 
                 <div className={styles.tabblx}>
                     <Table  columns={ columns } data={firm} />

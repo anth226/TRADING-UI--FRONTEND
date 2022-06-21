@@ -1,3 +1,5 @@
+@import "~@option-blitz/libs/assets/styles/mixins";
+
 .promo {
   padding: 10px;
   width: 96vw;
@@ -5,6 +7,9 @@
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
+  }
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -362,6 +367,10 @@
   height: 86px;
   border: 1px solid #3E4868;
   border-radius: 6px;
+  @include mobile {
+    width: 168px;
+    height: 148px;
+  }
 
   .title {
     font-family: 'Conthrax';
@@ -450,4 +459,12 @@
 .boxBig{
   margin-left: 20px;
   height: 300px;
+}
+.row_bottom_mob {
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  display: flex;
+  flex-direction: column;
 }
