@@ -1,0 +1,69 @@
+.table{
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+.point{
+  height: 5px;
+  width: 5px;
+  background: #00CD86;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.ten{
+  color: #00CD86;
+  font-size: 11px;
+}
+.five{
+  width: 60px;
+}
+.asset{
+  display: flex;
+  column-gap: 10px;
+  row-gap: 5px;
+}
+.euro{
+  font-family: Conthrax;
+  color: #00CD86;
+  font-size: 9px;
+}
+.price{
+  font-family: Cabin;
+  font-size: 10px;
+}
+.fl{
+  display: flex;
+  align-items: center;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.summary{
+  font-size: 12px;
+}
+.green{
+  font-size: 12px;
+  color: #00cd86;
+}
+.sell{
+  font-size: 12px;
+  color: red;
+}
+.test{
+  width: 70px !important;
+}
+.type{
+  width: 80px;
+}
+.fiv{
+  width: 60px;
+}
+.hourly{
+  width: 60px;
+}
+.daily{
+  width: 60px;
+}

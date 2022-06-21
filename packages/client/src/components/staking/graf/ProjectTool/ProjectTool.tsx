@@ -4,9 +4,12 @@ import styles from './styles.module.scss'
 import {Line} from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { none } from 'ramda';
+import useResize from '@option-blitz/libs/hooks/useResize';
 ChartJS.register(...registerables);
 
 const ProjectTool = () => {
+
+  const { isMobile } = useResize();
 
 
   const options = {
@@ -37,7 +40,7 @@ const ProjectTool = () => {
   };
 
   return (
-    <div className={styles.wrap}>
+    <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
       <div className={styles.title}>POJECT POOL PNL BASEDOM SPOT</div>
       <div className={styles.title_}>PRICE CHANGE</div>
         <Line

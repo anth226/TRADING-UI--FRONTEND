@@ -14,7 +14,7 @@ const BLX: FC = () => {
   const usds = 0
   const blx = 0
   return (
-    <div>
+    <div className={styles.height}>
         {isMobile && (
             <button className={styles.row_bottom_mob} >
                 <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
@@ -104,7 +104,7 @@ const BLX: FC = () => {
       <div style={{marginBottom:10}}>BUY BLX</div>
       <div className={styles.description_second}>Below is a list of places you can buy BLX from at the best price</div>
       <BLXTab/>
-      <Button className={styles.buy} >BUY</Button>
+      <Button className={ isMobile ? styles.buy_mobile : styles.buy} >BUY</Button>
 
     </div>
   );

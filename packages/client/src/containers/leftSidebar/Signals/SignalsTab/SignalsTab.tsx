@@ -6,8 +6,7 @@ import {data} from './data'
 import styles from './styles.module.scss'
 
 
-
-const StakingTab:FC = () => {
+const SignalsTab:FC = () => {
   return (
     <div className={styles.table}>
       <Table columns={columns} data={data}/>
@@ -15,4 +14,4 @@ const StakingTab:FC = () => {
   );
 };
 
-export {StakingTab};
+export {SignalsTab};

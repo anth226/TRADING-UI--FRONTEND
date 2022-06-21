@@ -13,6 +13,7 @@ import { Info } from '../leftSidebar/Info';
 import { OpenPosition } from '../leftSidebar/OpenPosition';
 import { Signals } from '../leftSidebar/Signals';
 import { Staking } from '../../pages/Staking';
+import { Analytics } from '../leftSidebar/Analytics/Analytics';
 
 const MobileNavigation: FC = () => {
   const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
@@ -30,6 +31,7 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.Stake && <Staking active={1} /> }
       {activeItem === Navigation.BLX && <Staking active={3} />}
       {activeItem === Navigation.UnStake && <Staking active={2} />}
+      {activeItem === Navigation.Analytics && <Analytics /> }
     </div>
   );
 };
