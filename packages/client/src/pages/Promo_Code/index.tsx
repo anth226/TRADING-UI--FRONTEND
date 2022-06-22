@@ -161,7 +161,7 @@ const Promocode:FC<Props> = ({isMobile}) => {
       )}
 
 
-          < NewPromoCode isMobile active={createpromo} setActive={setCreatepromo} />
+          < NewPromoCode isMobile={isMobile} active={createpromo} setActive={setCreatepromo} />
 
 
 

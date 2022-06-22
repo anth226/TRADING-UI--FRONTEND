@@ -9,7 +9,7 @@ interface Props {
     active?: boolean
     setActive?: any
     setSuccess?:boolean
-    isMobile: boolean
+    isMobile?: boolean
 }
 
 const NewPromoCode = ({active, setActive, isMobile}:Props) => {
@@ -79,7 +79,6 @@ const NewPromoCode = ({active, setActive, isMobile}:Props) => {
                                 <span className={styles.span}>Max. number of activations per user for your current account status is 1</span>
                             </div>
                         </div>
-
                         <div className={styles.row}>
                             <div className={styles.input}>
                                 <TextInputCustom
