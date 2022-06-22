@@ -116,6 +116,9 @@
   font-weight: 600;
   font-size: 13px;
   line-height: 16px;
+  @include mobile{
+    width: 100%;
+  }
 }
 
 .button_text {
@@ -357,6 +360,9 @@
   font-size: 12px;
   line-height: 16px;
   text-align: start;
+  @include mobile {
+    width: inherit;
+  }
 }
 
 .button_tab {
@@ -504,4 +510,7 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+.symbol {
+align-content: flex-end;
 }

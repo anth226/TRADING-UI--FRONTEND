@@ -105,6 +105,7 @@ const NewPromoCode = ({active, setActive, isMobile}:Props) => {
                             <TextInputCustom
                                 value='25'
                                 label='BONUS'
+                               className={styles.symbol}
                                 symbol="%"
                             />
                             <span className={styles.span}>Largest possible bonus for you current account status is 25%.</span>

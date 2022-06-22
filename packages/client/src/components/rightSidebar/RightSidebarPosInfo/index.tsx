@@ -25,7 +25,7 @@ const RightSidebarPosInfo: FC<Props> = ({
     <div className={styles.wrap}>
       <div className={styles.title_section}>
         <div className={styles.title_wrap}>
-          <img src={letterIcons[Letter.L]} alt="letter" />
+          <img className={styles.coin} src={letterIcons[Letter.L]} alt="letter" />
           <p className={styles.title}>{title}</p>
           <img className={styles.coin} src={cryptoIcons[Crypto.BTC]} alt="coin" />
         </div>

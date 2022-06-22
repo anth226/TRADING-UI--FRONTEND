@@ -47,6 +47,9 @@
 
 .coin {
   height: 16px;
+  @include mobile {
+    height: 20px;
+  }
 }
 
 .title_wrap_small {

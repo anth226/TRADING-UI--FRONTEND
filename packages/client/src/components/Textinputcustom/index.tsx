@@ -33,15 +33,10 @@ const TextInputCustom: FC<Props> = ({
                                      }) => (
     <div className={ styles.wrap}>
         <div className={styles.content}>
-            <div
-                className={styles.row}
-            >
+            <div className={styles.row}>
                 <div className={styles.col}>
-                    <div
-                        className={styles.input_wrap}
-                    >
+                    <div className={styles.input_wrap}>
                         <p className={styles.label}>{label}</p>
-
                     </div>
                     <div>
                         <input
