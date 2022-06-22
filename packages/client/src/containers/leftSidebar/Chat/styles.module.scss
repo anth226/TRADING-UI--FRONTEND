@@ -156,6 +156,8 @@
 }
 .chat{
   height: 100%;
+  display: flex;
+  flex-direction: column;
   //overflow-y: scroll;
 
 }
@@ -189,4 +191,7 @@
 }
 .title_mob {
   margin-left: 12px;
+}
+.message_inside {
+  height: 100%;
 }
