@@ -8,6 +8,7 @@ interface Props {
     active?: boolean
     setActive?: any
     setSuccess?:boolean
+    isMobile: boolean
 }
 const AddCampaign = ({active, setActive}:Props) => {
     const close = () => {

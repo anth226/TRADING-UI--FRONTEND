@@ -79,43 +79,71 @@ const AffiliateCampaigns:FC<Props> = ({isMobile}) => {
                     </div>
                 </div>
 
-                <div className={styles.row}>
-                    <div>
-                        <div className={styles.inputs}>
-                            <div className={styles.sorttit}>
-                                <p className={styles.sort}>
-                                    SORT BY
-                                </p>
+                {!isMobile && (
+                    <div className={styles.row}>
+                        <div>
+                            <div className={styles.inputs}>
+                                <div className={styles.sorttit}>
+                                    <p className={styles.sort}>
+                                        SORT BY
+                                    </p>
+                                </div>
+                                <DefaultSelect
+                                    title="Created date"
+                                    className={styles.select}
+                                />
+                                <div className={styles.search}>
+                                    <TextInput
+                                        left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                                        type={'text'}
+                                        placeholder={'Search'}
+                                        className={styles.input}
+                                    />
+                                </div>
+
                             </div>
+                        </div>
+                        <div className={styles.but}>
+                            <button className={styles.button}
+                                    onClick={() => addCampaign()}>
+                                <p className={styles.button_text}>
+                                    ADD CAMPAIGN
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                )}
+                {isMobile && (
+                    <div className={styles.col}>
+                        <div className={styles.mob_inputs}>
                             <DefaultSelect
                                 title="Created date"
                                 className={styles.select}
                             />
-                            <div className={styles.search}>
-                                <TextInput
-                                    left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
-                                    type={'text'}
-                                    placeholder={'Search'}
-                                    className={styles.input}
-                                />
-                            </div>
-
+                        </div>
+                        <div className={styles.search}>
+                            <TextInput
+                                left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                                type={'text'}
+                                placeholder={'Search'}
+                                className={styles.input}
+                            />
+                        </div>
+                        <div className={styles.mob_but}>
+                            <button className={styles.button}
+                                    onClick={() => addCampaign()}>
+                                <p className={styles.button_text}>
+                                    ADD CAMPAIGN
+                                </p>
+                            </button>
                         </div>
                     </div>
-                    <div className={styles.but}>
-                        <button className={styles.button}
-                                onClick={() => addCampaign()}>
-                            <p className={styles.button_text}>
-                                ADD CAMPAIGN
-                            </p>
-                        </button>
-                    </div>
-                </div>
+                )}
 
                 <div className={styles.tabCamp}>
                     <Table  columns={ columns } data={firm}  />
                 </div>
-                    <AddCampaign active={addcampaign} setActive={setAddcampaign}/>
+                    <AddCampaign isMobile active={addcampaign} setActive={setAddcampaign}/>
                 <EditCampaign active={editcampaign} setActive={setEditcampaign} />
             </div>
     );

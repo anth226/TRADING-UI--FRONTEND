@@ -9,9 +9,10 @@ interface Props {
     active?: boolean
     setActive?: any
     setSuccess?:boolean
+    isMobile: boolean
 }
 
-const NewPromoCode = ({active, setActive}:Props) => {
+const NewPromoCode = ({active, setActive, isMobile}:Props) => {
 
     const mas =FontIconName.News
 
@@ -28,6 +29,7 @@ const NewPromoCode = ({active, setActive}:Props) => {
         <div className={styles.modal}>
 
             <div className={styles.border}>
+
                 <div className={styles.row}>
                     <div className={styles.title} >
                         CREATE NEW PROMO CODE
@@ -39,61 +41,113 @@ const NewPromoCode = ({active, setActive}:Props) => {
                 </div>
 
                 <hr className={styles.hr} />
+                {!isMobile && (
+                    <div>
+                        <div className={styles.row}>
+                            <div  className={styles.input}>
+                                <TextInputCustom
+                                    value='25'
+                                    label='BONUS'
+                                    symbol="%"
+                                />
+                                <span className={styles.span}>Largest possible bonus for you current account status is 25%.</span>
+                            </div>
 
-                <div className={styles.row}>
-                    <div  className={styles.input}>
-                        <TextInputCustom
-                            value='25'
-                            label='BONUS'
-                            symbol="%"
-                        />
-                        <span className={styles.span}>Largest possible bonus for you current account status is 25%.</span>
-                    </div>
+                            <div className={styles.input}>
+                                <TextInputCustom
+                                    value='25'
+                                    label='MINIMUM DEPOSIT'
+                                    symbol="$"
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.row}>
+                            <div className={styles.input}>
+                                <TextInputCustom
+                                    value="25%"
+                                    label='VALID UNTIL'
+                                    Icon={mas}
+                                />
+                                <span className={styles.span}>Max. is 30 days</span>
+                            </div>
 
-                    <div className={styles.input}>
-                        <TextInputCustom
-                            value='25'
-                            label='MINIMUM DEPOSIT'
-                            symbol="$"
-                        />
-                    </div>
-                </div>
+                            <div className={styles.input}>
+                                <TextInputCustom
+                                    value='1'
+                                    label='NUMBER OF ACTIVATIONS PER USER'
+                                />
+                                <span className={styles.span}>Max. number of activations per user for your current account status is 1</span>
+                            </div>
+                        </div>
 
-                <div className={styles.row}>
-                    <div className={styles.input}>
-                        <TextInputCustom
-                            value="25%"
-                            label='VALID UNTIL'
-                            Icon={mas}
-                        />
-                        <span className={styles.span}>Max. is 30 days</span>
-                    </div>
+                        <div className={styles.row}>
+                            <div className={styles.input}>
+                                <TextInputCustom
+                                    value='1'
+                                    label='NUMBER OF ACTIVATIONS PER GROUP'
+                                />
+                                <span className={styles.span}>Max. number of activations for this promo code</span>
+                            </div>
 
-                    <div className={styles.input}>
-                        <TextInputCustom
-                            value='1'
-                            label='NUMBER OF ACTIVATIONS PER USER'
-                        />
-                        <span className={styles.span}>Max. number of activations per user for your current account status is 1</span>
+                            <div className={styles.input}>
+                                <TextInputCustom
+                                    value='25%'
+                                    label='EXECUTION COEFFICIENT'
+                                />
+                                <span className={styles.span}> Required turnover to be able to withdraw received bonus = Bonus amount x 100</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.row}>
-                    <div className={styles.input}>
-                        <TextInputCustom
-                            value='1'
-                            label='NUMBER OF ACTIVATIONS PER GROUP'
-                        />
-                        <span className={styles.span}>Max. number of activations for this promo code</span>
+                )}
+                {isMobile && (
+                    <div className={styles.col}>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value='25'
+                                label='BONUS'
+                                symbol="%"
+                            />
+                            <span className={styles.span}>Largest possible bonus for you current account status is 25%.</span>
+                        </div>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value='25'
+                                label='MINIMUM DEPOSIT'
+                                symbol="$"
+                            />
+                        </div>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value="25%"
+                                label='VALID UNTIL'
+                                Icon={mas}
+                            />
+                            <span className={styles.span}>Max. is 30 days</span>
+                        </div>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value='1'
+                                label='NUMBER OF ACTIVATIONS PER USER'
+                            />
+                            <span className={styles.span}>Max. number of activations per user for your current account status is 1</span>
+                        </div>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value='1'
+                                label='NUMBER OF ACTIVATIONS PER GROUP'
+                            />
+                            <span className={styles.span}>Max. number of activations for this promo code</span>
+                        </div>
+                        <div className={styles.input}>
+                            <TextInputCustom
+                                value='25%'
+                                label='EXECUTION COEFFICIENT'
+                            />
+                            <span className={styles.span}> Required turnover to be able to withdraw received bonus = Bonus amount x 100</span>
+                        </div>
                     </div>
+                )}
 
-                    <div className={styles.input}>
-                        <TextInputCustom
-                            value='25%'
-                            label='EXECUTION COEFFICIENT'
-                        />
-                        <span className={styles.span}> Required turnover to be able to withdraw received bonus = Bonus amount x 100</span>
-                    </div>
-                </div>
 
                 <div className= { styles.info}>
                     <div className={styles.iconinfmod}>
@@ -128,6 +182,7 @@ const NewPromoCode = ({active, setActive}:Props) => {
                     </div>
 
                 </div>
+
                 <div className={styles.butt}>
                     <Button className={styles.button} onClick={() => create }> CREATE </Button>
                 </div>

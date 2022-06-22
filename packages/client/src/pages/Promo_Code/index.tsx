@@ -85,47 +85,83 @@ const Promocode:FC<Props> = ({isMobile}) => {
           </div>
       </div>
 
+      {!isMobile && (
+          <div className={styles.row}>
+              <div>
 
-      <div className={styles.row}>
-          <div>
-
-              <div className={styles.inputs}>
-                  <div className={styles.sorttit}>
-                      <p className={styles.sort}>
-                          SORT BY
-                      </p>
-                  </div>
+                  <div className={styles.inputs}>
+                      <div className={styles.sorttit}>
+                          <p className={styles.sort}>
+                              SORT BY
+                          </p>
+                      </div>
 
                       <DefaultSelect
                           title="Created date"
                           className={styles.select}
                       />
-                    <div className={styles.search}>
-                      <TextInput
-                          left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
-                          type={'text'}
-                          placeholder={'Search'}
-                          className={styles.input}
-                      />
-                  </div>
+                      <div className={styles.search}>
+                          <TextInput
+                              left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                              type={'text'}
+                              placeholder={'Search'}
+                              className={styles.input}
+                          />
+                      </div>
 
+                  </div>
+              </div>
+              <div className={styles.but}>
+                  <button className={styles.button}
+                          onClick={() => openmodal()}>
+                      <p className={styles.button_text}>
+                          ADD PROMO CODES
+                      </p>
+                  </button>
               </div>
           </div>
-          <div className={styles.but}>
-              <button className={styles.button}
-              onClick={() => openmodal()}>
-                  <p className={styles.button_text}>
-                      ADD PROMO CODES
-                  </p>
-              </button>
+      )}
+      {isMobile && (
+          <div className={styles.col}>
+
+
+                  <div className={styles.mob_inputs}>
+                      <DefaultSelect
+                          title="Created date"
+                          className={styles.select}
+                      />
+                  </div>
+              <div className={styles.search}>
+                  <TextInput
+                      left={<FontIcon size={14} className={styles.iconSearch} name={FontIconName.Search}/>}
+                      type={'text'}
+                      placeholder={'Search'}
+                      className={styles.input}
+                  />
+              </div>
+              <div className={styles.mob_but}>
+                  <button className={styles.button}
+                          onClick={() => openmodal()}>
+                      <p className={styles.button_text}>
+                          ADD PROMO CODES
+                      </p>
+                  </button>
+              </div>
           </div>
-      </div>
+      )}
+      {!isMobile && (
+          <div className={styles.tabule}>
+              <Table   columns={ columns } data={tiket} />
+          </div>
+      )}
+      {isMobile && (
+          <div className={styles.tabCamp}>
+              <Table   columns={ columns } data={tiket} />
+          </div>
+      )}
 
-      <div className={styles.tabule}>
-          <Table   columns={ columns } data={tiket} />
-      </div>
 
-          < NewPromoCode active={createpromo} setActive={setCreatepromo} />
+          < NewPromoCode isMobile active={createpromo} setActive={setCreatepromo} />
 
 
 

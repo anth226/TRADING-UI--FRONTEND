@@ -40,6 +40,16 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.mob_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 .row_input {
   display: flex;
@@ -91,6 +101,10 @@
   flex-direction: row;
   width: auto;
 }
+.mob_inputs {
+  width: 100%;
+  margin:  10px 0;
+}
 
 .button {
   width: 180px;
@@ -121,6 +135,9 @@
 
   .title {
     text-color: #00CD86;
+  }
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -187,6 +204,9 @@
   span {
     display: none;
   }
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .iconSearch {
@@ -197,6 +217,9 @@
   width: 305px;
   height: 43px;
   margin: 12px 0;
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .modal {
@@ -204,6 +227,9 @@
   height: 587px;
   background-color: #181D2D;
   border-radius: 6px;
+  @include mobile {
+    height: 100%;
+  }
 }
 
 .modal_camp {
@@ -211,6 +237,10 @@
   height: 234px;
   background-color: #181D2D;
   border-radius: 6px;
+  @include mobile{
+    width: 100%;
+    margin: 10px;
+  }
 }
 
 .info_text_modal {
@@ -348,7 +378,6 @@
   width: 635px;
   height: 43px;
   margin: 12px 0;
-
   .span {
     display: none;
   }
@@ -368,8 +397,7 @@
   border: 1px solid #3E4868;
   border-radius: 6px;
   @include mobile {
-    width: 168px;
-    height: 148px;
+  margin: 0 10px;
   }
 
   .title {
@@ -467,4 +495,13 @@
 .col {
   display: flex;
   flex-direction: column;
+}
+.mob_but {
+  margin: 10px 0;
+}
+.tabCamp {
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

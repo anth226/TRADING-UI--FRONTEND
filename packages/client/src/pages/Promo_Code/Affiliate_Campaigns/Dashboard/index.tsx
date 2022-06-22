@@ -34,7 +34,7 @@ const AffiliateDashboard:FC<Props> = ({
             )}
 
 
-                <div className={styles.row}>
+                <div className={isMobile ? styles.mob_row : styles.row}>
                     <div className={styles.profitcard}>
                         <div className={styles.row_text}>
                             <div>
@@ -121,41 +121,74 @@ const AffiliateDashboard:FC<Props> = ({
                     </div>
                 </div>
 
-
-            <div className={styles.row_second}>
-                <div className={styles.stat}>
-                    <div className={styles.st}>STATISTIC</div>
-                    <div className={styles.box}>
-                        <div className={styles.boxing}>
-                            <DoughnutS/>
+            {!isMobile && (
+                <div className={styles.row_second}>
+                    <div className={styles.stat}>
+                        <div className={styles.st}>STATISTIC</div>
+                        <div className={styles.box}>
+                            <div className={styles.boxing}>
+                                <DoughnutS/>
+                                <DoughnutS/>
+                            </div>
+                            <div className={styles.boxing}>
+                                <DoughnutS/>
+                                <DoughnutS/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className={styles.st}>Total Trading Volume</div>
+                        <div className={styles.boxBig}
+                            // className={styles.traiding}
+                        >
+                            <DoughnutB/>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {isMobile && (
+                <div style={{ marginTop: '10px'}}>
+                <div className={styles.st}>STATISTIC</div>
+                    <div className={styles.mob_row} >
+                        <div className={styles.success_text}>
                             <DoughnutS/>
                         </div>
-                        <div className={styles.boxing}>
+                        <div className={styles.success_text}>
                             <DoughnutS/>
+                        </div>
+                        <div className={styles.success_text}>
+                            <DoughnutS/>
+                        </div>
+                        <div className={styles.success_text}>
                             <DoughnutS/>
                         </div>
                     </div>
                 </div>
+            )}
 
 
-                <div>
-                    <div className={styles.st}>Total Trading Volume</div>
-                    <div className={styles.boxBig}
-                        // className={styles.traiding}
-                    >
-                        <DoughnutB/>
+
+            {!isMobile && (
+                <div className={styles.row_second}>
+                    <div>
+                        <TradingVolume/>
+                    </div>
+                    <div>
+                        <Referals/>
                     </div>
                 </div>
-            </div>
+            )}
+            {isMobile && (
+                <div>
+                    <div className={styles.mob_row}>
+                        <TradingVolume/>
+                    </div>
+                    <div className={styles.mob_row}>
+                        <Referals/>
+                    </div>
+                </div>
+            )}
 
-            <div className={styles.row_second}>
-                <div>
-                    <TradingVolume/>
-                </div>
-                <div>
-                    <Referals/>
-                </div>
-            </div>
 
         </div>
     );

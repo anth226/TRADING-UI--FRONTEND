@@ -53,10 +53,10 @@ const AffiliateBLX:FC<Props> = ({isMobile}) => {
                     </div>
                 )}
                 {isMobile && (
-                    <div className={styles.row}>
+
                         <div>
                             <div className={styles.col}>
-                                <div>
+                                <div className={styles.mob_inputs}>
                                     <DefaultSelect
                                         title="Created date"
                                         className={styles.select}
@@ -71,7 +71,7 @@ const AffiliateBLX:FC<Props> = ({isMobile}) => {
                                         className={styles.input}
                                     />
                                 </div>
-                                <div className={styles.but}>
+                                <div className={styles.mob_but}>
                                     <button className={styles.button}>
                                         <p className={styles.button_text}>
                                             ADD CAMPAIGN
@@ -82,12 +82,19 @@ const AffiliateBLX:FC<Props> = ({isMobile}) => {
                             </div>
                         </div>
 
+
+                )}
+                {!isMobile && (
+                    <div className={styles.tabblx}>
+                        <Table  columns={ columns } data={firm} />
+                    </div>
+                )}
+                {isMobile && (
+                    <div className={styles.tabCamp}>
+                        <Table  columns={ columns } data={firm} />
                     </div>
                 )}
 
-                <div className={styles.tabblx}>
-                    <Table  columns={ columns } data={firm} />
-                </div>
 
             </div>
     );
