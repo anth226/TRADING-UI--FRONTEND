@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { FC } from 'react';
 import styles from './styles.module.scss';
-import homic from '../../../../../../../libs/assets/images/mark/homic.svg'
+import arrow from '../../../../../../../libs/assets/images/mark/Arrow.png'
 
 interface Props {
   active: boolean
@@ -21,7 +21,7 @@ const Mark:FC<Props> = ({ active, id }) => (
 
   <div>
     {active ? (
-      <div className={styles.main}><img src={homic} alt='' className={styles.img}/><div className={styles.active}>{marks[id].label}</div></div>)
+      <div className={styles.main}><img src={arrow} alt='' className={styles.img}/><div className={styles.active}>{marks[id].label}</div></div>)
       :
       (
         <div className={styles.unActive}>{marks[id].label}</div>

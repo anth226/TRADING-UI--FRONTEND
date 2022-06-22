@@ -10,8 +10,8 @@
 }
 .dol{
   position: absolute;
-  top: 5%;
-  left: 1.5%;
+  top: 0%;
+  right: 0%;
 }
 .enter{
   font-family: Conthrax;
@@ -33,8 +33,8 @@
   border-radius: 4px;
   position: absolute;
   top: 35%;
-  left: 10%;
-  width: 270px;
+  left: 5%;
+  width: 290px;
   div
   {
     border: none !important;
@@ -46,6 +46,10 @@
     color: white;
   }
 }
+.in_mobile{
+  @extend .in;
+  width: 310px;
+}
 .input{
   font-family: Cabin;
   font-size: 13px;
@@ -54,7 +58,7 @@
 .staked{
   position: absolute;
   top: 15%;
-  left: 10%;
+  left: 5%;
   font-family: Conthrax;
   font-style: normal;
   font-weight: 600;
@@ -103,9 +107,47 @@
 }
 .row{
   display: flex;
+  position: relative;
 }
 .row_bottom_mob{
   display: flex;
   flex-direction: row;
   margin-bottom: 8px ;
+}
+.bg_one{
+  height: 115px;
+  width: 100%;
+  min-width: 320px;
+  background: linear-gradient(77.11deg, #009CCD 24.16%, #2775CA 86.56%);
+  box-shadow: 0px 8px 15px rgba(38, 114, 190, 0.29);
+  border-radius: 6px;
+}
+.bg_one_mobile{
+  @extend .bg_one;
+  background: linear-gradient(77.11deg, #24C48A 24.16%, #26A17B 86.56%);
+  box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
+}
+.bg_two{
+  height: 115px;
+  width: 100%;
+  min-width: 320px;
+  background: linear-gradient(77.11deg, #23C3B9 24.16%, #0C9A91 86.56%);
+  box-shadow: 0px 8px 15px rgba(35, 195, 185, 0.31);
+  border-radius: 6px;
+}
+
+
+.bg_three{
+  height: 115px;
+  width: 100%;
+  min-width: 320px;
+  background: linear-gradient(77.11deg, #E9C133 24.16%, #EB941F 86.56%);
+  box-shadow: 0px 8px 15px rgba(233, 190, 50, 0.24);
+  border-radius: 6px;
+}
+
+.wrapers{
+  position: relative;
+  margin-right: 15px;
+  margin-bottom:15px;
 }

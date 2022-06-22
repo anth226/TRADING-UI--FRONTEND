@@ -32,10 +32,11 @@ const Unstake: FC = () => {
       </div>
       <div className={styles.enter}>Enter the amount of funds you wish to withdraw</div>
       <div className={isMobile ? styles.column : styles.row}>
-        <div style={{position: 'relative'}}>
-          <img src={bgFirst} alt='' className={styles.bg}/>
+        <div className={styles.wrapers}>
+          <div className={ isMobile ? styles.bg_one_mobile : styles.bg_one}></div>
+          {/* <img src={bgFirst} alt='' className={styles.bg}/> */}
           <img src={dol} alt='' className={styles.dol}/>
-          <div className={styles.in}>
+          <div className={ isMobile ? styles.in_mobile : styles.in}>
             <TextInput
               type={'text'}
               label={undefined}
@@ -47,10 +48,11 @@ const Unstake: FC = () => {
           <div className={styles.staked}>STAKED: 0 USDC</div>
         </div>
 
-      <div style={{position: 'relative'}}>
-        <img src={bgSecond} alt=''  style={{width: '351px'}}/>
+      <div className={styles.wrapers}>
+        <div className={styles.bg_two}></div>
+        {/* <img src={bgSecond} alt=''  style={{width: '351px'}}/> */}
         <img src={star} alt='' className={styles.dol}/>
-        <div className={styles.in}>
+        <div className={ isMobile ? styles.in_mobile : styles.in}>
           <TextInput
             type={'text'}
             label={undefined}
@@ -62,10 +64,11 @@ const Unstake: FC = () => {
         <div className={styles.staked}>STAKED: 0 BLX</div>
       </div>
 
-        <div style={{position: 'relative'}}>
-          <img src={bgThird} alt='' />
+        <div className={styles.wrapers}>
+          <div className={styles.bg_three}></div>
+          {/* <img src={bgThird} alt='' /> */}
           <img src={tron} alt='' className={styles.dol}/>
-          <div className={styles.in}>
+          <div className={ isMobile ? styles.in_mobile : styles.in}>
             <TextInput
               type={'text'}
               label={undefined}
@@ -74,9 +77,8 @@ const Unstake: FC = () => {
               right={<Max/>}
             />
           </div>
-          <div className={styles.staked}>REWARDS: 0 USDT</div>
+          <div className={styles.staked}>REWARDS: 0 USDC</div>
         </div>
-
       </div>
       <div style={{display:'flex', columnGap: 20, marginTop: 5}}>
         <div>

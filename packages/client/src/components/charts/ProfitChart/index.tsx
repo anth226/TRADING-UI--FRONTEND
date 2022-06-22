@@ -1,5 +1,5 @@
 import React, {
-  FC, useEffect, useRef, useState, 
+  FC, useEffect, useRef,
 } from 'react';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import Tippy from '@tippyjs/react';
@@ -14,7 +14,8 @@ interface Props {
   isMobile?: boolean
 }
 
-const desktopWidth = 310;
+const desktopWidth = 200;
+const mobileWidth = 310;
 const desktopHeight = 155;
 const mobileHeight = 200;
 
@@ -22,13 +23,14 @@ const ProfitChart: FC<Props> = ({ profitItems, isMobile }) => {
   const profitChartRef = useRef<SVGSVGElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   
-  const [width, setWidth] = useState(desktopWidth);
+  // const [width, setWidth] = useState(desktopWidth);
   const height = isMobile ? mobileHeight : desktopHeight;
-  
-  useEffect(() => {
-    if (!wrapRef.current || !isMobile) return;
-    setWidth(wrapRef.current.clientWidth - 50);
-  }, [wrapRef, isMobile]);
+  const width = isMobile ? mobileWidth : desktopWidth;
+
+  // useEffect(() => {
+  //   if (!wrapRef.current || !isMobile) return;
+  //   setWidth(wrapRef.current.clientWidth - 50);
+  // }, [wrapRef, isMobile]);
   
   const {
     isActive,

@@ -35,6 +35,9 @@ const MainChartContainer: FC = () => {
               putValue={putPrice}
             />
           )}
+          {activeProductType === ProductType.Turbo && (
+            <ClassicBarrier isActive={takeProfitCheck} value={targetPrice} width={width} />
+          )}
         </MainChart>
       )}
     </AutoSizer>

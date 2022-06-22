@@ -13,6 +13,7 @@ import Stake from '../../components/staking/StakeTab/Stake';
 import BLX from '../../components/staking/BlxTab/BLX';
 import Unstake from '../../components/staking/UnstakeTab/Unstake';
 import useResize from '@option-blitz/libs/hooks/useResize';
+import StakingMobile from '../../components/staking/StakingMobile/StakingMobile';
 
 interface Props {
   active: number;
