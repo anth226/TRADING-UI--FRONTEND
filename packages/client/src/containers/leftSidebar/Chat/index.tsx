@@ -9,8 +9,8 @@ import English from "./english";
 import telegram from "@option-blitz/libs/assets/images/tellegram.svg";
 
 interface Props {
-  onBack?: () => void;
-  isMobile?: boolean;
+    onBack?: () => void;
+    isMobile?: boolean;
 }
 const buttons = [
     {
@@ -29,8 +29,8 @@ const buttons = [
     },
 ]
 const Chat: FC<Props> = ({
-                           onBack,
-                           isMobile,
+                             onBack,
+                             isMobile,
                          }) => {
     const [activeButton, setActiveButton] = useState(1)
     const whichTab = () => {
@@ -48,85 +48,85 @@ const Chat: FC<Props> = ({
         }
     }
 
-  return (
+    return (
 
-    <div className={isMobile ? styles.wrap_mob : styles.wrap}>
-        <div className={styles.chat}>
-        {!isMobile && (
+        <div className={isMobile ? styles.wrap_mob : styles.wrap}>
+            <div className={styles.chat}>
+                {!isMobile && (
 
-                <div className={styles.title_wrap}>
-                    <p className={styles.title}>CHAT</p>
-                    <button onClick={onBack} className={styles.arrow_wrap}>
-                        <img src={arrow} alt='back' />
-                    </button>
-                </div>
-        )}
-            {isMobile && (
-                <div className={styles.chat_title}>
-                    <img src={chat} alt='back' />
-                    <p className={styles.title_mob}>CHAT</p>
-                </div>
-            )}
-            { isMobile && (
-                <div style={{display:'flex',
-                    // columnGap: '12px'
-                    marginBottom: '30px',
-                }}>
-                    {buttons.map((item,i )=>(
-                        <Button
-                            color={'transparent_primary'}
-                                 className={activeButton === i + 1 ? styles.buttonActive : styles.button}
+                    <div className={styles.title_wrap}>
+                        <p className={styles.title}>CHAT</p>
+                        <button onClick={onBack} className={styles.arrow_wrap}>
+                            <img src={arrow} alt='back' />
+                        </button>
+                    </div>
+                )}
+                {isMobile && (
+                    <div className={styles.chat_title}>
+                        <img src={chat} alt='back' />
+                        <p className={styles.title_mob}>CHAT</p>
+                    </div>
+                )}
+                { isMobile && (
+                    <div style={{display:'flex',
+                        // columnGap: '12px'
+                        marginBottom: '30px',
+                    }}>
+                        {buttons.map((item,i )=>(
+                            <Button
+                                color={'transparent_primary'}
+                                className={activeButton === i + 1 ? styles.buttonActive : styles.button}
                                 size={5}
-                            onClick={() => setActiveButton(i + 1)}
-                        >
-                            <p>{item.name}</p>
-                        </Button>
-                    ))}
-                </div>
-            )}
-            {isMobile && (
-                <div>
-                    {whichTab()}
-                </div>
-            )}
+                                onClick={() => setActiveButton(i + 1)}
+                            >
+                                <p>{item.name}</p>
+                            </Button>
+                        ))}
+                    </div>
+                )}
+                {isMobile && (
+                    <div>
+                        {whichTab()}
+                    </div>
+                )}
 
 
-            {/*{isMobile && (*/}
-            {/*    <Intro />*/}
-            {/*)}*/}
-            {!isMobile && (
-                <div>
-                    <div className={styles.container}>
-                        <div className={styles.circle_left}>J</div>
-                        <div className={styles.left}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.
+                {/*{isMobile && (*/}
+                {/*    <Intro />*/}
+                {/*)}*/}
+                {!isMobile && (
+                    <div className={styles.message_inside}>
+                        <div className={styles.container}>
+                            <div className={styles.circle_left}>J</div>
+                            <div className={styles.left}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                            </div>
+                        </div>
+
+                        <div className={styles.container}>
+
+                            <div className={styles.right}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </div>
+                            {/* <div className={styles.circle_right}>J</div> */}
+                        </div>
+
+                        <div className={styles.container}>
+                            <div className={styles.circle_left}>J</div>
+                            <div className={styles.left}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                            </div>
                         </div>
                     </div>
-
-                    <div className={styles.container}>
-
-                        <div className={styles.right}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </div>
-                        {/* <div className={styles.circle_right}>J</div> */}
-                    </div>
-
-                    <div className={styles.container}>
-                        <div className={styles.circle_left}>J</div>
-                        <div className={styles.left}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.
-                        </div>
-                    </div>
-                    <div className={isMobile ? styles.message_mob : styles.message }>
-                        Message
-                        <img src={telegram} alt='icon' />
-                    </div>
+                )}
+                <div className={isMobile ? styles.message_mob : styles.message }>
+                    Message
+                    <img src={telegram} alt='icon' />
                 </div>
-            )}
             </div>
-    </div>
-  );
+        </div>
+    );
 };
 export { Chat };

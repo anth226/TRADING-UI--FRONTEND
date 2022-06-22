@@ -67,10 +67,15 @@
   padding: 10px;
 }
 
+.rowClosed {
+  display: none;
+}
+
 .modal {
   display: flex;
   column-gap: 8px;
 }
+
 
 .href {
   font-family: Conthrax;
