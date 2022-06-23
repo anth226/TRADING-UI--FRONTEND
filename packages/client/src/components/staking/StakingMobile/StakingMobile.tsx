@@ -83,7 +83,8 @@ const StakingMobile = () => {
       </div>
 
       <div className={styles.container_second}>
-        <div className={styles.boxes}>
+        <div className={styles.boxes}
+             onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
           <div><img src={molot} alt='' /></div>
           <div className={styles.description}>
             STAKE

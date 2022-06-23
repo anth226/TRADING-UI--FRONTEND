@@ -18,13 +18,18 @@ import tron from '../../../../../libs/assets/images/staking/stakeMobile/tron.svg
 import useResize from '@option-blitz/libs/hooks/useResize';
 import {RightSidebarInput} from "@option-blitz/libs/components/rightSidebar/RightSidebarInput";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
+import {Navigation} from "../../../constants/navigation/navigation";
+import {useLeftNavigationBarHandlers} from "../../../hooks/leftSidebar/useLeftNavigationBarHandlers";
 
 const Stake: FC = () => {
 
   const { isMobile } = useResize();
-
   const [numActive, setNumActive]=useState(4)
   const [activeButton, setActiveButton] = useState('stake')
+
+  const {
+    setActiveNavItem,
+  } = useLeftNavigationBarHandlers();
 
 const numbers = [
   {
@@ -43,7 +48,8 @@ const numbers = [
   return (
     <div>
       {isMobile && (
-            <button className={styles.row_bottom_mob} >
+            <button className={styles.row_bottom_mob}
+                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
               <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
               <div style={{marginLeft: '10px'}}>
                 STAKE
