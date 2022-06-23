@@ -18,6 +18,7 @@ import AffiliateCampaigns from '../../pages/Promo_Code/Affiliate_Campaigns';
 import AffiliateBLX from '../../pages/Promo_Code/BLX_Token';
 import Promocode from '../../pages/Promo_Code';
 import AffiliateDashboard from '../../pages/Promo_Code/Affiliate_Campaigns/Dashboard';
+import StakingMobile from '../../components/staking/StakingMobile/StakingMobile';
 
 const MobileNavigation: FC = () => {
   const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
@@ -32,7 +33,8 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.Info && <Info isMobile /> }
       {activeItem === Navigation.OpenPositions && <OpenPosition isMobile /> }
       {activeItem === Navigation.Signals && <Signals isMobile /> }
-      {activeItem === Navigation.Stake && <Staking active={1} isMobile /> }
+      {activeItem === Navigation.Stake && <StakingMobile /> }
+      {activeItem === Navigation.Staking && <Staking active={1} isMobile /> }
       {activeItem === Navigation.UnStake && <Staking active={2} isMobile />}
       {activeItem === Navigation.BLX && <Staking active={3} isMobile />}
       {activeItem === Navigation.PromotionalTools && <AffiliateCampaigns isMobile />}

@@ -9,6 +9,7 @@ export enum Navigation {
   VideoTutorials = 'VideoTutorials',
   
   Stake = 'Stake',
+  Staking = 'Staking',
   UnStake = 'UnStake',
   Analytics = 'Analytics',
   BLX = 'BLX',
@@ -33,6 +34,7 @@ export const navigationNames: Record<Navigation, string> = {
   [Navigation.VideoTutorials]: 'Video Tutorials',
   
   [Navigation.Stake]: 'Stake',
+  [Navigation.Staking]: 'Staking',
   [Navigation.UnStake]: 'UnStake',
   [Navigation.Analytics]: 'Analytics',
   [Navigation.BLX]: 'BLX',

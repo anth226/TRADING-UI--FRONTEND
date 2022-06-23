@@ -10,9 +10,21 @@ import arrow from '../../../../../libs/assets/images/staking/stakeMobile/Union (
 import blx from '../../../../../libs/assets/images/staking/stakeMobile/Blx balance icon.svg';
 import opacity from '../../../../../libs/assets/images/staking/stakeMobile/opacity.svg';
 import iconMaim from '../../../../../libs/assets/images/staking/stakeMobile/iconMain.svg';
+import Stake from "../StakeTab/Stake";
+import {Staking} from "../../../pages/Staking";
+import {Navigation} from "../../../constants/navigation/navigation";
+import {useShallowSelector} from "../../../hooks/useShallowSelector";
+import {selectNavigationProp} from "../../../store/navigation/selectors";
 
 
 const StakingMobile = () => {
+  const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
+
+  const  gotoStake = () =>  {
+    {activeItem === Navigation.Staking && <Staking active={1} isMobile /> }
+  }
+
+
   return (
     <div className={styles.main_container}>
       <div className={styles.title }>STAKING</div>
@@ -75,22 +87,38 @@ const StakingMobile = () => {
       <div className={styles.container_second}>
         <div className={styles.boxes}>
           <div><img src={molot} alt='' /></div>
-          <div className={styles.description}>STAKE</div>
+          <div className={styles.description}
+              onClick={gotoStake}
+          >
+            STAKE
+          </div>
         </div>
 
         <div className={styles.boxes}>
           <div><img src={handle} alt='' /></div>
-          <div className={styles.description}>UNSTAKE</div>
+          <div className={styles.description}
+
+          >
+            UNSTAKE
+          </div>
         </div>
 
         <div className={styles.boxes}>
           <div><img src={arrow} alt='' /></div>
-          <div className={styles.description}>ANALYTICS</div>
+          <div className={styles.description}
+
+          >
+            ANALYTICS
+          </div>
         </div>
 
         <div className={styles.boxes}>
           <div><img src={blx} alt='' /></div>
-          <div className={styles.description}>BLX</div>
+          <div className={styles.description}
+
+          >
+            BLX
+          </div>
         </div>
 
       </div>
