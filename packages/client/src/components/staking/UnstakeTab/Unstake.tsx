@@ -12,15 +12,25 @@ import Max from '@option-blitz/libs/assets/images/staking/stake/leftCard/Max';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import useResize from '@option-blitz/libs/hooks/useResize';
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
+import { Navigation } from '../../../constants/navigation/navigation';
+import {
+  useLeftNavigationBarHandlers
+} from '../../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 
 const Unstake: FC = () => {
 
   const { isMobile } = useResize();
 
+  const {
+    setActiveNavItem,
+  } = useLeftNavigationBarHandlers();
+
   return (
     <div>
       {isMobile && (
-          <button className={styles.row_bottom_mob} >
+          <button className={styles.row_bottom_mob}
+                  onClick={() => { setActiveNavItem(Navigation.Stake, false); }}
+          >
             <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
             <div style={{marginLeft: '10px'}}>
               UNSTAKE

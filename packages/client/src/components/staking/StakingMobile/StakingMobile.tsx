@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './styles.module.scss';
 import blur from '@option-blitz/libs/assets/images/staking/blur.svg';
 import sun from '@option-blitz/libs/assets/images/staking/sun.svg';
@@ -10,19 +10,17 @@ import arrow from '../../../../../libs/assets/images/staking/stakeMobile/Union (
 import blx from '../../../../../libs/assets/images/staking/stakeMobile/Blx balance icon.svg';
 import opacity from '../../../../../libs/assets/images/staking/stakeMobile/opacity.svg';
 import iconMaim from '../../../../../libs/assets/images/staking/stakeMobile/iconMain.svg';
-import Stake from "../StakeTab/Stake";
-import {Staking} from "../../../pages/Staking";
 import {Navigation} from "../../../constants/navigation/navigation";
-import {useShallowSelector} from "../../../hooks/useShallowSelector";
-import {selectNavigationProp} from "../../../store/navigation/selectors";
+import {
+  useLeftNavigationBarHandlers
+} from '../../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 
 
 const StakingMobile = () => {
-  const activeItem = useShallowSelector(selectNavigationProp('activeNavigation'));
 
-  const  gotoStake = () =>  {
-    {activeItem === Navigation.Staking && <Staking active={1} isMobile /> }
-  }
+  const {
+    setActiveNavItem,
+  } = useLeftNavigationBarHandlers();
 
 
   return (
@@ -87,35 +85,35 @@ const StakingMobile = () => {
       <div className={styles.container_second}>
         <div className={styles.boxes}>
           <div><img src={molot} alt='' /></div>
-          <div className={styles.description}
-              onClick={gotoStake}
-          >
+          <div className={styles.description}>
             STAKE
           </div>
         </div>
 
-        <div className={styles.boxes}>
+        <div className={styles.boxes}
+             onClick={() => { setActiveNavItem(Navigation.UnStake, false); }}
+        >
           <div><img src={handle} alt='' /></div>
-          <div className={styles.description}
-
-          >
+          <div className={styles.description}>
             UNSTAKE
           </div>
         </div>
 
-        <div className={styles.boxes}>
+        <div className={styles.boxes}
+             onClick={() => { setActiveNavItem(Navigation.Analytics, false); }}
+        >
           <div><img src={arrow} alt='' /></div>
           <div className={styles.description}
-
           >
             ANALYTICS
           </div>
         </div>
 
-        <div className={styles.boxes}>
+        <div className={styles.boxes}
+             onClick={() => { setActiveNavItem(Navigation.BLX, false); }}
+        >
           <div><img src={blx} alt='' /></div>
           <div className={styles.description}
-
           >
             BLX
           </div>

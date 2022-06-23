@@ -138,9 +138,11 @@ export const useLeftNavigationBarHandlers = () => {
     mobileSideBarIsOpen,
   } = useShallowSelector(selectNavigation);
   
-  const setActiveNavItem = useCallback((val?: Navigation) => {
+  const setActiveNavItem = useCallback((val?: Navigation, toggleMobileSidebar=true) => {
     dispatch(navigationSetItem(val));
-    dispatch(navigationToggleMobileSidebar());
+    if (toggleMobileSidebar) {
+      dispatch(navigationToggleMobileSidebar());
+    }
   }, [dispatch]);
   
   const closeSidebar = useCallback(() => {

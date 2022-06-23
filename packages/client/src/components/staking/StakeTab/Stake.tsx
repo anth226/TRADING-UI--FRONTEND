@@ -12,6 +12,9 @@ import backgroundRight from '../../../../../libs/assets/images/staking/stake/rig
 import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/Bg.png'
 import blx from '../../../../../libs/assets/images/staking/stake/rightCard/blx.svg'
 import usdCoin from '../../../../../libs/assets/images/staking/stake/leftCard/usdCoin.svg'
+import tether from '../../../../../libs/assets/images/staking/stakeMobile/tether.svg'
+import bgMob from '../../../../../libs/assets/images/staking/stakeMobile/bg_mob.svg'
+import tron from '../../../../../libs/assets/images/staking/stakeMobile/tron.svg'
 import useResize from '@option-blitz/libs/hooks/useResize';
 import {RightSidebarInput} from "@option-blitz/libs/components/rightSidebar/RightSidebarInput";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
@@ -53,16 +56,26 @@ const numbers = [
      </div>
       <div className={isMobile ? styles.card_wrap_mob : styles.card_wrap }>
         <div className={styles.left_card}>
-          <img src={background}
+          { isMobile && <div className={styles.gradient_first}></div>}
+          {! isMobile && <img src={background}
                alt=''
-               className={!isMobile ?  styles.background : styles.background_mob}
-          />
-          <img src={bg} alt=''
-               className={isMobile ? styles.bg_mob : styles.bg}
-          />
-          <div className={isMobile ? styles.coin_mob : styles.coin}>
+               className={styles.background}
+          />}
+          {isMobile &&  <img src={tron} alt=''
+                             className={styles.bg_mob}
+          /> }
+          { ! isMobile && <img src={bg} alt=''
+               className={styles.bg}
+          />}
+          { isMobile &&
+            <div className={styles.coin_mob}>
+              <img src={tether} alt='' />
+              <div style={{fontSize: 12}}>TETHER</div>
+            </div>
+          }
+          { !isMobile && <div className={styles.coin}>
             <img src={usdCoin} alt='' />
-            <div>USD</div></div>
+            <div>USD</div></div>}
 
           <img src={buy} alt='' className={isMobile? styles.buy_mob : styles.buy} />
           <div className={isMobile ? styles.balance_mob : styles.balance}> Balance: 0.0 USDC</div>
@@ -94,9 +107,10 @@ const numbers = [
           </div>
         </div>
         <div className={styles.right_card}>
-          <img src={backgroundRight}
-               className={!isMobile ?  styles.background : styles.background_mob}
-               alt='' />
+          {isMobile && <div className={styles.gradient_second}></div>}
+          { ! isMobile && <img src={backgroundRight}
+               className={styles.background}
+               alt='' />}
           <img src={bgRight} alt=''  className={isMobile ? styles.bg_right_mob : styles.bg_right}/>
           <div className={isMobile ? styles.coin_right_mob : styles.coin_right}><img src={blx} alt=''/>
             <div>BLX</div></div>

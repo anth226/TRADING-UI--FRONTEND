@@ -7,16 +7,26 @@ import Button from '@option-blitz/libs/components/inputs/Button';
 import { BLXTab } from './BLXTab/BLXTab';
 import useResize from '@option-blitz/libs/hooks/useResize';
 import { LockDuration } from '../LockDuration';
+import { Navigation } from '../../../constants/navigation/navigation';
+import {
+  useLeftNavigationBarHandlers
+} from '../../../hooks/leftSidebar/useLeftNavigationBarHandlers';
 
 const BLX: FC = () => {
   const { isMobile } = useResize();
+
+  const {
+    setActiveNavItem,
+  } = useLeftNavigationBarHandlers();
 
   const usds = 0
   const blx = 0
   return (
     <div className={styles.height}>
         {isMobile && (
-            <button className={styles.row_bottom_mob} >
+            <button className={styles.row_bottom_mob}
+                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}
+            >
                 <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
                 <div style={{marginLeft: '10px'}}>
                     BLX
