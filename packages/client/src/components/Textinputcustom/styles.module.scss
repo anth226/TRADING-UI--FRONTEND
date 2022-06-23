@@ -22,7 +22,8 @@
   border: 1px solid var(--color-grey);
   border-radius: 4px;
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
+  flex-direction: column;
   padding: 8px;
   @include mobile {
     flex-direction: column;

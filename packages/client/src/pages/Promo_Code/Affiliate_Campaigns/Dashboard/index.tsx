@@ -119,92 +119,6 @@ const AffiliateDashboard:FC<Props> = ({
                         </div>
                     </div>
                 </div>
-            <div className={styles.row}>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>TODAY</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>$110.00</p>
-                            <span className={styles.pin}>+8.86%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>YESTERDAY</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>$122.00</p>
-                            <span className={styles.pin}>+9.21%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>LAST MONTH</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>$190.00</p>
-                            <span className={styles.pin}>+9.06%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>THIS MONTH</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>133.00</p>
-                            <span className={styles.pin}>+5.30%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>AVERAGE COMMISSION</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>163.00</p>
-                            <span className={styles.pin}>+6.04%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-                <div className={styles.profitcard}>
-                    <div className={styles.row_text}>
-                        <div>
-                            <p className={styles.title}>HIGHEST COMMISSION</p>
-                        </div>
-                        <div className={styles.col}>
-                            <p className={styles.val}>$140.00</p>
-                            <span className={styles.pin}>+3.02%</span>
-                        </div>
-                    </div>
-                    <div className={styles.img}>
-                        <img className={styles.diagram} src={hotAssetsDiagram} alt="diagram" />
-                    </div>
-                </div>
-            </div>
 
             {!isMobile && (
                 <div className={styles.row_second}>
@@ -224,33 +138,9 @@ const AffiliateDashboard:FC<Props> = ({
                     <div>
                         <div className={styles.st}>Total Trading Volume</div>
                         <div className={styles.boxBig}
-                            // className={styles.traiding}
                         >
                             <DoughnutB/>
                         </div>
-                     <div className={styles.row_second}>
-                <div className={styles.stat}>
-                    <div className={styles.st}>STATISTIC</div>
-                    <div className={styles.box}>
-                        <div className={styles.boxing}>
-                            <DoughnutS/>
-                            <DoughnutS/>
-                        </div>
-                        <div className={styles.boxing}>
-                            <DoughnutS/>
-                            <DoughnutS/>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div>
-                    <div className={styles.st}>Total Trading Volume</div>
-                    <div className={styles.boxBig}>
-                        <DoughnutB/>
-                    </div>
-                </div>
-            </div>
                     </div>
                 </div>
             )}
@@ -273,8 +163,6 @@ const AffiliateDashboard:FC<Props> = ({
                     </div>
                 </div>
             )}
-
-
 
             {!isMobile && (
                 <div className={styles.row_second}>
