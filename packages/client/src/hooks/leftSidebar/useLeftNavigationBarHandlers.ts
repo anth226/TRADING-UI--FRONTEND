@@ -104,11 +104,6 @@ const stakingItems: INavigationItem[] = [
     type: Navigation.Payments,
     icon: FontIconName.Payments, 
   },
-  {
-    name: navigationNames[Navigation.News], 
-    type: Navigation.News,
-    icon: FontIconName.News, 
-  },
 ];
 
 export const rootNavigationParts: RootNavigationPart[] = [
