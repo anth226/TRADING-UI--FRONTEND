@@ -5,6 +5,7 @@ import tabs from './tabs';
 import navigation from './navigation';
 import classic from './classic';
 import touch from './touch';
+import post from './posts';
 
 export default {
   router: connectRouter(history),
@@ -13,4 +14,5 @@ export default {
   navigation,
   classic,
   touch,
+  post,
 };

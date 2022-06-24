@@ -3,4 +3,5 @@ export interface AuthState {
     access: string;
     refresh: string;
   },
+  posts:any
 }

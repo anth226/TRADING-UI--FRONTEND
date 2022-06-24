@@ -1,8 +1,12 @@
 /* eslint-disable */
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import arrow from '../../../../../libs/assets/images/arrow-back.svg';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPosts } from '../../../store/auth/actionCreators';
+import { useShallowSelector } from '../../../hooks/useShallowSelector';
+import { getInfo } from '../../../store/posts/actionCreators';
 
 interface Props {
   onBack?: () => void;
@@ -66,6 +70,20 @@ const Info: FC<Props> = ({
      setActiveItem(index)
    }
   }
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    // @ts-ignore
+      dispatch(getPosts())
+      // @ts-ignore
+      dispatch(getInfo())
+    },
+    [])
+
+  const store = useShallowSelector(state => state)
+  console.log(store);
+
   return (
 
     <div className={ isMobile ? styles.wrapMobile : styles.wrap} >

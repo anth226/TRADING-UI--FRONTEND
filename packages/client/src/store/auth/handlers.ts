@@ -17,7 +17,18 @@ const setTokens: HandlerFn<typeof authSetState, AuthState> = (
   { payload },
 ) => assocPath(['tokens'], { ...state.tokens, ...payload }, state);
 
+/// ////TESTNG //////////////
+const setPosts = (state: any, { payload }: any) => ({
+
+  ...state,
+  posts: [...payload],
+
+});
+/// ////TESTNG //////////////
 export const authHandlers = {
+  /// ////TESTNG //////////////
+  [AuthActionTypes.FetchPostsSuccess]: setPosts,
+  /// ////TESTNG //////////////
   [AuthActionTypes.SetState]: setState,
   [AuthActionTypes.SetTokens]: setTokens,
 };
