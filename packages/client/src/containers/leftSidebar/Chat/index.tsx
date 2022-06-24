@@ -85,7 +85,7 @@ const Chat: FC<Props> = ({
                     </div>
                 )}
                 {isMobile && (
-                    <div>
+                    <div className={styles.test_test}>
                         {whichTab()}
                     </div>
                 )}
@@ -96,6 +96,7 @@ const Chat: FC<Props> = ({
                 {/*)}*/}
                 {!isMobile && (
                     <div className={styles.message_inside}>
+                        <div>
                         <div className={styles.container}>
                             <div className={styles.circle_left}>J</div>
                             <div className={styles.left}>
@@ -119,12 +120,13 @@ const Chat: FC<Props> = ({
                                 ut labore et dolore magna aliqua.
                             </div>
                         </div>
+                        </div>
+                        <div className={isMobile ? styles.message_mob : styles.message }>
+                            <input type="text" placeholder="Message" className={styles.chat_input}/>
+                            <img src={telegram} alt='icon' />
+                        </div>
                     </div>
                 )}
-                <div className={isMobile ? styles.message_mob : styles.message }>
-                    Message
-                    <img src={telegram} alt='icon' />
-                </div>
             </div>
         </div>
     );

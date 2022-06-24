@@ -82,7 +82,7 @@ const Balances: FC = () => {
 
     return (
         <MainLayout>
-            <div className={styles.balances}>
+            <div className={isMobile? styles.balancesMobile :styles.balances}>
                 <div className={isMobile ? styles.containerMobile : styles.container}>
                     <div className={styles.cardList}>
                         {!isMobile && <CardList data={cards}/>}
@@ -97,10 +97,9 @@ const Balances: FC = () => {
                             </div>
                           ))}
                       </div>
-                      {whichTab()}
+                    {whichTab()}
                   </div>
             </div>
-
         </MainLayout>
     );
 };

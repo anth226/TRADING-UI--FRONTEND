@@ -142,7 +142,7 @@ const Deposit: FC = () => {
                             />
                         </div>
                         <div className={isMobile ? styles.paymentSectionMobile : styles.paymentSection}>
-                            <p className={styles.paymentTitle}>Send the funds you would like to deoposit to this address</p>
+                            <p className={styles.paymentTitle}>Send the funds you would like to deposit to this address</p>
                             <div className={styles.keySection}>
                                 <span className={styles.key}>36HSSbUoPUCVwdJ6XqjPEYARM8qRheFo5z</span>
                                 <div className={styles.copy} onClick={() => {

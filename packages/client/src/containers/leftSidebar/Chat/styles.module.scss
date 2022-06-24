@@ -193,5 +193,18 @@
   margin-left: 12px;
 }
 .message_inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.chat_input {
+  border:none;
+  background:none;
+  outline:none;
+  padding:0;
+  color: #ffffff;
+}
+.test_test {
   height: 100%;
 }

@@ -12,6 +12,13 @@ h4 {
   margin-bottom: 50px;
   overflow-y: scroll;
 }
+.balancesMobile {
+  padding-top: 15px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+}
 .container {
   border: 1px solid #374459;
   height: 100%;
@@ -26,6 +33,7 @@ h4 {
 .containerMobile{
   @extend .container;
   border: none;
+  padding-top: 0px;
 }
 .cardList {
   padding-bottom: 50px;
