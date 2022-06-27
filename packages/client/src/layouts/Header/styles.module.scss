@@ -7,9 +7,6 @@
   height: $header-height;
   width: 100%;
   border-bottom: 1px solid var(--color-grey);
-  position: sticky;
-  z-index: 50;
-  background-color: #0d111c;
 
   @include mobile {
     height: $mobile-header-height;
