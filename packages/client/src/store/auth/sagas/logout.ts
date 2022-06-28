@@ -12,6 +12,7 @@ export function* authLogoutSaga() {
 /// ////TESTNG //////////////
 export function* fetchPosts() {
   try {
+    // @ts-ignore
     const response = yield call(getAllPosts);
     yield put(getPostsSuccess(response));
   } catch (error) {

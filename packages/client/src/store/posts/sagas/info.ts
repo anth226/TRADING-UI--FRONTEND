@@ -3,6 +3,7 @@ import { getAllInfo, getInfoFail, getInfoSuccess } from '../actionCreators';
 
 export function* getPosts() {
   try {
+    // @ts-ignore
     const response = yield call(getAllInfo);
     yield put(getInfoSuccess(response));
   } catch (error) {

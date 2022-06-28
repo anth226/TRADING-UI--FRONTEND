@@ -1,0 +1,21 @@
+export enum AffiliateActionTypes {
+  GetAllData = 'AFFILIATE.GET_ALL_DATA',
+  GetAllDataSuccess = 'AFFILIATE.GET_ALL_DATA_SUCCESS',
+  GetAllDataFail = 'AFFILIATE.GET_ALL_FAIL',
+
+  GetAllPromoCodes = 'AFFILIATE.GET_ALL_PROMO_CODES',
+  GetAllPromoCodesSuccess = 'AFFILIATE.GET_ALL_PROMO_CODES_SUCCESS',
+  GetAllPromoCodesFail = 'AFFILIATE.GET_ALL_PROMO_CODES_FAIL',
+
+  CreatePromoCodes = 'AFFILIATE.CREATE_PROMO_CODES',
+  CreatePromoCodesSuccess = 'AFFILIATE.CREATE_PROMO_CODES_SUCCESS',
+  CreatePromoCodesFail = 'AFFILIATE.CREATE_PROMO_CODES_FAIL',
+
+  DeletePromoCodes = 'AFFILIATE.DELETE_PROMO_CODES',
+  DeletePromoCodesSuccess = 'AFFILIATE.DELETE_PROMO_CODES_SUCCESS',
+  DeletePromoCodesFail = 'AFFILIATE.DELETE_PROMO_CODES_FAIL',
+
+  AddCampaigns = 'AFFILIATE.ADD_CAMPAIGNS',
+  AddCampaignsSuccess = 'AFFILIATE.ADD_CAMPAIGNS_SUCCESS',
+  AddCampaignsFail = 'AFFILIATE.ADD_CAMPAIGNS_FAIL',
+}
