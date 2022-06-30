@@ -17,7 +17,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { coin } = row.original;
       return (
-        <div className={styles.text}>
+        <div className={styles.text_row}>
           <img src={blx} alt="icon" style={{ marginRight: 5 }} />
           <img src={exchange} alt="icon" style={{ marginRight: 5 }} />
           <img src={usd} alt="icon" style={{ marginRight: 5 }} />

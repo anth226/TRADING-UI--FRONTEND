@@ -8,10 +8,16 @@
 .text{
   font-family: Conthrax;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 14px;
   font-weight: 600;
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+}
+.text_row {
+  @extend .text;
+  flex-direction: row;
 }
 .total{
   @extend .text;
