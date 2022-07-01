@@ -151,7 +151,12 @@ const NoTouchMobile: FC<Props> = ({ mainChart }) => {
             />
             <RightSidebarTime type="small" className={styles.time} />
           </div>
-          <RightSidebarReturns className={styles.returns} type="small" percents="200" balance="0.00" />
+          <RightSidebarReturns
+            className={styles.returns}
+            type="small"
+            percents="200"
+            balance="0.00"
+          />
           <Button className={styles.button} onClick={placeTrade} color="primary">
             Place trade
           </Button>
@@ -160,7 +165,12 @@ const NoTouchMobile: FC<Props> = ({ mainChart }) => {
 
       <div className={styles.positions_wrap}>
         <div className={styles.positions}>
-          <RightSidebarPosInfo type="small" items={positionItems} date={date} title="BTCUSD" />
+          <RightSidebarPosInfo
+            type="small"
+            items={positionItems}
+            date={date}
+            title="BTCUSD"
+          />
           <Button
             onClick={viewClick}
             className={styles.position_button}

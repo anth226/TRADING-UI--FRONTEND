@@ -34,6 +34,66 @@ export const deleteChatFail = (payload:any) => ({
   payload,
 });
 
+export const createMessage = (payload:any) => ({
+  type: ChatActionTypes.CreateMessage,
+  payload,
+});
+
+export const createMessageSuccess = (payload:any) => ({
+  type: ChatActionTypes.CreateMessageSuccess,
+  payload,
+});
+
+export const createMessageFail = (payload:any) => ({
+  type: ChatActionTypes.CreateMessageFail,
+  payload,
+});
+
+export const getMessage = (payload:any) => ({
+  type: ChatActionTypes.GetMessage,
+  payload,
+});
+
+export const getMessageSuccess = (payload:any) => ({
+  type: ChatActionTypes.GetMessageSuccess,
+  payload,
+});
+
+export const getMessageFail = (payload:any) => ({
+  type: ChatActionTypes.GetMessageFail,
+  payload,
+});
+
+export const updateMessage = (payload:any) => ({
+  type: ChatActionTypes.UpdateMessage,
+  payload,
+});
+
+export const updateMessageSuccess = (payload:any) => ({
+  type: ChatActionTypes.UpdateMessageSuccess,
+  payload,
+});
+
+export const updateMessageFail = (payload:any) => ({
+  type: ChatActionTypes.UpdateMessageFail,
+  payload,
+});
+
+export const deleteMessage = (payload:any) => ({
+  type: ChatActionTypes.DeleteMessage,
+  payload,
+});
+
+export const deleteMessageSuccess = (payload:any) => ({
+  type: ChatActionTypes.DeleteMessageSuccess,
+  payload,
+});
+
+export const deleteMessageFail = (payload:any) => ({
+  type: ChatActionTypes.DeleteMessageFail,
+  payload,
+});
+
 export const sendMessage = (payload:any) => ({
   type: ChatActionTypes.SendMessage,
   payload,

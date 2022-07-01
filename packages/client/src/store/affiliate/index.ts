@@ -6,4 +6,5 @@ export const affiliateInitialState:Readonly<AffiliateState> = {
   affiliate: [],
 };
 
+// @ts-ignore
 export default createReducer(affiliateInitialState, affiliateHandlers);

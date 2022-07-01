@@ -88,9 +88,6 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
                     </div>
 
                         <div className={styles.checkbox_wrap}>
-
-
-
                             <div className={styles.row_bet}>
                                 <div className={styles.row}>
                                     <div className={styles.row_check}>
@@ -109,7 +106,6 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
                                     <div className={styles.quest}>
                                         <img src={quest} alt=''/>
                                     </div>
-
                                 </div>
 
                                 <div className={styles.mult}>
@@ -167,7 +163,6 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
             <div className={styles.positions_wrap}>
                 {data.map(item => (
                     <div>
-
                         <div className={styles.title_wrap}>
                             <div className={styles.flex}>
                                 <img src={letterIcons[Letter.L]} alt="letter" />
@@ -193,7 +188,6 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
                             <p className={styles.item_label}>{item.PNL}</p>
                             <p className={styles.item_value}>{item.PNLValue}</p>
                         </div>
-
                     </div>
                 ))}
 
@@ -236,7 +230,6 @@ const RushMobile: FC<Props> = ({ mainChart }) => {
                     <Button
                         color="transparent_primary"
                         className={cx(styles.button, styles.target_price_btn)}
-
                     >
                         - target price
                     </Button>

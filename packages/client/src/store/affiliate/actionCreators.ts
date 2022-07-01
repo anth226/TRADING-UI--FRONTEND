@@ -32,47 +32,167 @@ export const getAllPromoCodesFail = (payload:any) => ({
   payload,
 });
 
-export const CreatePromoCodes = (payload:any) => ({
+export const createPromoCodes = (payload:any) => ({
   type: AffiliateActionTypes.CreatePromoCodes,
   payload,
 });
 
-export const CreatePromoCodesSuccess = (payload:any) => ({
+export const createPromoCodesSuccess = (payload:any) => ({
   type: AffiliateActionTypes.CreatePromoCodesSuccess,
   payload,
 });
 
-export const CreatePromoCodesFail = (payload:any) => ({
+export const createPromoCodesFail = (payload:any) => ({
   type: AffiliateActionTypes.CreatePromoCodesFail,
   payload,
 });
 
-export const DeletePromoCodes = (payload:any) => ({
-  types: AffiliateActionTypes.DeletePromoCodes,
+export const deletePromoCodes = (payload:any) => ({
+  type: AffiliateActionTypes.DeletePromoCodes,
   payload,
 });
 
-export const DeletePromoCodesSuccess = (payload:any) => ({
-  types: AffiliateActionTypes.DeletePromoCodesSuccess,
+export const deletePromoCodesSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.DeletePromoCodesSuccess,
   payload,
 });
 
-export const DeletePromoCodesFail = (payload:any) => ({
+export const deletePromoCodesFail = (payload:any) => ({
   types: AffiliateActionTypes.DeletePromoCodesFail,
   payload,
 });
 
+export const updatePromoCodes = (payload:any) => ({
+  types: AffiliateActionTypes.UpdatePromoCodes,
+  payload,
+});
+
+export const updatePromoCodesSuccess = (payload:any) => ({
+  types: AffiliateActionTypes.UpdatePromoCodesSuccess,
+  payload,
+});
+
+export const updatePromoCodesFail = (payload:any) => ({
+  types: AffiliateActionTypes.UpdatePromoCodesFail,
+  payload,
+});
+
+export const getCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.GetCampaigns,
+  payload,
+});
+
+export const getCampaignsSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.GetCampaignsSuccess,
+  payload,
+});
+
+export const getCampaignsFail = (payload:any) => ({
+  type: AffiliateActionTypes.GetCampaignsFail,
+  payload,
+});
+
 export const addCampaigns = (payload:any) => ({
-  types: AffiliateActionTypes.AddCampaigns,
+  type: AffiliateActionTypes.AddCampaigns,
   payload,
 });
 
 export const addCampaignsSuccess = (payload:any) => ({
-  types: AffiliateActionTypes.AddCampaignsSuccess,
+  type: AffiliateActionTypes.AddCampaignsSuccess,
   payload,
 });
 
 export const addCampaignsFail = (payload:any) => ({
-  types: AffiliateActionTypes.AddCampaignsFail,
+  type: AffiliateActionTypes.AddCampaignsFail,
+  payload,
+});
+
+export const updateCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateCampaigns,
+  payload,
+});
+
+export const updateCampaignSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateCampaignsSuccess,
+  payload,
+});
+
+export const updateCampaignFail = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateCampaignsFail,
+  payload,
+});
+
+export const deleteCampaign = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteCampaigns,
+  payload,
+});
+
+export const deleteCampaignSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteCampaignsSuccess,
+  payload,
+});
+
+export const deleteCampaignsFail = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteCampaignsFail,
+  payload,
+});
+
+export const getTHXCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.GetTHXCampaigns,
+  payload,
+});
+
+export const getTHXCampaignsSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.GetTHXCampaignsSuccess,
+  payload,
+});
+
+export const getTHXCampaignsFail = (payload:any) => ({
+  type: AffiliateActionTypes.GetTHXCampaignsFail,
+  payload,
+});
+
+export const addTHXCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.AddTHXCampaigns,
+  payload,
+});
+
+export const addTHXCampaignsSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.AddTHXCampaignsSuccess,
+  payload,
+});
+
+export const addTHXCampaignsFail = (payload:any) => ({
+  type: AffiliateActionTypes.AddTHXCampaignsFail,
+  payload,
+});
+
+export const updateTHXCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateTHXCampaigns,
+  payload,
+});
+
+export const updateTHXCampaignsSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateTHXCampaignsSuccess,
+  payload,
+});
+
+export const updateTHXCampaignsFail = (payload:any) => ({
+  type: AffiliateActionTypes.UpdateTHXCampaignsFail,
+  payload,
+});
+
+export const deleteTHXCampaigns = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteTHXCampaigns,
+  payload,
+});
+
+export const deleteTHXCampaignsSuccess = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteTHXCampaignsSuccess,
+  payload,
+});
+
+export const deleteTHXCampaignFail = (payload:any) => ({
+  type: AffiliateActionTypes.DeleteTHXCampaignsFail,
   payload,
 });

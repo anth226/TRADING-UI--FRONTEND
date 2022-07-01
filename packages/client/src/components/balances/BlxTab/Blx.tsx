@@ -15,7 +15,6 @@ const card = {
     icon: balance_icon
 }
 
-
 const Blx:FC = () => {
     const { isMobile } = useResize();
     return (
@@ -30,8 +29,6 @@ const Blx:FC = () => {
                     <span>1</span>
                 </div>
                 <div className={styles.lvlLine}>
-                    <div></div>
-                    <div></div>
                 </div>
                 <p className={styles.infoTitle}>Use BLX to boost staking rewards by up to 100%
                     and spend it to pay for transactions fees with up to 40% discount. Refer other

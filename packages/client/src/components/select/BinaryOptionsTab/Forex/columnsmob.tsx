@@ -2,7 +2,6 @@
 import React from 'react';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import { Forex } from './types';
-import graphic from './../../../../../../libs/assets/images/SelectionMiniChart.svg';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import styles from './styles.module.scss';
 

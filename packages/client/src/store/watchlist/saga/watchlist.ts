@@ -4,9 +4,7 @@ import {
   addItems,
   addItemsSuccess, deleteItem, deleteItemFail,
   deleteItemSuccess,
-  getItems,
-  getItemsFail,
-  getItemsSuccess,
+  getItems, getItemsFail, getItemsSuccess,
 } from '../actionCreators';
 
 export function* getItem() {
