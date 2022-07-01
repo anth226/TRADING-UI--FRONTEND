@@ -9,15 +9,26 @@
   background: linear-gradient(95.7deg, #24C48A 6.16%, #23C3B9 95.49%) !important;
   box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
   color: white !important;
-  font-family: Cabin;
+  font-family: Conthrax;
+  font-size: 10px;
+  font-weight: 600;
+  max-width: 240px;
   width: 100%;
+  max-height: 48px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.boost_p {
+
 }
 
 .btn {
   width: 100%;
 }
 .first_block_mobile {
-  max-height: 210px;
+  max-height: 220px;
   height: 100%;
   border: 1px solid #374459;
   border-radius: 4px;
@@ -130,7 +141,12 @@
 .boost_mobile {
   @extend .boost;
   width: 168px;
+
 }
+.boost_item {
+  align-self: flex-start;
+}
+
 .row_bottom_mob{
   display: flex;
   flex-direction: row;

@@ -1,5 +1,5 @@
 /* eslint-disable*/
-import React from 'react';
+import React, { FC } from 'react';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { StatisticItem } from './types';
@@ -9,8 +9,16 @@ import rog from '../../../../../../libs/assets/images/staking/blx/rog.svg';
 import usd from '../../../../../../libs/assets/images/coins/USD.svg';
 import blx from '../../../../../../libs/assets/images/staking/blx/blx.svg';
 import exchange from '../../../../../../libs/assets/images/staking/blx/exchange.svg';
+import useResize from '@option-blitz/libs/hooks/useResize';
 
-export const columns = [
+
+
+
+export const columns = () => {
+
+const { isMobile } = useResize();
+
+ return  [
   {
     Header: 'Coin',
     accessor: 'coin',
@@ -32,7 +40,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { platform } = row.original;
       return (
-        <div className={styles.text}>
+        <div className={isMobile ? styles.text_mobile : styles.text}>
           <img src={rog} alt="icon" style={{ marginRight: 5 }} />
           {platform}
         </div>
@@ -45,7 +53,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { total } = row.original;
       return (
-        <div className={styles.total}>
+        <div className={isMobile ? styles.total_mobile : styles.total}>
           {total}
         </div>
       );
@@ -57,7 +65,7 @@ export const columns = [
     Cell: ({ row }: Cell<StatisticItem>) => {
       const { price } = row.original;
       return (
-        <div className={styles.price}>
+        <div className={isMobile ? styles.price_mobile : styles.price}>
           {price}
         </div>
       );
@@ -68,10 +76,11 @@ export const columns = [
     accessor: 'btn',
     // eslint-disable-next-LpPoolBalance no-empty-pattern
     Cell: ({row}: Cell<HistoryItem>) => (
-      <Button className={styles.btn} size={5} color="primary">
+      <Button className={isMobile ? styles.btn_mobile : styles.btn} size={5} color="primary">
         <div>BUY</div>
       </Button>
     ),
   },
 
 ];
+}

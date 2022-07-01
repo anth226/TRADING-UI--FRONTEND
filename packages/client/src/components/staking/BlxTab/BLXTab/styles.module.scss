@@ -4,7 +4,14 @@
   color: white !important;
   font-family: Conthrax;
   font-size: 9px;
+  width: 96px;
 }
+
+.btn_mobile{
+  @extend .btn;
+  width: 40px;
+}
+
 .text{
   font-family: Conthrax;
   font-size: 13px;
@@ -12,24 +19,49 @@
   font-weight: 600;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  align-items: flex-start;
 }
+
+.text_mobile {
+  @extend .text;
+  font-size: 10px;
+  align-items: center;
+}
+
 .text_row {
   @extend .text;
   flex-direction: row;
+  align-items: center;
 }
+
 .total{
   @extend .text;
   width: 100px !important;
 }
+
+.total_mobile {
+  @extend .text;
+  width: 75px;
+  font-size: 10px;
+}
+
 .price{
   @extend .text;
   width: 50px !important;
 }
+
+.price_mobile {
+  @extend .text;
+  font-size: 10px;
+  width: 35px;
+}
+
 .table{
   overflow-y: scroll;
   &::-webkit-scrollbar{
     display: none;
   }
+}
+.th_blx {
+  padding: 5px;
 }

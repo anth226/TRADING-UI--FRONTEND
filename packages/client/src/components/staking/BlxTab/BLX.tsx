@@ -72,7 +72,10 @@ const BLX: FC = () => {
           secondBtnIcon={FontIconName.ArrowRightBold}
           secondIconClassName={styles.minus}
         />
-        <Button className={isMobile ? styles.boost_mobile : styles.boost} >1.00x</Button>
+        <Button className={isMobile ? styles.boost_mobile : styles.boost} >
+          <div className={styles.boost_item}>Boost:</div>
+          <div>1.00x</div>
+        </Button>
       </div>
 
       { !isMobile &&
