@@ -1,10 +1,11 @@
 /* eslint-disable */
 import React, { FC } from 'react';
 import styles from './styles.module.scss';
-import bgFirst from '../../../../../libs/assets/images/staking/unStake/first.png';
-import bgSecond from '../../../../../libs/assets/images/staking/unStake/second.png';
-import bgThird from '../../../../../libs/assets/images/staking/unStake/third.png';
-import dol from '../../../../../libs/assets/images/staking/unStake/dol.png';
+import eth from '../../../../../libs/assets/images/staking/unStake/eth.svg';
+import cupMobile from '../../../../../libs/assets/images/staking/unStake/cupMobile.svg';
+import cupDesctop from '../../../../../libs/assets/images/staking/unStake/cupDesktop.svg';
+import dol from '../../../../../libs/assets/images/staking/unStake/dol.svg';
+import razer from '../../../../../libs/assets/images/staking/unStake/razer.svg';
 import star from '../../../../../libs/assets/images/staking/unStake/star.png';
 import tron from '../../../../../libs/assets/images/staking/unStake/tron.png';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
@@ -29,7 +30,7 @@ const Unstake: FC = () => {
     <div>
       {isMobile && (
           <button className={styles.row_bottom_mob}
-                  onClick={() => { setActiveNavItem(Navigation.Stake, false); }}
+                  onClick={() => { setActiveNavItem(Navigation.Staking, false); }}
           >
             <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
             <div style={{marginLeft: '10px'}}>
@@ -45,7 +46,7 @@ const Unstake: FC = () => {
         <div className={styles.wrapers}>
           <div className={ isMobile ? styles.bg_one_mobile : styles.bg_one}></div>
           {/* <img src={bgFirst} alt='' className={styles.bg}/> */}
-          <img src={dol} alt='' className={styles.dol}/>
+          <img src={isMobile ? eth : dol} alt='' className={styles.img}/>
           <div className={ isMobile ? styles.in_mobile : styles.in}>
             <TextInput
               type={'text'}
@@ -59,9 +60,8 @@ const Unstake: FC = () => {
         </div>
 
       <div className={styles.wrapers}>
-        <div className={styles.bg_two}></div>
-        {/* <img src={bgSecond} alt=''  style={{width: '351px'}}/> */}
-        <img src={star} alt='' className={styles.dol}/>
+        <div className={isMobile ? styles.bg_two_mobile : styles.bg_two}></div>
+        <img src={star} alt='' className={styles.img}/>
         <div className={ isMobile ? styles.in_mobile : styles.in}>
           <TextInput
             type={'text'}
@@ -75,9 +75,8 @@ const Unstake: FC = () => {
       </div>
 
         <div className={styles.wrapers}>
-          <div className={styles.bg_three}></div>
-          {/* <img src={bgThird} alt='' /> */}
-          <img src={tron} alt='' className={styles.dol}/>
+          <div className={ isMobile ? styles.bg_three_mobile : styles.bg_three}></div>
+          <img src={isMobile ? cupMobile : cupDesctop} alt='' className={styles.img}/>
           <div className={ isMobile ? styles.in_mobile : styles.in}>
             <TextInput
               type={'text'}
@@ -89,6 +88,9 @@ const Unstake: FC = () => {
           </div>
           <div className={styles.staked}>REWARDS: 0 USDC</div>
         </div>
+        {isMobile && <div className={styles.circle}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
+        {isMobile && <div className={styles.circle_second}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
+
       </div>
       <div style={{display:'flex', columnGap: 20, marginTop: 5}}>
         <div>

@@ -128,6 +128,58 @@ export const rootNavigationParts: RootNavigationPart[] = [
   },
 ];
 
+const affiliatesItemsMobile: INavigationItem[] = [
+  {
+    name: navigationNames[Navigation.Staking],
+    type: Navigation.Staking,
+    icon: FontIconName.Stake,
+  },
+  {
+    name: navigationNames[Navigation.Stake],
+    type: Navigation.Stake,
+    icon: FontIconName.Stake,
+  },
+  {
+    name: navigationNames[Navigation.UnStake],
+    type: Navigation.UnStake,
+    icon: FontIconName.UnStake,
+  },
+  {
+    name: navigationNames[Navigation.Analytics],
+    type: Navigation.Analytics,
+    icon: FontIconName.Analytics,
+  },
+  {
+    name: navigationNames[Navigation.BLX],
+    type: Navigation.BLX,
+    icon: FontIconName.Blx,
+  },
+];
+
+// @ts-ignore
+export const rootNavigationPartsMobile: RootNavigationPart[] = [
+  {
+    name: rootPartNames[RootPart.Trading],
+    items: tradingItems,
+    icon: FontIconName.OpenPos,
+    type: RootPart.Trading,
+  },
+  {
+    name: rootPartNames[RootPart.Staking],
+    items: affiliatesItemsMobile,
+    icon: FontIconName.Affiliates,
+    size: 16,
+    type: RootPart.Affiliates,
+  },
+  {
+    name: rootPartNames[RootPart.Affiliates],
+    items: stakingItems,
+    icon: FontIconName.AffiliateProg,
+    type: RootPart.Staking,
+  },
+];
+
+
 export const useLeftNavigationBarHandlers = () => {
   const dispatch = useDispatch();
   
@@ -155,6 +207,7 @@ export const useLeftNavigationBarHandlers = () => {
   
   return {
     rootItems: rootNavigationParts,
+    rootItemsMobile: rootNavigationPartsMobile,
     setActiveNavItem,
     setActiveRootType,
     activeNavItem: activeNavigation,

@@ -9,8 +9,8 @@ import handle from '../../../../../libs/assets/images/staking/stakeMobile/hand.s
 import arrow from '../../../../../libs/assets/images/staking/stakeMobile/Union (2).svg';
 import blx from '../../../../../libs/assets/images/staking/stakeMobile/Blx balance icon.svg';
 import opacity from '../../../../../libs/assets/images/staking/stakeMobile/opacity.svg';
-import iconMaim from '../../../../../libs/assets/images/staking/stakeMobile/iconMain.svg';
 import {Navigation} from "../../../constants/navigation/navigation";
+import usdc from '../../../../../libs/assets/images/staking/coinGroup.svg'
 import {
   useLeftNavigationBarHandlers
 } from '../../../hooks/leftSidebar/useLeftNavigationBarHandlers';
@@ -29,7 +29,7 @@ const StakingMobile = () => {
       <div className={styles.picture}>
         <div className={styles.background}></div>
         <img src={opacity} alt='' className={styles.opacity} />
-        <img src={iconMaim} alt='' className={styles.mainIcons} />
+        <img src={usdc} alt='' className={styles.mainIcons} />
         <div className={styles.left}>
           <div className={styles.text}>Total value locked</div>
           <div className={styles.num}>$ 1,000,000</div>
@@ -84,7 +84,7 @@ const StakingMobile = () => {
 
       <div className={styles.container_second}>
         <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
+             onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
           <div><img src={molot} alt='' /></div>
           <div className={styles.description}>
             STAKE

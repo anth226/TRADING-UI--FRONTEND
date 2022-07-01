@@ -33,8 +33,8 @@ const MobileNavigation: FC = () => {
       {activeItem === Navigation.Info && <Info isMobile /> }
       {activeItem === Navigation.OpenPositions && <OpenPosition isMobile /> }
       {activeItem === Navigation.Signals && <Signals isMobile /> }
-      {activeItem === Navigation.Stake && <StakingMobile /> }
-      {activeItem === Navigation.Staking && <Staking active={1} isMobile /> }
+      {activeItem === Navigation.Stake && <Staking active={1} isMobile /> }
+      {activeItem === Navigation.Staking && <StakingMobile /> }
       {activeItem === Navigation.UnStake && <Staking active={2} isMobile />}
       {activeItem === Navigation.BLX && <Staking active={3} isMobile />}
       {activeItem === Navigation.PromotionalTools && <AffiliateCampaigns isMobile />}

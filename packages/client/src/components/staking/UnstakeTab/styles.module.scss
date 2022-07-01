@@ -1,3 +1,5 @@
+@import "../libs/assets/styles/mixins";
+
 .description {
   font-family: Cabin;
   font-size: 13px;
@@ -5,15 +7,18 @@
   color: #b6c2ea;
   margin-bottom: 15px;
 }
-.bg{
+
+.bg {
   position: relative;
 }
-.dol{
+
+.img {
   position: absolute;
-  top: 0%;
-  right: 0%;
+  top: 0;
+  right: 0;
 }
-.enter{
+
+.enter {
   font-family: Conthrax;
   font-style: normal;
   font-weight: 600;
@@ -22,40 +27,47 @@
   margin-bottom: 15px;
 }
 
-.in{
+.in {
   height: 43px;
   display: flex;
   align-items: center;
-  span{
+
+  span {
     display: none;
   }
+
   border: 1px solid white !important;
   border-radius: 4px;
   position: absolute;
   top: 35%;
   left: 5%;
   width: 290px;
-  div
-  {
+
+  div {
     border: none !important;
   }
+
   ::-webkit-input-placeholder {
     color: white;
   }
-  ::-moz-placeholder{
+
+  ::-moz-placeholder {
     color: white;
   }
 }
-.in_mobile{
+
+.in_mobile {
   @extend .in;
   width: 310px;
 }
-.input{
+
+.input {
   font-family: Cabin;
   font-size: 13px;
   color: white !important;
 }
-.staked{
+
+.staked {
   position: absolute;
   top: 15%;
   left: 5%;
@@ -65,18 +77,21 @@
   font-size: 13px;
   line-height: 16px;
 }
-.unstake{
+
+.unstake {
   width: 315px;
   height: 44px;
   background: linear-gradient(180deg, #54B163 0%, #4CA357 100%);
   border-radius: 8px;
 }
-.unstake_mobile{
+
+.unstake_mobile {
   @extend .unstake;
   width: 100%;
   margin-top: 10px;
 }
-.lock{
+
+.lock {
   font-family: Conthrax;
   font-style: normal;
   font-weight: 600;
@@ -86,12 +101,15 @@
   text-transform: uppercase;
   display: flex;
   column-gap: 10px;
-  div{
-    color:#00cd86;
+
+  div {
+    color: #00cd86;
   }
+
   margin-bottom: 10px;
 }
-.pool{
+
+.pool {
   font-family: Cabin;
   font-style: normal;
   font-weight: 700;
@@ -101,20 +119,25 @@
   display: flex;
   column-gap: 20px;
 }
-.column{
+
+.column {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
-.row{
+
+.row {
   display: flex;
   position: relative;
 }
-.row_bottom_mob{
+
+.row_bottom_mob {
   display: flex;
   flex-direction: row;
-  margin-bottom: 8px ;
+  margin-bottom: 8px;
 }
-.bg_one{
+
+.bg_one {
   height: 115px;
   width: 100%;
   min-width: 320px;
@@ -122,12 +145,15 @@
   box-shadow: 0px 8px 15px rgba(38, 114, 190, 0.29);
   border-radius: 6px;
 }
-.bg_one_mobile{
+
+.bg_one_mobile {
   @extend .bg_one;
   background: linear-gradient(77.11deg, #24C48A 24.16%, #26A17B 86.56%);
   box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
+  height: 90px;
 }
-.bg_two{
+
+.bg_two {
   height: 115px;
   width: 100%;
   min-width: 320px;
@@ -136,8 +162,12 @@
   border-radius: 6px;
 }
 
+.bg_two_mobile {
+  @extend .bg_two;
+  height: 90px;
+}
 
-.bg_three{
+.bg_three {
   height: 115px;
   width: 100%;
   min-width: 320px;
@@ -146,8 +176,37 @@
   border-radius: 6px;
 }
 
-.wrapers{
+.bg_three_mobile {
+  @extend .bg_three;
+  height: 90px;
+}
+
+.wrapers {
   position: relative;
   margin-right: 15px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
+  @include mobile {
+    margin-right: 0px;
+  }
 }
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #113132;
+  width: 32px;
+  border-radius: 50%;
+  height: 32px;
+  top: 26%;
+  left: 46.5%;
+  position: absolute;
+}
+
+.circle_second {
+  @extend .circle;
+  top: 59%;
+  left: 46.5%;
+}
+
+

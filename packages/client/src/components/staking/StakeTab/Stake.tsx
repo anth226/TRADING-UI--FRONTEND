@@ -12,9 +12,6 @@ import backgroundRight from '../../../../../libs/assets/images/staking/stake/rig
 import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/Bg.png'
 import blx from '../../../../../libs/assets/images/staking/stake/rightCard/blx.svg'
 import usdCoin from '../../../../../libs/assets/images/staking/stake/leftCard/usdCoin.svg'
-import tether from '../../../../../libs/assets/images/staking/stakeMobile/tether.svg'
-import bgMob from '../../../../../libs/assets/images/staking/stakeMobile/bg_mob.svg'
-import tron from '../../../../../libs/assets/images/staking/stakeMobile/tron.svg'
 import useResize from '@option-blitz/libs/hooks/useResize';
 import {RightSidebarInput} from "@option-blitz/libs/components/rightSidebar/RightSidebarInput";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
@@ -49,7 +46,7 @@ const numbers = [
     <div>
       {isMobile && (
             <button className={styles.row_bottom_mob}
-                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
+                    onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
               <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
               <div style={{marginLeft: '10px'}}>
                 STAKE
@@ -67,7 +64,7 @@ const numbers = [
                alt=''
                className={styles.background}
           />}
-          {isMobile &&  <img src={tron} alt=''
+          {isMobile &&  <img src={bg} alt=''
                              className={styles.bg_mob}
           /> }
           { ! isMobile && <img src={bg} alt=''
@@ -75,8 +72,8 @@ const numbers = [
           />}
           { isMobile &&
             <div className={styles.coin_mob}>
-              <img src={tether} alt='' />
-              <div style={{fontSize: 12}}>TETHER</div>
+              <img src={usdCoin} alt='' />
+              <div style={{fontSize: 12}}>USD</div>
             </div>
           }
           { !isMobile && <div className={styles.coin}>
@@ -88,18 +85,13 @@ const numbers = [
           <div className={ isMobile ? styles.in_mob : styles.in}>
 
             {isMobile && (
-                <RightSidebarInput
-                    type="small"
-                    value="0"
-                    valueClassName={styles.value_mob_two}
-                    className={styles.balance_input_mob}
-                    // symbol="$"
-                    // onFirstBtnClick={plusClick}
-                    // onSecondBtnClick={minusClick}
-                    // onChange={amountChange}
-                    firstBtnIcon={FontIconName.Plus}
-                    secondBtnIcon={FontIconName.Minus}
-                />
+              <TextInput
+                type={'text'}
+                label={undefined}
+                placeholder={'0'}
+                className={styles.input}
+                right={<Max/>}
+              />
             )}
             {!isMobile && (
                 <TextInput
@@ -139,17 +131,13 @@ const numbers = [
           <div className={isMobile ? styles.balance_mob :  styles.balance}> Balance: 0.0 USDC</div>
           <div className={isMobile ? styles.in_two_mob : styles.in_two}>
             {isMobile && (
-                <RightSidebarInput
-                    type="small"
-                    value="0"
-                     valueClassName={styles.value_mob_two}
-                    className={styles.balance_input_mob}
-                    // onFirstBtnClick={plusClick}
-                    // onSecondBtnClick={minusClick}
-                    // onChange={amountChange}
-                    firstBtnIcon={FontIconName.Plus}
-                    secondBtnIcon={FontIconName.Minus}
-                />
+              <TextInput
+                type={'text'}
+                label={undefined}
+                placeholder={'0'}
+                className={styles.input}
+                right={<Max/>}
+              />
             )}
             {!isMobile && (
                 <TextInput
@@ -168,6 +156,8 @@ const numbers = [
               </div>
           )}
         </div>
+
+        {isMobile && <div className={ styles.circle}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
       </div>
 
      <div className={styles.description}>Enter any duration to lock funds in liquidity pool to earn

@@ -32,7 +32,7 @@ const Analytics = () => {
       <div className={styles.mobile_wrap}>
 
             <button className={styles.row_bottom_mob}
-                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
+                    onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
               <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
               <div style={{marginLeft: '10px'}}>
                 Analytics

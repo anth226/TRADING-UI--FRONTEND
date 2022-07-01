@@ -52,12 +52,14 @@
   align-items: center;
   width: 75px;
   height: 45px;
-  @include mobile {
-    height: 30px;
-  }
+  cursor: pointer;
   border-radius: 4px;
   border: 1px solid #374459;
   background-color: #0d1422;
+  @include mobile {
+    height: 30px;
+  }
+
 }
 .card_wrap {
   display:flex;
@@ -65,6 +67,7 @@
 .card_wrap_mob {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .background {
   position: relative;
@@ -82,16 +85,18 @@
 .bg_mob {
   position: absolute;
   bottom: 0;
-  height: 130px;
-  width: 250px;
+  right: 0;
+  max-height: 120px;
 }
 
 .left_card {
   position: relative;
+  width: 100%;
 }
 
 .right_card {
   position: relative;
+  width: 100%;
 }
 
 .coin {
@@ -108,20 +113,20 @@
   column-gap: 5px;
   position: absolute;
   top: 15px;
-  left: 0px;
+  left: 18px;
 }
 .gradient_first{
-  background: linear-gradient(77.11deg, #24C48A 24.16%, #26A17B 86.56%);
-  box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
+  background: linear-gradient(77.11deg, #009CCD 24.16%, #2775CA 86.56%);
+  box-shadow: 0px 8px 15px rgba(38, 114, 190, 0.29);
   border-radius: 6px;
-  width: 175px;
+  width: 95%;
   height: 175px;
 }
 .gradient_second{
   background: linear-gradient(77.11deg, #23C3B9 24.16%, #0C9A91 86.56%);
   box-shadow: 0px 8px 15px rgba(35, 195, 185, 0.31);
   border-radius: 6px;
-  width: 175px;
+  width: 100%;
   height: 175px;
 }
 .buy {
@@ -227,11 +232,10 @@
   left: 14px;
 }
 .bg_right_mob {
-  width: 330px;
-  height: 140px;
+  max-height: 122px;
   position: absolute;
-  top: 35px;
-  left: -120px;
+  bottom: 0;
+  left: -50%;
 }
 
 .coin_right {
@@ -260,6 +264,7 @@
   font-size: 12px;
   line-height: 15px;
   width: 459px;
+  margin-top: 10px;
 }
 
 .in_two {
@@ -330,15 +335,17 @@
   left: 195px;
 }
 .button_wrap_mob {
+  width: 100%;
   display: flex;
   height: 26px;
-  width: 110px;
+  width: 132px;
   position: absolute;
   top: 65px;
   left: 20px;
 }
 
 .buttonActive {
+  width: 100%;
   color: #22c1b7 !important;
   background: white !important;
   border: 1px solid white !important;
@@ -349,6 +356,7 @@
 }
 
 .buttonUnActive {
+  width: 100%;
   color: white !important;
   background-color: rgba(255, 255, 255, 0) !important;
   border: 1px solid white !important;
@@ -399,4 +407,17 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 8px ;
+}
+.circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #113132;
+  width: 32px;
+  border-radius: 50%;
+  height: 32px;
+  top: 69%;
+  left: 44.5%;
+  left: 44.5%;
+  position: absolute;
 }

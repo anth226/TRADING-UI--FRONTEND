@@ -29,6 +29,7 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar, type='chart' }) => {
     mobileSidebarIsOpen,
     toggleMobileNavigation,
     activeNavigation,
+    rootItemsMobile
   } = useLeftNavigationBarHandlers();
   
   const { isMobile } = useResize();
@@ -68,7 +69,7 @@ const MainLayout: FC<IProps> = ({ children, isRightSideBar, type='chart' }) => {
             <MobileNavigationBar
               onClose={toggleMobileNavigation}
               isOpen={mobileSidebarIsOpen}
-              rootItems={rootItems}
+              rootItems={rootItemsMobile}
               activeRootItem={activeRootItem}
               setActiveNavItem={setActiveNavItem}
               setActiveRootType={setActiveRootType}
