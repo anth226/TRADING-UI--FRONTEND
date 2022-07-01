@@ -85,7 +85,7 @@ const BLX: FC = () => {
       </div> }
 
       {isMobile &&
-        <div className={styles.first_block}>
+        <div className={styles.first_block_mobile}>
           <div className={styles.bost}>BOOST</div>
           <div style={{display:'flex'}}>
             <div className={styles.max_mobile}>Max boost possible:</div>
@@ -107,7 +107,12 @@ const BLX: FC = () => {
                 </Button>
               </div>
             </div>
-
+          </div>
+          <div className={styles.choose_boost}>
+            <p>
+              You can choose to stake or burn BLX to get payout boost.
+              Burning BLX increases your boost multiplier significantly higher than staking, use the calculator to discover exactly how much.
+            </p>
           </div>
         </div> }
 
