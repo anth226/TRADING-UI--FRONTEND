@@ -58,11 +58,14 @@ const PoolBalance = () => {
   return (
     <div className={styles.wrap}>
       <div className={styles.title}>LP POOL BALANCE, UTILIZATION RATE</div>
-      <Bar
+      <div className={styles.graf}>
+        <div className={styles.graf_bar}>Liquidity  pool size $m</div>
+        <Bar
         data={data}
         options={options}
         height={10}
       />
+      </div>
     </div>
   );
 };

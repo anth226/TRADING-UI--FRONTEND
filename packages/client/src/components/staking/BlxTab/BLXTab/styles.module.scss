@@ -43,11 +43,13 @@
   @extend .text;
   width: 75px;
   font-size: 10px;
+  flex-direction: row;
 }
 
 .price{
   @extend .text;
   width: 50px !important;
+  flex-direction: row;
 }
 
 .price_mobile {

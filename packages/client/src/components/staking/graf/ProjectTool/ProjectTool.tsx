@@ -43,10 +43,14 @@ const ProjectTool = () => {
     <div className={isMobile ? styles.wrap_mobile : styles.wrap}>
       <div className={styles.title}>POJECT POOL PNL BASEDOM SPOT</div>
       <div className={styles.title_}>PRICE CHANGE</div>
+      <div className={styles.graf}>
+        <div className={styles.graf_left_text}>P&L in %</div>
         <Line
           data={data}
           options={options}
         />
+      </div>
+      <div className={styles.graf_lower_text}>Percentage change of spot price</div>
     </div>
   );
 };
