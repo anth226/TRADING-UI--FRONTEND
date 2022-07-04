@@ -9,9 +9,9 @@ import coinGroup from '../../../../libs/assets/images/staking/coinGroup.svg'
 import { StakingIcon } from '../../components/staking/StakingIcon';
 import { UnstakeIcon } from '../../components/staking/UnstakeIcon';
 import { BlxIcon } from '../../components/staking/BlxIcon';
-import Stake from '../../components/staking/StakeTab/Stake';
+import Stake from '../../components/staking/Stake/Stake';
 import BLX from '../../components/staking/BlxTab/BLX';
-import Unstake from '../../components/staking/UnstakeTab/Unstake';
+import Unstake from '../../components/staking/Unstake/Unstake';
 import useResize from '@option-blitz/libs/hooks/useResize';
 import StakingMobile from '../../components/staking/StakingMobile/StakingMobile';
 

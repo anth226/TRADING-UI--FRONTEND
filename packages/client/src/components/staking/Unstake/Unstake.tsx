@@ -5,9 +5,7 @@ import eth from '../../../../../libs/assets/images/staking/unStake/eth.svg';
 import cupMobile from '../../../../../libs/assets/images/staking/unStake/cupMobile.svg';
 import cupDesctop from '../../../../../libs/assets/images/staking/unStake/cupDesktop.svg';
 import dol from '../../../../../libs/assets/images/staking/unStake/dol.svg';
-import razer from '../../../../../libs/assets/images/staking/unStake/razer.svg';
 import star from '../../../../../libs/assets/images/staking/unStake/star.png';
-import tron from '../../../../../libs/assets/images/staking/unStake/tron.png';
 import { TextInput } from '@option-blitz/libs/components/inputs/TextInput';
 import Max from '@option-blitz/libs/assets/images/staking/stake/leftCard/Max';
 import Button from '@option-blitz/libs/components/inputs/Button';
@@ -26,6 +24,48 @@ const Unstake: FC = () => {
     setActiveNavItem,
   } = useLeftNavigationBarHandlers();
 
+
+  const cards = [
+    {
+      title:'STAKED: 0 USDC',
+      background:isMobile ? styles.bg_one_mobile : styles.bg_one,
+      img:isMobile ? eth : dol,
+      input:
+        <TextInput
+          type={'text'}
+          label={undefined}
+          placeholder={'0'}
+          className={styles.input}
+          right={<Max/>}
+        />
+    },
+    {
+      title:'STAKED: 0 USDC',
+      background:isMobile ? styles.bg_two_mobile : styles.bg_two,
+      img:star,
+      input:
+        <TextInput
+          type={'text'}
+          label={undefined}
+          placeholder={'0'}
+          className={styles.input}
+          right={<Max/>}
+        />
+    },
+    {
+      title:'REWARDS: 0 USDC',
+      background:isMobile ? styles.bg_three_mobile : styles.bg_three,
+      img:isMobile ? cupMobile : cupDesctop,
+      input:
+        <TextInput
+          type={'text'}
+          label={undefined}
+          placeholder={'0'}
+          className={styles.input}
+          right={<Max/>}
+        />
+    }
+    ]
   return (
     <div>
       {isMobile && (
@@ -38,60 +78,28 @@ const Unstake: FC = () => {
             </div>
           </button>
       )}
+
       <div className={styles.description}>Withdraw funds from the liquidity pool and claim your rewards. Unstaking transfers funds
         to your live balance. Funds left after lock period ends continue to yield at the same level.
       </div>
+
       <div className={styles.enter}>Enter the amount of funds you wish to withdraw</div>
+
       <div className={isMobile ? styles.column : styles.row}>
-        <div className={styles.wrapers}>
-          <div className={ isMobile ? styles.bg_one_mobile : styles.bg_one}></div>
-          {/* <img src={bgFirst} alt='' className={styles.bg}/> */}
-          <img src={isMobile ? eth : dol} alt='' className={styles.img}/>
-          <div className={ isMobile ? styles.in_mobile : styles.in}>
-            <TextInput
-              type={'text'}
-              label={undefined}
-              placeholder={'0'}
-              className={styles.input}
-              right={<Max/>}
-            />
+        {cards.map((item)=>
+          <div className={styles.wrapers}>
+            <div className={ item.background}></div>
+            <img src={item.img} alt='' className={styles.img}/>
+            <div className={ isMobile ? styles.in_mobile : styles.in}>
+              {item.input}
+            </div>
+            <div className={styles.staked}>{item.title}</div>
           </div>
-          <div className={styles.staked}>STAKED: 0 USDC</div>
-        </div>
-
-      <div className={styles.wrapers}>
-        <div className={isMobile ? styles.bg_two_mobile : styles.bg_two}></div>
-        <img src={star} alt='' className={styles.img}/>
-        <div className={ isMobile ? styles.in_mobile : styles.in}>
-          <TextInput
-            type={'text'}
-            label={undefined}
-            placeholder={'0'}
-            className={styles.input}
-            right={<Max/>}
-          />
-        </div>
-        <div className={styles.staked}>STAKED: 0 BLX</div>
+        )}
+        <div className={ isMobile ? styles.plus_mobile : styles.plus_desktop}> <FontIcon name={FontIconName.Plus} size={17} /> </div>
+        <div className={ isMobile ? styles.plus_second_mobile : styles.plus_second_desktop}> <FontIcon name={FontIconName.Plus} size={17} /> </div>
       </div>
 
-        <div className={styles.wrapers}>
-          <div className={ isMobile ? styles.bg_three_mobile : styles.bg_three}></div>
-          <img src={isMobile ? cupMobile : cupDesctop} alt='' className={styles.img}/>
-          <div className={ isMobile ? styles.in_mobile : styles.in}>
-            <TextInput
-              type={'text'}
-              label={undefined}
-              placeholder={'0'}
-              className={styles.input}
-              right={<Max/>}
-            />
-          </div>
-          <div className={styles.staked}>REWARDS: 0 USDC</div>
-        </div>
-        {isMobile && <div className={styles.circle}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
-        {isMobile && <div className={styles.circle_second}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
-
-      </div>
       <div style={{display:'flex', columnGap: 20, marginTop: 5}}>
         <div>
           <div className={styles.lock}>Lock period remaining: <div>0d:0m:0s</div></div>
@@ -102,7 +110,8 @@ const Unstake: FC = () => {
         </div>
         {!isMobile &&<Button className={styles.unstake}>UNSTAKE</Button>}
       </div>
-      {isMobile && <div className={styles.test}>
+
+      {isMobile && <div>
         <Button className={styles.unstake_mobile}>UNSTAKE</Button>
       </div>}
 

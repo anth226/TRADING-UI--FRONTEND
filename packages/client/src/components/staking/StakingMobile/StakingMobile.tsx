@@ -22,6 +22,28 @@ const StakingMobile = () => {
     setActiveNavItem,
   } = useLeftNavigationBarHandlers();
 
+  const tabs = [
+    {
+      title:'STAKE',
+      img:molot,
+      action: () => { setActiveNavItem(Navigation.Stake, false)}
+    },
+    {
+      title:'UNSTAKE',
+      img:handle,
+      action: () => { setActiveNavItem(Navigation.UnStake, false)}
+    },
+    {
+      title:'ANALYTICS',
+      img:arrow,
+      action: () => { setActiveNavItem(Navigation.Analytics, false)}
+    },
+    {
+      title:'BLX',
+      img:blx,
+      action: () => { setActiveNavItem(Navigation.BLX, false)}
+    },
+  ];
 
   return (
     <div className={styles.main_container}>
@@ -83,43 +105,15 @@ const StakingMobile = () => {
       </div>
 
       <div className={styles.container_second}>
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
-          <div><img src={molot} alt='' /></div>
-          <div className={styles.description}>
-            STAKE
+        {tabs.map((item)=>
+          <div className={styles.boxes}
+               onClick={item.action}>
+            <div><img src={item.img} alt='' /></div>
+            <div className={styles.description}>
+              {item.title}
+            </div>
           </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.UnStake, false); }}
-        >
-          <div><img src={handle} alt='' /></div>
-          <div className={styles.description}>
-            UNSTAKE
-          </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.Analytics, false); }}
-        >
-          <div><img src={arrow} alt='' /></div>
-          <div className={styles.description}
-          >
-            ANALYTICS
-          </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.BLX, false); }}
-        >
-          <div><img src={blx} alt='' /></div>
-          <div className={styles.description}
-          >
-            BLX
-          </div>
-        </div>
-
+        )}
       </div>
     </div>
   );

@@ -190,7 +190,7 @@
   }
 }
 
-.circle {
+.plus_mobile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,10 +203,25 @@
   position: absolute;
 }
 
-.circle_second {
-  @extend .circle;
+.plus_second_mobile {
+  @extend .plus_mobile;
   top: 59%;
   left: 46.5%;
 }
 
-
+.plus_desktop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #113132;
+  width: 32px;
+  border-radius: 50%;
+  height: 32px;
+  position: absolute;
+  top: 47px;
+  left: 309px;
+}
+.plus_second_desktop {
+  @extend .plus_desktop;
+  left: 645px;
+}

@@ -13,7 +13,6 @@ import bgRight from '../../../../../libs/assets/images/staking/stake/rightCard/B
 import blx from '../../../../../libs/assets/images/staking/stake/rightCard/blx.svg'
 import usdCoin from '../../../../../libs/assets/images/staking/stake/leftCard/usdCoin.svg'
 import useResize from '@option-blitz/libs/hooks/useResize';
-import {RightSidebarInput} from "@option-blitz/libs/components/rightSidebar/RightSidebarInput";
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 import {Navigation} from "../../../constants/navigation/navigation";
 import {useLeftNavigationBarHandlers} from "../../../hooks/leftSidebar/useLeftNavigationBarHandlers";
@@ -57,34 +56,24 @@ const numbers = [
        dual staking with BLX boosts rewards on USDС by up to 100%. Visit the BLX section
        to learn more how it works.
      </div>
+
       <div className={isMobile ? styles.card_wrap_mob : styles.card_wrap }>
-        <div className={styles.left_card}>
-          { isMobile && <div className={styles.gradient_first}></div>}
-          {! isMobile && <img src={background}
-               alt=''
-               className={styles.background}
-          />}
-          {isMobile &&  <img src={bg} alt=''
-                             className={styles.bg_mob}
-          /> }
-          { ! isMobile && <img src={bg} alt=''
-               className={styles.bg}
-          />}
-          { isMobile &&
-            <div className={styles.coin_mob}>
+        {!isMobile &&
+          <div className={styles.left_card}>
+            <img src={background}
+                 alt=''
+                 className={styles.background}
+            />
+            <img src={bg}
+                 alt=''
+                 className={styles.bg}
+            />
+            <div className={styles.coin}>
               <img src={usdCoin} alt='' />
-              <div style={{fontSize: 12}}>USD</div>
-            </div>
-          }
-          { !isMobile && <div className={styles.coin}>
-            <img src={usdCoin} alt='' />
-            <div>USD</div></div>}
-
-          <img src={buy} alt='' className={isMobile? styles.buy_mob : styles.buy} />
-          <div className={isMobile ? styles.balance_mob : styles.balance}> Balance: 0.0 USDC</div>
-          <div className={ isMobile ? styles.in_mob : styles.in}>
-
-            {isMobile && (
+              <div>USD</div></div>
+            <img src={buy} alt='' className={styles.buy} />
+            <div className={ styles.balance}> Balance: 0.0 USDC</div>
+            <div className={ styles.in}>
               <TextInput
                 type={'text'}
                 label={undefined}
@@ -92,45 +81,93 @@ const numbers = [
                 className={styles.input}
                 right={<Max/>}
               />
-            )}
-            {!isMobile && (
-                <TextInput
-                    type={'text'}
-                    label={undefined}
-                    placeholder={'0'}
-                    className={styles.input}
-                    right={<Max/>}
-                />
-            )}
+            </div>
           </div>
-        </div>
-        <div className={styles.right_card}>
-          {isMobile && <div className={styles.gradient_second}></div>}
-          { ! isMobile && <img src={backgroundRight}
+        }
+        { isMobile &&
+          <div className={styles.left_card}>
+            <div className={styles.gradient_first}></div>
+            <img src={bg} alt='' className={styles.bg_mob} />
+            <div className={styles.coin_mob}>
+              <img src={usdCoin} alt='' />
+              <div style={{ fontSize: 12 }}>USD</div>
+            </div>
+            <img src={buy} alt='' className={styles.buy_mob} />
+            <div className={styles.balance_mob}> Balance: 0.0 USDC</div>
+            <div className={styles.in_mob}>
+              <TextInput
+                type={'text'}
+                label={undefined}
+                placeholder={'0'}
+                className={styles.input}
+                right={<Max />}
+              />
+            </div>
+          </div>
+        }
+        {!isMobile &&  <div className={styles.right_card}>
+          <img src={backgroundRight}
                className={styles.background}
-               alt='' />}
-          <img src={bgRight} alt=''  className={isMobile ? styles.bg_right_mob : styles.bg_right}/>
+               alt='' />
+          <img src={bgRight} alt=''  className={ styles.bg_right}/>
           <div className={isMobile ? styles.coin_right_mob : styles.coin_right}><img src={blx} alt=''/>
             <div>BLX</div></div>
 
-          <div className={isMobile ? styles.button_wrap_mob : styles.button_wrap}>
+          <div className={ styles.button_wrap}>
             <Button
-              className={cx(isMobile ? styles.burn_button :styles.none,activeButton === 'stake' ? styles.buttonActive : styles.buttonUnActive)}
+              className={cx(styles.none,activeButton === 'stake' ? styles.buttonActive : styles.buttonUnActive)}
               onClick={()=>{setActiveButton('stake')}}
             >
               <p>STAKE</p>
             </Button>
             <Button
-              className={cx(isMobile ? styles.burn_button :styles.none,activeButton === 'burn' ? styles.buttonActive : styles.buttonUnActive)}
+              className={cx(styles.none,activeButton === 'burn' ? styles.buttonActive : styles.buttonUnActive)}
               onClick={()=>{setActiveButton('burn')}}
             >
               <p>BURN</p>
             </Button>
           </div>
-          <img src={buy} alt='' className={isMobile? styles.buy_mob : styles.buy} />
-          <div className={isMobile ? styles.balance_mob :  styles.balance}> Balance: 0.0 USDC</div>
-          <div className={isMobile ? styles.in_two_mob : styles.in_two}>
-            {isMobile && (
+          <img src={buy} alt='' className={ styles.buy} />
+          <div className={ styles.balance}> Balance: 0.0 USDC</div>
+          <div className={ styles.in_two}>
+            <TextInput
+              type={'text'}
+              label={undefined}
+              placeholder={'0'}
+              className={styles.input}
+              right={<Max/>}
+            />
+          </div>
+          <div className={styles.card_description}>You can choose to stake or burn BLX to get
+            payout boost. Burning BLX increases your boost multiplier significantly higher than staking,
+            use the calculator to discover exactly how much.
+          </div>
+        </div>
+        }
+        {isMobile &&
+          <div className={styles.right_card}>
+            <div className={styles.gradient_second}></div>
+          <img src={bgRight} alt=''  className={ styles.bg_right_mob }/>
+          <div className={ styles.coin_right_mob}><img src={blx} alt=''/>
+            <div>BLX</div></div>
+
+          <div className={styles.button_wrap_mob }>
+            <Button
+              className={cx(styles.burn_button,activeButton === 'stake' ? styles.buttonActive : styles.buttonUnActive)}
+              onClick={()=>{setActiveButton('stake')}}
+            >
+              <p>STAKE</p>
+            </Button>
+            <Button
+              className={cx(styles.burn_button,activeButton === 'burn' ? styles.buttonActive : styles.buttonUnActive)}
+              onClick={()=>{setActiveButton('burn')}}
+            >
+              <p>BURN</p>
+            </Button>
+          </div>
+          <img src={buy} alt='' className={styles.buy_mob} />
+          <div className={styles.balance_mob}> Balance: 0.0 USDC</div>
+          <div className={styles.in_two_mob}>
               <TextInput
                 type={'text'}
                 label={undefined}
@@ -138,24 +175,9 @@ const numbers = [
                 className={styles.input}
                 right={<Max/>}
               />
-            )}
-            {!isMobile && (
-                <TextInput
-                    type={'text'}
-                    label={undefined}
-                    placeholder={'0'}
-                    className={styles.input}
-                    right={<Max/>}
-                />
-            )}
           </div>
-          {!isMobile && (
-              <div className={styles.card_description}>You can choose to stake or burn BLX to get
-                payout boost. Burning BLX increases your boost multiplier significantly higher than staking,
-                use the calculator to discover exactly how much.
-              </div>
-          )}
         </div>
+        }
 
         {isMobile && <div className={ styles.circle}> <FontIcon name={FontIconName.Plus} size={17} /> </div> }
       </div>
