@@ -144,7 +144,7 @@ const ClassicPositions: FC<Props> = ({
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           onClick={settleClick}

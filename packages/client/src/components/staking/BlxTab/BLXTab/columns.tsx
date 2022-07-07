@@ -1,5 +1,5 @@
 /* eslint-disable*/
-import React, { FC } from 'react';
+import React from 'react';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { StatisticItem } from './types';
@@ -10,7 +10,6 @@ import usd from '../../../../../../libs/assets/images/coins/USD.svg';
 import blx from '../../../../../../libs/assets/images/staking/blx/blx.svg';
 import exchange from '../../../../../../libs/assets/images/staking/blx/exchange.svg';
 import useResize from '@option-blitz/libs/hooks/useResize';
-
 
 
 
@@ -41,7 +40,7 @@ const { isMobile } = useResize();
       const { platform } = row.original;
       return (
         <div className={isMobile ? styles.text_mobile : styles.text}>
-          <img src={rog} alt="icon" style={{ marginRight: 5 }} />
+          <img src={rog} alt="icon" style={ {marginRight: 5}} width={20} height={20} />
           {platform}
         </div>
       );

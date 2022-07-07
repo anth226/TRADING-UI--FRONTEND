@@ -1,4 +1,4 @@
-import l from '../../../public/letters/letter_l.png';
+import l from '../../../public/letters/Long.svg';
 
 export enum Letter {
   L = 'L',

@@ -105,7 +105,7 @@ const TurboRushPositions = () => {
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           className={styles.button}
@@ -160,7 +160,7 @@ const TurboRushPositions = () => {
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           className={styles.button}

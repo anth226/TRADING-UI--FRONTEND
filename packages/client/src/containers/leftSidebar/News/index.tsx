@@ -52,7 +52,7 @@ const News: FC<Props> = ({
 
 const [calendar, setCalendar]=useState(false)
 
-  const sortOptions: OptionItem[] = [
+  const sortOptions: OptionItem [] = [
     { value: 'NEWS' },
     { value: 'ECONOMIC CALENDAR' },
   ];

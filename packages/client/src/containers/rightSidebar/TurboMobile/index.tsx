@@ -321,13 +321,13 @@ const TurboMobile: FC<Props> = ({ mainChart}) => {
                         <Button
                             onClick={sellClick}
                             color="transparent_primary"
-                            className={styles.button}
+                            className={cx(styles.button,styles.button_secondary)}
                         >
-                            sell
+                            view
                         </Button>
                         <Button
                             onClick={settleClick}
-                            className={styles.button}
+                            className={cx(styles.button,styles.button_secondary)}
                             color="primary"
                         >
                             settle
