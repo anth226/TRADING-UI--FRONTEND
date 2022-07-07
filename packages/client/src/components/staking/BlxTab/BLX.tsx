@@ -21,6 +21,9 @@ const BLX: FC = () => {
 
   const usds = 0
   const blx = 0
+
+  const [activeButton, setActiveButton] = useState('stake')
+  console.log(activeButton);
   return (
     <div className={styles.height}>
         {isMobile && (
@@ -99,12 +102,14 @@ const BLX: FC = () => {
             <div className={styles.max_boost_mobile} style={{display: 'flex', flexDirection: 'column'}}>0 BLX
               <div style={{display:'flex'}}>
                 <Button
-                  className={styles.stake}
+                  className={activeButton === 'stake' ? styles.stake : styles.burn}
+                  onClick={()=>{setActiveButton('stake', )}}
                 >
                   <p>STAKE</p>
                 </Button>
                 <Button
-                  className={styles.burn}
+                  className={activeButton === 'burn' ? styles.stake : styles.burn}
+                  onClick={()=>{setActiveButton('burn')}}
                 >
                   <p>BURN</p>
                 </Button>
