@@ -34,8 +34,11 @@
 
 .buttons_wrap {
   @include flexbox();
-
   width: 100%;
+  button{
+    height: 47px !important;
+    font-size: 9px;
+  }
 }
 
 .button {
