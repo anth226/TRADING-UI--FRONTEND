@@ -5,7 +5,7 @@ import Button from '@option-blitz/libs/components/inputs/Button';
 import { StatisticItem } from './types';
 import styles from './styles.module.scss';
 import { HistoryItem } from '../../../../containers/leftSidebar/OpenPosition/ClasicTab/types';
-import rog from '../../../../../../libs/assets/images/staking/blx/rog.svg';
+import rog from '../../../../../../libs/assets/images/staking/blx/rog.svg'
 import usd from '../../../../../../libs/assets/images/coins/USD.svg';
 import blx from '../../../../../../libs/assets/images/staking/blx/blx.svg';
 import exchange from '../../../../../../libs/assets/images/staking/blx/exchange.svg';
@@ -40,7 +40,7 @@ const { isMobile } = useResize();
       const { platform } = row.original;
       return (
         <div className={isMobile ? styles.text_mobile : styles.text}>
-          <img src={rog} alt="icon" style={ {marginRight: 5}} width={20} height={20} />
+          <img src={rog} alt="icon" style={ {marginRight: 5}} width={25} height={25} />
           {platform}
         </div>
       );

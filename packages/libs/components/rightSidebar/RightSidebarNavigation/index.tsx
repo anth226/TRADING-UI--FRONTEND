@@ -14,8 +14,8 @@ interface Tab {
 }
 
 const tabs: Tab[] = [
-  { id: 0, label: 'Market' },
-  { id: 1, label: 'Stop' },
+  { id: 0, label: 'Trade' },
+  { id: 1, label: 'Positions' },
 ];
 
 const mobileTabs: Tab[] = [

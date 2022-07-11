@@ -9,6 +9,7 @@ import { RightSidebarBinary } from '../RightSidebarBinary';
 import { RightSidebarTurbo } from '../RightSidebarTurbo';
 import { RightSidebarTouch } from '../RightSidebarTouch';
 import {RightSidebarNoTouch} from "../RightSidebarNoTouch";
+import useResize from "@option-blitz/libs/hooks/useResize";
 
 const RightSidebar: FC = () => {
   const activeProductType = useShallowSelector(selectTabsProp('activeProductType'));
