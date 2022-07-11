@@ -10,7 +10,7 @@ export function* authLogoutSaga() {
   yield put(authSetTokens('', ''));
 }
 /// ////TESTNG //////////////
-export function* fetchPosts() {
+export function* fetchPosts() : any {
   try {
     const response = yield call(getAllPosts);
     yield put(getPostsSuccess(response));

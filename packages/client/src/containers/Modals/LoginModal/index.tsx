@@ -9,6 +9,9 @@ import lock from '../ModalIcons/lock.svg'
 import googl from '../ModalIcons/googl.svg'
 import facebook from '../ModalIcons/facebook.svg'
 import twit from '../ModalIcons/twit.svg'
+import { useWeb3React } from "@web3-react/core";
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { NetworkConnector } from '@web3-react/network-connector';
 
 interface Props {
   active?: boolean
@@ -18,10 +21,19 @@ interface Props {
   isMobile?: boolean
 }
 
+let injectedConnector = new InjectedConnector({ supportedChainIds: [1, 42, 1337] });
 
 const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:Props) => {
+  const {activate} = useWeb3React<unknown>();
+  const connectMetaMask = () => {
+    activate(injectedConnector)
+    .then(()=>{
 
-
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
   const handleChange = () => {
     setActive(false);
   };
@@ -57,7 +69,8 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                   <img src={lock} alt='img' className={styles.imgLock} />
                   <p>PRIVATE KEY</p>
                 </Button>
-                <Button color={'transparent_primary'} className={styles.button} size={27}>
+                <Button color={'transparent_primary'} className={styles.button} size={27}
+                        onClick={connectMetaMask}>
                   <img src={fox} alt='img' className={styles.imgFox} />
                   <p>METAMASK</p>
                 </Button>

@@ -6,7 +6,7 @@ import { FontIconName, FontIcon } from '@option-blitz/libs/components/inputs/Fon
 import imageTemp from './imageTemp.svg';
 import styles from './styles.module.scss';
 import pan from '../../../../libs/assets/images/pan.svg'
-
+import { useWeb3React } from "@web3-react/core";
 const elements = {
   nothing: undefined,
   text: 'text',
@@ -25,10 +25,13 @@ interface Props {
   isMobile?: boolean
 }
 
-const Account: FC<Props> = ({ isMobile }) => (
+const Account: FC<Props> = ({ isMobile }) => {
+  const {chainId, account} = useWeb3React<unknown>();
+
+  return (
   <div className={ isMobile ? styles.wrapMobile : styles.wrap}>
     <p className={styles.title}>Blockchain account ID:</p>
-    <p className={styles.address}>TrClexlde123exTrClexlde123ex...</p>
+    <p className={styles.address}>{account} - {chainId}</p>
     <div className={styles.container}>
       <div className={styles.col}>
         <img src={imageTemp} alt="img" />
@@ -76,7 +79,7 @@ const Account: FC<Props> = ({ isMobile }) => (
         
       </div>
     </div>
-  </div>
-);
+  </div>)
+};
 
 export { Account };
