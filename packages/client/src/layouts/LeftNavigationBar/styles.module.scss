@@ -29,6 +29,13 @@
 
   height: 54px;
   width: 100%;
+  @media (max-height: 830px) {
+    height: 45px ;
+  }
+  @media (max-height: 725px) {
+    height: 42px ;
+  }
+
 }
 
 .button_active {
