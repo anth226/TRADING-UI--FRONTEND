@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../../store/auth/actionCreators';
 import { useShallowSelector } from '../../../hooks/useShallowSelector';
 import { getInfo } from '../../../store/posts/actionCreators';
+import { getSymbols, getSymbolsSuccess } from '../../../store/oracle/actionCreators';
 
 interface Props {
   onBack?: () => void;
