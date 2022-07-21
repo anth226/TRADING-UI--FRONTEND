@@ -228,6 +228,18 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                   <img src={fox} alt='img' className={styles.imgFox} />
                   <p>METAMASK</p>
                 </Button>
+
+                  <div className={styles.metamask_message}>
+                    <button onClick={connectWalletHandler}>{connButtonText}</button>
+
+                      <h3 style={{color: '#00CD86'}}>Address:</h3>
+                      <h3>{defaultAccount}</h3>
+
+                    <div>
+                      <h3 style={{color: '#00CD86'}}>Balance: {userBalance}</h3>
+                    </div>
+                    {errorMessage}
+                  </div>
               </div>
               {isMobile && (
                   <div className={styles.method_mod}>OR</div>
@@ -258,18 +270,18 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
               <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
             </div>
           </div>
-      <div>
-        <div>
-          <button onClick={connectWalletHandler}>{connButtonText}</button>
-          <div>
-            <h3>Address: {defaultAccount}</h3>
-          </div>
-          <div>
-            <h3>Balance: {userBalance}</h3>
-          </div>
-          {errorMessage}
-        </div>
-      </div>
+      {/* <div> */}
+      {/*   <div> */}
+      {/*     <button onClick={connectWalletHandler}>{connButtonText}</button> */}
+      {/*     <div> */}
+      {/*       <h3>Address: {defaultAccount}</h3> */}
+      {/*     </div> */}
+      {/*     <div> */}
+      {/*       <h3>Balance: {userBalance}</h3> */}
+      {/*     </div> */}
+      {/*     {errorMessage} */}
+      {/*   </div> */}
+      {/* </div> */}
     </div>
 
   );
