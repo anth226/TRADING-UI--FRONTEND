@@ -36,6 +36,7 @@
     "connected-react-router": "6.8.0",
     "d3": "7.1.1",
     "date-fns": "2.0.1",
+    "ethers": "^5.6.9",
     "formik": "2.2.6",
     "history": "4.10.0",
     "json-server": "^0.17.0",
