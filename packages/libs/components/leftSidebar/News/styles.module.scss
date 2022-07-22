@@ -1,17 +1,17 @@
 .container {
-  width: 196px;
   margin-bottom: 15px;
   flex-direction: column;
 }
 .container_mob {
-  height: 350px;
+  height: 100%;
   border: 1px solid #374459;
   border-radius: 4px;
   margin:  8px 0;
 }
 .icon{
   display: flex;
-  column-gap: 15px;
+  align-items: center;
+  column-gap: 13px;
   margin-bottom: 7px;
 }
 .icon_mob {
@@ -48,6 +48,8 @@
 }
 .img{
   margin-bottom: 5px;
+  width: 100%;
+  object-fit: cover;
 }
 .img_mob{
   width: 100%;
@@ -68,6 +70,7 @@
   color: #545870;
   font-family: Cabin;
   font-size: 12px;
+  cursor: pointer;
 }
 .readMore_mob{
   color: #545870;
@@ -75,4 +78,5 @@
   font-size: 16px;
   line-height: 19px;
   margin: 0 16px 19px 16px;
+  cursor: pointer;
 }

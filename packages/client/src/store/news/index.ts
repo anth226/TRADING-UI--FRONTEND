@@ -4,6 +4,8 @@ import { newsHandlers } from './handlers';
 
 export const newsInitialState: Readonly<NewsState> = {
   news: [],
+  loading: false,
+  error: {},
 };
 
 export default createReducer(newsInitialState, newsHandlers);
