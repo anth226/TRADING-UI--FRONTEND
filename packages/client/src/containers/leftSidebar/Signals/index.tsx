@@ -10,6 +10,7 @@ import eur from '../../../../../libs/assets/images/countries/EUR-USD.svg';
 import sentiment from '../../../../../libs/assets/images/sentiment.png';
 import chart from '../../../../../libs/assets/images/SignalsMiniChart.svg'
 import { SignalsTab } from './SignalsTab/SignalsTab';
+import {MainChartMenu} from "../../../components/charts/MainChartMenu";
 
 interface Props {
   onBack?: () => void;
