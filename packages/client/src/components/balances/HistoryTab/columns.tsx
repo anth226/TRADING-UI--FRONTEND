@@ -2,7 +2,6 @@
 import React from 'react';
 import cx from 'classnames';
 import type { TableCell as Cell } from '@option-blitz/libs/components/inputs/Table/types';
-import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
 import { HistoryItem } from './types';
 import styles from './styles.module.scss';
 

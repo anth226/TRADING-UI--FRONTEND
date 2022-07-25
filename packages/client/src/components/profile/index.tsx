@@ -3,10 +3,11 @@ import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import Binary from "./BinaryTab/Binary";
-// import TurboRush from "./TurboRushTab/TurboRush";
-import Rush from "./RushTab/Rush";
 import Touch from "./TouchTab/Touch";
 import NoTouch from "./NoTouchTab/NoTuch";
+// import TurboRush from "./TurboRushTab/TurboRush";
+import Rush from "./RushTab/Rush";
+
 
 interface Props {
   onBack?: () => void;

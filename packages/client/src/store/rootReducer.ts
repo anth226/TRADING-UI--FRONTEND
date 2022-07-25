@@ -6,6 +6,7 @@ import navigation from './navigation';
 import classic from './classic';
 import touch from './touch';
 import post from './posts';
+import news from './news';
 
 export default {
   router: connectRouter(history),
@@ -15,4 +16,5 @@ export default {
   classic,
   touch,
   post,
+  news,
 };

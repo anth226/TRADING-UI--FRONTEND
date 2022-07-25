@@ -137,14 +137,14 @@ const ClassicPositions: FC<Props> = ({
           color="transparent_primary"
           className={cx(styles.button, styles.target_price_btn)}
         >
-          - target price
+          target price
         </Button>
         <Button
           onClick={sellClick}
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           onClick={settleClick}

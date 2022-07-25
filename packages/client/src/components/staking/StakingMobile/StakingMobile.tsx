@@ -9,8 +9,8 @@ import handle from '../../../../../libs/assets/images/staking/stakeMobile/hand.s
 import arrow from '../../../../../libs/assets/images/staking/stakeMobile/Union (2).svg';
 import blx from '../../../../../libs/assets/images/staking/stakeMobile/Blx balance icon.svg';
 import opacity from '../../../../../libs/assets/images/staking/stakeMobile/opacity.svg';
-import iconMaim from '../../../../../libs/assets/images/staking/stakeMobile/iconMain.svg';
 import {Navigation} from "../../../constants/navigation/navigation";
+import usdc from '../../../../../libs/assets/images/staking/coinGroup.svg'
 import {
   useLeftNavigationBarHandlers
 } from '../../../hooks/leftSidebar/useLeftNavigationBarHandlers';
@@ -22,6 +22,28 @@ const StakingMobile = () => {
     setActiveNavItem,
   } = useLeftNavigationBarHandlers();
 
+  const tabs = [
+    {
+      title:'STAKE',
+      img:molot,
+      action: () => { setActiveNavItem(Navigation.Stake, false)}
+    },
+    {
+      title:'UNSTAKE',
+      img:handle,
+      action: () => { setActiveNavItem(Navigation.UnStake, false)}
+    },
+    {
+      title:'ANALYTICS',
+      img:arrow,
+      action: () => { setActiveNavItem(Navigation.Analytics, false)}
+    },
+    {
+      title:'BLX',
+      img:blx,
+      action: () => { setActiveNavItem(Navigation.BLX, false)}
+    },
+  ];
 
   return (
     <div className={styles.main_container}>
@@ -29,7 +51,7 @@ const StakingMobile = () => {
       <div className={styles.picture}>
         <div className={styles.background}></div>
         <img src={opacity} alt='' className={styles.opacity} />
-        <img src={iconMaim} alt='' className={styles.mainIcons} />
+        <img src={usdc} alt='' className={styles.mainIcons} />
         <div className={styles.left}>
           <div className={styles.text}>Total value locked</div>
           <div className={styles.num}>$ 1,000,000</div>
@@ -83,43 +105,15 @@ const StakingMobile = () => {
       </div>
 
       <div className={styles.container_second}>
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
-          <div><img src={molot} alt='' /></div>
-          <div className={styles.description}>
-            STAKE
+        {tabs.map((item)=>
+          <div className={styles.boxes}
+               onClick={item.action}>
+            <div><img src={item.img} alt='' /></div>
+            <div className={styles.description}>
+              {item.title}
+            </div>
           </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.UnStake, false); }}
-        >
-          <div><img src={handle} alt='' /></div>
-          <div className={styles.description}>
-            UNSTAKE
-          </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.Analytics, false); }}
-        >
-          <div><img src={arrow} alt='' /></div>
-          <div className={styles.description}
-          >
-            ANALYTICS
-          </div>
-        </div>
-
-        <div className={styles.boxes}
-             onClick={() => { setActiveNavItem(Navigation.BLX, false); }}
-        >
-          <div><img src={blx} alt='' /></div>
-          <div className={styles.description}
-          >
-            BLX
-          </div>
-        </div>
-
+        )}
       </div>
     </div>
   );

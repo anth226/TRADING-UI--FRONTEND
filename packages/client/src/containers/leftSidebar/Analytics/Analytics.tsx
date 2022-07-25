@@ -20,8 +20,8 @@ const Analytics = () => {
     <div className={styles.main}>
       {!isMobile &&<div className={styles.wrap}>
         <div style={{display:'flex', justifyContent:'space-around'}}>
-          <OpenInterest/>
-          <OpenInterest/>
+          <OpenInterest width={675} height={470}/>
+          <OpenInterest width={675} height={470}/>
         </div>
         <div style={{display:'flex', justifyContent:'space-around'}}>
           <ProjectTool/>
@@ -32,14 +32,18 @@ const Analytics = () => {
       <div className={styles.mobile_wrap}>
 
             <button className={styles.row_bottom_mob}
-                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}>
+                    onClick={() => { setActiveNavItem(Navigation.Staking, false); }}>
               <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
               <div style={{marginLeft: '10px'}}>
                 Analytics
               </div>
             </button>
 
-        <OpenInterest />
+        <OpenInterest width={390} height={350} />
+        <div className={styles.interest_footer}>
+          <div className={styles.footer_blue_border}></div>
+          <div className={styles.footer_item}>Amount in USD</div>
+        </div>
         <PoolBalance />
         <ProjectTool />
       </div>

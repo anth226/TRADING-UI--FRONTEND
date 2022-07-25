@@ -8,7 +8,7 @@
 }
 .wrap_mobile{
   @extend  .wrap;
-  width: 163px;
+  width: 168px;
 }
 .content {
   padding: 8px;
@@ -44,7 +44,7 @@
 }
 .input_mobile{
   @extend .input;
-  width: 70px;
+  width: 85px;
 }
 .button_wrap {
   @include flexbox();

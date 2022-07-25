@@ -17,7 +17,7 @@ const card = {
 const BLXTab:FC = () => {
   return (
     <div className={styles.table}>
-        <Table columns={columns} data={data}/>
+        <Table columns={columns()} data={data} classNameTH={styles.th_blx}/>
     </div>
   );
 };

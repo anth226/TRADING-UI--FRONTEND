@@ -52,7 +52,6 @@ const TurboTabTrade = () => {
 
       <div className={styles.funding}>FUNDING RATE/BH</div>
       <div className={styles.funding_value}>{fundingValue}</div>
-
       <div className={styles.button_wrap}>
         <Button
           className={styles.button}

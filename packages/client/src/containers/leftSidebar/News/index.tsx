@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import arrow from '../../../../../libs/assets/images/arrow-back.svg'
 import f from '../../../../../libs/assets/images/f.svg'
@@ -12,6 +12,9 @@ import { NewsCard } from '@option-blitz/libs/components/leftSidebar/News';
 import EconomicCalendar from './Calendar/economicCalendar';
 import {FontIcon, FontIconName} from "@option-blitz/libs/components/inputs/FontIcon";
 import {DefaultSelect, OptionItem} from "@option-blitz/libs/components/inputs/DefaultSelect";
+import { getNews } from '../../../store/news/actionCreators';
+import { useShallowSelector } from '../../../hooks/useShallowSelector';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   onBack?: () => void
@@ -22,6 +25,36 @@ const News: FC<Props> = ({
                             onBack,
                             isMobile,
                           }) => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      // @ts-ignore
+      dispatch(getNews());
+    },
+    []);
+
+  const main = useShallowSelector(state => state.news.news.main?.stream)
+  const loading = useShallowSelector(state => state.news.loading)
+
+  const News = () =>{
+    return main?.map(function(item: any) {
+      return item.content.map(function(item2: any) {
+        console.log(item2);
+        return <NewsCard
+          key={item2.id}
+          // icon={item2.icon}
+          title={item2.provider?.displayName}
+          image={item2.thumbnail.resolutions[0]?.url}
+          description={item2.title}
+          link={item2.clickThroughUrl?.url}
+          isMobile={isMobile}
+          publicData={item2.pubDate}
+        />
+      })
+    })
+  }
+
   const data = [
     {
       title: 'Forbs',
@@ -52,7 +85,7 @@ const News: FC<Props> = ({
 
 const [calendar, setCalendar]=useState(false)
 
-  const sortOptions: OptionItem[] = [
+  const sortOptions: OptionItem [] = [
     { value: 'NEWS' },
     { value: 'ECONOMIC CALENDAR' },
   ];
@@ -107,18 +140,24 @@ function news() {
           {calendar ?
             <EconomicCalendar />
             :
-          <div className={isMobile ? styles.card_wrap_mobile : styles.card_wrap}>
-            {data.map((item) => (
-              <NewsCard
-                icon={item.icon}
-                title={item.title}
-                image={item.image}
-                description={item.description}
-                isMobile={true}
-              />
-            ))}
-          </div>
-      }
+            <div className={isMobile ? styles.card_wrap_mobile : styles.card_wrap}>
+              {/* {data.map((item) => ( */}
+              {/*   <NewsCard */}
+              {/*     icon={item.icon} */}
+              {/*     title={item.title} */}
+              {/*     image={item.image} */}
+              {/*     description={item.description} */}
+              {/*     link={item.title} */}
+              {/*     isMobile={true} */}
+              {/*   /> */}
+              {/* ))} */}
+              {loading ?
+                'Loading...'
+                :
+                News()
+              }
+            </div>
+          }
 
     </div>
   );

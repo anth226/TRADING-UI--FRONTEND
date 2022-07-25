@@ -21,11 +21,14 @@ const BLX: FC = () => {
 
   const usds = 0
   const blx = 0
+
+  const [activeButton, setActiveButton] = useState('stake')
+  console.log(activeButton);
   return (
     <div className={styles.height}>
         {isMobile && (
             <button className={styles.row_bottom_mob}
-                    onClick={() => { setActiveNavItem(Navigation.Stake, false); }}
+                    onClick={() => { setActiveNavItem(Navigation.Staking, false); }}
             >
                 <FontIcon name={FontIconName.ArrowLeftBold} size={17} />
                 <div style={{marginLeft: '10px'}}>
@@ -72,7 +75,10 @@ const BLX: FC = () => {
           secondBtnIcon={FontIconName.ArrowRightBold}
           secondIconClassName={styles.minus}
         />
-        <Button className={isMobile ? styles.boost_mobile : styles.boost} >1.00x</Button>
+        <Button className={isMobile ? styles.boost_mobile : styles.boost} >
+          <div className={styles.boost_item}>Boost:</div>
+          <div>1.00x</div>
+        </Button>
       </div>
 
       { !isMobile &&
@@ -85,7 +91,7 @@ const BLX: FC = () => {
       </div> }
 
       {isMobile &&
-        <div className={styles.first_block}>
+        <div className={styles.first_block_mobile}>
           <div className={styles.bost}>BOOST</div>
           <div style={{display:'flex'}}>
             <div className={styles.max_mobile}>Max boost possible:</div>
@@ -96,18 +102,25 @@ const BLX: FC = () => {
             <div className={styles.max_boost_mobile} style={{display: 'flex', flexDirection: 'column'}}>0 BLX
               <div style={{display:'flex'}}>
                 <Button
-                  className={styles.stake}
+                  className={activeButton === 'stake' ? styles.stake : styles.burn}
+                  onClick={()=>{setActiveButton('stake', )}}
                 >
                   <p>STAKE</p>
                 </Button>
                 <Button
-                  className={styles.burn}
+                  className={activeButton === 'burn' ? styles.stake : styles.burn}
+                  onClick={()=>{setActiveButton('burn')}}
                 >
                   <p>BURN</p>
                 </Button>
               </div>
             </div>
-
+          </div>
+          <div className={styles.choose_boost}>
+            <p>
+              You can choose to stake or burn BLX to get payout boost.
+              Burning BLX increases your boost multiplier significantly higher than staking, use the calculator to discover exactly how much.
+            </p>
           </div>
         </div> }
 

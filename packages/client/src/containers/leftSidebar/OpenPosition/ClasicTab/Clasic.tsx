@@ -95,7 +95,7 @@ const Clasic: FC<Props> = ({isMobile}) => {
                             secondIconClassName={styles.down_icon}
                         />
                         <Button className={styles.button} color={"transparent_primary"}>- TARGET PRICE</Button>
-                        <Button className={styles.button} color={"transparent_primary"}>SELL</Button>
+                        <Button className={styles.button} color={"transparent_primary"}>VIEW</Button>
                         <Button className={styles.button}>SETTLE</Button>
                     </div>
                 </div>

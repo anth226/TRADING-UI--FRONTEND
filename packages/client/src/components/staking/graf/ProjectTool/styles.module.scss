@@ -14,5 +14,30 @@
   margin-bottom: 15px;
 }
 .wrap_mobile{
+  margin-top: 30px;
   height: 100%;
+}
+.graf {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  max-height: 250px;
+  height: 100%;
+}
+.graf_left_text {
+  text-align: start;
+  min-inline-size: 10em;
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+  font-family: 'Cabin';
+  font-size: 10px;
+  padding-top: 25px;
+  color: #667094;
+}
+.graf_lower_text {
+  text-align: start;
+  font-family: 'Cabin';
+  font-size: 10px;
+  padding-left: 38px;
+  color: #667094;
 }

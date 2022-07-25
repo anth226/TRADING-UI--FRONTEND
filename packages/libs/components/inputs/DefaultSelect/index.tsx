@@ -92,7 +92,6 @@ const DefaultSelect: FC<Props> = ({
           )}
           <span className={cx(
             styles.value,
-            { [styles.value_small]: isSmall },
           )}
           >
             {data.value}

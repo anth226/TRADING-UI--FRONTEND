@@ -3,4 +3,11 @@
 .wrap {
   padding: 10px 20px 0 0;
   height: 100%;
+  & > div {
+    overflow-y: scroll;
+    height: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

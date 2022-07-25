@@ -30,7 +30,16 @@ const OpenOrders = () => {
   return (
     <div>
         <div className={styles.first_block}>
-         <div className={styles.hide}> <Checkbox size={14} iconSize={7} checked={active} onCheck={()=>{setActive(!active)}} className={active === true ? styles.check_box_active : styles.check_box_unactive}/> HIDE OTHER PAIRS</div>
+         <div className={styles.hide}>
+           <Checkbox
+               size={14}
+               iconSize={7}
+               checked={active}
+               onCheck={()=>{setActive(!active)}}
+               className={active === true ? styles.check_box_active : styles.check_box_unactive}
+           />
+           HIDE OTHER PAIRS
+         </div>
           <Button  className={styles.button_cancel_all}>CANCEL ALL</Button>
         </div>
 

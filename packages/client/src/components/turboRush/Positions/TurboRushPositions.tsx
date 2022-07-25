@@ -105,7 +105,7 @@ const TurboRushPositions = () => {
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           className={styles.button}
@@ -154,13 +154,13 @@ const TurboRushPositions = () => {
           className={cx(styles.button, styles.target_price_btn)}
 
         >
-          - target price
+          target price
         </Button>
         <Button
           color="transparent_primary"
           className={styles.button}
         >
-          sell
+          view
         </Button>
         <Button
           className={styles.button}

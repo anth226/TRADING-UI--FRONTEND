@@ -9,12 +9,37 @@
   background: linear-gradient(95.7deg, #24C48A 6.16%, #23C3B9 95.49%) !important;
   box-shadow: 0px 8px 15px rgba(38, 169, 127, 0.29);
   color: white !important;
-  font-family: Cabin;
+  font-family: Conthrax;
+  font-size: 10px;
+  font-weight: 600;
+  max-width: 240px;
   width: 100%;
+  height: 51px;
+  display: flex;
+  flex-direction: column;
+}
+.boost_mobile {
+  @extend .boost;
+  width: 168px;
+  height: 47px;
 }
 
 .btn {
   width: 100%;
+  height: 47px !important;
+}
+.first_block_mobile {
+  max-height: 220px;
+  height: 100%;
+  border: 1px solid #374459;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .first_block {
@@ -69,18 +94,21 @@
 .stake {
   height: 33px !important;
   font-size: 8px !important;
-  width: 55px !important;
+  width: 60px !important;
+  font-family: 'Conthrax';
+  border-radius: 6%;
 }
 
 .burn {
   height: 33px !important;
   font-size: 8px !important;
-  width: 55px !important;
+  width: 60px !important;
   color: white !important;
   background-color: rgba(255, 255, 255, 0) !important;
   border: 1px solid #374459;
+  border-radius: 6%;
+  font-family: 'Conthrax'
 }
-
 .buy {
   width: 315px;
   height: 44px;
@@ -98,7 +126,7 @@
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   column-gap: 20px;
 }
 
@@ -106,13 +134,14 @@
   @extend .buttons;
   flex-wrap: wrap;
   row-gap: 10px;
-  column-gap: 10px;
+  column-gap: 0px;
 }
 
-.boost_mobile {
-  @extend .boost;
-  width: 165px;
+
+.boost_item {
+  align-self: flex-start;
 }
+
 .row_bottom_mob{
   display: flex;
   flex-direction: row;
@@ -120,4 +149,13 @@
 }
 .height{
   height: 100%;
+}
+.choose_boost {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #B6C2EA;
 }

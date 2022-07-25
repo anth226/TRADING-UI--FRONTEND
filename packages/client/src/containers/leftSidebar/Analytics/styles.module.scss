@@ -9,7 +9,7 @@
 .main{
   height: 100%;
   overflow-y: scroll;
-  overflow-x: scroll;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -29,4 +29,23 @@
   margin-bottom: 8px ;
   margin-top: 20px;
 }
-
+.interest_footer {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  margin-bottom: 30px;
+}
+.footer_blue_border {
+  width: 20px;
+  height: 6px;
+  background: #009CCD;
+  border-radius: 10px;
+}
+.footer_item {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #B6C2EA;
+}
