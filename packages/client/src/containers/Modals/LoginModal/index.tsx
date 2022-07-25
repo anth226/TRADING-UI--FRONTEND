@@ -1,5 +1,7 @@
 /* eslint-disable */
 /* ts-ignore */
+// @ts-ignore
+
 import React, { useEffect, useState } from 'react';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
@@ -10,7 +12,11 @@ import lock from '../ModalIcons/lock.svg'
 import googl from '../ModalIcons/googl.svg'
 import facebook from '../ModalIcons/facebook.svg'
 import twit from '../ModalIcons/twit.svg'
+import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { NetworkConnector } from '@web3-react/network-connector';
 import { ethers } from 'ethers';
+import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
@@ -28,10 +34,24 @@ interface Props {
   isMobile?: boolean
 }
 
+let injectedConnector = new InjectedConnector({});
 
 const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:Props) => {
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [defaultAccount, setDefaultAccount] = useState(null);
+  const [userBalance, setUserBalance] = useState(null);
+  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+  const {activate , account, library, active:connected} = useWeb3React<unknown>();
+  const {jwt} = useOptionBlitz();
+  const connectMetaMask = () => {
+    activate(injectedConnector)
+    .then(()=>{
 
-
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
   const handleChange = () => {
     setActive(false);
   };
@@ -44,22 +64,31 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
     setKey(true);
   };
 
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [defaultAccount, setDefaultAccount] = useState(null);
-  const [userBalance, setUserBalance] = useState(null);
-  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+  useEffect(()=>{
+    if (account) {
+      setDefaultAccount(account as any);
+      getAccountBalance(account);
+    }
+  },[account])
 
   const connectWalletHandler = () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
-      window.ethereum.request({ method: 'eth_requestAccounts' })
-        .then((result: any) => {
-          accountChangedHandler(result[0]);
+      activate(injectedConnector)
+        .then(() => {
           setConnButtonText('Wallet Connected');
-          getAccountBalance(result[0]);
         })
         .catch((error: any) => {
           setErrorMessage(error.message);
-        });
+        })
+      // window.ethereum.request({ method: 'eth_requestAccounts'})
+      //   .then((result: any) => {
+      //     accountChangedHandler(result[0]);
+      //     setConnButtonText('Wallet Connected');
+      //     getAccountBalance(result[0]);
+      //   })
+      //   .catch((error: any) => {
+      //     setErrorMessage(error.message);
+      //   });
 
     } else {
       console.log('Need to install MetaMask');
@@ -94,122 +123,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
 
   window.ethereum.on('chainChanged', chainChangedHandler);
 
-  // async function execute() {
-  //   if (typeof window.ethereum !== "undefined") {
-  //     const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-  //     const abi = [
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "string",
-  //             name: "_name",
-  //             type: "string",
-  //           },
-  //           {
-  //             internalType: "uint256",
-  //             name: "_favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "addPerson",
-  //         outputs: [],
-  //         stateMutability: "nonpayable",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "string",
-  //             name: "",
-  //             type: "string",
-  //           },
-  //         ],
-  //         name: "nameToFavoriteNumber",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "people",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //           {
-  //             internalType: "string",
-  //             name: "name",
-  //             type: "string",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [],
-  //         name: "retrieve",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "_favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "store",
-  //         outputs: [],
-  //         stateMutability: "nonpayable",
-  //         type: "function",
-  //       },
-  //     ];
-  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //     const signer = provider.getSigner();
-  //     console.log(signer, 'signer');
-  //     const contract = new ethers.Contract(contractAddress, abi, signer);
-  //     try {
-  //       await contract.store(42);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     "Please install MetaMask";
-  //   }
-  // }
-  const [state, setState]=useState('0x2E26b70F56Db0D0C5b0f67Bd632B856E3d95440a')
-  const dispatch = useDispatch()
-
-
-
-  // @ts-ignore
-  useEffect( ()=>{
-    // @ts-ignore
-    //dispatch(getPreSigned(state))
-
-    //await axios.post('http://34.228.11.16:8080/api/v1/auth/pre_signed', {data: 'debug'})
     axios(
       {
         url: "http://34.228.11.16:8080/api/v1/auth/internal/version",
@@ -228,7 +141,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
       error => console.error({error})
     )
 
-  },[])
   return (
 
     <div className={active ? styles.background : styles.modalInviseble}>

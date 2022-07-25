@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { getAllInfo, getInfoFail, getInfoSuccess } from '../actionCreators';
 
-export function* getPosts() {
+export function* getPosts() : any {
   try {
     // @ts-ignore
     const response = yield call(getAllInfo);

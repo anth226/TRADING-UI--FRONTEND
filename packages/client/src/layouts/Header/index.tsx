@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {FC, useCallback, useMemo, useState} from 'react';
+import React, {FC, useCallback, useMemo, useState, useEffect} from 'react';
 import {FontIcon, FontIconName} from '@option-blitz/libs/components/inputs/FontIcon';
 import {HeaderTab} from '@option-blitz/libs/components/common/HeaderTab';
 import cx from 'classnames';
@@ -15,6 +15,14 @@ import {LoginModal} from '../../containers/Modals/LoginModal';
 import {LoginPrivatKey} from '../../containers/Modals/LoginPrivatKey';
 import {WalletConnected} from '../../containers/Modals/WalletConnected';
 import {CreateNewAccount} from '../../containers/Modals/CreateNewAccount';
+import { Provider } from "@ethersproject/abstract-provider";
+import { getNetwork } from "@ethersproject/networks";
+import { Web3Provider } from "@ethersproject/providers";
+import { useWeb3React } from "@web3-react/core";
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { NetworkConnector } from '@web3-react/network-connector';
+
+let injectedConnector = new InjectedConnector({});
 
 interface Props {
   onAddTab: () => void
@@ -46,9 +54,10 @@ const Header: FC<Props> = ({
     if (!value) return;
     onTabClick(value.id);
   }, []);
-
+  const web3ReactContext = useWeb3React<Web3Provider>()
+  const { connector, library, chainId, account, activate, deactivate, active:walletConnected, error } = web3ReactContext
   const activeTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
-
+  console.log(account, walletConnected);
   const [modalVisible, setModalVisible] = useState(false);
   const [ wallet, setWallet] =useState(false)
   const [privatkey, setPrivatkey]=useState(false)
@@ -57,6 +66,16 @@ const Header: FC<Props> = ({
   const [openselection, setOpenselection] = useState(false)
 
   const handleChange = () => {
+    // injectedConnector.isAuthorized()
+    // .then(authorized=>{
+    //   activate(injectedConnector);
+    // })
+    // .then(()=>{
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // })
+
     setModalVisible(true)
   }
 
@@ -181,7 +200,7 @@ const Header: FC<Props> = ({
         )}
 
         <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
-      {address || 'login'}
+      {walletConnected ? account : address || 'login'}
         </Button>
 
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
