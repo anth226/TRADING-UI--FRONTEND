@@ -1,6 +1,6 @@
 /* eslint-disable */
 /* ts-ignore */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
@@ -11,6 +11,8 @@ import googl from '../ModalIcons/googl.svg'
 import facebook from '../ModalIcons/facebook.svg'
 import twit from '../ModalIcons/twit.svg'
 import { ethers } from 'ethers';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 declare global {
   interface Window{
@@ -42,7 +44,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
     setKey(true);
   };
 
-
   const [errorMessage, setErrorMessage] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [userBalance, setUserBalance] = useState(null);
@@ -50,7 +51,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
 
   const connectWalletHandler = () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
-      window.ethereum.request({ method: 'eth_requestAccounts'})
+      window.ethereum.request({ method: 'eth_requestAccounts' })
         .then((result: any) => {
           accountChangedHandler(result[0]);
           setConnButtonText('Wallet Connected');
@@ -198,14 +199,41 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   //     "Please install MetaMask";
   //   }
   // }
+  const [state, setState]=useState('0x2E26b70F56Db0D0C5b0f67Bd632B856E3d95440a')
+  const dispatch = useDispatch()
 
 
 
+  // @ts-ignore
+  useEffect( ()=>{
+    // @ts-ignore
+    //dispatch(getPreSigned(state))
+
+    //await axios.post('http://34.228.11.16:8080/api/v1/auth/pre_signed', {data: 'debug'})
+    axios(
+      {
+        url: "http://34.228.11.16:8080/api/v1/auth/internal/version",
+        method: 'PUT',
+        data: JSON.stringify({
+          wallet: "saf"
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
+      }
+    ).then(
+      response => console.log({response})
+    ).catch(
+      error => console.error({error})
+    )
+
+  },[])
   return (
 
     <div className={active ? styles.background : styles.modalInviseble}>
 
-          <div className={ styles.modal}>
+      <div className={styles.modal}>
 
             <div className={styles.login}>
               <div className={styles.pointer}>
@@ -229,47 +257,47 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                   <p>METAMASK</p>
                 </Button>
 
-                  <div className={styles.metamask_message}>
-                    <button onClick={connectWalletHandler}>{connButtonText}</button>
+            <div className={styles.metamask_message}>
+              <button onClick={connectWalletHandler}>{connButtonText}</button>
 
-                      <h3 style={{color: '#00CD86'}}>Address:</h3>
-                      <h3>{defaultAccount}</h3>
+              <h3 style={{ color: '#00CD86' }}>Address:</h3>
+              <h3>{defaultAccount}</h3>
 
-                    <div>
-                      <h3 style={{color: '#00CD86'}}>Balance: {userBalance}</h3>
-                    </div>
-                    {errorMessage}
-                  </div>
+              <div>
+                <h3 style={{ color: '#00CD86' }}>Balance: {userBalance}</h3>
               </div>
-              {isMobile && (
-                  <div className={styles.method_mod}>OR</div>
-              )}
-
-              {isMobile && (
-                  <div className={styles.mob}>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={googl} alt='img' />
-                    </Button>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={facebook} alt='img' />
-                    </Button>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={twit} alt='img' />
-                    </Button>
-                  </div>
-                  )}
-              <div className={styles.pointer}>REGISTER</div>
-              <hr className={styles.hr} />
-              <div className={styles.account}>DON'T HAVE AN ACCOUNT?</div>
-              <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
+              {errorMessage}
             </div>
           </div>
+          {isMobile && (
+            <div className={styles.method_mod}>OR</div>
+          )}
+
+          {isMobile && (
+            <div className={styles.mob}>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={googl} alt='img' />
+              </Button>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={facebook} alt='img' />
+              </Button>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={twit} alt='img' />
+              </Button>
+            </div>
+          )}
+          <div className={styles.pointer}>REGISTER</div>
+          <hr className={styles.hr} />
+          <div className={styles.account}>DON'T HAVE AN ACCOUNT?</div>
+          <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
+        </div>
+      </div>
       {/* <div> */}
       {/*   <div> */}
       {/*     <button onClick={connectWalletHandler}>{connButtonText}</button> */}

@@ -5,4 +5,5 @@ export enum ApiPaths {
 
   GetNews = '/api/v1/news/get_news',
   GetSymbols = '/api/v1/oracle/internal/category_symbols',
+  PreSigned = '/api/v1/auth/pre_signed',
 }
