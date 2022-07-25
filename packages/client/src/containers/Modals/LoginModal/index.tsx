@@ -1,5 +1,6 @@
 /* eslint-disable */
-import React from 'react';
+/* ts-ignore */
+import React, { useEffect, useState } from 'react';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
@@ -12,6 +13,13 @@ import twit from '../ModalIcons/twit.svg'
 import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { NetworkConnector } from '@web3-react/network-connector';
+import { ethers } from 'ethers';
+import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider'
+declare global {
+  interface Window{
+    ethereum?:any
+  }
+}
 
 interface Props {
   active?: boolean
@@ -21,10 +29,15 @@ interface Props {
   isMobile?: boolean
 }
 
-let injectedConnector = new InjectedConnector({ supportedChainIds: [1, 42, 1337] });
+let injectedConnector = new InjectedConnector({});
 
 const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:Props) => {
-  const {activate} = useWeb3React<unknown>();
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [defaultAccount, setDefaultAccount] = useState(null);
+  const [userBalance, setUserBalance] = useState(null);
+  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+  const {activate , account, library, active:connected} = useWeb3React<unknown>();
+  const {jwt} = useOptionBlitz();
   const connectMetaMask = () => {
     activate(injectedConnector)
     .then(()=>{
@@ -45,6 +58,173 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
     setActive(false);
     setKey(true);
   };
+
+  useEffect(()=>{
+    if (account) {
+      setDefaultAccount(account as any);
+      getAccountBalance(account);
+    }
+  },[account])
+
+  const connectWalletHandler = () => {
+    if (window.ethereum && window.ethereum.isMetaMask) {
+      activate(injectedConnector)
+        .then(() => {
+          setConnButtonText('Wallet Connected');
+        })
+        .catch(error=>{
+          setErrorMessage(error.message);
+        })
+      // window.ethereum.request({ method: 'eth_requestAccounts'})
+      //   .then((result: any) => {
+      //     accountChangedHandler(result[0]);
+      //     setConnButtonText('Wallet Connected');
+      //     getAccountBalance(result[0]);
+      //   })
+      //   .catch((error: any) => {
+      //     setErrorMessage(error.message);
+      //   });
+
+    } else {
+      console.log('Need to install MetaMask');
+      // @ts-ignore
+      setErrorMessage('Please install MetaMask browser extension to interact');
+    }
+  }
+
+  const accountChangedHandler = (newAccount: React.SetStateAction<null>) => {
+    setDefaultAccount(newAccount);
+    // @ts-ignore
+    getAccountBalance(newAccount.toString());
+  }
+
+  const getAccountBalance = (account: any) => {
+    window.ethereum.request({method: 'eth_getBalance', params: [account, 'latest']})
+      .then((balance: any) => {
+        // @ts-ignore
+        return setUserBalance(ethers.utils.formatEther(balance));
+      })
+      .catch((error: any) => {
+        setErrorMessage(error.message);
+      });
+  };
+
+  const chainChangedHandler = () => {
+    // reload the page to avoid any errors with chain change mid use of application
+    window.location.reload();
+  }
+
+  window.ethereum.on('accountsChanged', accountChangedHandler);
+
+  window.ethereum.on('chainChanged', chainChangedHandler);
+
+  // async function execute() {
+  //   if (typeof window.ethereum !== "undefined") {
+  //     const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  //     const abi = [
+  //       {
+  //         inputs: [
+  //           {
+  //             internalType: "string",
+  //             name: "_name",
+  //             type: "string",
+  //           },
+  //           {
+  //             internalType: "uint256",
+  //             name: "_favoriteNumber",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         name: "addPerson",
+  //         outputs: [],
+  //         stateMutability: "nonpayable",
+  //         type: "function",
+  //       },
+  //       {
+  //         inputs: [
+  //           {
+  //             internalType: "string",
+  //             name: "",
+  //             type: "string",
+  //           },
+  //         ],
+  //         name: "nameToFavoriteNumber",
+  //         outputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         stateMutability: "view",
+  //         type: "function",
+  //       },
+  //       {
+  //         inputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         name: "people",
+  //         outputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "favoriteNumber",
+  //             type: "uint256",
+  //           },
+  //           {
+  //             internalType: "string",
+  //             name: "name",
+  //             type: "string",
+  //           },
+  //         ],
+  //         stateMutability: "view",
+  //         type: "function",
+  //       },
+  //       {
+  //         inputs: [],
+  //         name: "retrieve",
+  //         outputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         stateMutability: "view",
+  //         type: "function",
+  //       },
+  //       {
+  //         inputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "_favoriteNumber",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         name: "store",
+  //         outputs: [],
+  //         stateMutability: "nonpayable",
+  //         type: "function",
+  //       },
+  //     ];
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     const signer = provider.getSigner();
+  //     console.log(signer, 'signer');
+  //     const contract = new ethers.Contract(contractAddress, abi, signer);
+  //     try {
+  //       await contract.store(42);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   } else {
+  //     "Please install MetaMask";
+  //   }
+  // }
+
+
 
   return (
 
@@ -69,11 +249,22 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                   <img src={lock} alt='img' className={styles.imgLock} />
                   <p>PRIVATE KEY</p>
                 </Button>
-                <Button color={'transparent_primary'} className={styles.button} size={27}
-                        onClick={connectMetaMask}>
+                <Button color={'transparent_primary'} className={styles.button} size={27} onClick={connectWalletHandler}>
                   <img src={fox} alt='img' className={styles.imgFox} />
                   <p>METAMASK</p>
                 </Button>
+
+                  <div className={styles.metamask_message}>
+                    <button onClick={connectWalletHandler}>{connButtonText}</button>
+
+                      <h3 style={{color: '#00CD86'}}>Address:</h3>
+                      <h3>{defaultAccount}</h3>
+
+                    <div>
+                      <h3 style={{color: '#00CD86'}}>Balance: {userBalance}</h3>
+                    </div>
+                    {errorMessage}
+                  </div>
               </div>
               {isMobile && (
                   <div className={styles.method_mod}>OR</div>
@@ -104,6 +295,18 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
               <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
             </div>
           </div>
+      {/* <div> */}
+      {/*   <div> */}
+      {/*     <button onClick={connectWalletHandler}>{connButtonText}</button> */}
+      {/*     <div> */}
+      {/*       <h3>Address: {defaultAccount}</h3> */}
+      {/*     </div> */}
+      {/*     <div> */}
+      {/*       <h3>Balance: {userBalance}</h3> */}
+      {/*     </div> */}
+      {/*     {errorMessage} */}
+      {/*   </div> */}
+      {/* </div> */}
     </div>
 
   );

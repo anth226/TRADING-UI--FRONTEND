@@ -66,17 +66,17 @@ const Header: FC<Props> = ({
   const [openselection, setOpenselection] = useState(false)
 
   const handleChange = () => {
-    injectedConnector.isAuthorized()
-    .then(authorized=>{
-      activate(injectedConnector);
-    })
-    .then(()=>{
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+    // injectedConnector.isAuthorized()
+    // .then(authorized=>{
+    //   activate(injectedConnector);
+    // })
+    // .then(()=>{
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // })
 
-    //setModalVisible(true)
+    setModalVisible(true)
   }
 
   const history = useHistory();
