@@ -57,7 +57,8 @@ const Header: FC<Props> = ({
   const web3ReactContext = useWeb3React<Web3Provider>()
   const { connector, library, chainId, account, activate, deactivate, active:walletConnected, error } = web3ReactContext
   const activeTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
-  console.log(account, walletConnected);
+  const [connected, setConnected] = useState(false)
+
   const [modalVisible, setModalVisible] = useState(false);
   const [ wallet, setWallet] =useState(false)
   const [privatkey, setPrivatkey]=useState(false)
@@ -65,17 +66,13 @@ const Header: FC<Props> = ({
 
   const [openselection, setOpenselection] = useState(false)
 
-  const handleChange = () => {
-    // injectedConnector.isAuthorized()
-    // .then(authorized=>{
-    //   activate(injectedConnector);
-    // })
-    // .then(()=>{
-    // })
-    // .catch(err=>{
-    //   console.log(err);
-    // })
+  useEffect(() => {
+    injectedConnector.isAuthorized().then(authorized => {
+      setConnected(authorized)
+    })
+  }, [])
 
+  const handleChange = () => {
     setModalVisible(true)
   }
 
@@ -200,7 +197,7 @@ const Header: FC<Props> = ({
         )}
 
         <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
-      {walletConnected ? account : address || 'login'}
+      {connected ? localStorage.getItem('account') : address || 'login'}
         </Button>
 
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />

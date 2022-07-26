@@ -4,6 +4,7 @@ import { AuthActionTypes } from '../actionsTypes';
 import { authLogoutSaga } from './logout';
 import { authRehydrateSaga } from './rehydrate';
 import { authOnRefreshSaga } from './refresh';
+// @ts-ignore
 import { _preSigned } from './preSigned';
 
 export default function* authSaga() {

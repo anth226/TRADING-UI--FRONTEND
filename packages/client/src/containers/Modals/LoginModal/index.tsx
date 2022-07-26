@@ -19,6 +19,9 @@ import { ethers } from 'ethers';
 import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { authRefresh, getPreSigned } from '../../../store/auth/actionCreators';
+import { Web3Provider } from '@ethersproject/providers';
+import { api } from '../../../utils/api';
 
 declare global {
   interface Window{
@@ -43,6 +46,8 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   const [connButtonText, setConnButtonText] = useState('Connect Wallet');
   const {activate , account, library, active:connected} = useWeb3React<unknown>();
   const {jwt} = useOptionBlitz();
+
+  console.log({ jwt });
   const connectMetaMask = () => {
     activate(injectedConnector)
     .then(()=>{
@@ -119,27 +124,29 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
     window.location.reload();
   }
 
-  window.ethereum.on('accountsChanged', accountChangedHandler);
-
-  window.ethereum.on('chainChanged', chainChangedHandler);
-
-    axios(
-      {
-        url: "http://34.228.11.16:8080/api/v1/auth/internal/version",
-        method: 'PUT',
-        data: JSON.stringify({
-          wallet: "saf"
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        }
-      }
-    ).then(
-      response => console.log({response})
-    ).catch(
-      error => console.error({error})
-    )
+  // window.ethereum.on('accountsChanged', accountChangedHandler);
+  //
+  // window.ethereum.on('chainChanged', chainChangedHandler);
+  //
+  //   axios(
+  //     {
+  //       url: "https://optionblitz1.us-east-2.elasticbeanstalk.com/api/v1/auth/refresh",
+  //       method: 'POST',
+  //       data: JSON.stringify({
+  //       }),
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json',
+  //         'Access-Control-Allow-Origin': '*',
+  //       }
+  //     }
+  //   ).then(
+  //     response => console.log({response})
+  //   ).catch(
+  //     error => console.error({error})
+  //   )
+  //
+  const dispatch = useDispatch()
 
   return (
 
@@ -158,6 +165,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
             </div>
             <div className={styles.main}>
               <div className={styles.method}>SELECT METHOD</div>
+              <button onClick={() => dispatch(authRefresh())}>testing</button>
               <div className={styles.fonts}>
                 <Button color={'transparent_primary'} className={styles.button} size={27}
                         onClick={privatKeyModal}>

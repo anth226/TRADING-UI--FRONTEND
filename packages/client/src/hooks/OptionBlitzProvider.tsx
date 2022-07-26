@@ -1,10 +1,13 @@
+/* eslint-disable */
 import React, {
-  createContext, useCallback, useContext, useEffect, useState,
+  createContext, useCallback, useContext, useEffect, useMemo, useState, 
 } from 'react';
 import { Provider } from '@ethersproject/abstract-provider';
+import { getNetwork } from '@ethersproject/networks';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import axios, { Method } from 'axios';
+import { NetworkConnector } from '@web3-react/network-connector';
 
 type OptionBlitzProviderProps = {
   loader?: React.ReactNode;
@@ -22,7 +25,6 @@ const OptionBlitzContext = createContext<OptionBlitzContextValue | undefined>(un
 
 const getRpcEndpoint = () => 'https://optionblitz1.us-east-2.elasticbeanstalk.com';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention,max-len
 const ob_rpc_call = async (func: string, method: Method, data: string, headers?: Record<string, string>) => axios({
   url: getRpcEndpoint() + func,
   method,
@@ -35,18 +37,17 @@ const ob_rpc_call = async (func: string, method: Method, data: string, headers?:
 });
 export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   children,
-  // loader,
+  loader,
 }) => {
   const [jwt, setJWT] = useState<{
     account: string | undefined | null;
     jwt: any;
   }>({ account: '', jwt: {} });
   const {
-    library: provider, active, account, chainId,
+    library: provider, active, account, chainId, connector, 
   } = useWeb3React<Web3Provider>();
   console.log(active, account, account);
   // can use the same otp so long the call is not done again
-  // eslint-disable-next-line @typescript-eslint/naming-convention,@typescript-eslint/no-shadow
   const pre_signed = useCallback(async (account: string): Promise<string> => {
     const otp = await ob_rpc_call('/api/v1/auth/pre_signed', 'PUT',
       JSON.stringify({
@@ -55,27 +56,25 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     return otp.data.nonce;
   }, []);
   // just same of refreshing token
-  // const refresh_token = useCallback(async (account: string, refreshToken: string) => {
-  //   const token = await ob_rpc_call('/api/v1/auth/refresh', 'POST',
-  //     '{}', {
-  //       Authorization: `Bearer ${refreshToken}`,
-  //     });
-  //   console.log(token.data);
-  //   setJWT({ account, jwt: token.data });
-  //   return token.data;
-  // }, []);
+  const refresh_token = useCallback(async (account: string, refreshToken: string) => {
+    const token = await ob_rpc_call('/api/v1/auth/refresh', 'POST',
+      '{}', {
+        Authorization: `Bearer ${refreshToken}`,
+      });
+    console.log(token.data);
+    setJWT({ account, jwt: token.data });
+    return token.data;
+  }, []);
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention,@typescript-eslint/no-shadow
   const sign_in = useCallback(async (account: string) => {
     const nonce = await pre_signed(account);
     const signer = provider?.getSigner();
     const signedMessage = await signer?.signMessage(nonce);
-    // eslint-disable-next-line @typescript-eslint/naming-convention
+    console.log({ signedMessage });
     let new_sign_in: {
       account: string | null | undefined;
       jwt: any;
     };
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const _sign_in = async (): Promise<Record<'access' | 'refresh', string>> => {
       const token = await ob_rpc_call('/api/v1/auth/sign_in', 'POST',
         JSON.stringify({
@@ -84,9 +83,10 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
         }));
       new_sign_in = { account, jwt: token.data };
       setJWT({ account, jwt: token.data });
+      localStorage.setItem('account', account)
+      localStorage.setItem('accessToken',  token.data.access)
       return token.data;
     };
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const _sign_up = async () => {
       await ob_rpc_call('/api/v1/auth/sign_up', 'POST',
         JSON.stringify({
@@ -96,9 +96,8 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
         }));
     };
     _sign_in()
-      .then(async () => {
-        // testing not needed to do it here  async (token)
-        // const newToken = await refresh_token(account, token.refresh);  
+      .then(async (token) => {
+        const newToken = await refresh_token(account, token.refresh);
       })
       .catch(async (e) => {
         console.log(e);
@@ -113,12 +112,10 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
             .then(async () => {
               try {
                 await _sign_in();
-                // eslint-disable-next-line @typescript-eslint/no-shadow
               } catch (e) {
                 console.log('final sign in error', e);
               }
             })
-            // eslint-disable-next-line @typescript-eslint/no-shadow
             .catch((e) => {
               console.log('sign up error', e);
             });
@@ -129,7 +126,7 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   useEffect(() => {
     console.log(active, account, jwt);
     if (active && account && jwt.account !== account) {
-      sign_in(account).catch(() => { });
+      sign_in(account).catch((e) => { });
     } else {
       console.log(account, jwt.account);
     }
