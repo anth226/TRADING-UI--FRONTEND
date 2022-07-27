@@ -7,7 +7,5 @@ export const configureApi = (baseURL?: string) => axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Origin': 'http://localhost:3000'
   }, 
 });
