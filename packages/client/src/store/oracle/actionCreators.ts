@@ -18,3 +18,20 @@ export const getSymbolsFail = (payload: any) => ({
   type: OracleActionTypes.GetAllSymbolsFail,
   payload,
 });
+
+export const LastQuote = () => get(ApiPaths.GetSymbols);
+
+export const getLastQuote = (payload: any) => ({
+  type: OracleActionTypes.GetLastQuote,
+  payload,
+});
+
+export const getLastQuoteSuccess = (payload:any) => ({
+  type: OracleActionTypes.GetLastQuoteSuccess,
+  payload,
+});
+
+export const getLastQuoteFail = (payload: any) => ({
+  type: OracleActionTypes.GetLastQuoteFail,
+  payload,
+});

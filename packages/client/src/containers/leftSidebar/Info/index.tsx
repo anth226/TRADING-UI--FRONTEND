@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import arrow from '../../../../../libs/assets/images/arrow-back.svg';
 import { FontIcon, FontIconName } from '@option-blitz/libs/components/inputs/FontIcon';
