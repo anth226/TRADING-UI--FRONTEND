@@ -65,7 +65,9 @@ const Header: FC<Props> = ({
   const [createaccount, setCreateaccount] = useState(false)
 
   const [openselection, setOpenselection] = useState(false)
-
+  const fullAdresString = localStorage.getItem('account')
+  // @ts-ignore
+  const accountBalance =fullAdresString?.slice(0,7)
   useEffect(() => {
     injectedConnector.isAuthorized().then(authorized => {
       setConnected(authorized)
@@ -197,7 +199,7 @@ const Header: FC<Props> = ({
         )}
 
         <Button size={32} color='orange' className={styles.login} onClick={handleChange}>
-      {connected ? localStorage.getItem('account') : address || 'login'}
+      {connected ? accountBalance : address || 'login'}
         </Button>
 
         <LoginModal active={modalVisible} setActive={setModalVisible} setCreateaccount={setCreateaccount} setKey={setPrivatkey} isMobile={isMobile} />
