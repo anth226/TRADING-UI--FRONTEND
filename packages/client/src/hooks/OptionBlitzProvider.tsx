@@ -20,7 +20,10 @@ type OptionBlitzContextValue = {
 
 const OptionBlitzContext = createContext<OptionBlitzContextValue | undefined>(undefined);
 
-const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+const getRpcEndpoint = () => "https://optionblitz-dev.us-east-1.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://git.sfxdx.ru";
 
 const ob_rpc_call = async (func: string, method: Method, data: string, headers?: Record<string, string>) => {
   return await axios({
@@ -34,6 +37,19 @@ const ob_rpc_call = async (func: string, method: Method, data: string, headers?:
     }
   })
 }
+const sendMessage = async (account: string, jwt: { access: string, refresh: string }) => {
+  const x = await ob_rpc_call("/api/v1/chat/messages", "POST",
+    JSON.stringify({
+      text: "test hello",
+    },
+    ),
+    {
+      "Authorization": 'Bearer ' + jwt.access
+    }
+  )
+}
+
+
 export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   children,
   loader,
@@ -93,7 +109,9 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     _sign_in()
       .then(async (token)=>{
         //testing not needed to do it here
-        //const newToken = await refresh_token(account, token.refresh);  
+        //const newToken = await refresh_token(account, token.refresh); 
+        const x =await sendMessage(account, token); 
+        console.log(x);
       })
       .catch(async e => {
         console.log(e);
