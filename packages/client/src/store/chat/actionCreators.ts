@@ -1,7 +1,7 @@
 // @ts-ignore
+import { post } from 'http';
 import { ChatActionTypes } from './actionTypes';
 import { ApiPaths } from '../../utils/api/constants';
-import { post } from '../../http';
 
 export const SendPrivateMessage = (data: any) => post(ApiPaths.SendPrivateMessage, data);
 

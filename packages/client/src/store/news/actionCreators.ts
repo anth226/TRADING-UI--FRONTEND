@@ -3,6 +3,8 @@ import { get } from 'http';
 import { NewsActionTypes } from './actionTypes';
 import { ApiPaths } from '../../utils/api/constants';
 
+// eslint-disable-next-line max-len
+// export const getAllNews = ({ is, item }) => get(`${ApiPaths.GetNews}/${is}`, { params: { item } }); example
 export const getAllNews = () => get(ApiPaths.GetNews);
 
 export const getNews = (payload: any) => ({

@@ -128,19 +128,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   //
   // window.ethereum.on('chainChanged', chainChangedHandler);
   //
-  axios(
-      {
-        url: "https://optionblitz1.us-east-2.elasticbeanstalk.com/api/v1/chat/messages",
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-        }
-      }
-    ).then(
-      response => console.log({response})
-    ).catch(
-      error => console.error({error})
-    )
 
   const dispatch = useDispatch()
 

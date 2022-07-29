@@ -15,7 +15,9 @@ import {DefaultSelect, OptionItem} from "@option-blitz/libs/components/inputs/De
 import { getNews } from '../../../store/news/actionCreators';
 import { useShallowSelector } from '../../../hooks/useShallowSelector';
 import { useDispatch } from 'react-redux';
+import { getLastQuote } from '../../../store/oracle/actionCreators';
 import { PostMessage } from '../../../store/chat/actionCreators';
+import axios from 'axios';
 
 interface Props {
   onBack?: () => void
@@ -32,7 +34,6 @@ const News: FC<Props> = ({
   useEffect(() => {
       // @ts-ignore
       dispatch(getNews());
-      // @ts-ignore
     },
     []);
 

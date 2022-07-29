@@ -20,10 +20,10 @@ export function* sendPrivateMessage(data: any) {
 }
 
 // @ts-ignore
-export function* sendMessage(data: any) {
+export function* sendMessage(data) {
   try {
     // @ts-ignore
-    const response = yield call(SendMessage, data);
+    const response = yield call(SendMessage, data.text);
     yield put(PostMessageSuccess(response));
   } catch (error) {
     yield put(PostMessageFail(error));

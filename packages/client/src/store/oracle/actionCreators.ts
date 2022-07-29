@@ -9,7 +9,7 @@ export const getSymbols = (payload: any) => ({
   payload,
 });
 
-export const getSymbolsSuccess = (payload:any) => ({
+export const getSymbolsSuccess = (payload: any) => ({
   type: OracleActionTypes.GetAllSymbolsSuccess,
   payload,
 });

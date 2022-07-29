@@ -7,5 +7,6 @@ export const configureApi = (baseURL?: string) => axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
+    // 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
   }, 
 });
