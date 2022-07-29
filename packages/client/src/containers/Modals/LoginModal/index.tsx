@@ -128,24 +128,20 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   //
   // window.ethereum.on('chainChanged', chainChangedHandler);
   //
-  //   axios(
-  //     {
-  //       url: "https://optionblitz1.us-east-2.elasticbeanstalk.com/api/v1/auth/refresh",
-  //       method: 'POST',
-  //       data: JSON.stringify({
-  //       }),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json',
-  //         'Access-Control-Allow-Origin': '*',
-  //       }
-  //     }
-  //   ).then(
-  //     response => console.log({response})
-  //   ).catch(
-  //     error => console.error({error})
-  //   )
-  //
+  axios(
+      {
+        url: "https://optionblitz1.us-east-2.elasticbeanstalk.com/api/v1/chat/messages",
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+      }
+    ).then(
+      response => console.log({response})
+    ).catch(
+      error => console.error({error})
+    )
+
   const dispatch = useDispatch()
 
   return (
@@ -218,18 +214,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
           <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
         </div>
       </div>
-      {/* <div> */}
-      {/*   <div> */}
-      {/*     <button onClick={connectWalletHandler}>{connButtonText}</button> */}
-      {/*     <div> */}
-      {/*       <h3>Address: {defaultAccount}</h3> */}
-      {/*     </div> */}
-      {/*     <div> */}
-      {/*       <h3>Balance: {userBalance}</h3> */}
-      {/*     </div> */}
-      {/*     {errorMessage} */}
-      {/*   </div> */}
-      {/* </div> */}
     </div>
 
   );

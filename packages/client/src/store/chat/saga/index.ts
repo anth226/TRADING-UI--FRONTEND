@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
 import { ChatActionTypes } from '../actionTypes';
-import { getChat } from '../actionCreators';
+import { sendPrivateMessage } from './chat';
 
 export default function* chatSaga() {
-  yield takeEvery(ChatActionTypes.GetAllData, getChat);
+  yield takeEvery(ChatActionTypes.SendPrivateMessage, sendPrivateMessage);
 }

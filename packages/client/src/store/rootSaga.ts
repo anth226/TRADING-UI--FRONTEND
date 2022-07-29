@@ -5,6 +5,7 @@ import authSaga from './auth/sagas';
 import postsSaga from './posts/sagas';
 import newsSaga from './news/saga';
 import oracleSaga from './oracle/saga'
+import chatSaga from './chat/saga'
 
 export default function* rootSaga() {
   yield all ([
@@ -12,6 +13,7 @@ export default function* rootSaga() {
     fork(postsSaga),
     fork(newsSaga),
     fork(oracleSaga),
+    fork(chatSaga),
   ])
 
 }

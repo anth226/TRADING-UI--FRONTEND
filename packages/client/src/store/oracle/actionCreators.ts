@@ -19,7 +19,7 @@ export const getSymbolsFail = (payload: any) => ({
   payload,
 });
 
-export const LastQuote = () => get(ApiPaths.GetSymbols);
+export const LastQuote = () => get(ApiPaths.LastQuote);
 
 export const getLastQuote = (payload: any) => ({
   type: OracleActionTypes.GetLastQuote,

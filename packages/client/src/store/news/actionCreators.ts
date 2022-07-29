@@ -1,3 +1,4 @@
+// @ts-ignore
 import { get } from 'http';
 import { NewsActionTypes } from './actionTypes';
 import { ApiPaths } from '../../utils/api/constants';

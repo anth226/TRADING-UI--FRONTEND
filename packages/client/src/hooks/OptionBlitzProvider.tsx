@@ -63,6 +63,7 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
       });
     console.log(token.data);
     setJWT({ account, jwt: token.data });
+    localStorage.setItem('accessToken',  token.data.access)
     return token.data;
   }, []);
 

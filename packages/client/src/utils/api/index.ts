@@ -18,7 +18,6 @@ export const useAPIInterceptors = (store: MiddlewareAPI<any, State>) => {
   // Pass token to axios
   api.interceptors.request.use((options: AxiosRequestConfig): AxiosRequestConfig => {
     const token = store.getState().auth.tokens.access;
-
     if (
       !token ||
       options.url === ApiPaths.AuthRefresh ||
@@ -26,7 +25,6 @@ export const useAPIInterceptors = (store: MiddlewareAPI<any, State>) => {
     ) {
       return options;
     }
-
     return assocPath(['headers', 'authorization'], `Bearer ${token}`, options);
   });
 
