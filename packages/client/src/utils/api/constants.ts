@@ -7,5 +7,6 @@ export enum ApiPaths {
   GetSymbols = '/api/v1/oracle/internal/category_symbols',
   LastQuote = '/api/v1/oracle/last_quote/:symbol',
   PreSigned = '/api/v1/auth/pre_signed',
-  SendPrivateMessage = '/api/v1/chat/messages',
+  SendMessage = '/api/v1/chat/messages',
+  SendPrivateMessage = '/api/v1/chat/private_messages',
 }

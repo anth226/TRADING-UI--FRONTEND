@@ -19,3 +19,20 @@ export const PostPrivateMessageFail = (text: any) => ({
   type: ChatActionTypes.SendPrivateMessageFail,
   text,
 });
+
+export const SendMessage = (data: any) => post(ApiPaths.SendMessage, data);
+
+export const PostMessage = (text: any) => ({
+  type: ChatActionTypes.SendMessage,
+  text,
+});
+
+export const PostMessageSuccess = (text:any) => ({
+  type: ChatActionTypes.SendMessageSuccess,
+  text,
+});
+
+export const PostMessageFail = (text: any) => ({
+  type: ChatActionTypes.SendMessageFail,
+  text,
+});
