@@ -21,7 +21,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { authRefresh, getPreSigned } from '../../../store/auth/actionCreators';
 import { Web3Provider } from '@ethersproject/providers';
-import { api } from '../../../utils/api';
 
 declare global {
   interface Window{

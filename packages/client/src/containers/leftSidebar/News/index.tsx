@@ -34,6 +34,7 @@ const News: FC<Props> = ({
   useEffect(() => {
       // @ts-ignore
       dispatch(getNews());
+      dispatch(PostMessage('s'));
     },
     []);
 
