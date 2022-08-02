@@ -27,8 +27,8 @@ interface Props {
 }
 
 const TradingVolume: FC<Props> = ({
-                                   width = 800,
-                                   height = 500,
+                                   width = 700,
+                                   height = 400,
                                    children,
                                  }) => {
   const {
@@ -82,7 +82,7 @@ const TradingVolume: FC<Props> = ({
             yAccessor={(d) => d.close}
             fillStyle={(context) => {
               const gradient = context.createLinearGradient(0, 200, 0, 800);
-              gradient.addColorStop(0, 'rgba(0, 205, 134, 0.4)');
+              gradient.addColorStop(0, 'rgba(2,253,167,0.4)');
               gradient.addColorStop(1, 'rgba(0, 205, 134, 0)');
               return gradient;
             }}
