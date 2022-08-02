@@ -46,7 +46,6 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   const {activate , account, library, active:connected} = useWeb3React<unknown>();
   const {jwt} = useOptionBlitz();
 
-  console.log({ jwt });
   const connectMetaMask = () => {
     activate(injectedConnector)
     .then(()=>{

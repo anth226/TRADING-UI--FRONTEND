@@ -19,7 +19,7 @@ export const getSymbolsFail = (payload: any) => ({
   payload,
 });
 
-export const LastQuote = () => get(ApiPaths.LastQuote);
+export const LastQuote = (item: string) => get(`${ApiPaths.LastQuote}/${item}`);
 
 export const getLastQuote = (payload: any) => ({
   type: OracleActionTypes.GetLastQuote,
@@ -33,5 +33,22 @@ export const getLastQuoteSuccess = (payload:any) => ({
 
 export const getLastQuoteFail = (payload: any) => ({
   type: OracleActionTypes.GetLastQuoteFail,
+  payload,
+});
+
+export const SymbolDetail = (item: string) => get(`${ApiPaths.SymbolDetail}/${item}`);
+
+export const getSymbolDetail = (payload: any) => ({
+  type: OracleActionTypes.GetSymbolDetail,
+  payload,
+});
+
+export const getSymbolDetailSuccess = (payload:any) => ({
+  type: OracleActionTypes.GetSymbolDetailSuccess,
+  payload,
+});
+
+export const getSymbolDetailFail = (payload: any) => ({
+  type: OracleActionTypes.GetSymbolDetailFail,
   payload,
 });

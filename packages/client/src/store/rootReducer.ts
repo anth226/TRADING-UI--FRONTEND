@@ -5,7 +5,6 @@ import tabs from './tabs';
 import navigation from './navigation';
 import classic from './classic';
 import touch from './touch';
-import post from './posts';
 import news from './news';
 
 export default {
@@ -15,6 +14,5 @@ export default {
   navigation,
   classic,
   touch,
-  post,
   news,
 };

@@ -44,7 +44,6 @@ const News: FC<Props> = ({
   const News = () =>{
     return main?.map(function(item: any) {
       return item.content.map(function(item2: any) {
-        console.log(item2);
         return <NewsCard
           key={item2.id}
           // icon={item2.icon}
