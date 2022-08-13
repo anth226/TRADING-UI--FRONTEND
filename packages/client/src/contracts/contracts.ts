@@ -1,13 +1,17 @@
 import { Signer } from "@ethersproject/abstract-signer";
 import { Provider } from "@ethersproject/providers";
-import { Treasury } from "./typechain-types/contracts/Treasury";
-import { Treasury__factory } from "./typechain-types";
-import { USDC } from "./typechain-types/contracts/USDC";
-import { USDC__factory } from "./typechain-types";
-import { OptionAmerican } from "./typechain-types/contracts/option/American/OptionAmerican";
-import { OptionAmerican__factory } from "./typechain-types";
-import { Multicall2 } from "./typechain-types/contracts/util/Multicall2";
-import { Multicall2__factory } from "./typechain-types";
+import { 
+    Treasury, Treasury__factory, 
+    USDC, USDC__factory, 
+    Multicall2, Multicall2__factory,
+    OptionAmerican, OptionAmerican__factory, 
+    OptionBinary, OptionBinary__factory,
+    OptionTouch, OptionTouch__factory,
+    OptionNoTouch, OptionNoTouch__factory,
+    DoubleTouch, DoubleTouch__factory,
+    DoubleNoTouch, DoubleNoTouch__factory,
+    Turbo, Turbo__factory,
+} from "./typechain-types";
 
 // const multicallAddresses = {
 //     1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
@@ -33,14 +37,26 @@ export interface _OptionBlitzContracts {
     USDC: USDC;
     OptionAmerican: OptionAmerican;
     Multicall2: Multicall2;
+    OptionBinary: OptionBinary,
+    OptionTouch: OptionTouch,
+    OptionNoTouch: OptionNoTouch,
+    DoubleTouch: DoubleTouch,
+    DoubleNoTouch: DoubleNoTouch,
+    Turbo: Turbo,
 }
 
 /** @internal */
 export const _OptionBlitzContractFactory = {
+    Multicall2: Multicall2__factory,
     Treasury: Treasury__factory,
     USDC: USDC__factory,
     OptionAmerican: OptionAmerican__factory,
-    Multicall2: Multicall2__factory
+    OptionBinary: OptionBinary__factory,
+    OptionTouch: OptionTouch__factory,
+    OptionNoTouch: OptionNoTouch__factory,
+    DoubleTouch: DoubleTouch__factory,
+    DoubleNoTouch: DoubleNoTouch__factory,
+    Turbo: Turbo__factory,
 }
 const factorysName = Object.keys(_OptionBlitzContractFactory);
 
