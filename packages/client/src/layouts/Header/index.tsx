@@ -57,7 +57,7 @@ const Header: FC<Props> = ({
   const web3ReactContext = useWeb3React<Web3Provider>()
   const { connector, library, chainId, account, activate, deactivate, active:walletConnected, error } = web3ReactContext
   const activeTab = useMemo(() => tabs.find((tab) => tab.isActive), [tabs]);
-  console.log(account, walletConnected);
+  //console.log(account, walletConnected);
   const [modalVisible, setModalVisible] = useState(false);
   const [ wallet, setWallet] =useState(false)
   const [privatkey, setPrivatkey]=useState(false)

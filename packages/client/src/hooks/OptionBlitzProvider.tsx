@@ -97,7 +97,7 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   const { library: provider, active, account, chainId, connector } = useWeb3React<Web3Provider>();
   const [optionBlitz, setOptionBlitz] = useState<OptionBlitz>();
   const store = optionBlitz?.store;
-  console.log(active, account, account);
+  //console.log(active, account, account);
 
   // can use the same otp so long the call is not done again
   const pre_signed = useCallback(async (account: string): Promise<string> => {
@@ -109,13 +109,14 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     );
     return otp.data.nonce;
   }, []);
+
   // just same of refreshing token
   const refresh_token = useCallback(async (account: string, refreshToken: string) => {
     const token = await ob_rpc_call("/api/v1/auth/refresh", "POST",
       "{}", {
       "Authorization": 'Bearer ' + refreshToken
     });
-    console.log(token.data);
+    //console.log(token.data);
     setJWT({ account: account, jwt: token.data });
     return token.data;
   }, []);
@@ -178,12 +179,12 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   }, [provider, pre_signed]);
 
   useEffect(() => {
-    console.log(active, account, jwt);
+    //console.log(active, account, jwt);
     if (active && account && jwt.account !== account) {
       sign_in(account).catch(e => { });
     }
     else {
-      console.log(account, jwt.account);
+      //console.log(account, jwt.account);
     }
   }, [account, active, provider, chainId, jwt, sign_in])
 
@@ -193,20 +194,6 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     const optionBlitz = connection && connection.contracts && new OptionBlitz(connection);
 
     if (optionBlitz) setOptionBlitz(optionBlitz);
-
-    //const store = optionBlitz?.store;
-    // if (store) {
-    //   const stop = store.start();
-
-    //   // stop polling on 'unmount'
-    //   return () => {
-    //     console.log('unmount');
-    //     store.onLoaded = undefined;
-    //     //setOptionBlitzStore(undefined);
-    //     stop();
-    //   };
-    // }
-
 
   }, [account, active, provider, chainId])
 
