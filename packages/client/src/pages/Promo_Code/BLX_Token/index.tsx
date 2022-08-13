@@ -18,7 +18,7 @@ const AffiliateBLX:FC<Props> = ({isMobile}) => {
 
     return (
             <div className={styles.promo}>
-                <h3 className={styles.title}>THX Token Campaing</h3>
+                <h3 className={styles.title}>BLX Token Campaing</h3>
                 {!isMobile && (
                     <div className={styles.row}>
                         <div>

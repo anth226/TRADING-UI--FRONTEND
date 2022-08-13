@@ -6,7 +6,6 @@ import storage from 'redux-persist/es/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import reducer from './rootReducer';
 import rootSaga from './rootSaga';
-import { useAPIInterceptors } from '../utils/api';
 import { PersistKeys } from '../constants/persist';
 import { AuthState } from '../types/store/auth';
 
@@ -48,7 +47,6 @@ export default (initialState: { [key: string]: never } = {}) => {
 
   sagaMiddleware.run(rootSaga);
   const persistor = persistStore(store);
-  useAPIInterceptors(store);
 
   return { store, persistor };
 };

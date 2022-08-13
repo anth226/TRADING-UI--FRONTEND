@@ -111,12 +111,6 @@ const RightSidebarTouch: FC = () => {
             Double-touch option configured. Underlying price must reach call
             and put strikes at least once during the term of the trade.
           </p>
-
-          <div className={styles.tip_wrap}>
-            <p className={styles.tip}>*tip:&nbsp;</p>
-            <p className={styles.tip_info}>Try this for volatile trading pairs</p>
-          </div>
-
           <RightSidebarInput
             value={amountValue}
             className={styles.input}

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { api } from '../utils/api';
+import api from '../utils/api/index'
 
 export async function get(url: string, config = {}) {
   return await api.get(url, { ...config }).then(response => response.data)

@@ -1,81 +1,31 @@
 import { call, put } from 'redux-saga/effects';
 import {
-  createMessage, createMessageFail, createMessageSuccess,
-  deleteChat, deleteChatFail, deleteChatSuccess,
-  deleteMessage, deleteMessageFail, deleteMessageSuccess,
-  getAllChat,
-  getChatFail, getChatSuccess,
-  getMessage, getMessageFail, getMessageSuccess,
-  sendMessage, sendMessageFail, sendMessageSuccess,
-  updateMessage, updateMessageFail, updateMessageSuccess,
+  PostMessageFail,
+  PostMessageSuccess,
+  SendMessage,
+
+  PostPrivateMessageFail,
+  PostPrivateMessageSuccess,
+  SendPrivateMessage,
 } from '../actionCreators';
 
-export function* getChat() {
+export function* sendPrivateMessage(data: any) {
   try {
     // @ts-ignore
-    const response = yield call(getAllChat);
-    yield put(getChatSuccess(response));
+    const response = yield call(SendPrivateMessage, data);
+    yield put(PostPrivateMessageSuccess(response));
   } catch (error) {
-    yield put(getChatFail(error));
+    yield put(PostPrivateMessageFail(error));
   }
 }
 
-export function* deletChat() {
+// @ts-ignore
+export function* sendMessage(data) {
   try {
     // @ts-ignore
-    const response = yield call(deleteChat);
-    yield put(deleteChatSuccess(response));
+    const response = yield call(SendMessage, data.text);
+    yield put(PostMessageSuccess(response));
   } catch (error) {
-    yield put(deleteChatFail(error));
-  }
-}
-
-export function* createOneMessage() {
-  try {
-    // @ts-ignore
-    const response = yield call(createMessage);
-    yield put(createMessageSuccess(response));
-  } catch (error) {
-    yield put(createMessageFail(error));
-  }
-}
-
-export function* readMessage() {
-  try {
-    // @ts-ignore
-    const response = yield call(getMessage);
-    yield put(getMessageSuccess(response));
-  } catch (error) {
-    yield put(getMessageFail(error));
-  }
-}
-
-export function* updateOneMessage() {
-  try {
-    // @ts-ignore
-    const response = yield call(updateMessage);
-    yield put(updateMessageSuccess(response));
-  } catch (error) {
-    yield put(updateMessageFail(error));
-  }
-}
-
-export function* deleteOneMessage() {
-  try {
-    // @ts-ignore
-    const response = yield call(deleteMessage);
-    yield put(deleteMessageSuccess(response));
-  } catch (error) {
-    yield put(deleteMessageFail(error));
-  }
-}
-
-export function* sendOneMessage() {
-  try {
-    // @ts-ignore
-    const response = yield call(sendMessage);
-    yield put(sendMessageSuccess(response));
-  } catch (error) {
-    yield put(sendMessageFail(error));
+    yield put(PostMessageFail(error));
   }
 }

@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
 import {
   getAllSymbols,
-  getSymbolsFail,
   getSymbolsSuccess,
+  getSymbolsFail,
 } from '../actionCreators';
 
 export function* Symbols() {

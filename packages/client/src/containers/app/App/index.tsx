@@ -1,10 +1,16 @@
-import React from 'react';
+// @ts-ignore
+/* eslint-disable */
+import React, { FC } from 'react';
 import { MainRouter } from '../MainRouter';
+import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider';
 
-const App = () => (
-  <>
-    <MainRouter />
-  </>
-);
+const App: FC = () => {
+  const data = useOptionBlitz()
+  return (
+    <>
+      <MainRouter />
+    </>
+  );
+};
 
 export { App };

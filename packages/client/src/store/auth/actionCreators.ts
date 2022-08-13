@@ -1,7 +1,7 @@
-import { get } from 'http';
 import { AuthState } from '../../types/store/auth';
 import { AuthActionTypes } from './actionsTypes';
 import { ApiPaths } from '../../utils/api/constants';
+import { put } from '../../http';
 
 export const authReady = () => ({ type: AuthActionTypes.Ready });
 
@@ -20,22 +20,22 @@ export const authLogout = (payload?: { reason?: string }) => ({
   payload,
 });
 
-/// ////TESTNG ACTION //////////////
-export const getAllPosts = () => get(ApiPaths.FetchPostsUrl);
+// @ts-ignore
+export const preSigned = (data) => put(ApiPaths.PreSigned, data);
 
-export const getPosts = (payload: any) => ({
-  type: AuthActionTypes.FetchPosts,
+export const getPreSigned = (payload: any) => ({
+  type: AuthActionTypes.PreSigned,
   payload,
 });
 
-export const getPostsSuccess = (payload: any) => ({
-  type: AuthActionTypes.FetchPostsSuccess,
+export const getPreSignedSuccess = (payload: any) => ({
+  type: AuthActionTypes.PreSignedSuccess,
   payload,
 });
 
-export const getPostsFail = (payload: any) => ({
-  type: AuthActionTypes.FetchPostsFail,
+export const getPreSignedFail = (payload: any) => ({
+  type: AuthActionTypes.PreSignedFail,
   payload,
 });
-/// ////TESTNG ACTION //////////////
+
 export const authRefresh = () => ({ type: AuthActionTypes.Refresh });

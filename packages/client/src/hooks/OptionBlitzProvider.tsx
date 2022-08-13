@@ -43,10 +43,10 @@ const deployments: {
 const OptionBlitzContext = createContext<OptionBlitzContextValue | undefined>(undefined);
 
 //const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
-const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
 //const getRpcEndpoint = () => "https://git.sfxdx.ru";
 //const getRpcEndpoint = () => "http://34.228.11.16:8080";
-//const getRpcEndpoint = () => "https://optionblitz-dev.us-east-1.elasticbeanstalk.com";
+const getRpcEndpoint = () => "https://optionblitz-dev.us-east-1.elasticbeanstalk.com";
 //const getRpcEndpoint = () => "https://optblitz.sfxdx.com";
 const ob_rpc_call = async (func: string, method: Method, data: string, headers?: Record<string, string>) => {
   return await axios({
@@ -104,20 +104,21 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
 
     const otp = await ob_rpc_call("/api/v1/auth/pre_signed", "PUT",
       JSON.stringify({
-        wallet: account
-      })
-    );
+        wallet: account,
+      }));
     return otp.data.nonce;
   }, []);
 
   // just same of refreshing token
   const refresh_token = useCallback(async (account: string, refreshToken: string) => {
-    const token = await ob_rpc_call("/api/v1/auth/refresh", "POST",
-      "{}", {
-      "Authorization": 'Bearer ' + refreshToken
-    });
-    //console.log(token.data);
-    setJWT({ account: account, jwt: token.data });
+    const token = await ob_rpc_call('/api/v1/auth/refresh', 'POST',
+      '{}', {
+        Authorization: `Bearer ${refreshToken}`,
+      });
+    console.log(token.data);
+    setJWT({ account, jwt: token.data });
+    localStorage.setItem('accessToken',  token.data.access)
+    localStorage.setItem('refreshToken',  token.data.refresh)
     return token.data;
   }, []);
 
@@ -125,28 +126,32 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     const nonce = await pre_signed(account);
     const signer = provider?.getSigner();
     const signedMessage = await signer?.signMessage(nonce);
+    console.log({ signedMessage });
     let new_sign_in: {
       account: string | null | undefined;
       jwt: any;
     };
-    const _sign_in = async (): Promise<Record<"access" | "refresh", string>> => {
-      const token = await ob_rpc_call("/api/v1/auth/sign_in", "POST",
+    const _sign_in = async (): Promise<Record<'access' | 'refresh', string>> => {
+      const token = await ob_rpc_call('/api/v1/auth/sign_in', 'POST',
         JSON.stringify({
           wallet: account,
           signature: signedMessage,
         }));
-      new_sign_in = { account: account, jwt: token.data }
-      setJWT({ account: account, jwt: token.data });
+      new_sign_in = { account, jwt: token.data };
+      setJWT({ account, jwt: token.data });
+      localStorage.setItem('account', account)
+      localStorage.setItem('accessToken',  token.data.access)
+      localStorage.setItem('refreshToken',  token.data.refresh)
       return token.data;
     };
     const _sign_up = async () => {
-      await ob_rpc_call("/api/v1/auth/sign_up", "POST",
+      await ob_rpc_call('/api/v1/auth/sign_up', 'POST',
         JSON.stringify({
           wallet: account,
           signature: signedMessage,
-          login: account
+          login: account,
         }));
-    }
+    };
     _sign_in()
       .then(async (token) => {
         //testing not needed to do it here
@@ -154,11 +159,11 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
         //const x =await sendMessage(account, token);
         //console.log(x);
       })
-      .catch(async e => {
+      .catch(async (e) => {
         console.log(e);
         if (e.response && e.response.data) {
           const ecode = e.response.data.code;
-          const message = e.response.data.message;
+          const { message } = e.response.data;
           console.log(ecode, message);
         }
         if (!new_sign_in) {
@@ -226,7 +231,7 @@ export const useOptionBlitz = () => {
   const optionBlitzContext = useContext(OptionBlitzContext);
 
   if (!optionBlitzContext) {
-    throw new Error("You must provide a OptionBlitzContext via OptionBlitzProvider");
+    throw new Error('You must provide a OptionBlitzContext via OptionBlitzProvider');
   }
 
   return optionBlitzContext;

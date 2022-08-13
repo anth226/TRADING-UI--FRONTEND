@@ -1,5 +1,7 @@
 /* eslint-disable */
 /* ts-ignore */
+// @ts-ignore
+
 import React, { useEffect, useState } from 'react';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import styles from './styles.module.scss';
@@ -10,11 +12,16 @@ import lock from '../ModalIcons/lock.svg'
 import googl from '../ModalIcons/googl.svg'
 import facebook from '../ModalIcons/facebook.svg'
 import twit from '../ModalIcons/twit.svg'
-import { useWeb3React } from "@web3-react/core";
+import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { NetworkConnector } from '@web3-react/network-connector';
 import { ethers } from 'ethers';
 import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { authRefresh, getPreSigned } from '../../../store/auth/actionCreators';
+import { Web3Provider } from '@ethersproject/providers';
+
 declare global {
   interface Window{
     ethereum?:any
@@ -38,6 +45,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
   const [connButtonText, setConnButtonText] = useState('Connect Wallet');
   const {activate , account, library, active:connected} = useWeb3React<unknown>();
   const {jwt} = useOptionBlitz();
+
   const connectMetaMask = () => {
     activate(injectedConnector)
     .then(()=>{
@@ -72,7 +80,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
         .then(() => {
           setConnButtonText('Wallet Connected');
         })
-        .catch(error=>{
+        .catch((error: any) => {
           setErrorMessage(error.message);
         })
       // window.ethereum.request({ method: 'eth_requestAccounts'})
@@ -114,123 +122,18 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
     window.location.reload();
   }
 
-  window.ethereum.on('accountsChanged', accountChangedHandler);
+  // window.ethereum.on('accountsChanged', accountChangedHandler);
+  //
+  // window.ethereum.on('chainChanged', chainChangedHandler);
+  //
 
-  window.ethereum.on('chainChanged', chainChangedHandler);
-
-  // async function execute() {
-  //   if (typeof window.ethereum !== "undefined") {
-  //     const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-  //     const abi = [
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "string",
-  //             name: "_name",
-  //             type: "string",
-  //           },
-  //           {
-  //             internalType: "uint256",
-  //             name: "_favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "addPerson",
-  //         outputs: [],
-  //         stateMutability: "nonpayable",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "string",
-  //             name: "",
-  //             type: "string",
-  //           },
-  //         ],
-  //         name: "nameToFavoriteNumber",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "people",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //           {
-  //             internalType: "string",
-  //             name: "name",
-  //             type: "string",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [],
-  //         name: "retrieve",
-  //         outputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         stateMutability: "view",
-  //         type: "function",
-  //       },
-  //       {
-  //         inputs: [
-  //           {
-  //             internalType: "uint256",
-  //             name: "_favoriteNumber",
-  //             type: "uint256",
-  //           },
-  //         ],
-  //         name: "store",
-  //         outputs: [],
-  //         stateMutability: "nonpayable",
-  //         type: "function",
-  //       },
-  //     ];
-  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //     const signer = provider.getSigner();
-  //     console.log(signer, 'signer');
-  //     const contract = new ethers.Contract(contractAddress, abi, signer);
-  //     try {
-  //       await contract.store(42);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     "Please install MetaMask";
-  //   }
-  // }
-
-
+  const dispatch = useDispatch()
 
   return (
 
     <div className={active ? styles.background : styles.modalInviseble}>
 
-          <div className={ styles.modal}>
+      <div className={styles.modal}>
 
             <div className={styles.login}>
               <div className={styles.pointer}>
@@ -243,6 +146,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
             </div>
             <div className={styles.main}>
               <div className={styles.method}>SELECT METHOD</div>
+              <button onClick={() => dispatch(authRefresh())}>testing</button>
               <div className={styles.fonts}>
                 <Button color={'transparent_primary'} className={styles.button} size={27}
                         onClick={privatKeyModal}>
@@ -254,59 +158,47 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
                   <p>METAMASK</p>
                 </Button>
 
-                  <div className={styles.metamask_message}>
-                    <button onClick={connectWalletHandler}>{connButtonText}</button>
+            <div className={styles.metamask_message}>
+              <button onClick={connectWalletHandler}>{connButtonText}</button>
 
-                      <h3 style={{color: '#00CD86'}}>Address:</h3>
-                      <h3>{defaultAccount}</h3>
+              <h3 style={{ color: '#00CD86' }}>Address:</h3>
+              <h3>{defaultAccount}</h3>
 
-                    <div>
-                      <h3 style={{color: '#00CD86'}}>Balance: {userBalance}</h3>
-                    </div>
-                    {errorMessage}
-                  </div>
+              <div>
+                <h3 style={{ color: '#00CD86' }}>Balance: {userBalance}</h3>
               </div>
-              {isMobile && (
-                  <div className={styles.method_mod}>OR</div>
-              )}
-
-              {isMobile && (
-                  <div className={styles.mob}>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={googl} alt='img' />
-                    </Button>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={facebook} alt='img' />
-                    </Button>
-
-                    <Button color={'transparent_primary'} className={styles.button_small} size={27}
-                            onClick={privatKeyModal}>
-                      <img src={twit} alt='img' />
-                    </Button>
-                  </div>
-                  )}
-              <div className={styles.pointer}>REGISTER</div>
-              <hr className={styles.hr} />
-              <div className={styles.account}>DON'T HAVE AN ACCOUNT?</div>
-              <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
+              {errorMessage}
             </div>
           </div>
-      {/* <div> */}
-      {/*   <div> */}
-      {/*     <button onClick={connectWalletHandler}>{connButtonText}</button> */}
-      {/*     <div> */}
-      {/*       <h3>Address: {defaultAccount}</h3> */}
-      {/*     </div> */}
-      {/*     <div> */}
-      {/*       <h3>Balance: {userBalance}</h3> */}
-      {/*     </div> */}
-      {/*     {errorMessage} */}
-      {/*   </div> */}
-      {/* </div> */}
+          {isMobile && (
+            <div className={styles.method_mod}>OR</div>
+          )}
+
+          {isMobile && (
+            <div className={styles.mob}>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={googl} alt='img' />
+              </Button>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={facebook} alt='img' />
+              </Button>
+
+              <Button color={'transparent_primary'} className={styles.button_small} size={27}
+                      onClick={privatKeyModal}>
+                <img src={twit} alt='img' />
+              </Button>
+            </div>
+          )}
+          <div className={styles.pointer}>REGISTER</div>
+          <hr className={styles.hr} />
+          <div className={styles.account}>DON'T HAVE AN ACCOUNT?</div>
+          <Button className={styles.button} onClick={newModal}> CREATE NEW WALLET</Button>
+        </div>
+      </div>
     </div>
 
   );

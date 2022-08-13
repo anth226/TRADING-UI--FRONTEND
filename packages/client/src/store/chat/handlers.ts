@@ -1,10 +1,12 @@
 import { ChatActionTypes } from './actionTypes';
 
-const getAllChat = (state: any, { payload }:any) => ({
+const sendPrivateMessage = (state: any) => ({
   ...state,
-  chat: [...payload],
 });
-
+const sendMessage = (state: any) => ({
+  ...state,
+});
 export const chatHandlers = {
-  [ChatActionTypes.GetAllDataSuccess]: getAllChat,
+  [ChatActionTypes.SendPrivateMessage]: sendPrivateMessage,
+  [ChatActionTypes.SendMessage]: sendMessage,
 };

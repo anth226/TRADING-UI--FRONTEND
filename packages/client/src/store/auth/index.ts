@@ -8,9 +8,7 @@ export const authInitialState: Readonly<AuthState> = {
     access: '',
     refresh: '',
   },
-  /// ////TESTNG //////////////
-  posts: [],
-  /// ////TESTNG //////////////
+  wallet: '',
 };
 
 export default createReducer(authInitialState, authHandlers);

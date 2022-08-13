@@ -36,14 +36,15 @@
 }
 
 .row {
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .mob_row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 10px;
   overflow-x: scroll;
   &::-webkit-scrollbar {
@@ -187,6 +188,7 @@
 
 .success_text {
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .none {
@@ -361,7 +363,7 @@
   line-height: 16px;
   text-align: start;
   @include mobile {
-    width: inherit;
+    width: fit-content;
   }
 }
 
@@ -403,9 +405,9 @@
   border: 1px solid #3E4868;
   border-radius: 6px;
   @include mobile {
-  margin: 0 10px;
+    width: 155px;
+  margin: 10px 10px;
   }
-
   .title {
     font-family: 'Conthrax';
     font-style: normal;
@@ -484,8 +486,10 @@
 .stat{
   display: flex;
   flex-direction: column;
+
 }
 .st{
+  text-align: center;
   font-family: Conthrax;
   font-size: 13px;
   margin-bottom: 10px;

@@ -4,4 +4,5 @@ export interface AuthState {
     refresh: string;
   },
   posts:any
+  wallet: string
 }

@@ -15,6 +15,9 @@ import {DefaultSelect, OptionItem} from "@option-blitz/libs/components/inputs/De
 import { getNews } from '../../../store/news/actionCreators';
 import { useShallowSelector } from '../../../hooks/useShallowSelector';
 import { useDispatch } from 'react-redux';
+import { getLastQuote } from '../../../store/oracle/actionCreators';
+import { PostMessage } from '../../../store/chat/actionCreators';
+import axios from 'axios';
 
 interface Props {
   onBack?: () => void
@@ -31,6 +34,7 @@ const News: FC<Props> = ({
   useEffect(() => {
       // @ts-ignore
       dispatch(getNews());
+      dispatch(PostMessage('s'));
     },
     []);
 
@@ -40,7 +44,6 @@ const News: FC<Props> = ({
   const News = () =>{
     return main?.map(function(item: any) {
       return item.content.map(function(item2: any) {
-        console.log(item2);
         return <NewsCard
           key={item2.id}
           // icon={item2.icon}

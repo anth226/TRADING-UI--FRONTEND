@@ -177,7 +177,7 @@ const AffiliateDashboard:FC<Props> = ({
             {isMobile && (
                 <div>
                     <div className={styles.mob_row}>
-                        <TradingVolume/>
+                        <TradingVolume  width={390} height={400}/>
                     </div>
                     <div className={styles.mob_row}>
                         <Referals/>
