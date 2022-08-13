@@ -96,8 +96,8 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   }>({ account: "", jwt: {} });
   const { library: provider, active, account, chainId, connector } = useWeb3React<Web3Provider>();
   const [optionBlitz, setOptionBlitz] = useState<OptionBlitz>();
-  const store = optionBlitz?.store;
-  //console.log(active, account, account);
+  const [store, setStore] = useState<OptionBlitzStore>();
+  console.log('current user', active, account, optionBlitz, store);
 
   // can use the same otp so long the call is not done again
   const pre_signed = useCallback(async (account: string): Promise<string> => {
@@ -189,19 +189,35 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   }, [account, active, provider, chainId, jwt, sign_in])
 
   useEffect(() => {
+    console.log(`connecting to metamask ${account} ${provider} ${chainId} ${provider?.getSigner()}`);
     const connection = (account && provider && chainId && _connectionByChainId(provider, provider.getSigner(account), chainId, { account }))
       || undefined;
     const optionBlitz = connection && connection.contracts && new OptionBlitz(connection);
 
-    if (optionBlitz) setOptionBlitz(optionBlitz);
-
+    if (optionBlitz) {
+      console.log(`connection to optionblitz contracts established`);
+      const store = optionBlitz?.store;
+      setOptionBlitz(optionBlitz);
+      if (store) {
+        console.log(`store object created`);
+        store.onLoaded = () => setStore(store);
+        const stop = store.start();
+        console.log(`start store tracking`)
+        return () => {
+          console.log(`unmount store`);
+          store.onLoaded = undefined;
+          setStore(undefined);
+          stop();
+        }
+      }
+    }
   }, [account, active, provider, chainId])
 
   return (
     <OptionBlitzContext.Provider value={{ jwt, account, provider, chainId, optionBlitz }}>
-      <OptionBlitzStoreProvider store={store}>
-      {children}
-      </OptionBlitzStoreProvider>
+        {children}
+      {/* <OptionBlitzStoreProvider store={store}>
+      </OptionBlitzStoreProvider> */}
     </OptionBlitzContext.Provider>
   );
 };
