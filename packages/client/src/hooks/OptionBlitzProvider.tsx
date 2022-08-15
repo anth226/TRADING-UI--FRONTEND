@@ -8,6 +8,7 @@ import { _connectionByChainId, OptionBlitzConnection } from "./OptionBlitzConnec
 import { OptionBlitz } from "./OptionBlitz";
 import { OptionBlitzStore } from "./OptionBlitzStore";
 import { OptionBlitzStoreProvider } from "./OptionBlitzStoreProvider";
+import { OptionBlitzPricefeed, priceFeed } from "./OptionBlitzPricefeed";
 import devOrNull from "../contracts/deployments/default/private.json";
 import { BigNumber } from "ethers";
 
@@ -22,6 +23,7 @@ type OptionBlitzContextValue = {
   chainId: number | undefined;
   optionBlitz: OptionBlitz | undefined;
   jwt: any;
+  priceFeed: OptionBlitzPricefeed;
 };
 
 const dev = devOrNull as _OptionBlitzDeploymentJSON | null;
@@ -218,8 +220,20 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     }
   }, [account, active, provider, chainId])
 
+  useEffect(() => {
+    console.log(`create price feed stream`);
+    const stop = priceFeed.start();
+    //const forex = pricefeed.subscribe("forex",["GBP/USD", "XAU/USD"]).catch(e=>{ console.log(e)});
+    //const forex = pricefeed.subscribe("forex",["GBP_USD"]).catch(e=>{ console.log(e)});
+    //const crypto = priceFeed.subscribe("crypto",["BTC_USD", "XRP_USD"]).catch(e=>{});
+    return () => {
+      console.log(`unmount pricefeed stream`);
+      stop();
+    }
+  },[]);
+
   return (
-    <OptionBlitzContext.Provider value={{ jwt, account, provider, chainId, optionBlitz }}>
+    <OptionBlitzContext.Provider value={{ jwt, account, provider, chainId, optionBlitz, priceFeed }}>
         {children}
       {/* <OptionBlitzStoreProvider store={store}>
       </OptionBlitzStoreProvider> */}

@@ -7,6 +7,7 @@ import {
 } from 'react-financial-charts';
 import { isBefore } from 'date-fns';
 import { ChartMenuIndicator, ChartType } from './useChartMenuHandlers';
+import { useOptionBlitz } from '../OptionBlitzProvider';
 
 const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitfinex_xbtusd_1m.csv';
 // const link = 'https://raw.githubusercontent.com/rrag/react-stockcharts/master/docs/data/bitstamp_xbtusd_5m.csv';
@@ -18,8 +19,21 @@ const xScaleProvider = discontinuousTimeScaleProvider
 
 export const useMainChart = (activeIndicators: ChartMenuIndicator[], chartType: ChartType) => {
   const ref = useRef<ChartCanvas<number>>(null);
-
+  const { priceFeed } = useOptionBlitz();
   const [initialData, setData] = useState<any>();
+  useEffect(() => {
+    //const crypto = priceFeed.subscribe("crypto",["BTC_USD", "XRP_USD"]).catch(e=>{});
+    //const forex = priceFeed.subscribe("forex",["GBP_USD"]).catch(e=>{ console.log(e)});
+    const listener = (data:any)=>{
+      console.log(data);
+    };
+    //priceFeed?.on("GBP_USD", listener);
+    //pricefeed?.on("BTC_USD", listener);
+    return () => {
+      priceFeed?.off("GBP_USD", listener);
+    }
+
+  },[]);
   useEffect(() => {
     csv(link, (e: any) => {
       e.date = parseDate(e.date);
