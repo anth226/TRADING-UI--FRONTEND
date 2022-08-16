@@ -8,6 +8,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import Mark from './Mark/index';
 
+
 const TurboTabTrade = () => {
   const [activeItem, setActiveItem] = useState(1)
   const [activeButton, setActiveButton] = useState('short')
@@ -27,9 +28,9 @@ const TurboTabTrade = () => {
   const whichTab = () => {
     switch (activeItem) {
       case 1:
-        return <Market/>
+        return <Market type={'input'}/>
       case 2:
-        return 'Stop'
+        return <Market />
       default:
         return '404'
     }
