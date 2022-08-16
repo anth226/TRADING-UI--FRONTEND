@@ -1,13 +1,16 @@
-/* eslint-disable */
-import React, {
-  createContext, useCallback, useContext, useEffect, useMemo, useState, 
-} from 'react';
-import { Provider } from '@ethersproject/abstract-provider';
-import { getNetwork } from '@ethersproject/networks';
-import { Web3Provider } from '@ethersproject/providers';
-import { useWeb3React } from '@web3-react/core';
-import axios, { Method } from 'axios';
-import { NetworkConnector } from '@web3-react/network-connector';
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { Provider } from "@ethersproject/abstract-provider";
+import { Web3Provider } from "@ethersproject/providers";
+import { useWeb3React } from "@web3-react/core";
+import axios, { Method } from "axios";
+import { _connectToContracts, _OptionBlitzContracts, _OptionBlitzDeploymentJSON } from "../contracts/contracts";
+import { _connectionByChainId, OptionBlitzConnection } from "./OptionBlitzConnection";
+import { OptionBlitz } from "./OptionBlitz";
+import { OptionBlitzStore } from "./OptionBlitzStore";
+import { OptionBlitzStoreProvider } from "./OptionBlitzStoreProvider";
+import { OptionBlitzPricefeed, priceFeed } from "./OptionBlitzPricefeed";
+import devOrNull from "../contracts/deployments/default/private.json";
+import { BigNumber } from "ethers";
 
 type OptionBlitzProviderProps = {
   loader?: React.ReactNode;
@@ -18,23 +21,73 @@ type OptionBlitzContextValue = {
   account: string | undefined | null;
   provider: Provider | undefined;
   chainId: number | undefined;
+  optionBlitz: OptionBlitz | undefined;
   jwt: any;
+  priceFeed: OptionBlitzPricefeed;
+};
+
+const dev = devOrNull as _OptionBlitzDeploymentJSON | null;
+
+const deployments: {
+  [chainId: number]: _OptionBlitzDeploymentJSON | undefined;
+} = {
+  // need to add new contracts to below json files or comment out
+  // [mainnet.chainId]: mainnet,
+  // [ropsten.chainId]: ropsten,
+  // [rinkeby.chainId]: rinkeby,
+  // [goerli.chainId]: goerli,
+  // [kovan.chainId]: kovan,
+
+  ...(dev !== null ? { [dev.chainId]: dev } : {}),
+  //3: ropsten,
 };
 
 const OptionBlitzContext = createContext<OptionBlitzContextValue | undefined>(undefined);
 
-const getRpcEndpoint = () => 'https://optionblitz1.us-east-2.elasticbeanstalk.com';
+//const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://optionblitz1.us-east-2.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://git.sfxdx.ru";
+//const getRpcEndpoint = () => "http://34.228.11.16:8080";
+const getRpcEndpoint = () => "https://optionblitz-dev.us-east-1.elasticbeanstalk.com";
+//const getRpcEndpoint = () => "https://optblitz.sfxdx.com";
+const ob_rpc_call = async (func: string, method: Method, data: string, headers?: Record<string, string>) => {
+  return await axios({
+    url: getRpcEndpoint() + func,
+    method: method,
+    data,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      ...headers,
+    }
+  })
+}
+const sendMessage = async (account: string, jwt: { access: string, refresh: string }) => {
+  const x = await ob_rpc_call("/api/v1/chat/messages", "POST",
+    JSON.stringify({
+      text: "test hello",
+    },
+    ),
+    {
+      "Authorization": 'Bearer ' + jwt.access
+    }
+  )
+  return x.data;
+}
 
-const ob_rpc_call = async (func: string, method: Method, data: string, headers?: Record<string, string>) => axios({
-  url: getRpcEndpoint() + func,
-  method,
-  data,
-  headers: {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-    ...headers,
-  },
-});
+const getCalendar = async (jwt: { access: string, refresh: string }) => {
+  ob_rpc_call("/api/v1/oracle/economic_calendar?from=1656640943&to=1659319343", "GET",
+    "",
+    {
+      "Authorization": 'Bearer ' + jwt.access
+    }
+  ).then(o => {
+    console.log(o);
+  }).catch(err => {
+    console.log(err);
+  });
+}
+
 export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   children,
   loader,
@@ -42,19 +95,22 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
   const [jwt, setJWT] = useState<{
     account: string | undefined | null;
     jwt: any;
-  }>({ account: '', jwt: {} });
-  const {
-    library: provider, active, account, chainId, connector, 
-  } = useWeb3React<Web3Provider>();
-  console.log(active, account, account);
+  }>({ account: "", jwt: {} });
+  const { library: provider, active, account, chainId, connector } = useWeb3React<Web3Provider>();
+  const [optionBlitz, setOptionBlitz] = useState<OptionBlitz>();
+  const [store, setStore] = useState<OptionBlitzStore>();
+  console.log('current user', active, account, optionBlitz, store);
+
   // can use the same otp so long the call is not done again
   const pre_signed = useCallback(async (account: string): Promise<string> => {
-    const otp = await ob_rpc_call('/api/v1/auth/pre_signed', 'PUT',
+
+    const otp = await ob_rpc_call("/api/v1/auth/pre_signed", "PUT",
       JSON.stringify({
         wallet: account,
       }));
     return otp.data.nonce;
   }, []);
+
   // just same of refreshing token
   const refresh_token = useCallback(async (account: string, refreshToken: string) => {
     const token = await ob_rpc_call('/api/v1/auth/refresh', 'POST',
@@ -64,6 +120,7 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     console.log(token.data);
     setJWT({ account, jwt: token.data });
     localStorage.setItem('accessToken',  token.data.access)
+    localStorage.setItem('refreshToken',  token.data.refresh)
     return token.data;
   }, []);
 
@@ -86,6 +143,7 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
       setJWT({ account, jwt: token.data });
       localStorage.setItem('account', account)
       localStorage.setItem('accessToken',  token.data.access)
+      localStorage.setItem('refreshToken',  token.data.refresh)
       return token.data;
     };
     const _sign_up = async () => {
@@ -98,7 +156,10 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
     };
     _sign_in()
       .then(async (token) => {
-        const newToken = await refresh_token(account, token.refresh);
+        //testing not needed to do it here
+        //const newToken = await refresh_token(account, token.refresh);
+        //const x =await sendMessage(account, token);
+        //console.log(x);
       })
       .catch(async (e) => {
         console.log(e);
@@ -114,30 +175,68 @@ export const OptionBlitzProvider: React.FC<OptionBlitzProviderProps> = ({
               try {
                 await _sign_in();
               } catch (e) {
-                console.log('final sign in error', e);
+                console.log("final sign in error", e)
               }
             })
-            .catch((e) => {
-              console.log('sign up error', e);
-            });
+            .catch(e => {
+              console.log("sign up error", e);
+            })
         }
-      });
-  }, [account, provider, pre_signed]);
+      })
+  }, [provider, pre_signed]);
 
   useEffect(() => {
-    console.log(active, account, jwt);
+    //console.log(active, account, jwt);
     if (active && account && jwt.account !== account) {
-      sign_in(account).catch((e) => { });
-    } else {
-      console.log(account, jwt.account);
+      sign_in(account).catch(e => { });
     }
-  }, [account, active, jwt, sign_in]);
+    else {
+      //console.log(account, jwt.account);
+    }
+  }, [account, active, provider, chainId, jwt, sign_in])
+
+  useEffect(() => {
+    console.log(`connecting to metamask ${account} ${provider} ${chainId} ${provider?.getSigner()}`);
+    const connection = (account && provider && chainId && _connectionByChainId(provider, provider.getSigner(account), chainId, { account }))
+      || undefined;
+    const optionBlitz = connection && connection.contracts && new OptionBlitz(connection);
+
+    if (optionBlitz) {
+      console.log(`connection to optionblitz contracts established`);
+      const store = optionBlitz?.store;
+      setOptionBlitz(optionBlitz);
+      if (store) {
+        console.log(`store object created`);
+        store.onLoaded = () => setStore(store);
+        const stop = store.start();
+        console.log(`start store tracking`)
+        return () => {
+          console.log(`unmount store`);
+          store.onLoaded = undefined;
+          setStore(undefined);
+          stop();
+        }
+      }
+    }
+  }, [account, active, provider, chainId])
+
+  useEffect(() => {
+    console.log(`create price feed stream`);
+    const stop = priceFeed.start();
+    //const forex = pricefeed.subscribe("forex",["GBP/USD", "XAU/USD"]).catch(e=>{ console.log(e)});
+    //const forex = pricefeed.subscribe("forex",["GBP_USD"]).catch(e=>{ console.log(e)});
+    //const crypto = priceFeed.subscribe("crypto",["BTC_USD", "XRP_USD"]).catch(e=>{});
+    return () => {
+      console.log(`unmount pricefeed stream`);
+      stop();
+    }
+  },[]);
+
   return (
-    <OptionBlitzContext.Provider value={{
-      jwt, account, provider, chainId, 
-    }}
-    >
-      {children}
+    <OptionBlitzContext.Provider value={{ jwt, account, provider, chainId, optionBlitz, priceFeed }}>
+        {children}
+      {/* <OptionBlitzStoreProvider store={store}>
+      </OptionBlitzStoreProvider> */}
     </OptionBlitzContext.Provider>
   );
 };

@@ -30,7 +30,6 @@ export interface HeaderSelectItem {
 
 const Option = (optionProps: OptionProps<HeaderSelectItem, false>) => {
   const { data } = optionProps;
-  
   return (
     <components.Option {...optionProps}>
       <div className={styles.option_content}>
@@ -56,13 +55,13 @@ const HeaderBalance: FC<Props> = ({
     
     if (!onClick) return;
     onClick();
-  }, [onClick]);
-  
+  }, [onClick, options]);
+  //console.log(`header balance ${defaultValue?.coinValue}`)
   const SingleValue = useCallback((singleValueProps: SingleValueProps<HeaderSelectItem, false>) => {
     const {
       data: { coin, coinValue },
     } = singleValueProps;
-
+    //console.log(`xxx ${singleValueProps.data.coinValue}`);
     return (
       <components.SingleValue {...singleValueProps}>
         <button onClick={onClickHandler} className={styles.content}>
@@ -75,12 +74,12 @@ const HeaderBalance: FC<Props> = ({
         </button>
       </components.SingleValue>
     );
-  }, [onClickHandler]);
+  }, [onClickHandler, defaultValue, options]);
   
   return (
     <Select<HeaderSelectItem, false>
       className={className}
-      defaultValue={defaultValue}
+      value={defaultValue}
       options={options}
       onChange={onChange}
       openMenuOnClick={false}

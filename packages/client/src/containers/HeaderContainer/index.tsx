@@ -2,6 +2,20 @@ import React, { FC } from 'react';
 import useResize from '@option-blitz/libs/hooks/useResize';
 import { Header } from '../../layouts/Header';
 import { useHeaderHandlers } from '../../hooks/header/useHeaderHandlers';
+import { useOptionBlitz  } from '../../hooks/OptionBlitzProvider';
+import { useOptionBlitzSelector } from '../../hooks/useOptionBlitzSelector';
+import { Coin } from '@option-blitz/libs/constants/coin';
+import { ethers } from 'ethers';
+
+// destructuring the optionBlitz store
+const selector = (state: any) => {
+  const { usdcAllowance, usdcBalance, ethBalance } = state || {};
+  return {
+    usdcAllowance,
+    usdcBalance,
+    ethBalance,
+  };
+};
 
 const HeaderContainer: FC = () => {
   const {
@@ -16,6 +30,16 @@ const HeaderContainer: FC = () => {
     tabs,
     openMobileNavigation,
   } = useHeaderHandlers();
+  const optionBlitz = useOptionBlitz();
+  const { usdcAllowance, usdcBalance, ethBalance } = useOptionBlitzSelector(selector);
+  //console.log(`header balance rendering ${optionBlitz.optionBlitz?.store.state} ${usdcAllowance} ${usdcBalance} ${ethBalance}`);
+  const balances = options.map(c=>{
+    //console.log(c.coin, Coin.USDT, usdcBalance?.toString());
+      return { ...c, 
+        value: c.coin == Coin.USDT && usdcBalance != undefined ? +ethers.utils.formatUnits(usdcBalance, 6) : c.value, 
+        coinValue: c.coin == Coin.USDT && usdcBalance != undefined ? ethers.utils.formatUnits(usdcBalance, 6) : c.coinValue, 
+      }
+    });
   
   const { isMobile } = useResize();
   
@@ -25,8 +49,8 @@ const HeaderContainer: FC = () => {
       isMobile={isMobile}
       onAddTab={onAddTab} 
       onBalanceChange={onBalanceChange} 
-      options={options} 
-      defaultOption={defaultOption} 
+      options={balances} 
+      defaultOption={balances[0]} 
       isAuth={isAuth} 
       tabs={tabs} 
       userAvatarIsActive={userAvatarIsActive} 
