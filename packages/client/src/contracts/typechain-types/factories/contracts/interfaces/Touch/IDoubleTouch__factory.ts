@@ -14,7 +14,7 @@ const _abi = [
     anonymous: false,
     inputs: [
       {
-        indexed: false,
+        indexed: true,
         internalType: "uint256",
         name: "betId",
         type: "uint256",
@@ -32,6 +32,12 @@ const _abi = [
   {
     anonymous: false,
     inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "trader",
+        type: "address",
+      },
       {
         indexed: false,
         internalType: "uint256",

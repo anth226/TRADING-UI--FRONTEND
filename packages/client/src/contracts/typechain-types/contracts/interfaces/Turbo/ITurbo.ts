@@ -100,7 +100,7 @@ export interface ITurboInterface extends utils.Interface {
 
   events: {
     "Bet_close(uint256,bool)": EventFragment;
-    "Bet_new(uint256)": EventFragment;
+    "Bet_new(address,uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "Bet_close"): EventFragment;
@@ -119,9 +119,10 @@ export type Bet_closeEvent = TypedEvent<
 export type Bet_closeEventFilter = TypedEventFilter<Bet_closeEvent>;
 
 export interface Bet_newEventObject {
+  trader: string;
   betId: BigNumber;
 }
-export type Bet_newEvent = TypedEvent<[BigNumber], Bet_newEventObject>;
+export type Bet_newEvent = TypedEvent<[string, BigNumber], Bet_newEventObject>;
 
 export type Bet_newEventFilter = TypedEventFilter<Bet_newEvent>;
 
@@ -264,11 +265,23 @@ export interface ITurbo extends BaseContract {
   };
 
   filters: {
-    "Bet_close(uint256,bool)"(betId?: null, close?: null): Bet_closeEventFilter;
-    Bet_close(betId?: null, close?: null): Bet_closeEventFilter;
+    "Bet_close(uint256,bool)"(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      close?: null
+    ): Bet_closeEventFilter;
+    Bet_close(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      close?: null
+    ): Bet_closeEventFilter;
 
-    "Bet_new(uint256)"(betId?: null): Bet_newEventFilter;
-    Bet_new(betId?: null): Bet_newEventFilter;
+    "Bet_new(address,uint256)"(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
+    Bet_new(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
   };
 
   estimateGas: {

@@ -44,6 +44,8 @@ export interface TurboInterface extends utils.Interface {
     "commissionRateBLX()": FunctionFragment;
     "configureNode(address,address,address)": FunctionFragment;
     "decimal()": FunctionFragment;
+    "fulfillBetAddRequest(bytes32,bytes)": FunctionFragment;
+    "fulfillBetCloseRequest(bytes32,bytes)": FunctionFragment;
     "fundingRate(uint256)": FunctionFragment;
     "getActiveTurboIdAt(uint256,uint256)": FunctionFragment;
     "getActiveTurbosCount(uint256)": FunctionFragment;
@@ -90,6 +92,8 @@ export interface TurboInterface extends utils.Interface {
       | "commissionRateBLX"
       | "configureNode"
       | "decimal"
+      | "fulfillBetAddRequest"
+      | "fulfillBetCloseRequest"
       | "fundingRate"
       | "getActiveTurboIdAt"
       | "getActiveTurbosCount"
@@ -212,6 +216,14 @@ export interface TurboInterface extends utils.Interface {
     ]
   ): string;
   encodeFunctionData(functionFragment: "decimal", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "fulfillBetAddRequest",
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "fulfillBetCloseRequest",
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+  ): string;
   encodeFunctionData(
     functionFragment: "fundingRate",
     values: [PromiseOrValue<BigNumberish>]
@@ -337,6 +349,14 @@ export interface TurboInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "decimal", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "fulfillBetAddRequest",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "fulfillBetCloseRequest",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "fundingRate",
     data: BytesLike
   ): Result;
@@ -414,7 +434,7 @@ export interface TurboInterface extends utils.Interface {
 
   events: {
     "Bet_close(uint256,bool)": EventFragment;
-    "Bet_new(uint256)": EventFragment;
+    "Bet_new(address,uint256)": EventFragment;
     "ChainlinkCancelled(bytes32)": EventFragment;
     "ChainlinkFulfilled(bytes32)": EventFragment;
     "ChainlinkRequested(bytes32)": EventFragment;
@@ -441,9 +461,10 @@ export type Bet_closeEvent = TypedEvent<
 export type Bet_closeEventFilter = TypedEventFilter<Bet_closeEvent>;
 
 export interface Bet_newEventObject {
+  trader: string;
   betId: BigNumber;
 }
-export type Bet_newEvent = TypedEvent<[BigNumber], Bet_newEventObject>;
+export type Bet_newEvent = TypedEvent<[string, BigNumber], Bet_newEventObject>;
 
 export type Bet_newEventFilter = TypedEventFilter<Bet_newEvent>;
 
@@ -626,6 +647,18 @@ export interface Turbo extends BaseContract {
     ): Promise<ContractTransaction>;
 
     decimal(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
 
     fundingRate(
       arg0: PromiseOrValue<BigNumberish>,
@@ -838,6 +871,18 @@ export interface Turbo extends BaseContract {
 
   decimal(overrides?: CallOverrides): Promise<BigNumber>;
 
+  fulfillBetAddRequest(
+    requestId: PromiseOrValue<BytesLike>,
+    data: PromiseOrValue<BytesLike>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  fulfillBetCloseRequest(
+    requestId: PromiseOrValue<BytesLike>,
+    data: PromiseOrValue<BytesLike>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
   fundingRate(
     arg0: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
@@ -1049,6 +1094,18 @@ export interface Turbo extends BaseContract {
 
     decimal(overrides?: CallOverrides): Promise<BigNumber>;
 
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     fundingRate(
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
@@ -1149,11 +1206,23 @@ export interface Turbo extends BaseContract {
   };
 
   filters: {
-    "Bet_close(uint256,bool)"(betId?: null, close?: null): Bet_closeEventFilter;
-    Bet_close(betId?: null, close?: null): Bet_closeEventFilter;
+    "Bet_close(uint256,bool)"(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      close?: null
+    ): Bet_closeEventFilter;
+    Bet_close(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      close?: null
+    ): Bet_closeEventFilter;
 
-    "Bet_new(uint256)"(betId?: null): Bet_newEventFilter;
-    Bet_new(betId?: null): Bet_newEventFilter;
+    "Bet_new(address,uint256)"(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
+    Bet_new(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
 
     "ChainlinkCancelled(bytes32)"(
       id?: PromiseOrValue<BytesLike> | null
@@ -1268,6 +1337,18 @@ export interface Turbo extends BaseContract {
     ): Promise<BigNumber>;
 
     decimal(overrides?: CallOverrides): Promise<BigNumber>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
 
     fundingRate(
       arg0: PromiseOrValue<BigNumberish>,
@@ -1454,6 +1535,18 @@ export interface Turbo extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     decimal(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
 
     fundingRate(
       arg0: PromiseOrValue<BigNumberish>,

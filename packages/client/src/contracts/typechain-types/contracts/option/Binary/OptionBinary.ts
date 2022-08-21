@@ -45,6 +45,8 @@ export interface OptionBinaryInterface extends utils.Interface {
     "decimal()": FunctionFragment;
     "ensureCorrectDuration(uint256)": FunctionFragment;
     "ensureCorrectTimes(uint256,uint256)": FunctionFragment;
+    "fulfillBetAddRequest(bytes32,bytes)": FunctionFragment;
+    "fulfillBetCloseRequest(bytes32,bytes)": FunctionFragment;
     "isDigital()": FunctionFragment;
     "isTrustedAddress(address)": FunctionFragment;
     "isTrustedCaller()": FunctionFragment;
@@ -88,6 +90,8 @@ export interface OptionBinaryInterface extends utils.Interface {
       | "decimal"
       | "ensureCorrectDuration"
       | "ensureCorrectTimes"
+      | "fulfillBetAddRequest"
+      | "fulfillBetCloseRequest"
       | "isDigital"
       | "isTrustedAddress"
       | "isTrustedCaller"
@@ -195,6 +199,14 @@ export interface OptionBinaryInterface extends utils.Interface {
     functionFragment: "ensureCorrectTimes",
     values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
   ): string;
+  encodeFunctionData(
+    functionFragment: "fulfillBetAddRequest",
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "fulfillBetCloseRequest",
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+  ): string;
   encodeFunctionData(functionFragment: "isDigital", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "isTrustedAddress",
@@ -298,6 +310,14 @@ export interface OptionBinaryInterface extends utils.Interface {
     functionFragment: "ensureCorrectTimes",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "fulfillBetAddRequest",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "fulfillBetCloseRequest",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "isDigital", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isTrustedAddress",
@@ -354,7 +374,7 @@ export interface OptionBinaryInterface extends utils.Interface {
 
   events: {
     "Bet_close(uint256,bool)": EventFragment;
-    "Bet_new(uint256)": EventFragment;
+    "Bet_new(address,uint256)": EventFragment;
     "ChainlinkCancelled(bytes32)": EventFragment;
     "ChainlinkFulfilled(bytes32)": EventFragment;
     "ChainlinkRequested(bytes32)": EventFragment;
@@ -381,9 +401,10 @@ export type Bet_closeEvent = TypedEvent<
 export type Bet_closeEventFilter = TypedEventFilter<Bet_closeEvent>;
 
 export interface Bet_newEventObject {
+  trader: string;
   betId: BigNumber;
 }
-export type Bet_newEvent = TypedEvent<[BigNumber], Bet_newEventObject>;
+export type Bet_newEvent = TypedEvent<[string, BigNumber], Bet_newEventObject>;
 
 export type Bet_newEventFilter = TypedEventFilter<Bet_newEvent>;
 
@@ -563,6 +584,18 @@ export interface OptionBinary extends BaseContract {
       _timeClose: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<[void]>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
 
     isDigital(overrides?: CallOverrides): Promise<[boolean]>;
 
@@ -746,6 +779,18 @@ export interface OptionBinary extends BaseContract {
     overrides?: CallOverrides
   ): Promise<void>;
 
+  fulfillBetAddRequest(
+    requestId: PromiseOrValue<BytesLike>,
+    data: PromiseOrValue<BytesLike>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  fulfillBetCloseRequest(
+    requestId: PromiseOrValue<BytesLike>,
+    data: PromiseOrValue<BytesLike>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
   isDigital(overrides?: CallOverrides): Promise<boolean>;
 
   isTrustedAddress(
@@ -928,6 +973,18 @@ export interface OptionBinary extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     isDigital(overrides?: CallOverrides): Promise<boolean>;
 
     isTrustedAddress(
@@ -1004,11 +1061,23 @@ export interface OptionBinary extends BaseContract {
   };
 
   filters: {
-    "Bet_close(uint256,bool)"(betId?: null, win?: null): Bet_closeEventFilter;
-    Bet_close(betId?: null, win?: null): Bet_closeEventFilter;
+    "Bet_close(uint256,bool)"(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      win?: null
+    ): Bet_closeEventFilter;
+    Bet_close(
+      betId?: PromiseOrValue<BigNumberish> | null,
+      win?: null
+    ): Bet_closeEventFilter;
 
-    "Bet_new(uint256)"(betId?: null): Bet_newEventFilter;
-    Bet_new(betId?: null): Bet_newEventFilter;
+    "Bet_new(address,uint256)"(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
+    Bet_new(
+      trader?: PromiseOrValue<string> | null,
+      betId?: null
+    ): Bet_newEventFilter;
 
     "ChainlinkCancelled(bytes32)"(
       id?: PromiseOrValue<BytesLike> | null
@@ -1121,6 +1190,18 @@ export interface OptionBinary extends BaseContract {
       _timeOpen: PromiseOrValue<BigNumberish>,
       _timeClose: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
     isDigital(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1280,6 +1361,18 @@ export interface OptionBinary extends BaseContract {
       _timeOpen: PromiseOrValue<BigNumberish>,
       _timeClose: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    fulfillBetAddRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    fulfillBetCloseRequest(
+      requestId: PromiseOrValue<BytesLike>,
+      data: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     isDigital(overrides?: CallOverrides): Promise<PopulatedTransaction>;
