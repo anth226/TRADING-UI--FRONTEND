@@ -11,6 +11,7 @@ import {
     DoubleTouch, DoubleTouch__factory,
     DoubleNoTouch, DoubleNoTouch__factory,
     Turbo, Turbo__factory,
+    HistoryVolatility, HistoryVolatility__factory,
 } from "./typechain-types";
 
 // const multicallAddresses = {
@@ -43,6 +44,7 @@ export interface _OptionBlitzContracts {
     DoubleTouch: DoubleTouch,
     DoubleNoTouch: DoubleNoTouch,
     Turbo: Turbo,
+    HistoryVolatility: HistoryVolatility,
 }
 
 /** @internal */
@@ -57,6 +59,7 @@ export const _OptionBlitzContractFactory = {
     DoubleTouch: DoubleTouch__factory,
     DoubleNoTouch: DoubleNoTouch__factory,
     Turbo: Turbo__factory,
+    HistoryVolatility: HistoryVolatility__factory,
 }
 const factorysName = Object.keys(_OptionBlitzContractFactory);
 
