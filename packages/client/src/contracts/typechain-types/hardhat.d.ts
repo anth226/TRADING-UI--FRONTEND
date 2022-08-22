@@ -217,6 +217,38 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ITurbo__factory>;
     getContractFactory(
+      name: "BasicToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.BasicToken__factory>;
+    getContractFactory(
+      name: "ERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20__factory>;
+    getContractFactory(
+      name: "ERC20Basic",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20Basic__factory>;
+    getContractFactory(
+      name: "ERC677",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC677__factory>;
+    getContractFactory(
+      name: "ERC677Receiver",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC677Receiver__factory>;
+    getContractFactory(
+      name: "ERC677Token",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC677Token__factory>;
+    getContractFactory(
+      name: "LinkToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LinkToken__factory>;
+    getContractFactory(
+      name: "StandardToken",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.StandardToken__factory>;
+    getContractFactory(
       name: "MockAbdk",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MockAbdk__factory>;
@@ -228,6 +260,58 @@ declare module "hardhat/types/runtime" {
       name: "Mocktion",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Mocktion__factory>;
+    getContractFactory(
+      name: "AccessControllerInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AccessControllerInterface__factory>;
+    getContractFactory(
+      name: "AuthorizedReceiver",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AuthorizedReceiver__factory>;
+    getContractFactory(
+      name: "AuthorizedReceiverInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AuthorizedReceiverInterface__factory>;
+    getContractFactory(
+      name: "ChainlinkRequestInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ChainlinkRequestInterface__factory>;
+    getContractFactory(
+      name: "ConfirmedOwner",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ConfirmedOwner__factory>;
+    getContractFactory(
+      name: "ConfirmedOwnerWithProposal",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ConfirmedOwnerWithProposal__factory>;
+    getContractFactory(
+      name: "LinkTokenInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LinkTokenInterface__factory>;
+    getContractFactory(
+      name: "LinkTokenReceiver",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LinkTokenReceiver__factory>;
+    getContractFactory(
+      name: "Operator",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Operator__factory>;
+    getContractFactory(
+      name: "OperatorInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OperatorInterface__factory>;
+    getContractFactory(
+      name: "OracleInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OracleInterface__factory>;
+    getContractFactory(
+      name: "OwnableInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OwnableInterface__factory>;
+    getContractFactory(
+      name: "WithdrawalInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.WithdrawalInterface__factory>;
     getContractFactory(
       name: "OptionAmerican",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -581,6 +665,46 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.ITurbo>;
     getContractAt(
+      name: "BasicToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.BasicToken>;
+    getContractAt(
+      name: "ERC20",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20>;
+    getContractAt(
+      name: "ERC20Basic",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20Basic>;
+    getContractAt(
+      name: "ERC677",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC677>;
+    getContractAt(
+      name: "ERC677Receiver",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC677Receiver>;
+    getContractAt(
+      name: "ERC677Token",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC677Token>;
+    getContractAt(
+      name: "LinkToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LinkToken>;
+    getContractAt(
+      name: "StandardToken",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.StandardToken>;
+    getContractAt(
       name: "MockAbdk",
       address: string,
       signer?: ethers.Signer
@@ -595,6 +719,71 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Mocktion>;
+    getContractAt(
+      name: "AccessControllerInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AccessControllerInterface>;
+    getContractAt(
+      name: "AuthorizedReceiver",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AuthorizedReceiver>;
+    getContractAt(
+      name: "AuthorizedReceiverInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AuthorizedReceiverInterface>;
+    getContractAt(
+      name: "ChainlinkRequestInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ChainlinkRequestInterface>;
+    getContractAt(
+      name: "ConfirmedOwner",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ConfirmedOwner>;
+    getContractAt(
+      name: "ConfirmedOwnerWithProposal",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ConfirmedOwnerWithProposal>;
+    getContractAt(
+      name: "LinkTokenInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LinkTokenInterface>;
+    getContractAt(
+      name: "LinkTokenReceiver",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LinkTokenReceiver>;
+    getContractAt(
+      name: "Operator",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Operator>;
+    getContractAt(
+      name: "OperatorInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.OperatorInterface>;
+    getContractAt(
+      name: "OracleInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.OracleInterface>;
+    getContractAt(
+      name: "OwnableInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.OwnableInterface>;
+    getContractAt(
+      name: "WithdrawalInterface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.WithdrawalInterface>;
     getContractAt(
       name: "OptionAmerican",
       address: string,

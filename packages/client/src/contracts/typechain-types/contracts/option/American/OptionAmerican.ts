@@ -50,8 +50,8 @@ export interface OptionAmericanInterface extends utils.Interface {
     "decimal()": FunctionFragment;
     "ensureCorrectDuration(uint256)": FunctionFragment;
     "ensureCorrectTimes(uint256,uint256)": FunctionFragment;
-    "fulfillBetAddRequest(bytes32,bytes)": FunctionFragment;
-    "fulfillBetCloseRequest(bytes32,bytes)": FunctionFragment;
+    "fulfillBetAddRequest(bytes32,address,uint256,uint256,uint256,uint256,uint256,uint256)": FunctionFragment;
+    "fulfillBetCloseRequest(bytes32,address,uint256,uint256)": FunctionFragment;
     "isTrustedAddress(address)": FunctionFragment;
     "isTrustedCaller()": FunctionFragment;
     "jobId(string)": FunctionFragment;
@@ -229,11 +229,25 @@ export interface OptionAmericanInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "fulfillBetAddRequest",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+    values: [
+      PromiseOrValue<BytesLike>,
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>
+    ]
   ): string;
   encodeFunctionData(
     functionFragment: "fulfillBetCloseRequest",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<BytesLike>]
+    values: [
+      PromiseOrValue<BytesLike>,
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>
+    ]
   ): string;
   encodeFunctionData(
     functionFragment: "isTrustedAddress",
@@ -419,6 +433,7 @@ export interface OptionAmericanInterface extends utils.Interface {
   events: {
     "Bet_close(uint256,bool)": EventFragment;
     "Bet_new(address,uint256)": EventFragment;
+    "CallBack(address,uint256,uint256,uint256,uint256,bool,bool)": EventFragment;
     "ChainlinkCancelled(bytes32)": EventFragment;
     "ChainlinkFulfilled(bytes32)": EventFragment;
     "ChainlinkRequested(bytes32)": EventFragment;
@@ -427,6 +442,7 @@ export interface OptionAmericanInterface extends utils.Interface {
 
   getEvent(nameOrSignatureOrTopic: "Bet_close"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Bet_new"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CallBack"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkCancelled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkFulfilled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkRequested"): EventFragment;
@@ -451,6 +467,22 @@ export interface Bet_newEventObject {
 export type Bet_newEvent = TypedEvent<[string, BigNumber], Bet_newEventObject>;
 
 export type Bet_newEventFilter = TypedEventFilter<Bet_newEvent>;
+
+export interface CallBackEventObject {
+  trader: string;
+  N_lot: BigNumber;
+  derivativeId: BigNumber;
+  timeClose: BigNumber;
+  priceOpen: BigNumber;
+  isCallOption: boolean;
+  payFeeInBlX: boolean;
+}
+export type CallBackEvent = TypedEvent<
+  [string, BigNumber, BigNumber, BigNumber, BigNumber, boolean, boolean],
+  CallBackEventObject
+>;
+
+export type CallBackEventFilter = TypedEventFilter<CallBackEvent>;
 
 export interface ChainlinkCancelledEventObject {
   id: string;
@@ -647,13 +679,21 @@ export interface OptionAmerican extends BaseContract {
 
     fulfillBetAddRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      trader: PromiseOrValue<string>,
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<BigNumberish>,
+      payFeeInBLX: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     fulfillBetCloseRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      initiator: PromiseOrValue<string>,
+      betId: PromiseOrValue<BigNumberish>,
+      currentPrice: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -853,13 +893,21 @@ export interface OptionAmerican extends BaseContract {
 
   fulfillBetAddRequest(
     requestId: PromiseOrValue<BytesLike>,
-    data: PromiseOrValue<BytesLike>,
+    trader: PromiseOrValue<string>,
+    N_lot: PromiseOrValue<BigNumberish>,
+    derivativeId: PromiseOrValue<BigNumberish>,
+    timeClose: PromiseOrValue<BigNumberish>,
+    priceOpen: PromiseOrValue<BigNumberish>,
+    isCallOption: PromiseOrValue<BigNumberish>,
+    payFeeInBLX: PromiseOrValue<BigNumberish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   fulfillBetCloseRequest(
     requestId: PromiseOrValue<BytesLike>,
-    data: PromiseOrValue<BytesLike>,
+    initiator: PromiseOrValue<string>,
+    betId: PromiseOrValue<BigNumberish>,
+    currentPrice: PromiseOrValue<BigNumberish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -1059,13 +1107,21 @@ export interface OptionAmerican extends BaseContract {
 
     fulfillBetAddRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      trader: PromiseOrValue<string>,
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<BigNumberish>,
+      payFeeInBLX: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<void>;
 
     fulfillBetCloseRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      initiator: PromiseOrValue<string>,
+      betId: PromiseOrValue<BigNumberish>,
+      currentPrice: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -1158,6 +1214,25 @@ export interface OptionAmerican extends BaseContract {
       trader?: PromiseOrValue<string> | null,
       betId?: null
     ): Bet_newEventFilter;
+
+    "CallBack(address,uint256,uint256,uint256,uint256,bool,bool)"(
+      trader?: null,
+      N_lot?: null,
+      derivativeId?: null,
+      timeClose?: null,
+      priceOpen?: null,
+      isCallOption?: null,
+      payFeeInBlX?: null
+    ): CallBackEventFilter;
+    CallBack(
+      trader?: null,
+      N_lot?: null,
+      derivativeId?: null,
+      timeClose?: null,
+      priceOpen?: null,
+      isCallOption?: null,
+      payFeeInBlX?: null
+    ): CallBackEventFilter;
 
     "ChainlinkCancelled(bytes32)"(
       id?: PromiseOrValue<BytesLike> | null
@@ -1286,13 +1361,21 @@ export interface OptionAmerican extends BaseContract {
 
     fulfillBetAddRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      trader: PromiseOrValue<string>,
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<BigNumberish>,
+      payFeeInBLX: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
     fulfillBetCloseRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      initiator: PromiseOrValue<string>,
+      betId: PromiseOrValue<BigNumberish>,
+      currentPrice: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -1467,13 +1550,21 @@ export interface OptionAmerican extends BaseContract {
 
     fulfillBetAddRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      trader: PromiseOrValue<string>,
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<BigNumberish>,
+      payFeeInBLX: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     fulfillBetCloseRequest(
       requestId: PromiseOrValue<BytesLike>,
-      data: PromiseOrValue<BytesLike>,
+      initiator: PromiseOrValue<string>,
+      betId: PromiseOrValue<BigNumberish>,
+      currentPrice: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
