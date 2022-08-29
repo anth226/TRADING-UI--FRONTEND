@@ -21,8 +21,8 @@ import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { NetworkConnector } from '@web3-react/network-connector';
-
-let injectedConnector = new InjectedConnector({});
+import { injectedConnector } from '../../hooks/OptionBlitzProvider';
+//let injectedConnector = new InjectedConnector({});
 
 interface Props {
   onAddTab: () => void
@@ -67,12 +67,19 @@ const Header: FC<Props> = ({
   const [openselection, setOpenselection] = useState(false)
   const fullAdresString = localStorage.getItem('account')
   // @ts-ignore
-  const accountBalance =fullAdresString?.slice(0,7)
+  const accountBalance = (account || fullAdresString)?.slice(0,7)
   useEffect(() => {
-    injectedConnector.isAuthorized().then(authorized => {
-      setConnected(authorized)
-    })
-  }, [])
+    console.log(fullAdresString, connector, library, chainId, account, walletConnected);
+    if (fullAdresString) {
+      activate(injectedConnector).then(v=>{
+        injectedConnector.isAuthorized().then(authorized => {
+          setConnected(authorized)
+        })    
+      }).catch(e=>{
+
+      })
+    }
+  }, [fullAdresString])
 
   const handleChange = () => {
     setModalVisible(true)

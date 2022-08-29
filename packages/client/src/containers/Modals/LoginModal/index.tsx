@@ -16,7 +16,7 @@ import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { NetworkConnector } from '@web3-react/network-connector';
 import { ethers } from 'ethers';
-import { useOptionBlitz } from '../../../hooks/OptionBlitzProvider'
+import { useOptionBlitz, injectedConnector } from '../../../hooks/OptionBlitzProvider'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { authRefresh, getPreSigned } from '../../../store/auth/actionCreators';
@@ -36,7 +36,7 @@ interface Props {
   isMobile?: boolean
 }
 
-let injectedConnector = new InjectedConnector({});
+//let injectedConnector = new InjectedConnector({});
 
 const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:Props) => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -76,6 +76,7 @@ const LoginModal = ({active, setActive, setKey, setCreateaccount , isMobile, }:P
 
   const connectWalletHandler = () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
+      console.log(`connect wallet`);
       activate(injectedConnector)
         .then(() => {
           setConnButtonText('Wallet Connected');
