@@ -26,5 +26,12 @@ module.exports = {
     'operator-linebreak': 0,
     'implicit-arrow-linebreak': 0,
     'react/button-has-type': 0,
+    'no-unused-vars' : 0,
+    'max-len' : 0,
+    '@typescript-eslint/naming-convention' : 0,
+    '@typescript-eslint/no-unused-vars' : 0,
+    'eqeqeq' : 0,
+    'no-empty' : 0,
+    'no-console': 0
   }
 };
