@@ -1,9 +1,9 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer } from 'react';
 
-import { OptionBlitzStoreState } from "./OptionBlitzStore";
+import { OptionBlitzStoreState } from './OptionBlitzStore';
 
-import { equals } from "./equals";
-import { useOptionBlitzStore } from "./useOptionBlitzStore";
+import { equals } from './equals';
+import { useOptionBlitzStore } from './useOptionBlitzStore';
 
 export const useOptionBlitzSelector = <S, T>(select: (state: OptionBlitzStoreState<T>) => S): S => {
   const store = useOptionBlitzStore<T>();
@@ -11,14 +11,14 @@ export const useOptionBlitzSelector = <S, T>(select: (state: OptionBlitzStoreSta
 
   useEffect(
     () =>
-      !store 
-      ? ()=>{}
-      : store.subscribe(({ newState, oldState }) => {
-        if (!equals(select(newState), select(oldState))) {
-          rerender();
-        }
-      }),
-    [store, select]
+      (!store 
+        ? () => {}
+        : store.subscribe(({ newState, oldState }) => {
+          if (!equals(select(newState), select(oldState))) {
+            rerender();
+          }
+        })),
+    [store, select],
   );
 
   return select(store?.state);

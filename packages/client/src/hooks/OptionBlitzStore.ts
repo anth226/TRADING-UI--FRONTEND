@@ -1,5 +1,5 @@
-import assert from "assert";
-import { BigNumber } from "ethers";
+import assert from 'assert';
+import { BigNumber } from 'ethers';
 /**
  * State variables read from the blockchain.
  *
@@ -51,7 +51,7 @@ const wrap = <A extends unknown[], R>(f: (...args: A) => R) => (...args: A) => f
 
 const difference = <T>(a: T, b: T) =>
   Object.fromEntries(
-    Object.entries(a).filter(([key, value]) => value !== (b as Record<string, unknown>)[key])
+    Object.entries(a).filter(([key, value]) => value !== (b as Record<string, unknown>)[key]),
   ) as Partial<T>;
 
 /**
@@ -81,9 +81,11 @@ export abstract class OptionBlitzStore<T = unknown> {
   protected _loaded = false;
 
   private _baseState?: OptionBlitzStoreBaseState;
+
   private _extraState?: T;
 
   private _updateTimeoutId: ReturnType<typeof setTimeout> | undefined;
+
   private _listeners = new Set<(params: OptionBlitzStoreListenerParams<T>) => void>();
 
   /**
@@ -96,7 +98,7 @@ export abstract class OptionBlitzStore<T = unknown> {
    * See {@link OptionBlitzStoreState} for the list of properties returned.
    */
   get state(): OptionBlitzStoreState<T> {
-    return Object.assign({}, this._baseState, this._extraState);
+    return { ...this._baseState, ...this._extraState };
   }
 
   /** @internal */
@@ -149,41 +151,40 @@ export abstract class OptionBlitzStore<T = unknown> {
   }
 
   private _updateIfChanged<U>(
-    equals: (a: U, b: U) => boolean,
+    _equals: (a: U, b: U) => boolean,
     name: string,
     prev: U,
     next?: U,
-    show?: (next: U) => string
+    show?: (next: U) => string,
   ): U {
-    return next !== undefined && !equals(prev, next) ? this._logUpdate(name, next, show) : prev;
+    return next !== undefined && !_equals(prev, next) ? this._logUpdate(name, next, show) : prev;
   }
 
   private _reduce(
     baseState: OptionBlitzStoreBaseState,
-    baseStateUpdate: Partial<OptionBlitzStoreBaseState>
+    baseStateUpdate: Partial<OptionBlitzStoreBaseState>,
   ): OptionBlitzStoreBaseState {
     return {
       usdcBalance: this._updateIfChanged(
         eq,
-        "usdcBalance",
+        'usdcBalance',
         baseState.usdcBalance,
-        baseStateUpdate.usdcBalance
+        baseStateUpdate.usdcBalance,
       ),
       usdcAllowance: this._updateIfChanged(
         eq,
-        "usdcAllowance",
+        'usdcAllowance',
         baseState.usdcAllowance,
-        baseStateUpdate.usdcAllowance
+        baseStateUpdate.usdcAllowance,
       ),
       ethBalance: this._updateIfChanged(
         eq,
-        "ethBalance",
+        'ethBalance',
         baseState.ethBalance,
-        baseStateUpdate.ethBalance
+        baseStateUpdate.ethBalance,
       ),
     };
   }
-
 
   /** @internal */
   protected abstract _reduceExtra(extraState: T, extraStateUpdate: Partial<T>): T;
@@ -195,7 +196,7 @@ export abstract class OptionBlitzStore<T = unknown> {
     // Before calling a listener from our copy of `_listeners`, check if it has been removed from
     // the original set. This way we avoid calling listeners that have already been unsubscribed
     // by an earlier listener callback.
-    [...Array.from(this._listeners)].forEach(listener => {
+    [...Array.from(this._listeners)].forEach((listener) => {
       if (this._listeners.has(listener)) {
         listener(params);
       }
@@ -236,19 +237,19 @@ export abstract class OptionBlitzStore<T = unknown> {
   /** @internal */
   protected _update(
     baseStateUpdate?: Partial<OptionBlitzStoreBaseState>,
-    extraStateUpdate?: Partial<T>
+    extraStateUpdate?: Partial<T>,
   ): void {
     assert(this._baseState);
 
     const oldState = this.state;
 
     if (baseStateUpdate) {
-      this._baseState = this._reduce(this._baseState, baseStateUpdate);
+      this._baseState = this._reduce(this._baseState as OptionBlitzStoreBaseState, baseStateUpdate);
     }
 
     if (extraStateUpdate) {
       assert(this._extraState);
-      this._extraState = this._reduceExtra(this._extraState, extraStateUpdate);
+      this._extraState = this._reduceExtra(this._extraState as T, extraStateUpdate);
     }
 
     this._scheduleUpdate();
@@ -256,7 +257,7 @@ export abstract class OptionBlitzStore<T = unknown> {
     this._notify({
       newState: this.state,
       oldState,
-      stateChange: difference(this.state, oldState)
+      stateChange: difference(this.state, oldState),
     });
   }
 }

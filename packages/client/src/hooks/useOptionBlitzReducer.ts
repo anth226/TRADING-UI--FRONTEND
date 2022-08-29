@@ -1,12 +1,14 @@
-import { useCallback, useEffect, useReducer, useRef } from "react";
+import {
+  useCallback, useEffect, useReducer, useRef, 
+} from 'react';
 
-import { OptionBlitzStoreState } from "./OptionBlitzStore";
+import { OptionBlitzStoreState } from './OptionBlitzStore';
 
-import { equals } from "./equals";
-import { useOptionBlitzStore } from "./useOptionBlitzStore";
+import { equals } from './equals';
+import { useOptionBlitzStore } from './useOptionBlitzStore';
 
 export type OptionBlitzStoreUpdate<T = unknown> = {
-  type: "updateStore";
+  type: 'updateStore';
   newState: OptionBlitzStoreState<T>;
   oldState: OptionBlitzStoreState<T>;
   stateChange: Partial<OptionBlitzStoreState<T>>;
@@ -14,7 +16,7 @@ export type OptionBlitzStoreUpdate<T = unknown> = {
 
 export const useOptionBlitzReducer = <S, A, T>(
   reduce: (state: S, action: A | OptionBlitzStoreUpdate<T>) => S,
-  init: (storeState: OptionBlitzStoreState<T>) => S
+  init: (storeState: OptionBlitzStoreState<T>) => S,
 ): [S, (action: A | OptionBlitzStoreUpdate<T>) => void] => {
   const store = useOptionBlitzStore<T>();
   const oldStore = useRef(store);
@@ -30,12 +32,12 @@ export const useOptionBlitzReducer = <S, A, T>(
         rerender();
       }
     },
-    [reduce]
+    [reduce],
   );
 
-  useEffect(() => store.subscribe(params => dispatch({ type: "updateStore", ...params })), [
+  useEffect(() => store.subscribe((params) => dispatch({ type: 'updateStore', ...params })), [
     store,
-    dispatch
+    dispatch,
   ]);
 
   if (oldStore.current !== store) {

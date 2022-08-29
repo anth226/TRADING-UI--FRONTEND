@@ -1,5 +1,5 @@
-import { OptionBlitzStore } from "./OptionBlitzStore";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from 'react';
+import { OptionBlitzStore } from './OptionBlitzStore';
 
 export const OptionBlitzStoreContext = createContext<OptionBlitzStore | undefined>(undefined);
 
@@ -10,18 +10,18 @@ type OptionBlitzStoreProviderProps = {
 
 export const OptionBlitzStoreProvider: React.FC<OptionBlitzStoreProviderProps> = ({
   store,
-  children
+  children,
 }) => {
   const [loadedStore, setLoadedStore] = useState<OptionBlitzStore>();
 
   useEffect(() => {
     if (store) {
-      store.onLoaded = () => setLoadedStore(store);
+      store.onLoaded = () => setLoadedStore(store); // eslint-disable-line no-param-reassign
       const stop = store.start();
-      console.log(`start store tracking`)
+      console.log('start store tracking');
       return () => {
-        console.log(`unmount store`);
-        store.onLoaded = undefined;
+        console.log('unmount store');
+        store.onLoaded = undefined; // eslint-disable-line no-param-reassign
         setLoadedStore(undefined);
         stop();
       };  

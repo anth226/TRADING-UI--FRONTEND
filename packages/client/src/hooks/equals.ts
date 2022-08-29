@@ -9,11 +9,11 @@ const shallowEquals = (a: UnknownObject, b: UnknownObject) => {
 
   return (
     keysA.length === keysB.length &&
-    keysA.every(key => hasOwnProperty(b, key) && Object.is(a[key], b[key]))
+    keysA.every((key) => hasOwnProperty(b, key) && Object.is(a[key], b[key]))
   );
 };
 
-const isObject = (a: unknown): a is UnknownObject => a !== null && typeof a === "object";
+const isObject = (a: unknown): a is UnknownObject => a !== null && typeof a === 'object';
 
 export const equals = (a: unknown, b: unknown): boolean =>
-  isObject(a) && isObject(b) ? shallowEquals(a, b) : Object.is(a, b);
+  (isObject(a) && isObject(b) ? shallowEquals(a, b) : Object.is(a, b));
