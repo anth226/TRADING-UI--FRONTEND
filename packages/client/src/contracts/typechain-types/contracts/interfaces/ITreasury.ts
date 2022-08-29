@@ -246,8 +246,8 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { coef: BigNumber }>;
 
     distributeProfit(
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -264,14 +264,14 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { r1: BigNumber }>;
 
     get_r2(
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { r2: BigNumber }>;
 
     lockBetCollateral(
       amount: PromiseOrValue<BigNumberish>,
@@ -351,8 +351,8 @@ export interface ITreasury extends BaseContract {
     product: PromiseOrValue<BigNumberish>,
     derivativeId: PromiseOrValue<BigNumberish>,
     optionType: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   distributeProfit(
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -369,14 +369,14 @@ export interface ITreasury extends BaseContract {
     product: PromiseOrValue<BigNumberish>,
     derivativeId: PromiseOrValue<BigNumberish>,
     optionType: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   get_r2(
     product: PromiseOrValue<BigNumberish>,
     derivativeId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
 
   lockBetCollateral(
     amount: PromiseOrValue<BigNumberish>,
@@ -562,7 +562,7 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     distributeProfit(
@@ -580,13 +580,13 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     get_r2(
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     lockBetCollateral(
@@ -668,7 +668,7 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     distributeProfit(
@@ -686,13 +686,13 @@ export interface ITreasury extends BaseContract {
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
       optionType: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     get_r2(
       product: PromiseOrValue<BigNumberish>,
       derivativeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     lockBetCollateral(

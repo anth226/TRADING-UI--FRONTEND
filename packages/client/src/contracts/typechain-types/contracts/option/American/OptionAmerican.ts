@@ -41,6 +41,7 @@ export interface OptionAmericanInterface extends utils.Interface {
     "bet_add(uint256,uint256,uint256,bool,bool)": FunctionFragment;
     "bet_close(uint256)": FunctionFragment;
     "bets(uint256)": FunctionFragment;
+    "calcPayable(uint256,uint256,uint256,uint256,bool,bool)": FunctionFragment;
     "calculateBinaryPayoff(uint256,int128,int128)": FunctionFragment;
     "calculatePayoff(uint256,uint256)": FunctionFragment;
     "commission()": FunctionFragment;
@@ -89,6 +90,7 @@ export interface OptionAmericanInterface extends utils.Interface {
       | "bet_add"
       | "bet_close"
       | "bets"
+      | "calcPayable"
       | "calculateBinaryPayoff"
       | "calculatePayoff"
       | "commission"
@@ -185,6 +187,17 @@ export interface OptionAmericanInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "bets",
     values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "calcPayable",
+    values: [
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<boolean>,
+      PromiseOrValue<boolean>
+    ]
   ): string;
   encodeFunctionData(
     functionFragment: "calculateBinaryPayoff",
@@ -341,6 +354,10 @@ export interface OptionAmericanInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "bet_close", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "bets", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "calcPayable",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "calculateBinaryPayoff",
     data: BytesLike
   ): Result;
@@ -431,23 +448,69 @@ export interface OptionAmericanInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "xNotional", data: BytesLike): Result;
 
   events: {
+    "BetFailedGeneral(bytes32,bytes)": EventFragment;
+    "BetFailedMsg(bytes32,string)": EventFragment;
+    "BetFailedPanic(bytes32,uint256)": EventFragment;
     "Bet_close(uint256,bool)": EventFragment;
     "Bet_new(address,uint256)": EventFragment;
     "CallBack(address,uint256,uint256,uint256,uint256,bool,bool)": EventFragment;
     "ChainlinkCancelled(bytes32)": EventFragment;
     "ChainlinkFulfilled(bytes32)": EventFragment;
     "ChainlinkRequested(bytes32)": EventFragment;
+    "CloseBetFailedGeneral(bytes32,uint256,bytes)": EventFragment;
+    "CloseBetFailedMsg(bytes32,uint256,string)": EventFragment;
+    "CloseBetFailedPanic(bytes32,uint256,uint256)": EventFragment;
     "OwnershipTransferred(address,address)": EventFragment;
   };
 
+  getEvent(nameOrSignatureOrTopic: "BetFailedGeneral"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "BetFailedMsg"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "BetFailedPanic"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Bet_close"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Bet_new"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "CallBack"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkCancelled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkFulfilled"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "ChainlinkRequested"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CloseBetFailedGeneral"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CloseBetFailedMsg"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "CloseBetFailedPanic"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
 }
+
+export interface BetFailedGeneralEventObject {
+  requestId: string;
+  data: string;
+}
+export type BetFailedGeneralEvent = TypedEvent<
+  [string, string],
+  BetFailedGeneralEventObject
+>;
+
+export type BetFailedGeneralEventFilter =
+  TypedEventFilter<BetFailedGeneralEvent>;
+
+export interface BetFailedMsgEventObject {
+  requestId: string;
+  msg: string;
+}
+export type BetFailedMsgEvent = TypedEvent<
+  [string, string],
+  BetFailedMsgEventObject
+>;
+
+export type BetFailedMsgEventFilter = TypedEventFilter<BetFailedMsgEvent>;
+
+export interface BetFailedPanicEventObject {
+  requestId: string;
+  errorCode: BigNumber;
+}
+export type BetFailedPanicEvent = TypedEvent<
+  [string, BigNumber],
+  BetFailedPanicEventObject
+>;
+
+export type BetFailedPanicEventFilter = TypedEventFilter<BetFailedPanicEvent>;
 
 export interface Bet_closeEventObject {
   betId: BigNumber;
@@ -516,6 +579,45 @@ export type ChainlinkRequestedEvent = TypedEvent<
 
 export type ChainlinkRequestedEventFilter =
   TypedEventFilter<ChainlinkRequestedEvent>;
+
+export interface CloseBetFailedGeneralEventObject {
+  requestId: string;
+  betId: BigNumber;
+  data: string;
+}
+export type CloseBetFailedGeneralEvent = TypedEvent<
+  [string, BigNumber, string],
+  CloseBetFailedGeneralEventObject
+>;
+
+export type CloseBetFailedGeneralEventFilter =
+  TypedEventFilter<CloseBetFailedGeneralEvent>;
+
+export interface CloseBetFailedMsgEventObject {
+  requestId: string;
+  betId: BigNumber;
+  msg: string;
+}
+export type CloseBetFailedMsgEvent = TypedEvent<
+  [string, BigNumber, string],
+  CloseBetFailedMsgEventObject
+>;
+
+export type CloseBetFailedMsgEventFilter =
+  TypedEventFilter<CloseBetFailedMsgEvent>;
+
+export interface CloseBetFailedPanicEventObject {
+  requestId: string;
+  betId: BigNumber;
+  errorCode: BigNumber;
+}
+export type CloseBetFailedPanicEvent = TypedEvent<
+  [string, BigNumber, BigNumber],
+  CloseBetFailedPanicEventObject
+>;
+
+export type CloseBetFailedPanicEventFilter =
+  TypedEventFilter<CloseBetFailedPanicEvent>;
 
 export interface OwnershipTransferredEventObject {
   previousOwner: string;
@@ -635,6 +737,23 @@ export interface OptionAmerican extends BaseContract {
         priceClose: BigNumber;
         payoff: BigNumber;
         close: boolean;
+      }
+    >;
+
+    calcPayable(
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<boolean>,
+      payFeeInBLX: PromiseOrValue<boolean>,
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, BigNumber, BigNumber, BigNumber] & {
+        iOptionPrice: BigNumber;
+        userPays: BigNumber;
+        fee: BigNumber;
+        feeInBlx: BigNumber;
       }
     >;
 
@@ -852,6 +971,23 @@ export interface OptionAmerican extends BaseContract {
     }
   >;
 
+  calcPayable(
+    N_lot: PromiseOrValue<BigNumberish>,
+    derivativeId: PromiseOrValue<BigNumberish>,
+    timeClose: PromiseOrValue<BigNumberish>,
+    priceOpen: PromiseOrValue<BigNumberish>,
+    isCallOption: PromiseOrValue<boolean>,
+    payFeeInBLX: PromiseOrValue<boolean>,
+    overrides?: CallOverrides
+  ): Promise<
+    [BigNumber, BigNumber, BigNumber, BigNumber] & {
+      iOptionPrice: BigNumber;
+      userPays: BigNumber;
+      fee: BigNumber;
+      feeInBlx: BigNumber;
+    }
+  >;
+
   calculateBinaryPayoff(
     investment: PromiseOrValue<BigNumberish>,
     optionPrice: PromiseOrValue<BigNumberish>,
@@ -1066,6 +1202,23 @@ export interface OptionAmerican extends BaseContract {
       }
     >;
 
+    calcPayable(
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<boolean>,
+      payFeeInBLX: PromiseOrValue<boolean>,
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, BigNumber, BigNumber, BigNumber] & {
+        iOptionPrice: BigNumber;
+        userPays: BigNumber;
+        fee: BigNumber;
+        feeInBlx: BigNumber;
+      }
+    >;
+
     calculateBinaryPayoff(
       investment: PromiseOrValue<BigNumberish>,
       optionPrice: PromiseOrValue<BigNumberish>,
@@ -1197,6 +1350,30 @@ export interface OptionAmerican extends BaseContract {
   };
 
   filters: {
+    "BetFailedGeneral(bytes32,bytes)"(
+      requestId?: null,
+      data?: null
+    ): BetFailedGeneralEventFilter;
+    BetFailedGeneral(
+      requestId?: null,
+      data?: null
+    ): BetFailedGeneralEventFilter;
+
+    "BetFailedMsg(bytes32,string)"(
+      requestId?: null,
+      msg?: null
+    ): BetFailedMsgEventFilter;
+    BetFailedMsg(requestId?: null, msg?: null): BetFailedMsgEventFilter;
+
+    "BetFailedPanic(bytes32,uint256)"(
+      requestId?: null,
+      errorCode?: null
+    ): BetFailedPanicEventFilter;
+    BetFailedPanic(
+      requestId?: null,
+      errorCode?: null
+    ): BetFailedPanicEventFilter;
+
     "Bet_close(uint256,bool)"(
       betId?: PromiseOrValue<BigNumberish> | null,
       close?: null
@@ -1254,6 +1431,39 @@ export interface OptionAmerican extends BaseContract {
     ChainlinkRequested(
       id?: PromiseOrValue<BytesLike> | null
     ): ChainlinkRequestedEventFilter;
+
+    "CloseBetFailedGeneral(bytes32,uint256,bytes)"(
+      requestId?: null,
+      betId?: null,
+      data?: null
+    ): CloseBetFailedGeneralEventFilter;
+    CloseBetFailedGeneral(
+      requestId?: null,
+      betId?: null,
+      data?: null
+    ): CloseBetFailedGeneralEventFilter;
+
+    "CloseBetFailedMsg(bytes32,uint256,string)"(
+      requestId?: null,
+      betId?: null,
+      msg?: null
+    ): CloseBetFailedMsgEventFilter;
+    CloseBetFailedMsg(
+      requestId?: null,
+      betId?: null,
+      msg?: null
+    ): CloseBetFailedMsgEventFilter;
+
+    "CloseBetFailedPanic(bytes32,uint256,uint256)"(
+      requestId?: null,
+      betId?: null,
+      errorCode?: null
+    ): CloseBetFailedPanicEventFilter;
+    CloseBetFailedPanic(
+      requestId?: null,
+      betId?: null,
+      errorCode?: null
+    ): CloseBetFailedPanicEventFilter;
 
     "OwnershipTransferred(address,address)"(
       previousOwner?: PromiseOrValue<string> | null,
@@ -1317,6 +1527,16 @@ export interface OptionAmerican extends BaseContract {
 
     bets(
       arg0: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    calcPayable(
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<boolean>,
+      payFeeInBLX: PromiseOrValue<boolean>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -1506,6 +1726,16 @@ export interface OptionAmerican extends BaseContract {
 
     bets(
       arg0: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    calcPayable(
+      N_lot: PromiseOrValue<BigNumberish>,
+      derivativeId: PromiseOrValue<BigNumberish>,
+      timeClose: PromiseOrValue<BigNumberish>,
+      priceOpen: PromiseOrValue<BigNumberish>,
+      isCallOption: PromiseOrValue<boolean>,
+      payFeeInBLX: PromiseOrValue<boolean>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

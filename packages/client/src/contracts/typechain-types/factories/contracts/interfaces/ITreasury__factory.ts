@@ -36,7 +36,7 @@ const _abi = [
         type: "int128",
       },
     ],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -101,7 +101,7 @@ const _abi = [
         type: "int128",
       },
     ],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -125,7 +125,7 @@ const _abi = [
         type: "int128",
       },
     ],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
   },
   {

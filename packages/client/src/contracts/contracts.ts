@@ -1,18 +1,19 @@
-import { Signer } from "@ethersproject/abstract-signer";
-import { Provider } from "@ethersproject/providers";
+import { Signer } from '@ethersproject/abstract-signer';
+import { Provider } from '@ethersproject/providers';
 import { 
-    Treasury, Treasury__factory, 
-    USDC, USDC__factory, 
-    Multicall2, Multicall2__factory,
-    OptionAmerican, OptionAmerican__factory, 
-    OptionBinary, OptionBinary__factory,
-    OptionTouch, OptionTouch__factory,
-    OptionNoTouch, OptionNoTouch__factory,
-    DoubleTouch, DoubleTouch__factory,
-    DoubleNoTouch, DoubleNoTouch__factory,
-    Turbo, Turbo__factory,
-    HistoryVolatility, HistoryVolatility__factory,
-} from "./typechain-types";
+  Treasury, Treasury__factory, 
+  USDC, USDC__factory, 
+  StakingContract, StakingContract__factory,
+  Multicall2, Multicall2__factory,
+  OptionAmerican, OptionAmerican__factory, 
+  OptionBinary, OptionBinary__factory,
+  OptionTouch, OptionTouch__factory,
+  OptionNoTouch, OptionNoTouch__factory,
+  DoubleTouch, DoubleTouch__factory,
+  DoubleNoTouch, DoubleNoTouch__factory,
+  Turbo, Turbo__factory,
+  HistoryVolatility, HistoryVolatility__factory,
+} from './typechain-types';
 
 // const multicallAddresses = {
 //     1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
@@ -32,35 +33,39 @@ import {
 //     9413: "0xDb96763408fDB533Ab02a615C508B15e326255fA",
 // };
 
+export type OptionContract = OptionAmerican | OptionBinary | OptionNoTouch | OptionTouch | DoubleNoTouch | DoubleTouch | Turbo;
+
 /** @internal */
 export interface _OptionBlitzContracts {
-    Treasury: Treasury;
-    USDC: USDC;
-    OptionAmerican: OptionAmerican;
-    Multicall2: Multicall2;
-    OptionBinary: OptionBinary,
-    OptionTouch: OptionTouch,
-    OptionNoTouch: OptionNoTouch,
-    DoubleTouch: DoubleTouch,
-    DoubleNoTouch: DoubleNoTouch,
-    Turbo: Turbo,
-    HistoryVolatility: HistoryVolatility,
+  Treasury: Treasury;
+  USDC: USDC;
+  StakingContract: StakingContract,
+  OptionAmerican: OptionAmerican;
+  Multicall2: Multicall2;
+  OptionBinary: OptionBinary,
+  OptionTouch: OptionTouch,
+  OptionNoTouch: OptionNoTouch,
+  DoubleTouch: DoubleTouch,
+  DoubleNoTouch: DoubleNoTouch,
+  Turbo: Turbo,
+  HistoryVolatility: HistoryVolatility,
 }
 
 /** @internal */
 export const _OptionBlitzContractFactory = {
-    Multicall2: Multicall2__factory,
-    Treasury: Treasury__factory,
-    USDC: USDC__factory,
-    OptionAmerican: OptionAmerican__factory,
-    OptionBinary: OptionBinary__factory,
-    OptionTouch: OptionTouch__factory,
-    OptionNoTouch: OptionNoTouch__factory,
-    DoubleTouch: DoubleTouch__factory,
-    DoubleNoTouch: DoubleNoTouch__factory,
-    Turbo: Turbo__factory,
-    HistoryVolatility: HistoryVolatility__factory,
-}
+  Multicall2: Multicall2__factory,
+  Treasury: Treasury__factory,
+  USDC: USDC__factory,
+  StakingContract: StakingContract__factory,
+  OptionAmerican: OptionAmerican__factory,
+  OptionBinary: OptionBinary__factory,
+  OptionTouch: OptionTouch__factory,
+  OptionNoTouch: OptionNoTouch__factory,
+  DoubleTouch: DoubleTouch__factory,
+  DoubleNoTouch: DoubleNoTouch__factory,
+  Turbo: Turbo__factory,
+  HistoryVolatility: HistoryVolatility__factory,
+};
 const factorysName = Object.keys(_OptionBlitzContractFactory);
 
 type OptionBlitzContractsKey = keyof _OptionBlitzContracts;
@@ -69,32 +74,30 @@ type OptionBlitzContractsKey = keyof _OptionBlitzContracts;
 export type _OptionBlitzContractAddresses = Record<OptionBlitzContractsKey, string>;
 
 const mapOptionBlitzContracts = <T, U>(
-    contracts: Record<OptionBlitzContractsKey, T>,
-    f: (t: T, key: OptionBlitzContractsKey) => U
+  contracts: Record<OptionBlitzContractsKey, T>,
+  f: (t: T, key: OptionBlitzContractsKey) => U,
 ) =>
     Object.fromEntries(
-        Object.entries(contracts)
-            .filter(([key, t]) => factorysName.includes(key))
-            .map(([key, t]) => [key, f(t, key as OptionBlitzContractsKey)])
+      Object.entries(contracts)
+        .filter(([key, t]) => factorysName.includes(key))
+        .map(([key, t]) => [key, f(t, key as OptionBlitzContractsKey)]),
     ) as Record<OptionBlitzContractsKey, U>;
 
 /** @internal */
 export interface _OptionBlitzDeploymentJSON {
-    readonly chainId: number;
-    readonly addresses: _OptionBlitzContractAddresses;
-    readonly deploymentDate: number;
-    readonly startBlock: number;
-    readonly network: string;
+  readonly chainId: number;
+  readonly addresses: _OptionBlitzContractAddresses;
+  readonly deploymentDate: number;
+  readonly startBlock: number;
+  readonly network: string;
 }
 
 /** @internal */
 export const _connectToContracts = (
-    signerOrProvider: Signer | Provider,
-    { addresses }: _OptionBlitzDeploymentJSON
-): _OptionBlitzContracts => {
-    return mapOptionBlitzContracts(
-        addresses,
-        (address, key) =>
-            _OptionBlitzContractFactory[key].connect(address, signerOrProvider)
-    ) as _OptionBlitzContracts;
-};
+  signerOrProvider: Signer | Provider,
+  { addresses }: _OptionBlitzDeploymentJSON,
+): _OptionBlitzContracts => mapOptionBlitzContracts(
+  addresses,
+  (address, key) =>
+    _OptionBlitzContractFactory[key].connect(address, signerOrProvider),
+) as _OptionBlitzContracts;
