@@ -80,9 +80,9 @@ export abstract class OptionBlitzStore<T = unknown> {
   /** @internal */
   protected _loaded = false;
 
-  private _baseState?: OptionBlitzStoreBaseState;
+  private _baseState!: OptionBlitzStoreBaseState;
 
-  private _extraState?: T;
+  private _extraState!: T;
 
   private _updateTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
@@ -220,7 +220,7 @@ export abstract class OptionBlitzStore<T = unknown> {
   }
 
   /** @internal */
-  protected _load(baseState: OptionBlitzStoreBaseState, extraState?: T): void {
+  protected _load(baseState: OptionBlitzStoreBaseState, extraState: T): void {
     assert(!this._loaded);
 
     this._baseState = baseState;
@@ -244,12 +244,12 @@ export abstract class OptionBlitzStore<T = unknown> {
     const oldState = this.state;
 
     if (baseStateUpdate) {
-      this._baseState = this._reduce(this._baseState as OptionBlitzStoreBaseState, baseStateUpdate);
+      this._baseState = this._reduce(this._baseState, baseStateUpdate);
     }
 
     if (extraStateUpdate) {
       assert(this._extraState);
-      this._extraState = this._reduceExtra(this._extraState as T, extraStateUpdate);
+      this._extraState = this._reduceExtra(this._extraState, extraStateUpdate);
     }
 
     this._scheduleUpdate();

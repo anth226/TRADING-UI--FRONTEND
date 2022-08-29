@@ -45,7 +45,7 @@ const betToPositionItem = (bet: any, price: number) : PositionItem[] => {
   const status = 'ITM';
   const pnl = investment;
   const { timeClose } = bet;
-  const expireIn = Math.round(timeClose.toString() - Date.now() / 1000, 0);
+  const expireIn = Math.round(timeClose.toString() - Date.now() / 1000);
   console.log(bet.timeClose.toString(), bet.priceOpen.toString());
   return [
     { label: 'Investment', value: investment.toString() },
