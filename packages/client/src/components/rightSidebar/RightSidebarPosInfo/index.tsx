@@ -36,7 +36,7 @@ const RightSidebarPosInfo: FC<Props> = ({
       {!isSmall && (
         <p className={styles.date}>{date}</p>
       )}
-      {items.map(({ label, value }) => (
+      {(items || []).map(({ label, value }) => (
         <div className={styles.item} key={label}>
           <p className={cx(styles.item_label, { [styles.item_label_small]: isSmall })}>{label}</p>
           <p className={cx({ [styles.item_value_small]: isSmall })}>{value}</p>

@@ -32,7 +32,7 @@ const Binary:FC<Props> = ({isMobile}) => {
                 />
                 </div>
             )}
-            {isMobile && (
+            {isMobile && positionItems && (
                 <div className={styles.card_body}>
                     <RightSidebarPosInfo items={positionItems} date={date} title="BTCUSD" />
                     <Button

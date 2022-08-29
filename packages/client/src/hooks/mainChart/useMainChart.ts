@@ -22,18 +22,17 @@ export const useMainChart = (activeIndicators: ChartMenuIndicator[], chartType: 
   const { priceFeed } = useOptionBlitz();
   const [initialData, setData] = useState<any>();
   useEffect(() => {
-    //const crypto = priceFeed.subscribe("crypto",["BTC_USD", "XRP_USD"]).catch(e=>{});
-    //const forex = priceFeed.subscribe("forex",["GBP_USD"]).catch(e=>{ console.log(e)});
-    const listener = (data:any)=>{
+    // const crypto = priceFeed.subscribe("crypto",["BTC_USD", "XRP_USD"]).catch(e=>{});
+    // const forex = priceFeed.subscribe("forex",["GBP_USD"]).catch(e=>{ console.log(e)});
+    const listener = (data:any) => {
       console.log(data);
     };
-    //priceFeed?.on("GBP_USD", listener);
-    //pricefeed?.on("BTC_USD", listener);
+    // priceFeed?.on("GBP_USD", listener);
+    // pricefeed?.on("BTC_USD", listener);
     return () => {
-      priceFeed?.off("GBP_USD", listener);
-    }
-
-  },[]);
+      priceFeed?.off('GBP_USD', listener);
+    };
+  }, []);
   useEffect(() => {
     csv(link, (e: any) => {
       e.date = parseDate(e.date);
