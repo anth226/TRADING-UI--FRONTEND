@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { Checkbox } from '@option-blitz/libs/components/inputs/Checkbox';
 import { RightSidebarInput } from '@option-blitz/libs/components/rightSidebar/RightSidebarInput';
@@ -9,16 +9,50 @@ import { Letter, letterIcons } from '../../../../../constants/letters/letters';
 import Button from '@option-blitz/libs/components/inputs/Button';
 import { Collapse } from '@option-blitz/libs/components/common/Collapse';
 import { useCollapse } from '../../../../../hooks/useCollapse';
+import { MarketInput } from './MarketInput/MarketInput';
 
-const Market = () => {
+interface Props {
+  type?: any,
+}
+const Market: FC<Props> = ({type}) => {
+
   const [active, setActive] = useState(true)
   const wrapRef = useRef<HTMLDivElement>(null);
+
+  const [value, setValue]=useState(60000)
+
   const {
     isActive,
     onChange,
   } = useCollapse();
   return (
     <div>
+      <MarketInput
+        type={type}
+        className={(styles.input, styles.target_price)}
+        label="AMM PRICE"
+        onFirstBtnClick={()=>{setValue(value + 1000)}}
+        onSecondBtnClick={() => {setValue(value - 1000)}}
+        onChange={() => {}}
+        value={value}
+        symbol="$"
+        firstBtnIcon={FontIconName.ArrowRight}
+        secondBtnIcon={FontIconName.ArrowRight}
+        firstIconClassName={styles.up_icon}
+        secondIconClassName={styles.down_icon}
+      />
+      <RightSidebarInput
+        className={cx(styles.input, styles.target_price)}
+        label="Quantity"
+        onFirstBtnClick={()=>{}}
+        onSecondBtnClick={()=>{}}
+        onChange={()=>{}}
+        value={'0.01'}
+        firstBtnIcon={FontIconName.ArrowRight}
+        secondBtnIcon={FontIconName.ArrowRight}
+        firstIconClassName={styles.up_icon}
+        secondIconClassName={styles.down_icon}
+      />
       <div className={styles.checkbox_wrap}>
         <p className={styles.checkbox_label}>Take Profit</p>
         <Checkbox
@@ -112,11 +146,11 @@ const Market = () => {
 
             </div>
 
-            <Button  className={styles.button_trade}>
-              PLACE TRADE: 6000 USDC
-            </Button>
           </div>
         </Collapse>
+        <Button  className={styles.button_trade}>
+          PLACE TRADE: 6000 USDC
+        </Button>
       </div>
 
     </div>
